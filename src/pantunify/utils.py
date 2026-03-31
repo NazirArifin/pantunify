@@ -101,9 +101,9 @@ def check_rhyme(p1, p2, p3, p4):
 _KAMUS_PENGECUALIAN = {
     'syukur': 2, 'syarat': 2, 'syair': 2,
     'kualitas': 4, 'kualitatif': 5, 'kuantitas': 4,
-    'taat': 2, 'saat': 2, 'buat': 2, 'buat': 2,
+    'taat': 2, 'saat': 2, 'buat': 2,
     'jumat': 2, 'rabu': 2,
-    'radio': 3, 'audio': 3, 'studio': 4,
+    'radio': 3, 'audio': 3, 'studio': 3,
     'idea': 3, 'ideal': 3,
 }
 
@@ -112,44 +112,49 @@ def count_syllables(kata):
     Menghitung suku kata sebuah kata Bahasa Indonesia dengan heuristik yang lebih reliabel.
     Menangani: diftong lengkap, gugus vokal, tanda hubung, karakter beraksent, dan kata pengecualian.
     """
-    # Ubah ke huruf kecil dan hapus spasi tambahan
-    kata = kata.lower().strip()
-    if not kata:
-        return 0
-
-    # Hapus tanda hubung agar kata majemuk dihitung sebagai satu token
-    kata = kata.replace('-', '')
-
-    # Normalisasi karakter beraksen umum → ASCII terdekat
+    # Fungsi sekarang menerima sebuah baris/teks dan menjumlahkan suku kata per kata.
     import unicodedata
-    kata = unicodedata.normalize('NFD', kata)
-    kata = kata.encode('ascii', 'ignore').decode('utf-8')
 
-    # Bersihkan karakter non-huruf
-    kata = re.sub(r'[^a-z]', '', kata)
-    if not kata:
+    if not isinstance(kata, str):
         return 0
 
-    # Cek kamus pengecualian terlebih dahulu
-    if kata in _KAMUS_PENGECUALIAN:
-        return _KAMUS_PENGECUALIAN[kata]
+    teks = kata.lower().strip()
+    if not teks:
+        return 0
 
-    # Ganti gugus diftong dan vokal rangkap dengan satu placeholder 'X'
-    # Urutan penting: diftong spesifik dulu, lalu pasangan vokal umum
-    _pola_diftong = [
-        # Diftong sejati BI
-        r'ai', r'au', r'oi', r'ei',
-        # Gugus vokal yang biasanya 1 suku kata dalam BI lisan
-        r'ia', r'io', r'iu',
-        r'ua', r'ui', r'uo',
-        r'ea', r'eu',
-    ]
-    for pola in _pola_diftong:
-        kata = re.sub(pola, 'X', kata)
+    total = 0
+    for word in re.split(r'\s+', teks):
+        if not word:
+            continue
 
-    # Hitung semua vokal tersisa + placeholder X (masing-masing = 1 suku kata)
-    vokal_ditemukan = re.findall(r'[aiueoX]', kata)
-    jumlah = len(vokal_ditemukan)
+        # Hapus tanda hubung dari kata majemuk
+        w = word.replace('-', '')
 
-    # Minimal 1 suku kata per kata
-    return max(jumlah, 1)
+        # Normalisasi aksen → ASCII
+        w = unicodedata.normalize('NFD', w)
+        w = w.encode('ascii', 'ignore').decode('utf-8')
+
+        # Bersihkan non-huruf
+        w = re.sub(r'[^a-z]', '', w)
+        if not w:
+            continue
+
+        # Cek kamus pengecualian per kata
+        if w in _KAMUS_PENGECUALIAN:
+            total += _KAMUS_PENGECUALIAN[w]
+            continue
+
+        # Hitung vokal tersisa per kata
+        vowels = re.findall(r'[aiueo]', w)
+        count = len(vowels)
+
+        # Kurangi hanya untuk diftong sejati yang umumnya dihitung 1 suku kata
+        diphthongs = re.findall(r'(ai|au|oi|ei)', w)
+        count -= len(diphthongs)
+
+        if count < 1:
+            count = 1
+
+        total += count
+
+    return total

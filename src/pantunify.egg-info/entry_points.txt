@@ -1,0 +1,2 @@
+[console_scripts]
+pantunify = pantunify.cli:main

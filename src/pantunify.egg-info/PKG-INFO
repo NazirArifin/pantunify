@@ -1,0 +1,124 @@
+Metadata-Version: 2.4
+Name: pantunify
+Version: 0.1.0
+Summary: Alat pembersih dan validasi pantun Bahasa Indonesia berbasis Python.
+Author: Nazir Arifin
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# 📜 Pantunify: Indonesian Pantun Classifier & Cleaner
+
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Linguistic Tool](https://img.shields.io/badge/Linguistics-Indonesian-teal.svg)](https://en.wikipedia.org/wiki/Pantun)
+
+**Pantunify** adalah alat otomatis berbasis Python yang dirancang khusus untuk memproses dan mengklasifikasikan pantun Bahasa Indonesia secara massal dengan akurasi tinggi.
+
+---
+
+## ✨ Kenapa Pantunify?
+
+Mengolah ribuan bait pantun secara manual bukanlah pekerjaan yang menyenangkan. **Pantunify** hadir dengan pendekatan cerdas untuk:
+
+- 🧮 **Heuristic Syllable Counter**: Menghitung suku kata dengan logika linguistik Bahasa Indonesia (menangani *diftong*, *gugus vokal*, dan *kaidah khusus*).
+- ⚖️ **Word Count Filter**: Menjaga estetika pantun dengan batasan ideal (4-6 kata per baris).
+- 🎵 **Rhyme Schema Validator**: Mendeteksi pola rima $a-b-a-b$ atau $a-a-a-a$ secara otomatis.
+- 🧹 **Text Cleaning Engine**: Menghapus angka urut, tanda baca, dan *noise* dari dataset mentah.
+- 🕵️ **Fuzzy Deduplication**: Menggunakan algoritma `difflib` untuk menghapus duplikasi yang tidak terlihat (teks mirip tetapi tidak identik).
+
+---
+
+## 📂 Struktur Proyek
+
+```text
+pantunify/
+├── src/                # 📦 Core Logic
+│   └── pantunify/
+│       ├── utils.py    # Syllable & Rhyme Engine
+│       ├── classifier.py# Validation & Fuzzy Dedupe
+│       └── cli.py      # User Command Interface
+├── data/               # 📂 Dataset Storage
+│   ├── merged.txt      # Input Dataset
+│   └── ok.txt          # Classified Output
+├── scripts/            # 🛠️ Utility Scripts
+└── tests/              # 🧪 Quality Assurance
+```
+
+---
+
+## 🚀 Memulai (Cepat & Mudah)
+
+### 1. Instalasi
+Aktifkan paket dalam mode lokal sehingga perintah `pantunify` terdaftar di sistem Anda:
+
+```bash
+pip install -e .
+```
+
+### 2. Jalankan Perintah
+Tinggal ketik `pantunify` di terminal untuk mulai memproses data pada folder `data/`:
+
+```bash
+pantunify
+```
+
+### 3. Opsi Kustomisasi
+Sesuaikan klasifikasi Anda dengan parameter tambahan:
+
+```bash
+pantunify --min_syllables 7 --max_syllables 10 --input data/mentah.txt
+```
+
+---
+
+## 🛠️ Contoh Penggunaan di Python
+
+Anda ingin menggunakan logika klasifikasi di dalam aplikasi Anda yang lain? Sangat bisa!
+
+```python
+from pantunify import validate_pantun
+
+pantun_sample = [
+    "Ada pisang ada nanas,",
+    "Banyak tumbuh di kebun paman.",
+    "Biar siang cuaca panas,",
+    "Hati sejuk karena iman."
+]
+
+valid, reason = validate_pantun(pantun_sample)
+
+if valid:
+    print("✅ Pantun ini sempurna!")
+else:
+    print(f"❌ Tidak valid: {reason}")
+```
+
+---
+
+## 📏 Kriteria Validasi
+
+Setiap pantun yang dinyatakan **`OK`** harus melewati standar baku:
+
+| Kriteria | Standar Ideal |
+| :--- | :--- |
+| **Suku Kata** | 8 - 12 suku kata per baris |
+| **Jumlah Kata** | 4 - 6 kata per baris |
+| **Pola Rima** | $a-b-a-b$ atau $a-a-a-a$ |
+
+---
+
+## 🤝 Kontribusi
+
+Kami sangat menghargai kontribusi! Jika Anda memiliki perbaikan algoritma penghitung suku kata atau fitur baru:
+1. Fork repository ini.
+2. Buat branch baru (`git checkout -b feature/CoolFeature`).
+3. Kirimkan *Pull Request*.
+
+---
+🇮🇩 Dibuat dengan bangga untuk pelestarian sastra Indonesia oleh **Nazir Arifin**.

@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/pantunify/__init__.py
+src/pantunify/classifier.py
+src/pantunify/cli.py
+src/pantunify/utils.py
+src/pantunify.egg-info/PKG-INFO
+src/pantunify.egg-info/SOURCES.txt
+src/pantunify.egg-info/dependency_links.txt
+src/pantunify.egg-info/entry_points.txt
+src/pantunify.egg-info/top_level.txt
+tests/test_core.py

@@ -1,88 +1,110 @@
-# Pantunify (Pantun Classifier)
+# 📜 Pantunify: Indonesian Pantun Classifier & Cleaner
 
-Alat otomatis berbasis Python untuk membersihkan, memvalidasi, dan mengklasifikasikan pantun Bahasa Indonesia secara massal. Proyek ini menggunakan pendekatan heuristik untuk menghitung suku kata, kata, dan rima secara akurat.
+[![Python Version](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Linguistic Tool](https://img.shields.io/badge/Linguistics-Indonesian-teal.svg)](https://en.wikipedia.org/wiki/Pantun)
 
-## Fitur Utama
+**Pantunify** adalah alat otomatis berbasis Python yang dirancang khusus untuk memproses dan mengklasifikasikan pantun Bahasa Indonesia secara massal dengan akurasi tinggi.
 
-- **Syllable Counter (Heuristik)**: Penghitung suku kata yang dioptimalkan untuk Bahasa Indonesia (menangani diftong, gugus vokal, dan pengecualian kata).
-- **Word Count Filter**: Memastikan tiap baris memiliki panjang kata yang ideal (4-6 kata).
-- **Rhyme Scheme Validator**: Mendeteksi pola rima $a-b-a-b$ atau $a-a-a-a$ dengan cerdas.
-- **Fuzzy Deduplication**: Menghapus duplikasi pantun yang mirip menggunakan algoritma `difflib`.
-- **CLI Interface**: Mudahkan pemrosesan data dengan command line yang dapat dikustomisasi.
+---
 
-## Struktur Proyek
+## ✨ Kenapa Pantunify?
 
-- `src/pantunify/`: Paket utama Python.
-  - `utils.py`: Logika dasar (suku kata, rima, pembersihan teks).
-  - `classifier.py`: Logika validasi dan deduplikasi.
-  - `cli.py`: Antarmuka Command Line.
-- `data/`: Direktori untuk menyimpan file teks input (`merged.txt`) dan output.
-- `scripts/`: Script utilitas tambahan untuk pembersihan dataset.
+Mengolah ribuan bait pantun secara manual bukanlah pekerjaan yang menyenangkan. **Pantunify** hadir dengan pendekatan cerdas untuk:
 
-## Instalasi
+- 🧮 **Heuristic Syllable Counter**: Menghitung suku kata dengan logika linguistik Bahasa Indonesia (menangani *diftong*, *gugus vokal*, dan *kaidah khusus*).
+- ⚖️ **Word Count Filter**: Menjaga estetika pantun dengan batasan ideal (4-6 kata per baris).
+- 🎵 **Rhyme Schema Validator**: Mendeteksi pola rima $a-b-a-b$ atau $a-a-a-a$ secara otomatis.
+- 🧹 **Text Cleaning Engine**: Menghapus angka urut, tanda baca, dan *noise* dari dataset mentah.
+- 🕵️ **Fuzzy Deduplication**: Menggunakan algoritma `difflib` untuk menghapus duplikasi yang tidak terlihat (teks mirip tetapi tidak identik).
 
-Gunakan `pip` untuk menginstal paket ini dalam mode pengembangan:
+---
+
+## 📂 Struktur Proyek
+
+```text
+pantunify/
+├── src/                # 📦 Core Logic
+│   └── pantunify/
+│       ├── utils.py    # Syllable & Rhyme Engine
+│       ├── classifier.py# Validation & Fuzzy Dedupe
+│       └── cli.py      # User Command Interface
+├── data/               # 📂 Dataset Storage
+│   ├── merged.txt      # Input Dataset
+│   └── ok.txt          # Classified Output
+├── scripts/            # 🛠️ Utility Scripts
+└── tests/              # 🧪 Quality Assurance
+```
+
+---
+
+## 🚀 Memulai (Cepat & Mudah)
+
+### 1. Instalasi
+Aktifkan paket dalam mode lokal sehingga perintah `pantunify` terdaftar di sistem Anda:
 
 ```bash
 pip install -e .
 ```
 
-Setelah instalasi, perintah `pantunify` akan tersedia secara global di terminal Anda.
-
-## Cara Penggunaan
-
-### 1. Persiapkan Data
-Letakkan dataset pantun Anda di `data/merged.txt` (setiap pantun dipisahkan oleh minimal satu baris kosong).
-
 ### 2. Jalankan Perintah
-Gunakan CLI bawaan untuk memproses data:
+Tinggal ketik `pantunify` di terminal untuk mulai memproses data pada folder `data/`:
 
 ```bash
 pantunify
 ```
 
-Secara default, ini akan membaca `data/merged.txt` dan menghasilkan `data/ok.txt` serta `data/fail.txt`.
-
-### 3. Kustomisasi Parameter
-Anda bisa mengatur batas suku kata atau jumlah kata melalui argumen:
+### 3. Opsi Kustomisasi
+Sesuaikan klasifikasi Anda dengan parameter tambahan:
 
 ```bash
-pantunify --min_syllables 7 --max_syllables 13 --input data/my_pantun.txt
+pantunify --min_syllables 7 --max_syllables 10 --input data/mentah.txt
 ```
 
-Atau gunakan `--help` untuk bantuan:
-```bash
-pantunify --help
-```
+---
 
-## Kriteria Validasi Pantun
+## 🛠️ Contoh Penggunaan di Python
 
-Agar pantun masuk ke kategori `OK`, harus memenuhi syarat berikut:
-1. **Jumlah Suku Kata**: 8 - 12 suku kata per baris.
-2. **Jumlah Kata**: 4 - 6 kata per baris.
-3. **Pola Rima**: Akhiran baris 1 = baris 3, dan baris 2 = baris 4 (atau semuanya sama).
-
-## Pengembangan
-
-Jika ingin menggunakan fungsi di dalam kode Python Anda sendiri:
+Anda ingin menggunakan logika klasifikasi di dalam aplikasi Anda yang lain? Sangat bisa!
 
 ```python
 from pantunify import validate_pantun
 
-lines = [
-    "Masak air biar matang",
-    "Air dimasukkan ke dalam gelas",
-    "Niat belajar jadi terhalang",
-    "Karena hati sedang malas"
+pantun_sample = [
+    "Ada pisang ada nanas,",
+    "Banyak tumbuh di kebun paman.",
+    "Biar siang cuaca panas,",
+    "Hati sejuk karena iman."
 ]
 
-is_valid, reason = validate_pantun(lines)
-print(f"Valid: {is_valid}, Alasan: {reason}")
+valid, reason = validate_pantun(pantun_sample)
+
+if valid:
+    print("✅ Pantun ini sempurna!")
+else:
+    print(f"❌ Tidak valid: {reason}")
 ```
 
-## Kontribusi
+---
 
-Kontribusi dipersilakan! Silakan buka *Issue* atau kirimkan *Pull Request*.
+## 📏 Kriteria Validasi
+
+Setiap pantun yang dinyatakan **`OK`** harus melewati standar baku:
+
+| Kriteria | Standar Ideal |
+| :--- | :--- |
+| **Suku Kata** | 8 - 12 suku kata per baris |
+| **Jumlah Kata** | 4 - 6 kata per baris |
+| **Pola Rima** | $a-b-a-b$ atau $a-a-a-a$ |
 
 ---
-Dibuat untuk keperluan pengolahan data rima dan sastra Indonesia oleh Nazir Arifin.
+
+## 🤝 Kontribusi
+
+Kami sangat menghargai kontribusi! Jika Anda memiliki perbaikan algoritma penghitung suku kata atau fitur baru:
+1. Fork repository ini.
+2. Buat branch baru (`git checkout -b feature/CoolFeature`).
+3. Kirimkan *Pull Request*.
+
+---
+🇮🇩 Dibuat dengan bangga untuk pelestarian sastra Indonesia oleh **Nazir Arifin**.

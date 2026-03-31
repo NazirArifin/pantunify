@@ -3,7 +3,7 @@
 in groups of 4 lines separated by a blank line to a destination file.
 
 Usage:
-  python3 scripts/clean_merge.py --src dataset/anggi/sampiran.txt --dst dataset/merged.txt [--backup] [--dry-run]
+  python3 scripts/clean_merge.py --src data/anggi/sampiran.txt --dst data/merged.txt [--backup] [--dry-run]
 """
 import argparse
 import re
@@ -78,8 +78,8 @@ def append_blocks(dst_path: Path, blocks, backup=False):
 
 def main():
     p = argparse.ArgumentParser()
-    p.add_argument('--src', '-s', default='dataset/anggi/sampiran.txt')
-    p.add_argument('--dst', '-d', default='dataset/merged.txt')
+    p.add_argument('--src', '-s', default='data/anggi/sampiran.txt')
+    p.add_argument('--dst', '-d', default='data/merged.txt')
     p.add_argument('--backup', action='store_true', help='Make a backup of destination before appending')
     p.add_argument('--dry-run', action='store_true', help='Do not write; just show summary')
     args = p.parse_args()

@@ -1,9 +1,0 @@
-metric,value
-total_rows_checked,50
-total_syllable_cells_checked,200
-rows_with_error,18
-cells_with_error,18
-row_error_rate_percent,36.00
-row_accuracy_percent,64.00
-cell_error_rate_percent,9.00
-cell_accuracy_percent,91.00

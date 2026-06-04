@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pantunify"
+version = "0.1.0"
+description = "Alat pembersih dan validasi pantun Bahasa Indonesia berbasis Python."
+readme = "README.md"
+authors = [
+  { name = "Nazir Arifin" },
+]
+license = { text = "MIT" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+dependencies = []
+
+[project.scripts]
+pantunify = "pantunify.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["pantunify*"]

@@ -1,0 +1,13 @@
+{
+  "name": "pantunify-scripts",
+  "version": "1.0.0",
+  "description": "Task runner for Python scripts",
+  "scripts": {
+    "evaluate": "python3 scripts/evaluate_ai.py",
+    "extract": "python3 scripts/extract_isi.py",
+    "semantic": "python3 scripts/semantic_similarity.py",
+    "semantic-all": "python3 scripts/semantic_baseline_all.py",
+    "judge": "python3 scripts/llm_judge.py",
+    "count": "python3 scripts/count_pantun.py"
+  }
+}

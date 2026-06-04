@@ -1,0 +1,31 @@
+{
+  "dataset": "data/pantun_dataset.csv",
+  "n_rows": 5636,
+  "n_columns": 13,
+  "rhyme_counts": {
+    "a-a-a-a": 1384,
+    "a-b-a-b": 4252
+  },
+  "line_position_syllable_profile": {
+    "line_1": {
+      "min": 8,
+      "max": 12,
+      "mean": 9.46
+    },
+    "line_2": {
+      "min": 8,
+      "max": 12,
+      "mean": 9.64
+    },
+    "line_3": {
+      "min": 8,
+      "max": 12,
+      "mean": 9.75
+    },
+    "line_4": {
+      "min": 8,
+      "max": 12,
+      "mean": 10.05
+    }
+  }
+}

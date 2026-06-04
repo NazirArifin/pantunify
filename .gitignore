@@ -1,0 +1,53 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python packaging/build artifacts
+build/
+dist/
+site/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+
+# Python tooling caches and reports
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.nox/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Environments
+myven/
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+draft/
+
+# Project Specific (Optional: output results)
+# dataset/ok.txt
+# dataset/fail.txt
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+Desktop.ini
+
+# IDE-specific files
+.vscode/
+.idea/
+*.swp
+*.swo

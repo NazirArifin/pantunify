@@ -58,13 +58,13 @@ def check_rhyme(p1, p2, p3, p4):
 
 # Kamus pengecualian untuk kata-kata dengan pola suku kata tidak beraturan dalam BI
 _KAMUS_PENGECUALIAN = {
-    'syukur': 2, 'syarat': 2, 'syair': 2,
-    'kualitas': 4, 'kualitatif': 5, 'kuantitas': 4,
-    'taat': 2, 'saat': 2, 'buat': 2,
-    'jumat': 2, 'rabu': 2,
-    'radio': 3, 'audio': 3, 'studio': 3,
-    'idea': 3, 'ideal': 3,
+    'audio': 3,
+    'saudaraku': 4, 'pakaiannya': 4, 'tangkainya': 3,
+    'pakaian': 3, 'kalaulah': 3, 'bagaikan': 3,
 }
+
+# Pasangan vokal ini dibaca terpisah (hiatus), jadi tidak boleh dipotong sebagai diftong akhir.
+_HIATUS_TERMINAL = {'mau', 'bau'}
 
 def count_syllables(kata):
     """
@@ -107,9 +107,10 @@ def count_syllables(kata):
         vowels = re.findall(r'[aiueo]', w)
         count = len(vowels)
 
-        # Kurangi hanya untuk diftong sejati yang umumnya dihitung 1 suku kata
-        diphthongs = re.findall(r'(ai|au|oi|ei)', w)
-        count -= len(diphthongs)
+        # Aturan diftong BI: kurangi hanya jika ai/au/oi/ei berada di akhir kata dasar.
+        # Kata hiatus seperti "mau" dan "bau" tidak dikurangi.
+        if re.search(r'(ai|au|oi|ei)$', w) and w not in _HIATUS_TERMINAL:
+            count -= 1
 
         if count < 1:
             count = 1

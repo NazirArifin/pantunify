@@ -3,11 +3,11 @@ from pantunify.classifier import find_distinct_javanese_markers, validate_pantun
 
 def test_counts():
     tests = [
-        ("belajar di perpustakaan", 9),
-        ("perpustakaan", 5),
-        ("pantai", 2),
-        ("harimau", 3),
-        ("dia", 2),
+        ('Air jernih mengalir ke muara', 11),
+        ('anak kecil naik sepeda', 9),
+        ('sukses di masa depan akan diraih', 12),
+        ('Bingung mencium bau menyengat', 10),
+        ('mau jalan dompet dah menipis', 10),
     ]
     
     for text, expected in tests:

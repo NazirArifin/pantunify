@@ -1,0 +1,19 @@
+row_data,id,column,algorithm_value,manual_value,raw_value
+1,111,suku_kata_baris_1,10,11,10 / 11
+4,262,suku_kata_baris_2,8,9,8 / 9
+9,575,suku_kata_baris_4,11,12,11 / 12
+15,912,suku_kata_baris_3,9,10,9 / 10
+21,1560,suku_kata_baris_4,9,10,9 / 10
+23,1597,suku_kata_baris_3,10,11,10 / 11
+25,1759,suku_kata_baris_4,9,10,9 / 10
+27,1898,suku_kata_baris_4,11,12,11 / 12
+32,1964,suku_kata_baris_4,10,11,10 / 11
+33,1994,suku_kata_baris_2,8,9,8 / 9
+34,2079,suku_kata_baris_2,10,11,10 / 11
+38,2369,suku_kata_baris_1,9,10,9 / 10
+39,2538,suku_kata_baris_4,10,11,10 / 11
+44,2682,suku_kata_baris_1,8,9,8 / 9
+45,2688,suku_kata_baris_4,11,12,11 / 12
+46,2736,suku_kata_baris_1,9,10,9 / 10
+47,2792,suku_kata_baris_1,8,9,8 / 9
+49,2845,suku_kata_baris_2,8,9,8 / 9

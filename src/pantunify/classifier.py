@@ -1,35 +1,68 @@
 import re
 import difflib
-from .utils import clean_line, check_rhyme, count_syllables
-
-DISTINCT_JAVANESE_MARKERS = {
-    'andhong',
-    'bilih',
-    'bubrah',
-    'dudu',
-    'eyang',
-    'gawe',
-    'kagem',
-    'kanggo',
-    'kawelasan',
-    'kotagedhe',
-    'ndodomi',
-    'nduwe',
-    'ning',
-    'nyuwun',
-    'sajadahe',
-    'sampean',
-    'simbah',
-    'tuku',
-}
+from functools import lru_cache
+from pathlib import Path
+from .utils import clean_line, check_rhyme, count_syllables, candidate_base_forms
 
 
-def find_distinct_javanese_markers(lines):
+@lru_cache(maxsize=1)
+def _load_kata_dasar():
+    base_path = Path(__file__).resolve().parents[2] / 'data' / 'kata-dasar.txt'
+    if not base_path.exists():
+        return set()
+
+    words = set()
+    with base_path.open('r', encoding='utf-8') as f:
+        for line in f:
+            w = re.sub(r'[^a-z]', '', line.strip().lower())
+            if w:
+                words.add(w)
+    return words
+
+
+def _normalize_token(token):
+    return re.sub(r'[^a-z]', '', token.lower())
+
+
+def _is_valid_indonesian_word(token, kata_dasar):
+    if token in kata_dasar:
+        return True
+
+    for cand in candidate_base_forms(token):
+        if cand in kata_dasar:
+            return True
+
+    return False
+
+
+def lexical_validity_ratio(lines):
     text = ' '.join(clean_line(line).lower() for line in lines)
-    tokens = set(re.findall(r'[a-z0-9]+', text))
-    return sorted(tokens & DISTINCT_JAVANESE_MARKERS)
+    tokens = [_normalize_token(t) for t in re.findall(r'[a-zA-Z]+', text)]
+    tokens = [t for t in tokens if t]
 
-def validate_pantun(lines, min_syllables=8, max_syllables=12, min_words=4, max_words=6):
+    if not tokens:
+        return 0.0, 0, 0
+
+    kata_dasar = _load_kata_dasar()
+    if not kata_dasar:
+        return 1.0, len(tokens), len(tokens)
+
+    valid = 0
+    for token in tokens:
+        if _is_valid_indonesian_word(token, kata_dasar):
+            valid += 1
+
+    total = len(tokens)
+    return valid / total, valid, total
+
+def validate_pantun(
+    lines,
+    min_syllables=8,
+    max_syllables=12,
+    min_words=4,
+    max_words=6,
+    min_valid_word_ratio=0.8,
+):
     """
     Validasi sebuah blok pantun (4 baris).
     Mengembalikan tuple (is_valid, reason).
@@ -40,9 +73,12 @@ def validate_pantun(lines, min_syllables=8, max_syllables=12, min_words=4, max_w
     # Bersihkan baris
     cleaned = [clean_line(l) for l in lines]
 
-    javanese_markers = find_distinct_javanese_markers(cleaned)
-    if len(javanese_markers) >= 2:
-        return False, f"Terdeteksi penanda bahasa Jawa: {', '.join(javanese_markers)}"
+    valid_ratio, valid_count, total_count = lexical_validity_ratio(cleaned)
+    if valid_ratio < min_valid_word_ratio:
+        return False, (
+            f"Rasio kosakata dasar Indonesia rendah: "
+            f"{valid_count}/{total_count} ({valid_ratio:.1%})"
+        )
     
     # Hitung suku kata dan kata
     sylls = [count_syllables(l) for l in cleaned]

@@ -1,5 +1,5 @@
 from pantunify.utils import count_syllables
-from pantunify.classifier import find_distinct_javanese_markers, validate_pantun
+from pantunify.classifier import validate_pantun
 
 def _assert_counts(tests):
     for text, expected in tests:
@@ -104,6 +104,11 @@ def test_regression_pack_known_cases():
         ('amboi', 2),
         ('survei', 2),
         ('kiai', 2),
+        ('tv', 2),
+        ('AC', 2),
+        ('KTP', 3),
+        ('CD', 2),
+        ('wa', 2),
 
         # 2. Kasus Vokal Hiatus (Vokal berdampingan beda suku kata)
         ('aulia', 3),
@@ -197,20 +202,18 @@ def test_validate_pantun_accepts_indonesian_pantun():
     assert reason == "OK"
 
 
-def test_validate_pantun_rejects_strong_javanese_markers():
+def test_validate_pantun_rejects_low_lexical_validity_ratio():
     lines = [
-        "Numpak andhong ning Kotagedhe",
-        "tuku ali ali kagem eyang putri",
-        "Bilih aku nduwe luput gedhe",
-        "nyuwun kawelasan sampean ampuni",
+        "Keep spirit dan berpikir positif",
+        "Langkah kecil tetap konsisten",
+        "Jangan lelah menata hati",
+        "Agar esok jadi lebih baik",
     ]
 
-    markers = find_distinct_javanese_markers(lines)
-    is_valid, reason = validate_pantun(lines)
+    is_valid, reason = validate_pantun(lines, min_valid_word_ratio=0.95)
 
-    assert len(markers) >= 2
     assert is_valid is False
-    assert reason.startswith("Terdeteksi penanda bahasa Jawa:")
+    assert reason.startswith("Rasio kosakata dasar Indonesia rendah:")
 
 if __name__ == "__main__":
     test_diphthong_and_hiatus_balance()
@@ -218,5 +221,5 @@ if __name__ == "__main__":
     test_regression_pack_known_cases()
     test_regression_pack_watchlist_snapshot()
     test_validate_pantun_accepts_indonesian_pantun()
-    test_validate_pantun_rejects_strong_javanese_markers()
+    test_validate_pantun_rejects_low_lexical_validity_ratio()
     print("All tests passed!")

@@ -62,6 +62,13 @@ _KAMUS_PENGECUALIAN = {
     'audio': 3,
 }
 
+# Singkatan lazim yang sering ditulis huruf kecil dan dibaca per huruf.
+# Token lain yang ambigu sebaiknya ditambahkan bertahap berbasis data nyata.
+_LOWER_ABBREVIATION_SYLLABLES = {
+    'wa': 2,   # WhatsApp -> wa
+    'ac': 2,   # Air Conditioner -> ac
+}
+
 # Pasangan vokal ini dibaca terpisah (hiatus), jadi tidak boleh dipotong sebagai diftong akhir.
 _HIATUS_TERMINAL = {'mau', 'bau'}
 _DIPHTHONG_RE = r'(ai|au|oi|ei)'
@@ -181,6 +188,20 @@ def _build_stem_candidates(w):
     return list(uniq.keys())
 
 
+def candidate_base_forms(token):
+    """Return possible base-form candidates for a token after light affix stripping."""
+    w = _normalize_word(token)
+    if not w:
+        return set()
+
+    out = {w}
+    for stem, _ in _build_stem_candidates(w):
+        if stem:
+            out.add(stem)
+
+    return out
+
+
 def _count_word_hybrid(w):
     # Baseline tetap dipakai sebagai fallback aman.
     baseline = _count_core_word(w)
@@ -213,8 +234,26 @@ def _normalize_word(raw_word):
     w = raw_word.replace('-', '')
     w = unicodedata.normalize('NFD', w)
     w = w.encode('ascii', 'ignore').decode('utf-8')
+    w = w.lower()
     w = re.sub(r'[^a-z]', '', w)
     return w
+
+
+def _is_initialism_like(w):
+    # Singkatan huruf (mis. tv, ktp, cd, sms) biasanya dilafalkan per huruf.
+    # Heuristik: token alfabetis tanpa vokal, panjang 2-6 karakter.
+    return 2 <= len(w) <= 6 and re.fullmatch(r'[bcdfghjklmnpqrstvwxyz]+', w) is not None
+
+
+def _is_upper_initialism(raw_word, normalized_word):
+    raw_letters = re.sub(r'[^A-Za-z]', '', raw_word)
+    if not raw_letters:
+        return False
+    if not (2 <= len(raw_letters) <= 6):
+        return False
+    if not raw_letters.isupper():
+        return False
+    return raw_letters.lower() == normalized_word
 
 
 def _iter_normalized_words(text):
@@ -223,7 +262,7 @@ def _iter_normalized_words(text):
             continue
         w = _normalize_word(raw_word)
         if w:
-            yield w
+            yield raw_word, w
 
 def count_syllables(kata):
     """
@@ -235,12 +274,24 @@ def count_syllables(kata):
     if not isinstance(kata, str):
         return 0
 
-    teks = kata.lower().strip()
+    teks = kata.strip()
     if not teks:
         return 0
 
     total = 0
-    for w in _iter_normalized_words(teks):
+    for raw_word, w in _iter_normalized_words(teks):
+        if w in _LOWER_ABBREVIATION_SYLLABLES:
+            total += _LOWER_ABBREVIATION_SYLLABLES[w]
+            continue
+
+        if _is_upper_initialism(raw_word, w):
+            total += len(w)
+            continue
+
+        if _is_initialism_like(w):
+            total += len(w)
+            continue
+
         # Cek kamus pengecualian per kata
         if w in _KAMUS_PENGECUALIAN:
             total += _KAMUS_PENGECUALIAN[w]

@@ -27,15 +27,15 @@ def write_blocks(path: Path, blocks: list[list[str]]) -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Rebuild ok.txt from valid pantun in merged source"
+        description="Rebuild fail.txt from invalid pantun in merged source"
     )
     parser.add_argument("--input", default="data/merged.txt", help="Source txt path")
-    parser.add_argument("--output", default="data/ok.txt", help="Target ok txt path")
+    parser.add_argument("--output", default="data/fail.txt", help="Target fail txt path")
     parser.add_argument(
         "--target",
         type=int,
         default=None,
-        help="Optional target pantun count (default: all valid pantun)",
+        help="Optional target pantun count (default: all invalid pantun)",
     )
     parser.add_argument(
         "--backup",
@@ -59,46 +59,47 @@ def main() -> None:
     merged_blocks = split_blocks(input_path.read_text(encoding="utf-8"))
     unique_blocks, duplicate_blocks = deduplicate_pantuns(merged_blocks)
 
-    valid_blocks: list[list[str]] = []
-    invalid_count = 0
+    invalid_blocks: list[list[str]] = []
+    valid_count = 0
     for block in unique_blocks:
         is_valid, _ = validate_pantun(block)
         if is_valid:
-            valid_blocks.append(block)
+            valid_count += 1
         else:
-            invalid_count += 1
+            invalid_blocks.append(block)
 
     if args.target is not None and args.target <= 0:
         raise ValueError("--target harus bilangan bulat positif jika diberikan.")
 
     if args.target is not None:
-        if len(valid_blocks) < args.target:
+        if len(invalid_blocks) < args.target:
             raise ValueError(
-                f"Pantun valid hanya {len(valid_blocks)}, kurang dari target {args.target}."
+                f"Pantun invalid hanya {len(invalid_blocks)}, kurang dari target {args.target}."
             )
-        selected = valid_blocks[: args.target]
+        selected = invalid_blocks[: args.target]
     else:
-        selected = valid_blocks
+        selected = invalid_blocks
+
     output_path.parent.mkdir(parents=True, exist_ok=True)
     write_blocks(output_path, selected)
 
     # Verify output
     written_blocks = split_blocks(output_path.read_text(encoding="utf-8"))
-    still_invalid = 0
+    still_valid = 0
     for block in written_blocks:
         is_valid, _ = validate_pantun(block)
-        if not is_valid:
-            still_invalid += 1
+        if is_valid:
+            still_valid += 1
 
     print(f"Sumber blok mentah: {len(merged_blocks)}")
     print(f"Unik: {len(unique_blocks)} | Duplikat: {len(duplicate_blocks)}")
-    print(f"Valid: {len(valid_blocks)} | Invalid: {invalid_count}")
+    print(f"Valid: {valid_count} | Invalid: {len(invalid_blocks)}")
     if args.target is not None:
         print(f"Mode target: {args.target}")
     else:
-        print("Mode target: semua valid")
+        print("Mode target: semua invalid")
     print(f"Ditulis ke {output_path}: {len(written_blocks)}")
-    print(f"Invalid setelah tulis: {still_invalid}")
+    print(f"Valid setelah tulis (seharusnya 0): {still_valid}")
 
 
 if __name__ == "__main__":

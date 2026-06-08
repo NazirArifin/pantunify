@@ -107,7 +107,7 @@ def _count_core_word(w):
     # pola akhir seperti "aik" pada "terbaik" (ter-ba-ik).
     if len(w) >= 5:
         diph_internal = re.findall(
-            _INTERNAL_DIPHTHONG_RE + r'(?=[bcdfghjklmnpqrstvwxyz][a-z]*[aiueo])',
+            _INTERNAL_DIPHTHONG_RE + r'(?=[bcdfgjklmnpqrstvwxyz][a-z]*[aiueo])',
             w,
         )
         count -= len(diph_internal)
@@ -192,6 +192,14 @@ def _count_word_hybrid(w):
     best = baseline
     for stem, affix_count in candidates:
         segmented = _count_core_word(stem) + affix_count
+
+        # Hindari under-count pada pola seperti ke-ma-u-an / per-ba-u-an.
+        if (
+            w.endswith(('mauan', 'bauan'))
+            and stem.endswith(('mau', 'bau'))
+            and segmented < baseline
+        ):
+            continue
 
         # Guard-rail: hanya izinkan koreksi turun maksimal 1 suku kata.
         if segmented <= baseline and (baseline - segmented) <= 1:

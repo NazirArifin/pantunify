@@ -48,10 +48,12 @@ def to_row(row_id: int, lines: list[str]) -> dict[str, str | int]:
 
     if is_valid_4_lines:
         skema = rhyme_scheme(base_lines)
+        rhyme_ends = [last_syllable(line) for line in base_lines]
         syllables = [count_syllables(line) for line in base_lines]
         word_counts = [len(clean_line(line).split()) for line in base_lines]
     else:
         skema = ""
+        rhyme_ends = ["", "", "", ""]
         syllables = ["", "", "", ""]
         word_counts = ["", "", "", ""]
 
@@ -61,6 +63,10 @@ def to_row(row_id: int, lines: list[str]) -> dict[str, str | int]:
         "baris_sampiran": baris_sampiran,
         "baris_isi": baris_isi,
         "skema_rima": skema,
+        "rima_akhir_baris_1": rhyme_ends[0],
+        "rima_akhir_baris_2": rhyme_ends[1],
+        "rima_akhir_baris_3": rhyme_ends[2],
+        "rima_akhir_baris_4": rhyme_ends[3],
         "suku_kata_baris_1": syllables[0],
         "suku_kata_baris_2": syllables[1],
         "suku_kata_baris_3": syllables[2],
@@ -101,6 +107,10 @@ def main() -> None:
         "baris_sampiran",
         "baris_isi",
         "skema_rima",
+        "rima_akhir_baris_1",
+        "rima_akhir_baris_2",
+        "rima_akhir_baris_3",
+        "rima_akhir_baris_4",
         "suku_kata_baris_1",
         "suku_kata_baris_2",
         "suku_kata_baris_3",

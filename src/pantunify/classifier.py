@@ -59,8 +59,6 @@ def validate_pantun(
     lines,
     min_syllables=8,
     max_syllables=12,
-    min_words=4,
-    max_words=6,
     min_valid_word_ratio=0.8,
 ):
     """
@@ -80,17 +78,12 @@ def validate_pantun(
             f"{valid_count}/{total_count} ({valid_ratio:.1%})"
         )
     
-    # Hitung suku kata dan kata
+    # Hitung suku kata
     sylls = [count_syllables(l) for l in cleaned]
-    word_counts = [len(l.split()) for l in cleaned]
     
     # Validasi jumlah suku kata per baris
     if any(s < min_syllables or s > max_syllables for s in sylls):
         return False, f"Suku kata tidak ideal: {sylls}"
-        
-    # Validasi jumlah kata per baris
-    if any(w < min_words or w > max_words for w in word_counts):
-        return False, f"Jumlah kata tidak ideal: {word_counts}"
         
     # Validasi rima
     if not check_rhyme(*cleaned):

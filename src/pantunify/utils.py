@@ -31,12 +31,29 @@ def last_syllable(s):
     
     if not last:
         return ''
+
+    # 1. HANDLING SINGKATAN UMUM (Konversi ke fonem lisan)
+    abbreviation_map = {
+        'tv': 've',   # te-ve (vokal e)
+        'ac': 'se',   # a-se (vokal e)
+        'hp': 'pe',    # ha-pe (vokal e)
+        'bumn': 'en',  # be-u-em-en -> berakhiran 'en'
+        'hp': 'pe',    # ha-pe (vokal e)
+        'wa': 'a',     # we-a (vokal a)
+    }
+    if last in abbreviation_map:
+        last = abbreviation_map[last]
         
     # Cek diftong di bagian paling akhir
     diphthongs = ['ai', 'au', 'oi', 'ei']
     for d in diphthongs:
         if last.endswith(d):
             return d
+        
+    # Jika kata berakhiran huruf vokal (seperti: dia, setia)
+    # Rima pantun tradisional hanya mengambil 1 vokal terakhirnya saja.
+    if last[-1] in 'aiueo':
+        return last[-1]
             
     # Cari indeks vokal terakhir
     m = list(re.finditer(r'[aiueo]', last))

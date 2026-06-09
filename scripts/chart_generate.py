@@ -35,6 +35,7 @@ def load_syllable_lists(df: pd.DataFrame) -> pd.Series:
 def main() -> None:
     df = pd.read_csv("data/pantun_dataset.csv")
     df["syll_list"] = load_syllable_lists(df)
+    rhyme_end_cols = [f"rima_akhir_baris_{i}" for i in range(1, 5)]
 
     all_syll = [x for row in df["syll_list"] for x in row]
     line_df = pd.DataFrame(
@@ -85,6 +86,11 @@ def main() -> None:
         "rhyme_counts": {
             "a-a-a-a": int((df["skema_rima"] == "a-a-a-a").sum()),
             "a-b-a-b": int((df["skema_rima"] == "a-b-a-b").sum()),
+        },
+        "rima_akhir_columns": {
+            col: sorted({str(value) for value in df[col].dropna().tolist()})
+            for col in rhyme_end_cols
+            if col in df.columns
         },
         "line_position_syllable_profile": {
             f"line_{i}": {

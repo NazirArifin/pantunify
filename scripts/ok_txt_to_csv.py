@@ -38,6 +38,7 @@ def rhyme_scheme(lines: list[str]) -> str:
 def to_row(row_id: int, lines: list[str]) -> dict[str, str | int]:
     syllables = [count_syllables(line) for line in lines]
     word_counts = [len(clean_line(line).split()) for line in lines]
+    rhyme_ends = [last_syllable(line) for line in lines]
     text_pantun = "\\n".join(lines)
     return {
         "id": row_id,
@@ -45,6 +46,10 @@ def to_row(row_id: int, lines: list[str]) -> dict[str, str | int]:
         "baris_sampiran": "\\n".join(lines[:2]),
         "baris_isi": "\\n".join(lines[2:]),
         "skema_rima": rhyme_scheme(lines),
+        "rima_akhir_baris_1": rhyme_ends[0],
+        "rima_akhir_baris_2": rhyme_ends[1],
+        "rima_akhir_baris_3": rhyme_ends[2],
+        "rima_akhir_baris_4": rhyme_ends[3],
         "suku_kata_baris_1": syllables[0],
         "suku_kata_baris_2": syllables[1],
         "suku_kata_baris_3": syllables[2],
@@ -101,6 +106,10 @@ def main() -> None:
         "baris_sampiran",
         "baris_isi",
         "skema_rima",
+        "rima_akhir_baris_1",
+        "rima_akhir_baris_2",
+        "rima_akhir_baris_3",
+        "rima_akhir_baris_4",
         "suku_kata_baris_1",
         "suku_kata_baris_2",
         "suku_kata_baris_3",

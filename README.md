@@ -12,7 +12,7 @@ Pantunify merupakan toolkit berbasis Python untuk mendukung kurasi korpus pantun
 Pengembangan toolkit ini diarahkan untuk memenuhi kebutuhan pemrosesan data pada studi komputasional sastra lisan, dengan sasaran berikut:
 
 1. Menstandarkan korpus pantun mentah menjadi unit empat baris yang dapat dianalisis.
-2. Menegakkan batasan formal pantun melalui validasi suku kata, jumlah kata, dan pola rima.
+2. Menegakkan batasan formal pantun melalui validasi suku kata dan pola rima.
 3. Memisahkan data lolos dan data eksklusi dalam format yang audit-friendly.
 4. Menyediakan dataset tabular dengan fitur per baris untuk analisis kuantitatif lanjutan.
 5. Menghasilkan artefak visual dan ringkasan statistik untuk kebutuhan pelaporan ilmiah.
@@ -23,7 +23,6 @@ Setiap kandidat pantun pada jalur utama dievaluasi menggunakan kriteria berikut:
 
 - jumlah baris tepat empat,
 - jumlah suku kata per baris berada pada rentang 8-12,
-- jumlah kata per baris berada pada rentang 4-6,
 - pola rima valid (a-b-a-b atau a-a-a-a),
 - filtering tambahan berbasis penanda dialektal,
 - deduplikasi exact dan fuzzy untuk mengendalikan redundansi korpus.
@@ -39,6 +38,14 @@ Alur proses yang direkomendasikan adalah sebagai berikut:
 3. Mengonversi data/ok.txt menjadi dataset utama data/pantun_dataset.csv.
 4. Mengonversi data/fail.txt menjadi dataset audit data/excluded_pantun_dataset.csv.
 5. Menghasilkan visualisasi serta ringkasan statistik dataset.
+
+Jika ingin menghitung ulang statistik dataset saja, jalankan:
+
+```bash
+python scripts/calc_dataset_stats.py
+```
+
+Skrip ini membaca data/pantun_dataset.csv dan mencetak ringkasan total data, distribusi skema rima, observasi suku kata, rentang dan rata-rata global, serta profil suku kata per posisi baris.
 
 ## Installation
 
@@ -81,30 +88,27 @@ Keluaran visual ditulis pada folder figures dengan artefak berikut:
 
 ## Primary Dataset Schema
 
-Dataset utama berada pada data/pantun_dataset.csv dan terdiri dari 13 variabel:
+Dataset utama berada pada data/pantun_dataset.csv dan terdiri dari 17 variabel:
 
 1. id
 2. text_pantun
 3. baris_sampiran
 4. baris_isi
 5. skema_rima
-6. suku_kata_baris_1
-7. suku_kata_baris_2
-8. suku_kata_baris_3
-9. suku_kata_baris_4
-10. jumlah_kata_baris_1
-11. jumlah_kata_baris_2
-12. jumlah_kata_baris_3
-13. jumlah_kata_baris_4
+6. rima_akhir_baris_1
+7. rima_akhir_baris_2
+8. rima_akhir_baris_3
+9. rima_akhir_baris_4
+10. suku_kata_baris_1
+11. suku_kata_baris_2
+12. suku_kata_baris_3
+13. suku_kata_baris_4
+14. jumlah_kata_baris_1
+15. jumlah_kata_baris_2
+16. jumlah_kata_baris_3
+17. jumlah_kata_baris_4
 
-## Current Dataset Snapshot
-
-Berdasarkan versi terkini dataset utama:
-
-- jumlah observasi: 5636,
-- jumlah variabel: 13,
-- distribusi rima a-b-a-b: 4252,
-- distribusi rima a-a-a-a: 1384.
+Kolom rima_akhir_baris_1 sampai rima_akhir_baris_4 berisi hasil ekstraksi rima akhir per baris dari fungsi last_syllable.
 
 ## Notes for Scientific Reporting
 

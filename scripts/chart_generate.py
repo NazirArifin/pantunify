@@ -54,6 +54,7 @@ def main() -> None:
 
     plt.figure(figsize=(6, 4))
     ax = sns.countplot(data=df, x="skema_rima", order=["a-a-a-a", "a-b-a-b"])
+    ax.set_title("a)", loc="left", fontweight="bold")
     ax.set_xlabel("Rhyme schema")
     ax.set_ylabel("Count")
     ax.set_title("Rhyme schema distribution")
@@ -63,6 +64,7 @@ def main() -> None:
 
     plt.figure(figsize=(6, 4))
     ax = sns.histplot(all_syll, bins=range(min(all_syll), max(all_syll) + 2), discrete=True)
+    ax.set_title("b)", loc="left", fontweight="bold")
     ax.set_xlabel("Syllable count")
     ax.set_ylabel("Frequency")
     ax.set_title("Syllable-count distribution (all lines)")
@@ -72,6 +74,7 @@ def main() -> None:
 
     plt.figure(figsize=(7, 4))
     ax = sns.boxplot(data=line_long, x="line_position", y="syllable_count")
+    ax.set_title("c)", loc="left", fontweight="bold")
     ax.set_xlabel("Line position")
     ax.set_ylabel("Syllable count")
     ax.set_title("Syllable-count by line position")
@@ -86,6 +89,10 @@ def main() -> None:
         "rhyme_counts": {
             "a-a-a-a": int((df["skema_rima"] == "a-a-a-a").sum()),
             "a-b-a-b": int((df["skema_rima"] == "a-b-a-b").sum()),
+        },
+        "syllable_counts": {
+            str(s): int(sum(1 for v in all_syll if v == s))
+            for s in range(8, 13)
         },
         "rima_akhir_columns": {
             col: sorted({str(value) for value in df[col].dropna().tolist()})

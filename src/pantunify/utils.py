@@ -34,11 +34,10 @@ def last_syllable(s):
 
     # 1. HANDLING SINGKATAN UMUM (Konversi ke fonem lisan)
     abbreviation_map = {
-        'tv': 've',   # te-ve (vokal e)
+        'tv': 'vi',
         'ac': 'se',   # a-se (vokal e)
         'hp': 'pe',    # ha-pe (vokal e)
         'bumn': 'en',  # be-u-em-en -> berakhiran 'en'
-        'hp': 'pe',    # ha-pe (vokal e)
         'wa': 'a',     # we-a (vokal a)
     }
     if last in abbreviation_map:

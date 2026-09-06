@@ -1,0 +1,51 @@
+item_id,no,id_data_asli,model,setting
+HB-001,78,4854,Llama 3.1: 8B,few_shot
+HB-002,83,1397,Gemini,few_shot
+HB-003,43,1414,Claude,zero_shot
+HB-004,67,3196,Claude,zero_shot
+HB-005,64,1377,DeepSeek-R1,few_shot
+HB-006,38,3270,Sailor2,zero_shot
+HB-007,76,1671,Sailor2,few_shot
+HB-008,71,5770,DeepSeek-R1,zero_shot
+HB-009,13,2101,Claude,few_shot
+HB-010,97,6235,Llama 3.1: 8B,zero_shot
+HB-011,9,1575,DeepSeek-R1,few_shot
+HB-012,70,1466,Gemini,zero_shot
+HB-013,49,4346,Sailor2,zero_shot
+HB-014,3,3264,Gemini,zero_shot
+HB-015,58,4968,Llama 3.1: 8B,few_shot
+HB-016,5,4853,Claude,few_shot
+HB-017,47,4689,Llama 3.1: 8B,zero_shot
+HB-018,92,1001,Sailor2,zero_shot
+HB-019,61,2906,DeepSeek-R1,few_shot
+HB-020,35,2330,Gemini,zero_shot
+HB-021,36,5563,Claude,zero_shot
+HB-022,55,2138,Llama 3.1: 8B,few_shot
+HB-023,83,1397,Sailor2,few_shot
+HB-024,56,6440,Claude,few_shot
+HB-025,93,1014,DeepSeek-R1,zero_shot
+HB-026,2,185,DeepSeek-R1,zero_shot
+HB-027,81,950,Sailor2,zero_shot
+HB-028,44,1599,Llama 3.1: 8B,few_shot
+HB-029,56,6440,Chat-GPT,few_shot
+HB-030,99,4583,Chat-GPT,zero_shot
+HB-031,97,6235,Chat-GPT,zero_shot
+HB-032,84,4791,Gemini,few_shot
+HB-033,58,4968,Llama 3.1: 8B,zero_shot
+HB-034,89,4028,Llama 3.1: 8B,few_shot
+HB-035,100,1986,Llama 3.1: 8B,zero_shot
+HB-036,59,5859,Chat-GPT,few_shot
+HB-037,18,4555,Sailor2,few_shot
+HB-038,27,1636,Sailor2,zero_shot
+HB-039,27,1636,DeepSeek-R1,few_shot
+HB-040,38,3270,Gemini,zero_shot
+HB-041,58,4968,Chat-GPT,zero_shot
+HB-042,30,3695,Chat-GPT,zero_shot
+HB-043,1,1399,Gemini,few_shot
+HB-044,52,1714,DeepSeek-R1,zero_shot
+HB-045,38,3270,Claude,few_shot
+HB-046,57,6154,Gemini,few_shot
+HB-047,50,1442,Chat-GPT,few_shot
+HB-048,80,2181,Claude,zero_shot
+HB-049,32,1931,Chat-GPT,few_shot
+HB-050,22,4434,Sailor2,few_shot

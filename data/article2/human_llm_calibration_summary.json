@@ -1,0 +1,50 @@
+{
+  "n_pairs": 50,
+  "spearman_rho": 0.90249,
+  "p_value_t_approx": 0.0,
+  "p_value_permutation": 9.999000099990002e-05,
+  "mean_human": 2.42,
+  "mean_llm": 1.8,
+  "mean_diff_llm_minus_human": -0.62,
+  "median_diff_llm_minus_human": 0.0,
+  "mean_abs_diff": 0.62,
+  "median_abs_diff": 0.0,
+  "by_model": {
+    "Chat-GPT": {
+      "n": 8,
+      "mean_human": 2.375,
+      "mean_llm": 2.0,
+      "mean_abs_diff": 0.375
+    },
+    "Claude": {
+      "n": 8,
+      "mean_human": 3.75,
+      "mean_llm": 2.625,
+      "mean_abs_diff": 1.125
+    },
+    "DeepSeek-R1": {
+      "n": 8,
+      "mean_human": 1.25,
+      "mean_llm": 1.125,
+      "mean_abs_diff": 0.125
+    },
+    "Gemini": {
+      "n": 8,
+      "mean_human": 4.875,
+      "mean_llm": 3.125,
+      "mean_abs_diff": 1.75
+    },
+    "Llama 3.1: 8B": {
+      "n": 9,
+      "mean_human": 1.333333,
+      "mean_llm": 1.111111,
+      "mean_abs_diff": 0.222222
+    },
+    "Sailor2": {
+      "n": 9,
+      "mean_human": 1.222222,
+      "mean_llm": 1.0,
+      "mean_abs_diff": 0.222222
+    }
+  }
+}

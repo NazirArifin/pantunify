@@ -1,0 +1,7 @@
+setting,metric,k_models,n_total,f_stat,p_permutation
+few_shot,r_score,6,600,219.742357,0.000333
+few_shot,a_score,6,600,53.545236,0.000333
+few_shot,clr,6,600,45.769684,0.000333
+zero_shot,r_score,6,600,74.936034,0.000333
+zero_shot,a_score,6,600,38.165997,0.000333
+zero_shot,clr,6,600,165.889392,0.000333

@@ -1,0 +1,7 @@
+model,n_zero,n_few,mean_zero,mean_few,mean_diff_few_minus_zero,p_value_permutation,n_perm,test,score
+Chat-GPT,25,25,0.42,0.44204688000000003,0.022046880000000046,0.793241351729654,5000,"unpaired permutation test (difference in means, two-sided)",xrasa_final
+Claude,25,25,0.75,0.7840937600000001,0.034093760000000084,0.5342931413717257,5000,"unpaired permutation test (difference in means, two-sided)",xrasa_final
+DeepSeek-R1,25,25,0.15704688,0.06,-0.09704688,0.08658268346330734,5000,"unpaired permutation test (difference in means, two-sided)",xrasa_final
+Gemini,25,25,0.73,0.755,0.025000000000000022,0.7588482303539292,5000,"unpaired permutation test (difference in means, two-sided)",xrasa_final
+Llama 3.1: 8B,25,25,0.15704688,0.14,-0.017046879999999986,0.7828434313137372,5000,"unpaired permutation test (difference in means, two-sided)",xrasa_final
+Sailor2,25,25,0.1144306,0.019030079999999998,-0.09540051999999999,0.013597280543891222,5000,"unpaired permutation test (difference in means, two-sided)",xrasa_final

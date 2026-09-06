@@ -1,0 +1,3 @@
+setting,n_observations,n_models,models,group_sizes,f_statistic,p_value_permutation,n_perm,test,score
+few_shot,150,6,Chat-GPT;Claude;DeepSeek-R1;Gemini;Llama 3.1: 8B;Sailor2,25;25;25;25;25;25,84.11033321454397,0.0001999600079984003,5000,one-way ANOVA permutation,xrasa_final
+zero_shot,150,6,Chat-GPT;Claude;DeepSeek-R1;Gemini;Llama 3.1: 8B;Sailor2,25;25;25;25;25;25,41.65863879446166,0.0001999600079984003,5000,one-way ANOVA permutation,xrasa_final

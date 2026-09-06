@@ -1,0 +1,2101 @@
+no,id_data_asli,jenis_pantun,pantun_asli_lengkap,sampiran_asli,isi_input_model,model,setting,setting_label,sampiran_generated,gen_line_count,isi_line_count,r_score,a_score,clr,suku_baris_1,suku_baris_2,suku_baris_3,suku_baris_4,dev_total,semantic_bridge_score_llm_1_5
+16,6428,Pantun agama,"terang bulan terang bercahaya
+cahaya memancar ke tanjung jati
+jikalau hendak hidup bahagia
+beramal ibadah sebelum mati","terang bulan terang bercahaya
+cahaya memancar ke tanjung jati","jikalau hendak hidup bahagia
+beramal ibadah sebelum mati",Chat-GPT,few_shot,Hasil Few-shot,"Pagi ceria membawa bahagia
+Burung pipit pulang sebelum mati",2,2,1,1.000000,0.375000,12,11,11,11,0,
+26,514,Pantun pendidikan,"Angin pagi menyentuh daun
+Embun jatuh di atas batu
+Ilmu tinggi bukan sekadar daun
+Namun amal jadi penentu","Angin pagi menyentuh daun
+Embun jatuh di atas batu","Ilmu tinggi bukan sekadar daun
+Namun amal jadi penentu",Chat-GPT,few_shot,Hasil Few-shot,"Burung punai hinggap di dahan
+Air jernih mengalir di hulu",2,2,0,1.000000,0.000000,9,10,11,9,0,
+51,6151,Pantun persahabatan,"Sirih merah di dalam puan
+Pinang muda dibelah rata
+Jika hendak disayang kawan
+Bersikap jujur sepanjang masa","Sirih merah di dalam puan
+Pinang muda dibelah rata","Jika hendak disayang kawan
+Bersikap jujur sepanjang masa",Chat-GPT,few_shot,Hasil Few-shot,"Burung punai hinggap di dahan
+Air mengalir ke sawah desa",2,2,1,1.000000,0.000000,9,10,9,10,0,
+36,5563,Pantun kiasan dan peribahasa,"pohon kelapa ditanam disana
+berdekatan dengan pohon kenari
+peran ibu bapak dalam dunia
+bagaikan bulan dan matahari","pohon kelapa ditanam disana
+berdekatan dengan pohon kenari","peran ibu bapak dalam dunia
+bagaikan bulan dan matahari",Chat-GPT,few_shot,Hasil Few-shot,"Mentari pagi menyinari dunia
+Bintang terang menemani hari",2,2,1,1.000000,0.142857,12,10,11,10,0,
+65,1473,Pantun kehidupan dan renungan,"Burung bangau di tepi rawa
+Mencari ikan sejak pagi
+Kalau ingin hidup bahagia
+Jaga hati dari dengki","Burung bangau di tepi rawa
+Mencari ikan sejak pagi","Kalau ingin hidup bahagia
+Jaga hati dari dengki",Chat-GPT,few_shot,Hasil Few-shot,"Kalau ke taman memetik melati
+Air mengalir di tepi jerami",2,2,0,1.000000,0.142857,11,11,10,8,0,
+32,1931,Pantun adat dan budaya,"Daun selasih di tepi laman
+Disiram embun waktu fajar
+Budi bahasa jadi pegangan
+Agar hidup sentiasa wajar","Daun selasih di tepi laman
+Disiram embun waktu fajar","Budi bahasa jadi pegangan
+Agar hidup sentiasa wajar",Chat-GPT,few_shot,Hasil Few-shot,"Burung tekukur mencari makan
+Air mengalir jernih dan segar",2,2,1,1.000000,0.000000,10,10,10,10,0,
+95,6446,Pantun teka-teki,"Terburu-buru ke kamar mandi
+Ternyata lupa membawa sabun
+Coba tebak apakah ini
+Selalu naik tak pernah turun","Terburu-buru ke kamar mandi
+Ternyata lupa membawa sabun","Coba tebak apakah ini
+Selalu naik tak pernah turun",Chat-GPT,few_shot,Hasil Few-shot,"Mari bermain bersama kini
+Air pasang tak pernah turun",2,2,1,1.000000,0.375000,10,9,9,10,0,
+63,1505,Pantun kehidupan dan renungan,"Burung camar terbang rendah
+Menyambar ikan di laut biru
+Harta dunia jangan bermegah
+Budi dan amal penentu mutu","Burung camar terbang rendah
+Menyambar ikan di laut biru","Harta dunia jangan bermegah
+Budi dan amal penentu mutu",Chat-GPT,few_shot,Hasil Few-shot,"Bunga indah jangan bermegah
+Rotan dianyam bermutu halus",2,2,0,1.000000,0.250000,9,10,10,10,0,
+17,6031,Pantun agama,"senja terbenam di langit barat
+bulan tak bersinar di malam sendu
+hidup di dunia ingatlah akhirat
+sebagai bekal gapailah ilmu","senja terbenam di langit barat
+bulan tak bersinar di malam sendu","hidup di dunia ingatlah akhirat
+sebagai bekal gapailah ilmu",Chat-GPT,few_shot,Hasil Few-shot,"Bintang berkelip di langit lebat
+Tekun belajar mencari ilmu",2,2,1,1.000000,0.142857,10,10,12,10,0,
+2,185,Pantun nasihat dan budi pekerti,"Air telaga ditimba petang
+Disimpan dalam kendi tua
+Jika ingin hidup dikenang
+Budi baik jadi pusaka","Air telaga ditimba petang
+Disimpan dalam kendi tua","Jika ingin hidup dikenang
+Budi baik jadi pusaka",Chat-GPT,few_shot,Hasil Few-shot,"Burung merpati terbang tenang
+Buah nangka tersusun di baka",2,2,1,1.000000,0.000000,9,10,9,9,0,
+35,2330,Pantun kiasan dan peribahasa,"hendak berlayar hari dah petang
+tepikan biduk kucutkan sampan
+tak kenal maka tak sayang
+marilah kita berkenalan","hendak berlayar hari dah petang
+tepikan biduk kucutkan sampan","tak kenal maka tak sayang
+marilah kita berkenalan",Chat-GPT,few_shot,Hasil Few-shot,"Burung datang hinggap di parang
+Mari singgah minum jamuan",2,2,1,1.000000,0.000000,9,9,8,9,0,
+87,1718,Pantun jenaka,"burung pipit turun ke rawa
+kakinya gerah kena belerang
+nenek murung jadi tertawa
+melihat kakek main kelerang","burung pipit turun ke rawa
+kakinya gerah kena belerang","nenek murung jadi tertawa
+melihat kakek main kelereng",Chat-GPT,few_shot,Hasil Few-shot,"Pagi cerah membawa ceria
+Burung gereja terbang dilereng",2,2,1,1.000000,0.000000,10,10,9,10,0,
+47,4689,Pantun cinta dan kasih,"pasar sawang beli lawang
+salak pondoh sepat rasanya
+sabar sayang abang kan pulang
+ada jodoh tidak akan ke mana","pasar sawang beli lawang
+salak pondoh sepat rasanya","sabar sayang abang kan pulang
+ada jodoh tidak akan ke mana",Chat-GPT,few_shot,Hasil Few-shot,"Sabar menanti musim kemarau
+Burung merpati pulang ke mana",2,2,0,1.000000,0.285714,10,10,9,11,0,
+61,2906,Pantun bakti keluarga,"kalau angin bertiup di darat
+ambillah jala turunkan sampan
+kalau hidup hendak selamat
+ayah dan bunda kita muliakan","kalau angin bertiup di darat
+ambillah jala turunkan sampan","kalau hidup hendak selamat
+ayah dan bunda kita muliakan",Chat-GPT,few_shot,Hasil Few-shot,"Kalau berlayar bawalah pelamat
+Bunga kenanga harum semalaman",2,2,1,1.000000,0.142857,11,11,9,11,0,
+67,3196,Pantun kehidupan dan renungan,"Ke kebun pagi membawa keranjang
+Keranjang rotan diisi mangga
+Jika hidup terasa panjang
+Gunakan waktu untuk berkarya","Ke kebun pagi membawa keranjang
+Keranjang rotan diisi mangga","Jika hidup terasa panjang
+Gunakan waktu untuk berkarya",Chat-GPT,few_shot,Hasil Few-shot,"Jika petang langit terbentang
+Petik kenanga untuk berkarya",2,2,1,1.000000,0.285714,9,10,9,10,0,
+90,55,Pantun jenaka,"ada pohon di tepi rawa
+daunnya kering dimakan kutu
+adik menangis sambil tertawa
+melihat kambing pakai sepatu","ada pohon di tepi rawa
+daunnya kering dimakan kutu","adik menangis sambil tertawa
+melihat kambing pakai sepatu",Chat-GPT,few_shot,Hasil Few-shot,"Burung pipit hinggap tertawa
+Anak bebek memakai sepatu",2,2,1,1.000000,0.250000,9,10,10,10,0,
+29,6149,Pantun adat dan budaya,"Sirih kuning disusun rapi
+Pinang dibelah dua bahagian
+Jika hidup ingin diberkati
+Pelihara adat dan pegangan","Sirih kuning disusun rapi
+Pinang dibelah dua bahagian","Jika hidup ingin diberkati
+Pelihara adat dan pegangan",Chat-GPT,few_shot,Hasil Few-shot,"Bunga melati semerbak wangi
+Perahu nelayan menuju tepian",2,2,1,1.000000,0.000000,10,12,10,10,0,
+69,3326,Pantun kehidupan dan renungan,"Ke sawah pagi membawa ani-ani
+Padi menguning tampak merata
+Jika ingin hidup berarti
+Hidupkan empati dalam jiwa","Ke sawah pagi membawa ani-ani
+Padi menguning tampak merata","Jika ingin hidup berarti
+Hidupkan empati dalam jiwa",Chat-GPT,few_shot,Hasil Few-shot,"Jika melaut mencari rezeki
+Bunga melati tumbuh di halaman jiwa",2,2,1,0.852344,0.285714,11,13,9,10,1,
+97,6235,Pantun anak-anak,"sungguh indah bunga mawar
+harum semerbak di tepi taman
+setelah bermain bersihkan kamar
+jangan sampai berantakan","sungguh indah bunga mawar
+harum semerbak di tepi taman","setelah bermain bersihkan kamar
+jangan sampai berantakan",Chat-GPT,few_shot,Hasil Few-shot,"Sebelum pulang petik mawar
+Halaman rumah jangan berantakan",2,2,1,1.000000,0.285714,9,11,11,8,0,
+8,120,Pantun nasihat dan budi pekerti,"Air hujan turun ke ladang
+Menyuburkan padi di sawah
+Jika hidup ingin tenang
+Jangan suka mencari salah","Air hujan turun ke ladang
+Menyuburkan padi di sawah","Jika hidup ingin tenang
+Jangan suka mencari salah",Chat-GPT,few_shot,Hasil Few-shot,"Burung bangau terbang tenang
+Jangan mudah memetik getah",2,2,1,1.000000,0.250000,8,9,8,9,0,
+18,4555,Pantun agama,"Pagi hari menuju sawah
+Embun jatuh di daun padi
+Jika hidup ingin berkah
+Rajin ibadah setiap hari","Pagi hari menuju sawah
+Embun jatuh di daun padi","Jika hidup ingin berkah
+Rajin ibadah setiap hari",Chat-GPT,few_shot,Hasil Few-shot,"Bunga cempaka semerbak berkah
+Mentari pagi bersinar cerah",2,2,0,1.000000,0.125000,10,10,8,10,0,
+12,315,Pantun nasihat dan budi pekerti,"Anak dara menampi padi
+Angin bertiup perlahan-lahan
+Jika ingin hidup terpuji
+Utamakan budi dalam pergaulan","Anak dara menampi padi
+Angin bertiup perlahan-lahan","Jika ingin hidup terpuji
+Utamakan budi dalam pergaulan",Chat-GPT,few_shot,Hasil Few-shot,"Padi menguning tampak terpuji
+Berjalan santun dalam pergaulan",2,2,1,1.000000,0.285714,10,10,9,11,0,
+88,5682,Pantun jenaka,"pulang memancing badan kusam
+mendapat ikan anak tenggiri
+ketika ditanya semuanya diam
+karena kentut tak berbunyi","pulang memancing badan kusam
+mendapat ikan anak tenggiri","ketika ditanya semuanya diam
+karena kentut tak berbunyi",Chat-GPT,few_shot,Hasil Few-shot,"Burung pipit terbang diam
+Daun kering jatuh menguning",2,2,0,1.000000,0.142857,8,9,12,9,0,
+40,6548,Pantun kiasan dan peribahasa,"tumbuh merata pohon tebu
+pergi ke pasar membeli daging
+banyak harta miskin ilmu
+bagai rumah tidak berdinding","tumbuh merata pohon tebu
+pergi ke pasar membeli daging","banyak harta miskin ilmu
+bagai rumah tidak berdinding",Chat-GPT,few_shot,Hasil Few-shot,"Banyak padi tersimpan di lumbung
+Pagar bambu tegak mengeliling",2,2,0,1.000000,0.166667,10,10,8,9,0,
+93,1014,Pantun teka-teki,"berpindah tempat ke kota medan
+jangan lupa membawa baju
+kakiku empat tak punya badan
+coba tebak siapakah aku","berpindah tempat ke kota medan
+jangan lupa membawa baju","kakiku empat tak punya badan
+coba tebak siapakah aku",Chat-GPT,few_shot,Hasil Few-shot,"Meja kayu berkaki empat
+Cobalah jawab jangan ragu",2,2,0,1.000000,0.125000,9,9,10,10,0,
+88,5682,Pantun jenaka,"pulang memancing badan kusam
+mendapat ikan anak tenggiri
+ketika ditanya semuanya diam
+karena kentut tak berbunyi","pulang memancing badan kusam
+mendapat ikan anak tenggiri","ketika ditanya semuanya diam
+karena kentut tak berbunyi",Chat-GPT,zero_shot,Hasil Zero-shot,"Mentari pagi mulai redup
+Daun keladi jatuh ke kolam",2,2,0,1.000000,0.000000,9,10,12,9,0,
+7,5357,Pantun nasihat dan budi pekerti,"Pergi ke taman memetik kenari
+Kenari jatuh ke atas tanah
+Jika hidup ingin penuh budi
+Rendah hati jauhi angkuh dan marah","Pergi ke taman memetik kenari
+Kenari jatuh ke atas tanah","Jika hidup ingin penuh budi
+Rendah hati jauhi angkuh dan marah",Chat-GPT,zero_shot,Hasil Zero-shot,"Bunga melati harum berbudi
+Jauhi semak yang penuh amarah",2,2,1,1.000000,0.200000,10,11,10,12,0,
+26,514,Pantun pendidikan,"Angin pagi menyentuh daun
+Embun jatuh di atas batu
+Ilmu tinggi bukan sekadar daun
+Namun amal jadi penentu","Angin pagi menyentuh daun
+Embun jatuh di atas batu","Ilmu tinggi bukan sekadar daun
+Namun amal jadi penentu",Chat-GPT,zero_shot,Hasil Zero-shot,"Burung tekukur hinggap di dahan
+Embun pagi menitis di batu",2,2,0,1.000000,0.000000,10,10,11,9,0,
+89,4028,Pantun jenaka,"memetik bunga di tepi rawa
+sambil mendengar kicauan burung
+terbahakbahak itik tertawa
+melihat monyet memakai sarung","memetik bunga di tepi rawa
+sambil mendengar kicauan burung","terbahakbahak itik tertawa
+melihat monyet memakai sarung",Chat-GPT,zero_shot,Hasil Zero-shot,"Burung kenari pandai tertawa
+Kucing belang memakai sarung",2,2,1,1.000000,0.428571,10,9,10,10,0,
+53,1337,Pantun persahabatan,"Bunga kenanga disemat dara
+Harumnya lembut dibawa angin
+Jika hati penuh setia
+Persahabatan kekal terjalin","Bunga kenanga disemat dara
+Harumnya lembut dibawa angin","Jika hati penuh setia
+Persahabatan kekal terjalin",Chat-GPT,zero_shot,Hasil Zero-shot,"Bunga melati harum ceria
+Angin sepoi bertiup perlahan",2,2,0,1.000000,0.000000,10,10,9,10,0,
+35,2330,Pantun kiasan dan peribahasa,"hendak berlayar hari dah petang
+tepikan biduk kucutkan sampan
+tak kenal maka tak sayang
+marilah kita berkenalan","hendak berlayar hari dah petang
+tepikan biduk kucutkan sampan","tak kenal maka tak sayang
+marilah kita berkenalan",Chat-GPT,zero_shot,Hasil Zero-shot,"Naik perahu menuju padang
+Singgah sebentar membeli makanan",2,2,1,1.000000,0.000000,10,11,8,9,0,
+4,4515,Pantun nasihat dan budi pekerti,"Pagi hari memetik mangga
+Burung kecil hinggap di pagar
+Jika ingin hidup bahagia
+Bersikap jujur dan sabar","Pagi hari memetik mangga
+Burung kecil hinggap di pagar","Jika ingin hidup bahagia
+Bersikap jujur dan sabar",Chat-GPT,zero_shot,Hasil Zero-shot,"Mentari pagi menyapa desa
+Burung kecil hinggap di pagar",2,2,1,1.000000,0.000000,10,9,10,8,0,
+23,1637,Pantun pendidikan,"Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati
+Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati","Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati","Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati",Chat-GPT,zero_shot,Hasil Zero-shot,"Rumah kayu tetap aman
+Belajarlah tekun sepenuh hati",2,2,1,1.000000,0.444444,8,11,10,11,0,
+74,1729,Pantun kebangsaan,"Burung serindit menyisir awan
+Hinggap sebentar di dahan sena
+Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda","Burung serindit menyisir awan
+Hinggap sebentar di dahan sena","Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda",Chat-GPT,zero_shot,Hasil Zero-shot,"Jika pusaka dijunjung tuan
+Harumlah bangsa tiada ternoda",2,2,1,1.000000,0.714286,10,11,10,10,0,
+83,1397,Pantun perpisahan dan perantauan,"bunga melati di tepi sawah
+cantik elok di dekat batu
+jika nanti kita berpisah
+jangan pernah lupakan aku","bunga melati di tepi sawah
+cantik elok di dekat batu","jika nanti kita berpisah
+jangan pernah lupakan aku",Chat-GPT,zero_shot,Hasil Zero-shot,"Pohon randu tumbuh berpisah
+Bunga kenanga harum semerbak",2,2,0,1.000000,0.166667,9,10,9,9,0,
+33,4327,Pantun adat dan budaya,"Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu
+Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu","Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu","Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu",Chat-GPT,zero_shot,Hasil Zero-shot,"Pohon waru tumbuh menjunjung
+Air mengalir menuju batu",2,2,1,1.000000,0.000000,9,10,11,10,0,
+75,1347,Pantun kebangsaan,"Bunga kenanga mekar berseri
+Harumnya halus menawan rasa
+Jika budi menjadi pertiwi
+Bangsa bermaruah sepanjang masa","Bunga kenanga mekar berseri
+Harumnya halus menawan rasa","Jika budi menjadi pertiwi
+Bangsa bermaruah sepanjang masa",Chat-GPT,zero_shot,Hasil Zero-shot,"Jika melati menjadi pertiwi
+Harumlah bangsa sepanjang masa",2,2,1,1.000000,0.750000,11,10,10,11,0,
+61,2906,Pantun bakti keluarga,"kalau angin bertiup di darat
+ambillah jala turunkan sampan
+kalau hidup hendak selamat
+ayah dan bunda kita muliakan","kalau angin bertiup di darat
+ambillah jala turunkan sampan","kalau hidup hendak selamat
+ayah dan bunda kita muliakan",Chat-GPT,zero_shot,Hasil Zero-shot,"Kalau berlayar hendak selamat
+Sopan bicara kepada satria",2,2,0,1.000000,0.428571,10,11,9,11,0,
+95,6446,Pantun teka-teki,"Terburu-buru ke kamar mandi
+Ternyata lupa membawa sabun
+Coba tebak apakah ini
+Selalu naik tak pernah turun","Terburu-buru ke kamar mandi
+Ternyata lupa membawa sabun","Coba tebak apakah ini
+Selalu naik tak pernah turun",Chat-GPT,zero_shot,Hasil Zero-shot,"Mari menebak apakah ini
+Mentari pagi selalu naik",2,2,0,1.000000,0.375000,10,10,9,10,0,
+12,315,Pantun nasihat dan budi pekerti,"Anak dara menampi padi
+Angin bertiup perlahan-lahan
+Jika ingin hidup terpuji
+Utamakan budi dalam pergaulan","Anak dara menampi padi
+Angin bertiup perlahan-lahan","Jika ingin hidup terpuji
+Utamakan budi dalam pergaulan",Chat-GPT,zero_shot,Hasil Zero-shot,"Air jernih mengalir segar
+Purnama terang sepanjang usia",2,2,0,1.000000,0.000000,9,11,9,11,0,
+16,6428,Pantun agama,"terang bulan terang bercahaya
+cahaya memancar ke tanjung jati
+jikalau hendak hidup bahagia
+beramal ibadah sebelum mati","terang bulan terang bercahaya
+cahaya memancar ke tanjung jati","jikalau hendak hidup bahagia
+beramal ibadah sebelum mati",Chat-GPT,zero_shot,Hasil Zero-shot,"Daun sirih tampak bersih
+Mentari bersinar sepanjang masa",2,2,0,1.000000,0.000000,8,11,11,11,0,
+50,1442,Pantun persahabatan,"Bunga tanjung di halaman
+Harumnya semerbak kala senja
+Jika ingin dihormati teman
+Bersikap rendah hati sentiasa","Bunga tanjung di halaman
+Harumnya semerbak kala senja","Jika ingin dihormati teman
+Bersikap rendah hati sentiasa",Chat-GPT,zero_shot,Hasil Zero-shot,"Jika ingin disayang teman
+Bersikap ramah sepanjang masa",2,2,1,1.000000,0.500000,9,10,10,11,0,
+72,1095,Pantun kebangsaan,"Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa
+Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa","Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa","Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa",Chat-GPT,zero_shot,Hasil Zero-shot,"Jika pusaka dijunjung tinggi
+Harumlah taman penuh wibawa",2,2,1,1.000000,0.625000,10,10,10,10,0,
+57,6154,Pantun bakti keluarga,"Sirih sekapur di dalam dulang
+Pinang belah disusun rata
+Jika ingin hidup gemilang
+Jangan lupa restu orang tua","Sirih sekapur di dalam dulang
+Pinang belah disusun rata","Jika ingin hidup gemilang
+Jangan lupa restu orang tua",Chat-GPT,zero_shot,Hasil Zero-shot,"Jika mendaki bukit gemilang
+Petik kenanga di taman tua",2,2,1,1.000000,0.333333,10,10,9,10,0,
+2,185,Pantun nasihat dan budi pekerti,"Air telaga ditimba petang
+Disimpan dalam kendi tua
+Jika ingin hidup dikenang
+Budi baik jadi pusaka","Air telaga ditimba petang
+Disimpan dalam kendi tua","Jika ingin hidup dikenang
+Budi baik jadi pusaka",Chat-GPT,zero_shot,Hasil Zero-shot,"Anak dagang membawa parang
+Nyiur melambai di tepi muara",2,2,1,1.000000,0.000000,9,11,9,9,0,
+48,1170,Pantun cinta dan kasih,"Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih
+Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih","Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih","Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih",Chat-GPT,zero_shot,Hasil Zero-shot,"Biar perahu dilambung ombak
+Tidak kulupa harum kekasih",2,2,1,1.000000,0.500000,10,10,10,10,0,
+99,4583,Pantun anak-anak,"pagi ini membaca koran
+baca berita orang hilang
+bermain kejarkejaran
+badan sehat hati pun senang","pagi ini membaca koran
+baca berita orang hilang","bermain kejarkejaran
+badan sehat hati pun senang",Chat-GPT,zero_shot,Hasil Zero-shot,"Bermain petak umpet di halaman
+Tubuh segar hati pun senang",2,2,1,1.000000,0.500000,11,9,8,9,0,
+56,6440,Pantun bakti keluarga,"Terbang tinggi burung merpati
+Hinggap sebentar di pohon kelapa
+Hidup di dunia buatlah bakti
+Kepada ibu dan juga bapa","Terbang tinggi burung merpati
+Hinggap sebentar di pohon kelapa","Hidup di dunia buatlah bakti
+Kepada ibu dan juga bapa",Chat-GPT,zero_shot,Hasil Zero-shot,"Burung merpati terbang tinggi
+Singgah sebentar di rumah bapa",2,2,1,1.000000,0.142857,9,10,11,10,0,
+69,3326,Pantun kehidupan dan renungan,"Ke sawah pagi membawa ani-ani
+Padi menguning tampak merata
+Jika ingin hidup berarti
+Hidupkan empati dalam jiwa","Ke sawah pagi membawa ani-ani
+Padi menguning tampak merata","Jika ingin hidup berarti
+Hidupkan empati dalam jiwa",Chat-GPT,zero_shot,Hasil Zero-shot,"Jika mendaki hidup berarti
+Harum melati memenuhi jiwa",2,2,1,1.000000,0.571429,10,11,9,10,0,
+65,1473,Pantun kehidupan dan renungan,"Burung bangau di tepi rawa
+Mencari ikan sejak pagi
+Kalau ingin hidup bahagia
+Jaga hati dari dengki","Burung bangau di tepi rawa
+Mencari ikan sejak pagi","Kalau ingin hidup bahagia
+Jaga hati dari dengki",Chat-GPT,zero_shot,Hasil Zero-shot,"Kalau hendak hidup bahagia
+Jangan bermain hati yang dengki",2,2,1,1.000000,0.714286,10,10,10,8,0,
+67,3196,Pantun kehidupan dan renungan,"Ke kebun pagi membawa keranjang
+Keranjang rotan diisi mangga
+Jika hidup terasa panjang
+Gunakan waktu untuk berkarya","Ke kebun pagi membawa keranjang
+Keranjang rotan diisi mangga","Jika hidup terasa panjang
+Gunakan waktu untuk berkarya",Claude,few_shot,Hasil Few-shot,"Kacang panjang tumbuh di ladang
+Ramai orang di hari raya",2,2,1,1.000000,0.142857,9,9,9,10,0,
+23,1637,Pantun pendidikan,"Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati
+Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati","Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati","Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati",Claude,few_shot,Hasil Few-shot,"Burung camar terbang ke awan
+Burung pipit hinggap berseri",2,2,1,1.000000,0.000000,9,9,10,11,0,
+81,950,Pantun perpisahan dan perantauan,"berburu belut ke tepi sawah
+segera pulang hari pun senja
+baru seminggu kita berpisah
+rindu di hati telah membara","berburu belut ke tepi sawah
+segera pulang hari pun senja","baru seminggu kita berpisah
+rindu di hati telah membara",Claude,few_shot,Hasil Few-shot,"Daun kering gugur ke tanah
+Burung camar terbang tinggi ke angkasa",2,2,1,1.000000,0.000000,9,12,10,10,0,
+17,6031,Pantun agama,"senja terbenam di langit barat
+bulan tak bersinar di malam sendu
+hidup di dunia ingatlah akhirat
+sebagai bekal gapailah ilmu","senja terbenam di langit barat
+bulan tak bersinar di malam sendu","hidup di dunia ingatlah akhirat
+sebagai bekal gapailah ilmu",Claude,few_shot,Hasil Few-shot,"Pergi ke pasar membeli obat
+Burung merpati terbang selalu",2,2,1,1.000000,0.000000,10,10,12,10,0,
+56,6440,Pantun bakti keluarga,"Terbang tinggi burung merpati
+Hinggap sebentar di pohon kelapa
+Hidup di dunia buatlah bakti
+Kepada ibu dan juga bapa","Terbang tinggi burung merpati
+Hinggap sebentar di pohon kelapa","Hidup di dunia buatlah bakti
+Kepada ibu dan juga bapa",Claude,few_shot,Hasil Few-shot,"Pergi berlayar mencari sakti
+Ke ladang pagi memetik kelapa",2,2,1,1.000000,0.000000,10,11,11,10,0,
+52,1714,Pantun persahabatan,"Burung pipit terbang rendah
+Hinggap sebentar di pohon cemara
+Jika hati selalu ramah
+Banyak sahabat datang menyapa","Burung pipit terbang rendah
+Hinggap sebentar di pohon cemara","Jika hati selalu ramah
+Banyak sahabat datang menyapa",Claude,few_shot,Hasil Few-shot,"Burung pipit hinggap di rumah
+Pohon kelapa tumbuh di pantai",2,2,0,1.000000,0.000000,9,10,9,10,0,
+33,4327,Pantun adat dan budaya,"Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu
+Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu","Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu","Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu",Claude,few_shot,Hasil Few-shot,"Elang terbang tinggi di gunung
+Anak ikan berenang di batu",2,2,1,1.000000,0.000000,9,10,11,10,0,
+4,4515,Pantun nasihat dan budi pekerti,"Pagi hari memetik mangga
+Burung kecil hinggap di pagar
+Jika ingin hidup bahagia
+Bersikap jujur dan sabar","Pagi hari memetik mangga
+Burung kecil hinggap di pagar","Jika ingin hidup bahagia
+Bersikap jujur dan sabar",Claude,few_shot,Hasil Few-shot,"Burung merpati terbang ke desa
+Kerbau digembala di padang besar",2,2,1,1.000000,0.000000,10,11,10,8,0,
+36,5563,Pantun kiasan dan peribahasa,"pohon kelapa ditanam disana
+berdekatan dengan pohon kenari
+peran ibu bapak dalam dunia
+bagaikan bulan dan matahari","pohon kelapa ditanam disana
+berdekatan dengan pohon kenari","peran ibu bapak dalam dunia
+bagaikan bulan dan matahari",Claude,few_shot,Hasil Few-shot,"Anak kera bermain di rimba
+Bunga kenanga harum berseri",2,2,1,1.000000,0.000000,10,10,11,10,0,
+97,6235,Pantun anak-anak,"sungguh indah bunga mawar
+harum semerbak di tepi taman
+setelah bermain bersihkan kamar
+jangan sampai berantakan","sungguh indah bunga mawar
+harum semerbak di tepi taman","setelah bermain bersihkan kamar
+jangan sampai berantakan",Claude,few_shot,Hasil Few-shot,"Pergi ke pasar membeli akar
+Ibu memasak nasi dan ikan",2,2,1,1.000000,0.000000,10,10,11,8,0,
+13,2101,Pantun agama,"durian runtuh jatuh ke dahan
+bertiup angin dari tanjung pinang
+tunduk patuh pada tuhan
+hati teduh jiwa pun tenang","durian runtuh jatuh ke dahan
+bertiup angin dari tanjung pinang","tunduk patuh pada tuhan
+hati teduh jiwa pun tenang",Claude,few_shot,Hasil Few-shot,"Burung camar terbang ke lautan
+Anak-anak bermain riang",2,2,1,1.000000,0.000000,9,9,8,9,0,
+59,5859,Pantun bakti keluarga,"sampan kecil kita berlabuh
+memuat kelapa bawa ke pasar
+sejak kecil kita diasuh
+jasa ibu bapak sangatlah besar","sampan kecil kita berlabuh
+memuat kelapa bawa ke pasar","sejak kecil kita diasuh
+jasa ibu bapak sangatlah besar",Claude,few_shot,Hasil Few-shot,"Mencuci baju lalu dibasuh
+Ramai orang berjualan di pasar",2,2,1,1.000000,0.000000,10,11,9,11,0,
+92,1001,Pantun teka-teki,"berlayar perahu dari berandan
+menuju arah selat malaka
+lebar kepala dari badan
+apakah itu coba kau terka","berlayar perahu dari berandan
+menuju arah selat malaka","lebar kepala dari badan
+apakah itu coba kau terka",Claude,few_shot,Hasil Few-shot,"Burung dara terbang menuju hutan
+Singgah sejenak melepas dahaga",2,2,1,1.000000,0.000000,11,11,9,10,0,
+70,1466,Pantun kehidupan dan renungan,"Burung bangau berdiri diam
+Menunggu ikan di tepian
+Orang sabar dalam diam
+Menunggu waktu kemenangan","Burung bangau berdiri diam
+Menunggu ikan di tepian","Orang sabar dalam diam
+Menunggu waktu kemenangan",Claude,few_shot,Hasil Few-shot,"Bulan bersinar di waktu malam
+Anak-anak bermain di lapangan",2,2,1,1.000000,0.166667,10,11,8,9,0,
+44,1599,Pantun cinta dan kasih,"Burung kenari bersuara sendu
+Di pohon ara tepi halaman
+Jika rindu datang bertalu
+Mengapa engkau tak beri jawaban","Burung kenari bersuara sendu
+Di pohon ara tepi halaman","Jika rindu datang bertalu
+Mengapa engkau tak beri jawaban",Claude,few_shot,Hasil Few-shot,"Angin berhembus menuju hulu
+Sudah lama menanti balasan",2,2,1,1.000000,0.000000,10,10,9,11,0,
+42,1635,Pantun cinta dan kasih,"Burung merpati terbang berdua
+Menyusuri awan indah berlapis
+Kasih dan sayang mari terjaga
+Cinta abadi tak pernah habis","Burung merpati terbang berdua
+Menyusuri awan indah berlapis","Kasih dan sayang mari terjaga
+Cinta abadi tak pernah habis",Claude,few_shot,Hasil Few-shot,"Pohon jati tumbuh di rimba
+Air jernih mengalir manis",2,2,1,1.000000,0.000000,9,9,10,10,0,
+60,1710,Pantun bakti keluarga,"Burung pipit terbang rendah
+Hinggap manis di atas batu
+Jika ingin hidup berkah
+Hormati ayah dan ibu","Burung pipit terbang rendah
+Hinggap manis di atas batu","Jika ingin hidup berkah
+Hormati ayah dan ibu",Claude,few_shot,Hasil Few-shot,"Padi menguning di tengah sawah
+Perahu kecil terbuat dari kayu",2,2,1,1.000000,0.000000,10,12,8,8,0,
+69,3326,Pantun kehidupan dan renungan,"Ke sawah pagi membawa ani-ani
+Padi menguning tampak merata
+Jika ingin hidup berarti
+Hidupkan empati dalam jiwa","Ke sawah pagi membawa ani-ani
+Padi menguning tampak merata","Jika ingin hidup berarti
+Hidupkan empati dalam jiwa",Claude,few_shot,Hasil Few-shot,"Hujan turun sudah pasti
+Di puncak gunung bersemayam dewa",2,2,1,1.000000,0.000000,8,11,9,10,0,
+65,1473,Pantun kehidupan dan renungan,"Burung bangau di tepi rawa
+Mencari ikan sejak pagi
+Kalau ingin hidup bahagia
+Jaga hati dari dengki","Burung bangau di tepi rawa
+Mencari ikan sejak pagi","Kalau ingin hidup bahagia
+Jaga hati dari dengki",Claude,few_shot,Hasil Few-shot,"Berlayar jauh ke tanah mulia
+Pohon kelapa tumbuh tinggi",2,2,1,1.000000,0.000000,11,9,10,8,0,
+8,120,Pantun nasihat dan budi pekerti,"Air hujan turun ke ladang
+Menyuburkan padi di sawah
+Jika hidup ingin tenang
+Jangan suka mencari salah","Air hujan turun ke ladang
+Menyuburkan padi di sawah","Jika hidup ingin tenang
+Jangan suka mencari salah",Claude,few_shot,Hasil Few-shot,"Layang-layang terbang melayang
+Anak kecil bermain di sawah",2,2,1,1.000000,0.000000,9,10,8,9,0,
+86,1326,Pantun jenaka,"bunga di taman jangan dipetik
+tempat bergantung si kepompong
+temanku ini memang cantik
+sayang dia giginya ompong","bunga di taman jangan dipetik
+tempat bergantung si kepompong","temanku ini memang cantik
+sayang dia giginya ompong",Claude,few_shot,Hasil Few-shot,"Kain batik bermotif unik
+Baju lama digigit tikus jadi bolong",2,2,1,0.852344,0.000000,9,13,9,9,1,
+99,4583,Pantun anak-anak,"pagi ini membaca koran
+baca berita orang hilang
+bermain kejarkejaran
+badan sehat hati pun senang","pagi ini membaca koran
+baca berita orang hilang","bermain kejarkejaran
+badan sehat hati pun senang",Claude,few_shot,Hasil Few-shot,"Pergi ke taman bermain layangan
+Ayam berkokok riang di kandang",2,2,1,1.000000,0.166667,11,10,8,9,0,
+28,6142,Pantun adat dan budaya,"Sirih berlipat sirih pinang
+Sirih dari Pulau Mutiara
+Adat dijunjung pusaka dikenang
+Budi bahasa penyeri negara","Sirih berlipat sirih pinang
+Sirih dari Pulau Mutiara","Adat dijunjung pusaka dikenang
+Budi bahasa penyeri negara",Claude,few_shot,Hasil Few-shot,"Burung camar terbang melayang
+Pergi ke kota membeli kaca",2,2,1,1.000000,0.000000,9,10,11,11,0,
+96,4036,Pantun anak-anak,"menanam bunga membuat taman
+akan indah laksana bintang
+bermain layanglayang bersama teman
+lupa waktu hampir petang","menanam bunga membuat taman
+akan indah laksana bintang","bermain layanglayang bersama teman
+lupa waktu hampir petang",Claude,few_shot,Hasil Few-shot,"Anak-anak berkumpul di halaman
+Kambing digiring pulang ke kandang",2,2,1,1.000000,0.000000,11,10,12,8,0,
+57,6154,Pantun bakti keluarga,"Sirih sekapur di dalam dulang
+Pinang belah disusun rata
+Jika ingin hidup gemilang
+Jangan lupa restu orang tua","Sirih sekapur di dalam dulang
+Pinang belah disusun rata","Jika ingin hidup gemilang
+Jangan lupa restu orang tua",Claude,few_shot,Hasil Few-shot,"Bulan purnama bersinar cemerlang
+Pohon beringin sudah lama tua",2,2,1,1.000000,0.111111,11,11,9,10,0,
+46,3362,Pantun cinta dan kasih,"Ke taman bunga membeli mawar
+Harumnya semerbak menawan hati
+Rindu padamu kian berputar
+Kasih terikat janji sejati","Ke taman bunga membeli mawar
+Harumnya semerbak menawan hati","Rindu padamu kian berputar
+Kasih terikat janji sejati",Claude,zero_shot,Hasil Zero-shot,"Roda pedati terus berputar
+Kembang melati harum di hati",2,2,1,1.000000,0.125000,10,10,10,10,0,
+78,4854,Pantun sosial dan kerukunan,"Pergi ke desa membawa padi
+Padi ditumbuk jadi beras
+Jika ingin hidup penuh budi
+Hormati sesama tanpa membalas","Pergi ke desa membawa padi
+Padi ditumbuk jadi beras","Jika ingin hidup penuh budi
+Hormati sesama tanpa membalas",Claude,zero_shot,Hasil Zero-shot,"Bunga melati harum mewangi,
+Ikan berenang di sungai deras",2,2,1,1.000000,0.000000,10,10,10,11,0,
+26,514,Pantun pendidikan,"Angin pagi menyentuh daun
+Embun jatuh di atas batu
+Ilmu tinggi bukan sekadar daun
+Namun amal jadi penentu","Angin pagi menyentuh daun
+Embun jatuh di atas batu","Ilmu tinggi bukan sekadar daun
+Namun amal jadi penentu",Claude,zero_shot,Hasil Zero-shot,"Pergi ke kebun memetik daun
+Singgah sejenak mencari susu",2,2,1,1.000000,0.125000,10,10,11,9,0,
+37,313,Pantun kiasan dan peribahasa,"Anak Cik Siti mencari tuba
+Tuba dicari di Tanjung Jati
+Di dalam hati tidakkan lupa
+Bagai rambut tersimpul mati","Anak Cik Siti mencari tuba
+Tuba dicari di Tanjung Jati","Di dalam hati tidakkan lupa
+Bagai rambut tersimpul mati",Claude,zero_shot,Hasil Zero-shot,"Kain batik bermacam rupa
+Bunga kemboja layu lalu mati",2,2,1,1.000000,0.166667,9,11,10,9,0,
+72,1095,Pantun kebangsaan,"Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa
+Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa","Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa","Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa",Claude,zero_shot,Hasil Zero-shot,"Pergi ke pasar membeli topi
+Singgah sejenak di rumah tua",2,2,1,1.000000,0.000000,10,10,10,10,0,
+32,1931,Pantun adat dan budaya,"Daun selasih di tepi laman
+Disiram embun waktu fajar
+Budi bahasa jadi pegangan
+Agar hidup sentiasa wajar","Daun selasih di tepi laman
+Disiram embun waktu fajar","Budi bahasa jadi pegangan
+Agar hidup sentiasa wajar",Claude,zero_shot,Hasil Zero-shot,"Anak kecil bermain layangan
+Petang hari pergi belajar",2,2,1,1.000000,0.000000,10,9,10,10,0,
+52,1714,Pantun persahabatan,"Burung pipit terbang rendah
+Hinggap sebentar di pohon cemara
+Jika hati selalu ramah
+Banyak sahabat datang menyapa","Burung pipit terbang rendah
+Hinggap sebentar di pohon cemara","Jika hati selalu ramah
+Banyak sahabat datang menyapa",Claude,zero_shot,Hasil Zero-shot,"Pergi ke kebun memetik buah
+Singgah sejenak di kedai kita",2,2,1,1.000000,0.000000,10,10,9,10,0,
+16,6428,Pantun agama,"terang bulan terang bercahaya
+cahaya memancar ke tanjung jati
+jikalau hendak hidup bahagia
+beramal ibadah sebelum mati","terang bulan terang bercahaya
+cahaya memancar ke tanjung jati","jikalau hendak hidup bahagia
+beramal ibadah sebelum mati",Claude,zero_shot,Hasil Zero-shot,"Pergi ke taman memetik bunga
+Indah mekar sepanjang hari",2,2,1,1.000000,0.000000,10,9,11,11,0,
+75,1347,Pantun kebangsaan,"Bunga kenanga mekar berseri
+Harumnya halus menawan rasa
+Jika budi menjadi pertiwi
+Bangsa bermaruah sepanjang masa","Bunga kenanga mekar berseri
+Harumnya halus menawan rasa","Jika budi menjadi pertiwi
+Bangsa bermaruah sepanjang masa",Claude,zero_shot,Hasil Zero-shot,"Pergi ke ladang menanam padi
+Singgah sejenak melepas dahaga",2,2,1,1.000000,0.000000,10,11,10,11,0,
+10,3176,Pantun nasihat dan budi pekerti,"Ke kebun bunga memetik mawar
+Mawar merah harum baunya
+Jika ingin hidup terasa segar
+Syukuri nikmat sepanjang usia","Ke kebun bunga memetik mawar
+Mawar merah harum baunya","Jika ingin hidup terasa segar
+Syukuri nikmat sepanjang usia",Claude,zero_shot,Hasil Zero-shot,"Ikan gurame dijual di pasar
+Dimasak enak dengan bumbu cuka",2,2,1,1.000000,0.000000,11,11,11,11,0,
+17,6031,Pantun agama,"senja terbenam di langit barat
+bulan tak bersinar di malam sendu
+hidup di dunia ingatlah akhirat
+sebagai bekal gapailah ilmu","senja terbenam di langit barat
+bulan tak bersinar di malam sendu","hidup di dunia ingatlah akhirat
+sebagai bekal gapailah ilmu",Claude,zero_shot,Hasil Zero-shot,"Pergi ke ladang membawa alat
+Bekerja keras sepanjang waktu",2,2,1,1.000000,0.000000,10,10,12,10,0,
+38,3270,Pantun kiasan dan peribahasa,"Ke pasar membeli kain sutra
+Tak lupa bunga kenanga wangi
+Ilmu tanpa akhlak percuma
+Bagaikan raga tanpa rohani","Ke pasar membeli kain sutra
+Tak lupa bunga kenanga wangi","Ilmu tanpa akhlak percuma
+Bagaikan raga tanpa rohani",Claude,zero_shot,Hasil Zero-shot,"Ke pasar pagi membeli kaca
+Jangan gentar jadilah berani",2,2,1,1.000000,0.000000,10,10,9,10,0,
+50,1442,Pantun persahabatan,"Bunga tanjung di halaman
+Harumnya semerbak kala senja
+Jika ingin dihormati teman
+Bersikap rendah hati sentiasa","Bunga tanjung di halaman
+Harumnya semerbak kala senja","Jika ingin dihormati teman
+Bersikap rendah hati sentiasa",Claude,zero_shot,Hasil Zero-shot,"Kalau berjalan menuju hutan
+Hidup sederhana di desa",2,2,1,1.000000,0.000000,10,9,10,11,0,
+59,5859,Pantun bakti keluarga,"sampan kecil kita berlabuh
+memuat kelapa bawa ke pasar
+sejak kecil kita diasuh
+jasa ibu bapak sangatlah besar","sampan kecil kita berlabuh
+memuat kelapa bawa ke pasar","sejak kecil kita diasuh
+jasa ibu bapak sangatlah besar",Claude,zero_shot,Hasil Zero-shot,"Pohon rendang tempat berteduh
+Angin bertiup dari seberang pasar",2,2,1,1.000000,0.000000,9,12,9,11,0,
+4,4515,Pantun nasihat dan budi pekerti,"Pagi hari memetik mangga
+Burung kecil hinggap di pagar
+Jika ingin hidup bahagia
+Bersikap jujur dan sabar","Pagi hari memetik mangga
+Burung kecil hinggap di pagar","Jika ingin hidup bahagia
+Bersikap jujur dan sabar",Claude,zero_shot,Hasil Zero-shot,"Pergi ke kota naik kereta
+Singgah sebentar mencari kabar",2,2,1,1.000000,0.000000,10,10,10,8,0,
+28,6142,Pantun adat dan budaya,"Sirih berlipat sirih pinang
+Sirih dari Pulau Mutiara
+Adat dijunjung pusaka dikenang
+Budi bahasa penyeri negara","Sirih berlipat sirih pinang
+Sirih dari Pulau Mutiara","Adat dijunjung pusaka dikenang
+Budi bahasa penyeri negara",Claude,zero_shot,Hasil Zero-shot,"Ke tepi kolam hati pun senang
+Angin sepoi menyejukkan udara",2,2,1,1.000000,0.000000,10,11,11,11,0,
+84,4791,Pantun perpisahan dan perantauan,"pergi berlayar ke pulau seberang
+sambilkan dengan memancing ikan
+semakin jauh ke rantau orang
+hanya keluarga yang aku rindukan","pergi berlayar ke pulau seberang
+sambilkan dengan memancing ikan","semakin jauh ke rantau orang
+hanya keluarga yang aku rindukan",Claude,zero_shot,Hasil Zero-shot,"Burung camar terbang melayang,
+Singgah dahulu di tepi jalan",2,2,1,1.000000,0.000000,9,10,10,12,0,
+66,1275,Pantun kehidupan dan renungan,"bulan berkedip bintang datang
+beli sarung di pasar pagi
+begini nasib jadi pedagang
+kadang untung kadang rugi","bulan berkedip bintang datang
+beli sarung di pasar pagi","begini nasib jadi pedagang
+kadang untung kadang rugi",Claude,zero_shot,Hasil Zero-shot,"Pergi ke pasar menjual pisang
+Berjalan kaki menempuh sepi",2,2,1,1.000000,0.000000,10,10,10,8,0,
+96,4036,Pantun anak-anak,"menanam bunga membuat taman
+akan indah laksana bintang
+bermain layanglayang bersama teman
+lupa waktu hampir petang","menanam bunga membuat taman
+akan indah laksana bintang","bermain layanglayang bersama teman
+lupa waktu hampir petang",Claude,zero_shot,Hasil Zero-shot,"Pergi memancing bersama kawan,
+Balik ke rumah langit pun terang",2,2,1,1.000000,0.125000,10,10,12,8,0,
+99,4583,Pantun anak-anak,"pagi ini membaca koran
+baca berita orang hilang
+bermain kejarkejaran
+badan sehat hati pun senang","pagi ini membaca koran
+baca berita orang hilang","bermain kejarkejaran
+badan sehat hati pun senang",Claude,zero_shot,Hasil Zero-shot,"Anak-anak bermain di halaman,
+Tertawa riang sepanjang petang",2,2,1,1.000000,0.166667,11,10,8,9,0,
+65,1473,Pantun kehidupan dan renungan,"Burung bangau di tepi rawa
+Mencari ikan sejak pagi
+Kalau ingin hidup bahagia
+Jaga hati dari dengki","Burung bangau di tepi rawa
+Mencari ikan sejak pagi","Kalau ingin hidup bahagia
+Jaga hati dari dengki",Claude,zero_shot,Hasil Zero-shot,"Bunga mawar mekar di taman kota
+Kupu-kupu terbang menari-nari",2,2,1,1.000000,0.000000,11,11,10,8,0,
+18,4555,Pantun agama,"Pagi hari menuju sawah
+Embun jatuh di daun padi
+Jika hidup ingin berkah
+Rajin ibadah setiap hari","Pagi hari menuju sawah
+Embun jatuh di daun padi","Jika hidup ingin berkah
+Rajin ibadah setiap hari",Claude,zero_shot,Hasil Zero-shot,"Ke pasar pagi membeli buah
+Dibawa pulang sambil berlari",2,2,1,1.000000,0.000000,10,10,8,10,0,
+79,1697,Pantun sosial dan kerukunan,"Burung pipit hinggap di dahan
+Bersiul riang di pagi hari
+Jika ingin hidup penuh kedamaian
+Jagalah lisan serta hati","Burung pipit hinggap di dahan
+Bersiul riang di pagi hari","Jika ingin hidup penuh kedamaian
+Jagalah lisan serta hati",Claude,zero_shot,Hasil Zero-shot,"Anak kecil bermain di halaman,
+Kupu-kupu terbang tinggi",2,2,1,1.000000,0.000000,11,8,12,9,0,
+23,1637,Pantun pendidikan,"Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati
+Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati","Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati","Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati",Claude,zero_shot,Hasil Zero-shot,"Burung pipit terbang ke hutan
+Hinggap sejenak menyambut pagi",2,2,1,1.000000,0.000000,9,10,10,11,0,
+81,950,Pantun perpisahan dan perantauan,"berburu belut ke tepi sawah
+segera pulang hari pun senja
+baru seminggu kita berpisah
+rindu di hati telah membara","berburu belut ke tepi sawah
+segera pulang hari pun senja","baru seminggu kita berpisah
+rindu di hati telah membara",Claude,zero_shot,Hasil Zero-shot,"Pergi ke pasar membeli buah,
+Duduk termenung bercerita",2,2,1,1.000000,0.000000,10,9,10,10,0,
+61,2906,Pantun bakti keluarga,"kalau angin bertiup di darat
+ambillah jala turunkan sampan
+kalau hidup hendak selamat
+ayah dan bunda kita muliakan","kalau angin bertiup di darat
+ambillah jala turunkan sampan","kalau hidup hendak selamat
+ayah dan bunda kita muliakan",DeepSeek-R1,few_shot,Hasil Few-shot,"Ayah bunda yang selalu sayang
+Kita hormati dengan sepenuh jiwa",2,2,0,1.000000,0.285714,10,12,9,11,0,
+57,6154,Pantun bakti keluarga,"Sirih sekapur di dalam dulang
+Pinang belah disusun rata
+Jika ingin hidup gemilang
+Jangan lupa restu orang tua","Sirih sekapur di dalam dulang
+Pinang belah disusun rata","Jika ingin hidup gemilang
+Jangan lupa restu orang tua",DeepSeek-R1,few_shot,Hasil Few-shot,"Ibu bapak yang memberi nian
+Restu mereka akan kita jaga",2,2,0,1.000000,0.111111,10,11,9,10,0,
+85,6374,Pantun perpisahan dan perantauan,"tanjung sauh di pulau bintan
+tempat berlabuh orang penyengat
+berpisah jauh bercerai badan
+sahabat handai tetap kuingat","tanjung sauh di pulau bintan
+tempat berlabuh orang penyengat","berpisah jauh bercerai badan
+sahabat handai tetap kuingat",DeepSeek-R1,few_shot,Hasil Few-shot,"Sahabat baik seperti bukit yang kokoh
+Cerai badan takkan abai keingatan",2,2,0,0.852344,0.250000,13,12,10,10,1,
+5,4853,Pantun nasihat dan budi pekerti,"Pergi ke desa membawa padi
+Padi ditukar dengan ikan
+Jika hidup ingin berisi budi
+Hormati janji dan ucapan","Pergi ke desa membawa padi
+Padi ditukar dengan ikan","Jika hidup ingin berisi budi
+Hormati janji dan ucapan",DeepSeek-R1,few_shot,Hasil Few-shot,"Kayu tinggi dihela perahu
+Bulan tinggi di langit malam",2,2,0,1.000000,0.000000,10,9,11,9,0,
+87,1718,Pantun jenaka,"burung pipit turun ke rawa
+kakinya gerah kena belerang
+nenek murung jadi tertawa
+melihat kakek main kelerang","burung pipit turun ke rawa
+kakinya gerah kena belerang","nenek murung jadi tertawa
+melihat kakek main kelereng",DeepSeek-R1,few_shot,Hasil Few-shot,"Kakek sibuk menggaruk tanah
+Nenek tertawa mendengar mainan kelereng",2,2,0,0.852344,0.571429,9,13,9,10,1,
+39,5861,Pantun kiasan dan peribahasa,"sampan perahu mengejar kayak
+dari hulu tak kenakena
+dusta itu bagaikan riak
+membuat hati gundah gulana","sampan perahu mengejar kayak
+dari hulu tak kenakena","dusta itu bagaikan riak
+membuat hati gundah gulana",DeepSeek-R1,few_shot,Hasil Few-shot,"Kebenaran yang murni seperti
+Permukaan air yang tenang dan jernih",2,2,0,1.000000,0.000000,10,12,9,10,0,
+64,1377,Pantun kehidupan dan renungan,"Bunga mawar merah berduri
+Cantik mekar di taman desa
+Jika hati bersih nurani
+Hidup indah penuh rasa","Bunga mawar merah berduri
+Cantik mekar di taman desa","Jika hati bersih nurani
+Hidup indah penuh rasa",DeepSeek-R1,few_shot,Hasil Few-shot,"Hati yang suci dan bersih nian
+Mencerminkan kebijaksanaan tinggi",2,2,0,1.000000,0.250000,10,12,9,8,0,
+72,1095,Pantun kebangsaan,"Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa
+Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa","Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa","Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa",DeepSeek-R1,few_shot,Hasil Few-shot,"Jujur dan amanah di atas segalanya
+Bangsa kita akan kuat dan besar",2,2,0,0.852344,0.250000,13,11,10,10,1,
+46,3362,Pantun cinta dan kasih,"Ke taman bunga membeli mawar
+Harumnya semerbak menawan hati
+Rindu padamu kian berputar
+Kasih terikat janji sejati","Ke taman bunga membeli mawar
+Harumnya semerbak menawan hati","Rindu padamu kian berputar
+Kasih terikat janji sejati",DeepSeek-R1,few_shot,Hasil Few-shot,"Kekaguman terhadap seseorang
+Ditopang oleh janji-janji setia",2,2,0,1.000000,0.000000,11,12,10,10,0,
+24,5202,Pantun pendidikan,"Pergi ke pasar membeli talas
+Tak lupa membeli buah duku
+Ilmu diamalkan jadi ikhlas
+Agar hidup penuh makna selalu","Pergi ke pasar membeli talas
+Tak lupa membeli buah duku","Ilmu diamalkan jadi ikhlas
+Agar hidup penuh makna selalu",DeepSeek-R1,few_shot,Hasil Few-shot,"Bidadari tinggal di awan tinggi
+Hutan rimbun di balik bukit",2,2,0,1.000000,0.000000,11,9,10,11,0,
+42,1635,Pantun cinta dan kasih,"Burung merpati terbang berdua
+Menyusuri awan indah berlapis
+Kasih dan sayang mari terjaga
+Cinta abadi tak pernah habis","Burung merpati terbang berdua
+Menyusuri awan indah berlapis","Kasih dan sayang mari terjaga
+Cinta abadi tak pernah habis",DeepSeek-R1,few_shot,Hasil Few-shot,"Cinta dan kasih sayang perlu dijaga
+Agar kebahagiaan tetap abadi terasa",2,2,0,0.623298,0.444444,12,16,10,10,4,
+99,4583,Pantun anak-anak,"pagi ini membaca koran
+baca berita orang hilang
+bermain kejarkejaran
+badan sehat hati pun senang","pagi ini membaca koran
+baca berita orang hilang","bermain kejarkejaran
+badan sehat hati pun senang",DeepSeek-R1,few_shot,Hasil Few-shot,"Permainan yang kudalami malam
+Hanya kejar-kejaran di tanah lapang",2,2,0,1.000000,0.166667,10,12,8,9,0,
+11,1343,Pantun nasihat dan budi pekerti,"Bunga kenanga harum baunya
+Disimpan rapi di dalam peti
+Jika ingin hidup mulia
+Jujur selalu dalam hati","Bunga kenanga harum baunya
+Disimpan rapi di dalam peti","Jika ingin hidup mulia
+Jujur selalu dalam hati",DeepSeek-R1,few_shot,Hasil Few-shot,"Pusaka zaman dulu kala
+Bukit tinggi masih diingat",2,2,0,1.000000,0.000000,9,9,9,9,0,
+60,1710,Pantun bakti keluarga,"Burung pipit terbang rendah
+Hinggap manis di atas batu
+Jika ingin hidup berkah
+Hormati ayah dan ibu","Burung pipit terbang rendah
+Hinggap manis di atas batu","Jika ingin hidup berkah
+Hormati ayah dan ibu",DeepSeek-R1,few_shot,Hasil Few-shot,"Hidup dengan budi dan amal
+Membawa kebahagiaan dunia",2,2,0,1.000000,0.142857,9,12,8,8,0,
+79,1697,Pantun sosial dan kerukunan,"Burung pipit hinggap di dahan
+Bersiul riang di pagi hari
+Jika ingin hidup penuh kedamaian
+Jagalah lisan serta hati","Burung pipit hinggap di dahan
+Bersiul riang di pagi hari","Jika ingin hidup penuh kedamaian
+Jagalah lisan serta hati",DeepSeek-R1,few_shot,Hasil Few-shot,"Pegunungan tinggi menyembul awan
+Hati dan lisan dijaga dari duka",2,2,0,1.000000,0.222222,11,12,12,9,0,
+22,4434,Pantun pendidikan,"Pagi cerah memetik mawar
+Harumnya sampai ke halaman
+Ilmu dicari dengan sabar
+Supaya hidup penuh harapan","Pagi cerah memetik mawar
+Harumnya sampai ke halaman","Ilmu dicari dengan sabar
+Supaya hidup penuh harapan",DeepSeek-R1,few_shot,Hasil Few-shot,"Hutan belantara di balik bukit
+Langit jernih awan putih",2,2,0,1.000000,0.000000,11,8,9,10,0,
+77,1606,Pantun sosial dan kerukunan,"Burung kenari terbang ke taman
+Hinggap sejenak di dahan cemara
+Jika ingin hidup penuh kebaikan
+Ringankan tangan membantu sesama","Burung kenari terbang ke taman
+Hinggap sejenak di dahan cemara","Jika ingin hidup penuh kebaikan
+Ringankan tangan membantu sesama",DeepSeek-R1,few_shot,Hasil Few-shot,"Langit biru memandu senja
+Budi peksa menaburkan bunga",2,2,0,1.000000,0.000000,9,10,11,11,0,
+88,5682,Pantun jenaka,"pulang memancing badan kusam
+mendapat ikan anak tenggiri
+ketika ditanya semuanya diam
+karena kentut tak berbunyi","pulang memancing badan kusam
+mendapat ikan anak tenggiri","ketika ditanya semuanya diam
+karena kentut tak berbunyi",DeepSeek-R1,few_shot,Hasil Few-shot,"Ruang kelas sunyi saat guru bicara
+Diam semua karena bisik tak berisik",2,2,0,0.674969,0.285714,13,14,12,9,3,
+7,5357,Pantun nasihat dan budi pekerti,"Pergi ke taman memetik kenari
+Kenari jatuh ke atas tanah
+Jika hidup ingin penuh budi
+Rendah hati jauhi angkuh dan marah","Pergi ke taman memetik kenari
+Kenari jatuh ke atas tanah","Jika hidup ingin penuh budi
+Rendah hati jauhi angkuh dan marah",DeepSeek-R1,few_shot,Hasil Few-shot,"Bidadari tinggal di awan
+Singa tinggi di sela gunung",2,2,0,1.000000,0.000000,9,9,10,12,0,
+54,6148,Pantun persahabatan,"Sirih kuning dalam tempayan
+Air jernih penuh isinya
+Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya","Sirih kuning dalam tempayan
+Air jernih penuh isinya","Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya",DeepSeek-R1,few_shot,Hasil Few-shot,"Hidup ini tidak sendiri nian
+Bagi diri sendiri dan sesama",2,2,1,1.000000,0.142857,11,11,9,11,0,
+91,4536,Pantun teka-teki,"pagi hari menanak nasi
+nasi bekal orang di sawah
+cobalah terka pantunku ini
+akar di atas pucuk di bawah","pagi hari menanak nasi
+nasi bekal orang di sawah","cobalah terka pantunku ini
+akar di atas pucuk di bawah",DeepSeek-R1,few_shot,Hasil Few-shot,"Dunia maya menarik perhatian
+Sayangnya gigi ompong sering bolong",2,2,0,1.000000,0.000000,12,11,10,10,0,
+74,1729,Pantun kebangsaan,"Burung serindit menyisir awan
+Hinggap sebentar di dahan sena
+Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda","Burung serindit menyisir awan
+Hinggap sebentar di dahan sena","Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda",DeepSeek-R1,few_shot,Hasil Few-shot,"Menjunjung tinggi amanah dan kejujuran
+Bangsa kita akan selalu dihormati",2,2,0,0.748293,0.285714,13,13,10,10,2,
+3,3264,Pantun nasihat dan budi pekerti,"Ke pasar membeli buah duku
+Duku manis rasanya segar
+Jika hidup ingin bermutu
+Jujur dan amanah harus dipagar","Ke pasar membeli buah duku
+Duku manis rasanya segar","Jika hidup ingin bermutu
+Jujur dan amanah harus dipagar",DeepSeek-R1,few_shot,Hasil Few-shot,"Sungai jernih mengalir perlahan
+Pohon besar menembus awan tinggi",2,2,0,1.000000,0.000000,10,11,9,11,0,
+30,3695,Pantun adat dan budaya,"lebat daun bunga tanjung
+berbau harum bunga cempaka
+adat dijaga pusaka dijunjung
+baru terpelihara adat pesaka","lebat daun bunga tanjung
+berbau harum bunga cempaka","adat dijaga pusaka dijunjung
+baru terpelihara adat pesaka",DeepSeek-R1,few_shot,Hasil Few-shot,"Adat adalah akar budaya kita
+Pusaka membawa warisan peradaban",2,2,0,0.852344,0.285714,12,13,11,12,1,
+31,1743,Pantun adat dan budaya,"Burung tempua beranyam sarang
+Di pohon sena rimbun berdaun
+Budi bahasa tiang terbilang
+Tegak bangsa sepanjang tahun","Burung tempua beranyam sarang
+Di pohon sena rimbun berdaun","Budi bahasa tiang terbilang
+Tegak bangsa sepanjang tahun",DeepSeek-R1,few_shot,Hasil Few-shot,"Kesopanan dan sopan santun
+Menjadi ciri khas bangsa kita",2,2,0,1.000000,0.125000,9,10,10,9,0,
+15,2465,Pantun agama,"Ikan sepat ikan gabus
+Masak lemak dalam belanga
+Jika hendak hidup lurus
+Ikut adat dan agama","Ikan sepat ikan gabus
+Masak lemak dalam belanga","Jika hendak hidup lurus
+Ikut adat dan agama",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Jika hendak hidup lurus
+Ikut adat dan agama",2,2,1,1.000000,1.000000,8,8,8,8,0,
+72,1095,Pantun kebangsaan,"Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa
+Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa","Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa","Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Tinggalkanlah kebajikan dengan tekun
+Agar kemuliaan negeri kau junjung",2,2,0,0.852344,0.000000,12,13,10,10,1,
+66,1275,Pantun kehidupan dan renungan,"bulan berkedip bintang datang
+beli sarung di pasar pagi
+begini nasib jadi pedagang
+kadang untung kadang rugi","bulan berkedip bintang datang
+beli sarung di pasar pagi","begini nasib jadi pedagang
+kadang untung kadang rugi",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Beginilah nasib seorang pedagang
+Tidak selamanya peruntungan membudikannya",2,2,0,0.674969,0.333333,12,15,10,8,3,
+51,6151,Pantun persahabatan,"Sirih merah di dalam puan
+Pinang muda dibelah rata
+Jika hendak disayang kawan
+Bersikap jujur sepanjang masa","Sirih merah di dalam puan
+Pinang muda dibelah rata","Jika hendak disayang kawan
+Bersikap jujur sepanjang masa",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Hendaklah kau bijaksana
+Tak pernah berbohong di saat itu",2,2,0,1.000000,0.000000,8,11,9,10,0,
+47,4689,Pantun cinta dan kasih,"pasar sawang beli lawang
+salak pondoh sepat rasanya
+sabar sayang abang kan pulang
+ada jodoh tidak akan ke mana","pasar sawang beli lawang
+salak pondoh sepat rasanya","sabar sayang abang kan pulang
+ada jodoh tidak akan ke mana",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Bilangan sabar menghadapi masalah,
+Jalan pulang pasti akan terbuka lebar.",2,2,0,0.852344,0.285714,12,13,9,11,1,
+2,185,Pantun nasihat dan budi pekerti,"Air telaga ditimba petang
+Disimpan dalam kendi tua
+Jika ingin hidup dikenang
+Budi baik jadi pusaka","Air telaga ditimba petang
+Disimpan dalam kendi tua","Jika ingin hidup dikenang
+Budi baik jadi pusaka",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Budi baik jadi pusaka
+Agar hidup selalu dikenang",2,2,0,1.000000,0.714286,9,10,9,9,0,
+73,4132,Pantun kebangsaan,"Mentari pagi menyimbah desa
+Kabut tersingkap di kaki bukit
+Jika ilmu menjadi perkasa
+Bangsa bangkit tiada terhimpit","Mentari pagi menyimbah desa
+Kabut tersingkap di kaki bukit","Jika ilmu menjadi perkasa
+Bangsa bangkit tiada terhimpit",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Ilmu yang bermanfaatlah kamu kuasai
+Bangsaku akan bangkit dari keterpurukan",2,2,0,0.674969,0.250000,13,14,10,10,3,
+17,6031,Pantun agama,"senja terbenam di langit barat
+bulan tak bersinar di malam sendu
+hidup di dunia ingatlah akhirat
+sebagai bekal gapailah ilmu","senja terbenam di langit barat
+bulan tak bersinar di malam sendu","hidup di dunia ingatlah akhirat
+sebagai bekal gapailah ilmu",DeepSeek-R1,zero_shot,Hasil Zero-shot,"hidup di dunia ingatlah akhirat
+sebagai bekal gapailah ilmu",2,2,1,1.000000,1.000000,12,10,12,10,0,
+38,3270,Pantun kiasan dan peribahasa,"Ke pasar membeli kain sutra
+Tak lupa bunga kenanga wangi
+Ilmu tanpa akhlak percuma
+Bagaikan raga tanpa rohani","Ke pasar membeli kain sutra
+Tak lupa bunga kenanga wangi","Ilmu tanpa akhlak percuma
+Bagaikan raga tanpa rohani",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Ilmu tanpa akhlak jauh artinya,
+Pendidikan memerlukan budi pekerti.",2,2,1,0.852344,0.428571,11,13,9,10,1,
+31,1743,Pantun adat dan budaya,"Burung tempua beranyam sarang
+Di pohon sena rimbun berdaun
+Budi bahasa tiang terbilang
+Tegak bangsa sepanjang tahun","Burung tempua beranyam sarang
+Di pohon sena rimbun berdaun","Budi bahasa tiang terbilang
+Tegak bangsa sepanjang tahun",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Tiang budaya menjadi kebanggaan,
+Masyarakat tertib selamanya.",2,2,0,1.000000,0.125000,12,10,10,9,0,
+20,1706,Pantun agama,"Burung pipit terbang ke rawa
+Mencari makan di antara padi
+Jika hidup penuh doa
+Hati tenang setiap hari","Burung pipit terbang ke rawa
+Mencari makan di antara padi","Jika hidup penuh doa
+Hati tenang setiap hari",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Jika hidup penuh doa
+Hati tenang setiap hari",2,2,1,1.000000,1.000000,8,9,8,9,0,
+96,4036,Pantun anak-anak,"menanam bunga membuat taman
+akan indah laksana bintang
+bermain layanglayang bersama teman
+lupa waktu hampir petang","menanam bunga membuat taman
+akan indah laksana bintang","bermain layanglayang bersama teman
+lupa waktu hampir petang",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Bermain layang-layang di bawah langit biru
+Hanya bersenang-senang dengan teman baik",2,2,0,0.674969,0.375000,14,13,12,8,3,
+22,4434,Pantun pendidikan,"Pagi cerah memetik mawar
+Harumnya sampai ke halaman
+Ilmu dicari dengan sabar
+Supaya hidup penuh harapan","Pagi cerah memetik mawar
+Harumnya sampai ke halaman","Ilmu dicari dengan sabar
+Supaya hidup penuh harapan",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Ilmu dicari dengan sabar
+Supaya hidup penuh harapan",2,2,1,1.000000,1.000000,9,10,9,10,0,
+16,6428,Pantun agama,"terang bulan terang bercahaya
+cahaya memancar ke tanjung jati
+jikalau hendak hidup bahagia
+beramal ibadah sebelum mati","terang bulan terang bercahaya
+cahaya memancar ke tanjung jati","jikalau hendak hidup bahagia
+beramal ibadah sebelum mati",DeepSeek-R1,zero_shot,Hasil Zero-shot,"jikalau hendak hidup bahagia
+beramal ibadah sebelum mati",2,2,1,1.000000,1.000000,11,11,11,11,0,
+86,1326,Pantun jenaka,"bunga di taman jangan dipetik
+tempat bergantung si kepompong
+temanku ini memang cantik
+sayang dia giginya ompong","bunga di taman jangan dipetik
+tempat bergantung si kepompong","temanku ini memang cantik
+sayang dia giginya ompong",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Dia memang cantik dengan rambut pirang
+Tapi gigi depannya yang membuatnya aneh",2,2,0,0.748293,0.333333,12,14,9,9,2,
+81,950,Pantun perpisahan dan perantauan,"berburu belut ke tepi sawah
+segera pulang hari pun senja
+baru seminggu kita berpisah
+rindu di hati telah membara","berburu belut ke tepi sawah
+segera pulang hari pun senja","baru seminggu kita berpisah
+rindu di hati telah membara",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Kita berpisah baru seminggu
+Rasa rindu ini terasa sangat tajam",2,2,0,0.852344,0.571429,10,13,10,10,1,
+64,1377,Pantun kehidupan dan renungan,"Bunga mawar merah berduri
+Cantik mekar di taman desa
+Jika hati bersih nurani
+Hidup indah penuh rasa","Bunga mawar merah berduri
+Cantik mekar di taman desa","Jika hati bersih nurani
+Hidup indah penuh rasa",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Jika nurani ini kau jaga
+Hidup akan indah dan sejahtera",2,2,0,1.000000,0.500000,10,11,9,8,0,
+1,1399,Pantun nasihat dan budi pekerti,"Bunga melati harum baunya
+Disiram embun waktu pagi
+Jika budi elok lakunya
+Semua orang senang hati","Bunga melati harum baunya
+Disiram embun waktu pagi","Jika budi elok lakunya
+Semua orang senang hati",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Budi elok senantiasa
+Di hiasi dengan rendah hati",2,2,1,1.000000,0.375000,9,10,9,9,0,
+37,313,Pantun kiasan dan peribahasa,"Anak Cik Siti mencari tuba
+Tuba dicari di Tanjung Jati
+Di dalam hati tidakkan lupa
+Bagai rambut tersimpul mati","Anak Cik Siti mencari tuba
+Tuba dicari di Tanjung Jati","Di dalam hati tidakkan lupa
+Bagai rambut tersimpul mati",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Dalam balik pucuk tidakkan lupa,
+Seperti akar yang kuat memikat.",2,2,0,1.000000,0.333333,11,11,10,9,0,
+84,4791,Pantun perpisahan dan perantauan,"pergi berlayar ke pulau seberang
+sambilkan dengan memancing ikan
+semakin jauh ke rantau orang
+hanya keluarga yang aku rindukan","pergi berlayar ke pulau seberang
+sambilkan dengan memancing ikan","semakin jauh ke rantau orang
+hanya keluarga yang aku rindukan",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Semakin jauh dari tanah kelahiran
+Hanya keluarga kecil yang dirindu",2,2,0,0.852344,0.571429,13,12,10,12,1,
+28,6142,Pantun adat dan budaya,"Sirih berlipat sirih pinang
+Sirih dari Pulau Mutiara
+Adat dijunjung pusaka dikenang
+Budi bahasa penyeri negara","Sirih berlipat sirih pinang
+Sirih dari Pulau Mutiara","Adat dijunjung pusaka dikenang
+Budi bahasa penyeri negara",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Pusaka nenek moyang dijunjung tinggi,
+Budi luhur menyertai bangsa.",2,2,0,1.000000,0.375000,12,9,11,11,0,
+5,4853,Pantun nasihat dan budi pekerti,"Pergi ke desa membawa padi
+Padi ditukar dengan ikan
+Jika hidup ingin berisi budi
+Hormati janji dan ucapan","Pergi ke desa membawa padi
+Padi ditukar dengan ikan","Jika hidup ingin berisi budi
+Hormati janji dan ucapan",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Jika hidup ingin berisi budi
+Hormati janji dan ucapan",2,2,1,1.000000,1.000000,11,9,11,9,0,
+48,1170,Pantun cinta dan kasih,"Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih
+Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih","Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih","Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Ombak laut menghanyutkan perahu,
+Namun budi dan akhlak tetap terjaga.",2,2,0,1.000000,0.166667,11,12,10,10,0,
+45,1660,Pantun cinta dan kasih,"Burung nuri hinggap di sena
+Menyisir bulu waktu petang
+Jika rindu bukan sengketa
+Mengapa hati terus bergoncang","Burung nuri hinggap di sena
+Menyisir bulu waktu petang","Jika rindu bukan sengketa
+Mengapa hati terus bergoncang",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Rindu yang sejati tidak memunculkan benturan,
+Semata-mata keinginan yang membara.",2,2,0,0.623298,0.125000,15,13,9,10,4,
+26,514,Pantun pendidikan,"Angin pagi menyentuh daun
+Embun jatuh di atas batu
+Ilmu tinggi bukan sekadar daun
+Namun amal jadi penentu","Angin pagi menyentuh daun
+Embun jatuh di atas batu","Ilmu tinggi bukan sekadar daun
+Namun amal jadi penentu",DeepSeek-R1,zero_shot,Hasil Zero-shot,"Bunga bangsa memerlukan ilmu,
+Tiang kehidupan membutuhkan amal.",2,2,0,1.000000,0.250000,10,12,11,9,0,
+87,1718,Pantun jenaka,"burung pipit turun ke rawa
+kakinya gerah kena belerang
+nenek murung jadi tertawa
+melihat kakek main kelerang","burung pipit turun ke rawa
+kakinya gerah kena belerang","nenek murung jadi tertawa
+melihat kakek main kelereng",Gemini,few_shot,Hasil Few-shot,"Berlayar sampan ke pulau Jawa
+Terbang tinggi si burung ketiteng",2,2,1,1.000000,0.000000,10,10,9,10,0,
+41,6406,Pantun cinta dan kasih,"Tenang-tenang air di laut
+Sampan kolek mudik ke tanjung
+Hati terkenang mulut menyebut
+Rindu kini tiada penghujung","Tenang-tenang air di laut
+Sampan kolek mudik ke tanjung","Hati terkenang mulut menyebut
+Rindu kini tiada penghujung",Gemini,few_shot,Hasil Few-shot,"Pohon bambu lebat berserabut,
+Perahu berlabuh di muara tanjung.",2,2,1,1.000000,0.000000,10,12,10,10,0,
+91,4536,Pantun teka-teki,"pagi hari menanak nasi
+nasi bekal orang di sawah
+cobalah terka pantunku ini
+akar di atas pucuk di bawah","pagi hari menanak nasi
+nasi bekal orang di sawah","cobalah terka pantunku ini
+akar di atas pucuk di bawah",Gemini,few_shot,Hasil Few-shot,"Harum semerbak bunga melati
+Padi menguning di tengah sawah",2,2,1,1.000000,0.000000,10,10,10,10,0,
+80,2181,Pantun sosial dan kerukunan,"Gendang dipalu bertalu-talu
+Tari zapin di balai desa
+Jika hidup mahu bersatu
+Jaga rukun sesama bangsa","Gendang dipalu bertalu-talu
+Tari zapin di balai desa","Jika hidup mahu bersatu
+Jaga rukun sesama bangsa",Gemini,few_shot,Hasil Few-shot,"Burung nuri hinggap di batu
+Memetik mangga manis terasa",2,2,1,1.000000,0.000000,9,10,9,9,0,
+6,5040,Pantun nasihat dan budi pekerti,"Pergi ke ladang memanen padi
+Padi menguning siap dituai
+Jika hidup ingin penuh budi
+Rendah hati jangan dilalai","Pergi ke ladang memanen padi
+Padi menguning siap dituai","Jika hidup ingin penuh budi
+Rendah hati jangan dilalai",Gemini,few_shot,Hasil Few-shot,"Pergi ke sawah menanam padi
+Menjala ikan di bawah pantai",2,2,1,1.000000,0.000000,10,10,10,9,0,
+88,5682,Pantun jenaka,"pulang memancing badan kusam
+mendapat ikan anak tenggiri
+ketika ditanya semuanya diam
+karena kentut tak berbunyi","pulang memancing badan kusam
+mendapat ikan anak tenggiri","ketika ditanya semuanya diam
+karena kentut tak berbunyi",Gemini,few_shot,Hasil Few-shot,"Memetik mangga di tengah malam
+Harum semerbak bunga melati",2,2,1,1.000000,0.000000,10,10,12,9,0,
+48,1170,Pantun cinta dan kasih,"Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih
+Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih","Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih","Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih",Gemini,few_shot,Hasil Few-shot,"Bunga melati tumbuh di semak,
+Pakaian putih terlihat bersih.",2,2,1,1.000000,0.000000,10,10,10,10,0,
+66,1275,Pantun kehidupan dan renungan,"bulan berkedip bintang datang
+beli sarung di pasar pagi
+begini nasib jadi pedagang
+kadang untung kadang rugi","bulan berkedip bintang datang
+beli sarung di pasar pagi","begini nasib jadi pedagang
+kadang untung kadang rugi",Gemini,few_shot,Hasil Few-shot,"Perahu laju membawa barang
+Singgah di jeti membeli pagi",2,2,1,1.000000,0.000000,10,10,10,8,0,
+62,2305,Pantun bakti keluarga,"Harum kemboja mewangi di Jawa
+Tumbuh segar di pohon tualang
+Kasih dan cinta tersemat di jiwa
+Erat ukhuwah keluarga gemilang","Harum kemboja mewangi di Jawa
+Tumbuh segar di pohon tualang","Kasih dan cinta tersemat di jiwa
+Erat ukhuwah keluarga gemilang",Gemini,few_shot,Hasil Few-shot,"Terbang melayang si burung jawa
+Hinggap di ranting pohon mualang",2,2,1,1.000000,0.000000,10,10,11,12,0,
+2,185,Pantun nasihat dan budi pekerti,"Air telaga ditimba petang
+Disimpan dalam kendi tua
+Jika ingin hidup dikenang
+Budi baik jadi pusaka","Air telaga ditimba petang
+Disimpan dalam kendi tua","Jika ingin hidup dikenang
+Budi baik jadi pusaka",Gemini,few_shot,Hasil Few-shot,"Terbang tinggi burung elang
+Minggap sebentar di atas paka",2,2,1,1.000000,0.000000,8,10,9,9,0,
+23,1637,Pantun pendidikan,"Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati
+Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati","Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati","Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati",Gemini,few_shot,Hasil Few-shot,"Membeli beras di tengah pekan
+Singgah sebentar di rumah asti",2,2,1,1.000000,0.000000,10,10,10,11,0,
+46,3362,Pantun cinta dan kasih,"Ke taman bunga membeli mawar
+Harumnya semerbak menawan hati
+Rindu padamu kian berputar
+Kasih terikat janji sejati","Ke taman bunga membeli mawar
+Harumnya semerbak menawan hati","Rindu padamu kian berputar
+Kasih terikat janji sejati",Gemini,few_shot,Hasil Few-shot,"Pohon jati tumbuh membesar,
+Menanam bunga di dalam peti.",2,2,1,1.000000,0.000000,9,10,10,10,0,
+73,4132,Pantun kebangsaan,"Mentari pagi menyimbah desa
+Kabut tersingkap di kaki bukit
+Jika ilmu menjadi perkasa
+Bangsa bangkit tiada terhimpit","Mentari pagi menyimbah desa
+Kabut tersingkap di kaki bukit","Jika ilmu menjadi perkasa
+Bangsa bangkit tiada terhimpit",Gemini,few_shot,Hasil Few-shot,"Pohon kelapa meliuk dirasa
+Buahnya jatuh di atas bukit",2,2,1,1.000000,0.000000,11,10,10,10,0,
+51,6151,Pantun persahabatan,"Sirih merah di dalam puan
+Pinang muda dibelah rata
+Jika hendak disayang kawan
+Bersikap jujur sepanjang masa","Sirih merah di dalam puan
+Pinang muda dibelah rata","Jika hendak disayang kawan
+Bersikap jujur sepanjang masa",Gemini,few_shot,Hasil Few-shot,"Tinggi terbang si burung wan
+Hinggap sebentar di dahan rasa",2,2,1,1.000000,0.000000,8,10,9,10,0,
+86,1326,Pantun jenaka,"bunga di taman jangan dipetik
+tempat bergantung si kepompong
+temanku ini memang cantik
+sayang dia giginya ompong","bunga di taman jangan dipetik
+tempat bergantung si kepompong","temanku ini memang cantik
+sayang dia giginya ompong",Gemini,few_shot,Hasil Few-shot,"Pohon bambu di tepi tasik
+Membeli buah di dalam lorong",2,2,1,1.000000,0.000000,9,10,9,9,0,
+43,1414,Pantun cinta dan kasih,"bunga melati warnanya putih
+tertiup angin dibasuh hujan
+jika kamu menaruh kasih
+langsung kita ke pelaminan","bunga melati warnanya putih
+tertiup angin dibasuh hujan","jika kamu menaruh kasih
+langsung kita ke pelaminan",Gemini,few_shot,Hasil Few-shot,"Kain putih terlihat bersih,
+Duduk santai di atas tampan.",2,2,1,1.000000,0.000000,9,9,9,9,0,
+54,6148,Pantun persahabatan,"Sirih kuning dalam tempayan
+Air jernih penuh isinya
+Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya","Sirih kuning dalam tempayan
+Air jernih penuh isinya","Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya",Gemini,few_shot,Hasil Few-shot,"Menanam padi di tengah laman
+Membawa cangkul ke dalam desa",2,2,1,1.000000,0.000000,10,10,9,11,0,
+49,4346,Pantun cinta dan kasih,"ombak lembut mencium pantai
+pasir putih terlukis senja
+rindu ini tak pernah usai
+seperti laut mencinta Samudra","ombak lembut mencium pantai
+pasir putih terlukis senja","rindu ini tak pernah usai
+seperti laut mencinta Samudra",Gemini,few_shot,Hasil Few-shot,"Pergi berlayar ke tepi pantai,
+Melihat burung di atas muara.",2,2,1,1.000000,0.000000,10,11,9,11,0,
+18,4555,Pantun agama,"Pagi hari menuju sawah
+Embun jatuh di daun padi
+Jika hidup ingin berkah
+Rajin ibadah setiap hari","Pagi hari menuju sawah
+Embun jatuh di daun padi","Jika hidup ingin berkah
+Rajin ibadah setiap hari",Gemini,few_shot,Hasil Few-shot,"Pohon mangga pohon nangka
+Tumbuh subur di tanah sari",2,2,0,1.000000,0.000000,8,9,8,10,0,
+4,4515,Pantun nasihat dan budi pekerti,"Pagi hari memetik mangga
+Burung kecil hinggap di pagar
+Jika ingin hidup bahagia
+Bersikap jujur dan sabar","Pagi hari memetik mangga
+Burung kecil hinggap di pagar","Jika ingin hidup bahagia
+Bersikap jujur dan sabar",Gemini,few_shot,Hasil Few-shot,"Tanam padi di dekat desa
+Sawah luas membentang lebar",2,2,1,1.000000,0.000000,9,9,10,8,0,
+32,1931,Pantun adat dan budaya,"Daun selasih di tepi laman
+Disiram embun waktu fajar
+Budi bahasa jadi pegangan
+Agar hidup sentiasa wajar","Daun selasih di tepi laman
+Disiram embun waktu fajar","Budi bahasa jadi pegangan
+Agar hidup sentiasa wajar",Gemini,few_shot,Hasil Few-shot,"Pergi berlayar ke tengah lautan,
+Melihat ombak menghempas layar.",2,2,1,1.000000,0.000000,10,10,10,10,0,
+67,3196,Pantun kehidupan dan renungan,"Ke kebun pagi membawa keranjang
+Keranjang rotan diisi mangga
+Jika hidup terasa panjang
+Gunakan waktu untuk berkarya","Ke kebun pagi membawa keranjang
+Keranjang rotan diisi mangga","Jika hidup terasa panjang
+Gunakan waktu untuk berkarya",Gemini,few_shot,Hasil Few-shot,"Kayu cendana dipotong pajang
+Dibawa pulang ke dalam daya",2,2,1,1.000000,0.000000,10,10,9,10,0,
+16,6428,Pantun agama,"terang bulan terang bercahaya
+cahaya memancar ke tanjung jati
+jikalau hendak hidup bahagia
+beramal ibadah sebelum mati","terang bulan terang bercahaya
+cahaya memancar ke tanjung jati","jikalau hendak hidup bahagia
+beramal ibadah sebelum mati",Gemini,few_shot,Hasil Few-shot,"Membeli kain berwarna jingga
+Mawar merah harum sekali",2,2,1,1.000000,0.000000,10,9,11,11,0,
+33,4327,Pantun adat dan budaya,"Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu
+Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu","Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu","Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu",Gemini,few_shot,Hasil Few-shot,"Perahu berlabuh di tepi tanjung,
+Membeli kain berwarna biru.",2,2,1,1.000000,0.000000,11,10,11,10,0,
+50,1442,Pantun persahabatan,"Bunga tanjung di halaman
+Harumnya semerbak kala senja
+Jika ingin dihormati teman
+Bersikap rendah hati sentiasa","Bunga tanjung di halaman
+Harumnya semerbak kala senja","Jika ingin dihormati teman
+Bersikap rendah hati sentiasa",Gemini,few_shot,Hasil Few-shot,"Bunga mawar tumbuh di taman,
+Harum baunya sepanjang masa.",2,2,1,1.000000,0.000000,9,9,10,11,0,
+5,4853,Pantun nasihat dan budi pekerti,"Pergi ke desa membawa padi
+Padi ditukar dengan ikan
+Jika hidup ingin berisi budi
+Hormati janji dan ucapan","Pergi ke desa membawa padi
+Padi ditukar dengan ikan","Jika hidup ingin berisi budi
+Hormati janji dan ucapan",Gemini,zero_shot,Hasil Zero-shot,"Membeli kain berjenis kadi
+Ikan berenang di dalam kolam",2,2,0,1.000000,0.000000,10,10,11,9,0,
+98,3679,Pantun anak-anak,"laut luas tempat berenang
+hutan hijau tempat si rusa
+bermain layangan hatiku senang
+bersama tiupan angin desa","laut luas tempat berenang
+hutan hijau tempat si rusa","bermain layangan hatiku senang
+bersama tiupan angin desa",Gemini,zero_shot,Hasil Zero-shot,"Air sungai mengalir tenang,
+Pohon rimbun di tengah desa.",2,2,1,1.000000,0.125000,9,9,11,10,0,
+55,2138,Pantun persahabatan,"Embun pagi jatuh setitis
+Menyapa bunga di tepi jalan
+Tutur santun wajah yang manis
+Menenangkan hati mengikat kawan","Embun pagi jatuh setitis
+Menyapa bunga di tepi jalan","Tutur santun wajah yang manis
+Menenangkan hati mengikat kawan",Gemini,zero_shot,Hasil Zero-shot,"Hujan turun gerimis-gerimis,
+Terbang tinggi burung di awan.",2,2,1,1.000000,0.000000,10,9,9,11,0,
+3,3264,Pantun nasihat dan budi pekerti,"Ke pasar membeli buah duku
+Duku manis rasanya segar
+Jika hidup ingin bermutu
+Jujur dan amanah harus dipagar","Ke pasar membeli buah duku
+Duku manis rasanya segar","Jika hidup ingin bermutu
+Jujur dan amanah harus dipagar",Gemini,zero_shot,Hasil Zero-shot,"Beli kain bertenun satu
+Bunga mawar harum memekar",2,2,1,1.000000,0.000000,9,9,9,11,0,
+16,6428,Pantun agama,"terang bulan terang bercahaya
+cahaya memancar ke tanjung jati
+jikalau hendak hidup bahagia
+beramal ibadah sebelum mati","terang bulan terang bercahaya
+cahaya memancar ke tanjung jati","jikalau hendak hidup bahagia
+beramal ibadah sebelum mati",Gemini,zero_shot,Hasil Zero-shot,"Tinggi menjulang pohon kelapa
+Ikan berenang di bawah titi",2,2,1,1.000000,0.000000,10,10,11,11,0,
+11,1343,Pantun nasihat dan budi pekerti,"Bunga kenanga harum baunya
+Disimpan rapi di dalam peti
+Jika ingin hidup mulia
+Jujur selalu dalam hati","Bunga kenanga harum baunya
+Disimpan rapi di dalam peti","Jika ingin hidup mulia
+Jujur selalu dalam hati",Gemini,zero_shot,Hasil Zero-shot,"Anak kecil membawa piala
+Mandi di sungai di pagi hari",2,2,1,1.000000,0.000000,10,10,9,9,0,
+45,1660,Pantun cinta dan kasih,"Burung nuri hinggap di sena
+Menyisir bulu waktu petang
+Jika rindu bukan sengketa
+Mengapa hati terus bergoncang","Burung nuri hinggap di sena
+Menyisir bulu waktu petang","Jika rindu bukan sengketa
+Mengapa hati terus bergoncang",Gemini,zero_shot,Hasil Zero-shot,"Indah diukir permata kota
+Terbang tinggi si burung elang",2,2,1,1.000000,0.000000,10,9,9,10,0,
+74,1729,Pantun kebangsaan,"Burung serindit menyisir awan
+Hinggap sebentar di dahan sena
+Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda","Burung serindit menyisir awan
+Hinggap sebentar di dahan sena","Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda",Gemini,zero_shot,Hasil Zero-shot,"Berjalan santai di tepi jalan,
+Mengayuh sampan di atas samudera.",2,2,1,1.000000,0.000000,10,12,10,10,0,
+18,4555,Pantun agama,"Pagi hari menuju sawah
+Embun jatuh di daun padi
+Jika hidup ingin berkah
+Rajin ibadah setiap hari","Pagi hari menuju sawah
+Embun jatuh di daun padi","Jika hidup ingin berkah
+Rajin ibadah setiap hari",Gemini,zero_shot,Hasil Zero-shot,"Pergi melaut membawa pukat
+Mencari ikan hingga ke pantai",2,2,0,1.000000,0.000000,10,10,8,10,0,
+54,6148,Pantun persahabatan,"Sirih kuning dalam tempayan
+Air jernih penuh isinya
+Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya","Sirih kuning dalam tempayan
+Air jernih penuh isinya","Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya",Gemini,zero_shot,Hasil Zero-shot,"Pohon rindang di tengah taman,
+Indah mekar indah warnanya.",2,2,1,1.000000,0.000000,9,9,9,11,0,
+90,55,Pantun jenaka,"ada pohon di tepi rawa
+daunnya kering dimakan kutu
+adik menangis sambil tertawa
+melihat kambing pakai sepatu","ada pohon di tepi rawa
+daunnya kering dimakan kutu","adik menangis sambil tertawa
+melihat kambing pakai sepatu",Gemini,zero_shot,Hasil Zero-shot,"Sungguh manis si buah jawa,
+Beli kain berwarna satu.",2,2,1,1.000000,0.000000,9,9,10,10,0,
+14,2129,Pantun agama,"Embun pagi berkilau jernih
+Menyentuh pucuk padi di huma
+Jika iman sentiasa bersih
+Damailah hidup sepanjang masa","Embun pagi berkilau jernih
+Menyentuh pucuk padi di huma","Jika iman sentiasa bersih
+Damailah hidup sepanjang masa",Gemini,zero_shot,Hasil Zero-shot,"Merah membara buah selasih
+Bunga melati harum baunya",2,2,1,1.000000,0.000000,10,9,10,10,0,
+56,6440,Pantun bakti keluarga,"Terbang tinggi burung merpati
+Hinggap sebentar di pohon kelapa
+Hidup di dunia buatlah bakti
+Kepada ibu dan juga bapa","Terbang tinggi burung merpati
+Hinggap sebentar di pohon kelapa","Hidup di dunia buatlah bakti
+Kepada ibu dan juga bapa",Gemini,zero_shot,Hasil Zero-shot,"Indah mekar bunga melati,
+Memetik kelapa di pohon kelapa.",2,2,1,1.000000,0.000000,9,12,11,10,0,
+63,1505,Pantun kehidupan dan renungan,"Burung camar terbang rendah
+Menyambar ikan di laut biru
+Harta dunia jangan bermegah
+Budi dan amal penentu mutu","Burung camar terbang rendah
+Menyambar ikan di laut biru","Harta dunia jangan bermegah
+Budi dan amal penentu mutu",Gemini,zero_shot,Hasil Zero-shot,"Pohon rimbun di tepi sanggah,
+Mengasah pisau di atas batu.",2,2,1,1.000000,0.000000,9,10,10,10,0,
+71,5770,Pantun kebangsaan,"rambut hitam anggun rupanya
+sehalus bulu burung merpati
+hidup mati untuk negara
+ikhlas hati kalau mati","rambut hitam anggun rupanya
+sehalus bulu burung merpati","hidup mati untuk negara
+ikhlas hati kalau mati",Gemini,zero_shot,Hasil Zero-shot,"Berlayar kapal ke muara,
+Menanam bunga rumpun melati.",2,2,1,1.000000,0.000000,9,10,9,8,0,
+21,5560,Pantun pendidikan,"pohon kelapa di tepi telaga
+daunnya melambai tertiup angin
+hormat guru tanda mulia
+ilmu mengalir penuh berkah yakin","pohon kelapa di tepi telaga
+daunnya melambai tertiup angin","hormat guru tanda mulia
+ilmu mengalir penuh berkah yakin",Gemini,zero_shot,Hasil Zero-shot,"Terbang tinggi burung di udara
+Mencari makan hingga ke kelin",2,2,1,1.000000,0.000000,10,10,9,11,0,
+59,5859,Pantun bakti keluarga,"sampan kecil kita berlabuh
+memuat kelapa bawa ke pasar
+sejak kecil kita diasuh
+jasa ibu bapak sangatlah besar","sampan kecil kita berlabuh
+memuat kelapa bawa ke pasar","sejak kecil kita diasuh
+jasa ibu bapak sangatlah besar",Gemini,zero_shot,Hasil Zero-shot,"Mandi di sungai airnya keruh,
+Berlayar jauh ke laut besar.",2,2,1,1.000000,0.125000,9,10,9,11,0,
+62,2305,Pantun bakti keluarga,"Harum kemboja mewangi di Jawa
+Tumbuh segar di pohon tualang
+Kasih dan cinta tersemat di jiwa
+Erat ukhuwah keluarga gemilang","Harum kemboja mewangi di Jawa
+Tumbuh segar di pohon tualang","Kasih dan cinta tersemat di jiwa
+Erat ukhuwah keluarga gemilang",Gemini,zero_shot,Hasil Zero-shot,"Berlayar jauh ke pulau Jawa,
+Burung elang terbang melayang.",2,2,1,1.000000,0.000000,10,9,11,12,0,
+80,2181,Pantun sosial dan kerukunan,"Gendang dipalu bertalu-talu
+Tari zapin di balai desa
+Jika hidup mahu bersatu
+Jaga rukun sesama bangsa","Gendang dipalu bertalu-talu
+Tari zapin di balai desa","Jika hidup mahu bersatu
+Jaga rukun sesama bangsa",Gemini,zero_shot,Hasil Zero-shot,"Kayu jati diikat satu,
+Hendak dijual ke Kota Rusa.",2,2,1,1.000000,0.000000,9,10,9,9,0,
+52,1714,Pantun persahabatan,"Burung pipit terbang rendah
+Hinggap sebentar di pohon cemara
+Jika hati selalu ramah
+Banyak sahabat datang menyapa","Burung pipit terbang rendah
+Hinggap sebentar di pohon cemara","Jika hati selalu ramah
+Banyak sahabat datang menyapa",Gemini,zero_shot,Hasil Zero-shot,"Indah mengembang bunga di rumah,
+Memetik buah di pohon kelapa.",2,2,1,1.000000,0.000000,10,11,9,10,0,
+24,5202,Pantun pendidikan,"Pergi ke pasar membeli talas
+Tak lupa membeli buah duku
+Ilmu diamalkan jadi ikhlas
+Agar hidup penuh makna selalu","Pergi ke pasar membeli talas
+Tak lupa membeli buah duku","Ilmu diamalkan jadi ikhlas
+Agar hidup penuh makna selalu",Gemini,zero_shot,Hasil Zero-shot,"Tanam padi berdaun kemas
+Bawa beras ke dalam perahu",2,2,1,1.000000,0.000000,9,10,10,11,0,
+91,4536,Pantun teka-teki,"pagi hari menanak nasi
+nasi bekal orang di sawah
+cobalah terka pantunku ini
+akar di atas pucuk di bawah","pagi hari menanak nasi
+nasi bekal orang di sawah","cobalah terka pantunku ini
+akar di atas pucuk di bawah",Gemini,zero_shot,Hasil Zero-shot,"Pergi ke sawah membawa benih,
+Burung terbang di atas sawah.",2,2,0,1.000000,0.142857,10,9,10,10,0,
+49,4346,Pantun cinta dan kasih,"ombak lembut mencium pantai
+pasir putih terlukis senja
+rindu ini tak pernah usai
+seperti laut mencinta Samudra","ombak lembut mencium pantai
+pasir putih terlukis senja","rindu ini tak pernah usai
+seperti laut mencinta Samudra",Gemini,zero_shot,Hasil Zero-shot,"Pagi hari memetik serai
+Bawa ke pasar di tepi muara",2,2,1,1.000000,0.000000,9,11,9,11,0,
+77,1606,Pantun sosial dan kerukunan,"Burung kenari terbang ke taman
+Hinggap sejenak di dahan cemara
+Jika ingin hidup penuh kebaikan
+Ringankan tangan membantu sesama","Burung kenari terbang ke taman
+Hinggap sejenak di dahan cemara","Jika ingin hidup penuh kebaikan
+Ringankan tangan membantu sesama",Gemini,zero_shot,Hasil Zero-shot,"Terbang rendah burung di dahan,
+Hinggap sebentar di pohon kurma.",2,2,1,1.000000,0.000000,9,10,11,11,0,
+78,4854,Pantun sosial dan kerukunan,"Pergi ke desa membawa padi
+Padi ditumbuk jadi beras
+Jika ingin hidup penuh budi
+Hormati sesama tanpa membalas","Pergi ke desa membawa padi
+Padi ditumbuk jadi beras","Jika ingin hidup penuh budi
+Hormati sesama tanpa membalas",Gemini,zero_shot,Hasil Zero-shot,"Indah mekarnya bunga keladi,
+Kain ditenun berbidang luas.",2,2,1,1.000000,0.000000,10,10,10,11,0,
+8,120,Pantun nasihat dan budi pekerti,"Air hujan turun ke ladang
+Menyuburkan padi di sawah
+Jika hidup ingin tenang
+Jangan suka mencari salah","Air hujan turun ke ladang
+Menyuburkan padi di sawah","Jika hidup ingin tenang
+Jangan suka mencari salah",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Kebun bunga tempat bunga bermekar
+Berwarna-warni dan harum baunya",2,2,0,1.000000,0.000000,11,10,8,9,0,
+53,1337,Pantun persahabatan,"Bunga kenanga disemat dara
+Harumnya lembut dibawa angin
+Jika hati penuh setia
+Persahabatan kekal terjalin","Bunga kenanga disemat dara
+Harumnya lembut dibawa angin","Jika hati penuh setia
+Persahabatan kekal terjalin",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Setiap langkah jalan penuh
+Kasih sayang tanpa berbelit",2,2,0,1.000000,0.142857,9,9,9,10,0,
+81,950,Pantun perpisahan dan perantauan,"berburu belut ke tepi sawah
+segera pulang hari pun senja
+baru seminggu kita berpisah
+rindu di hati telah membara","berburu belut ke tepi sawah
+segera pulang hari pun senja","baru seminggu kita berpisah
+rindu di hati telah membara",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Niat baik hati teman yang kuat
+Rindu di dalam masih membara",2,2,0,1.000000,0.428571,11,10,10,10,0,
+49,4346,Pantun cinta dan kasih,"ombak lembut mencium pantai
+pasir putih terlukis senja
+rindu ini tak pernah usai
+seperti laut mencinta Samudra","ombak lembut mencium pantai
+pasir putih terlukis senja","rindu ini tak pernah usai
+seperti laut mencinta Samudra",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Rindu ini tak pernah usai
+Seperti laut mencinta Samudra",2,2,1,1.000000,1.000000,9,11,9,11,0,
+19,1542,Pantun agama,"Burung elang terbang melingkar
+Mengawasi lembah dan hutan
+Jika ingin hidup tak gentar
+Perkuat iman dan keyakinan","Burung elang terbang melingkar
+Mengawasi lembah dan hutan","Jika ingin hidup tak gentar
+Perkuat iman dan keyakinan",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Hutan lebat tempat burung berkicau
+Menyanyikan lagu-lagu khas petangnya",2,2,0,1.000000,0.000000,11,12,9,10,0,
+38,3270,Pantun kiasan dan peribahasa,"Ke pasar membeli kain sutra
+Tak lupa bunga kenanga wangi
+Ilmu tanpa akhlak percuma
+Bagaikan raga tanpa rohani","Ke pasar membeli kain sutra
+Tak lupa bunga kenanga wangi","Ilmu tanpa akhlak percuma
+Bagaikan raga tanpa rohani",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Ilmu tanpa akhlak percuma
+Bagaikan raga tanpa rohani",2,2,1,1.000000,1.000000,9,10,9,10,0,
+3,3264,Pantun nasihat dan budi pekerti,"Ke pasar membeli buah duku
+Duku manis rasanya segar
+Jika hidup ingin bermutu
+Jujur dan amanah harus dipagar","Ke pasar membeli buah duku
+Duku manis rasanya segar","Jika hidup ingin bermutu
+Jujur dan amanah harus dipagar",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Hutan lebat tempat burung berkicau
+Dengan sari manis, kaya akan rahmat",2,2,0,1.000000,0.000000,11,12,9,11,0,
+96,4036,Pantun anak-anak,"menanam bunga membuat taman
+akan indah laksana bintang
+bermain layanglayang bersama teman
+lupa waktu hampir petang","menanam bunga membuat taman
+akan indah laksana bintang","bermain layanglayang bersama teman
+lupa waktu hampir petang",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Tanaman kopi berbuah melimpah
+Lupa waktu hampir petang",2,2,0,1.000000,0.500000,11,8,12,8,0,
+74,1729,Pantun kebangsaan,"Burung serindit menyisir awan
+Hinggap sebentar di dahan sena
+Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda","Burung serindit menyisir awan
+Hinggap sebentar di dahan sena","Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Tetap menjaga amanah
+Kita akan mendapatkan kebahagiaan",2,2,0,0.748293,0.142857,8,14,10,10,2,
+11,1343,Pantun nasihat dan budi pekerti,"Bunga kenanga harum baunya
+Disimpan rapi di dalam peti
+Jika ingin hidup mulia
+Jujur selalu dalam hati","Bunga kenanga harum baunya
+Disimpan rapi di dalam peti","Jika ingin hidup mulia
+Jujur selalu dalam hati",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Hutan lebat tempat hewan bergembira
+Mengalami kebahagiaan hidup yang damai",2,2,0,0.674969,0.142857,12,15,9,9,3,
+54,6148,Pantun persahabatan,"Sirih kuning dalam tempayan
+Air jernih penuh isinya
+Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya","Sirih kuning dalam tempayan
+Air jernih penuh isinya","Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Sejak kecil di bumi biru
+Hidup dengan ikhlaslah menyayangi",2,2,0,1.000000,0.142857,9,11,9,11,0,
+93,1014,Pantun teka-teki,"berpindah tempat ke kota medan
+jangan lupa membawa baju
+kakiku empat tak punya badan
+coba tebak siapakah aku","berpindah tempat ke kota medan
+jangan lupa membawa baju","kakiku empat tak punya badan
+coba tebak siapakah aku",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Langit cerah dan matahari bersinar
+Coba tebak siapakah aku",2,2,0,1.000000,0.375000,12,10,10,10,0,
+60,1710,Pantun bakti keluarga,"Burung pipit terbang rendah
+Hinggap manis di atas batu
+Jika ingin hidup berkah
+Hormati ayah dan ibu","Burung pipit terbang rendah
+Hinggap manis di atas batu","Jika ingin hidup berkah
+Hormati ayah dan ibu",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Menghormati ayah dan ibu
+Jika ingin kehidupan selamat",2,2,0,1.000000,0.571429,9,11,8,8,0,
+48,1170,Pantun cinta dan kasih,"Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih
+Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih","Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih","Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih",2,2,1,1.000000,1.000000,10,10,10,10,0,
+65,1473,Pantun kehidupan dan renungan,"Burung bangau di tepi rawa
+Mencari ikan sejak pagi
+Kalau ingin hidup bahagia
+Jaga hati dari dengki","Burung bangau di tepi rawa
+Mencari ikan sejak pagi","Kalau ingin hidup bahagia
+Jaga hati dari dengki",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Menjaga hati dari dengki
+Hidup bahagia tanpa bermegah",2,2,0,1.000000,0.571429,9,11,10,8,0,
+46,3362,Pantun cinta dan kasih,"Ke taman bunga membeli mawar
+Harumnya semerbak menawan hati
+Rindu padamu kian berputar
+Kasih terikat janji sejati","Ke taman bunga membeli mawar
+Harumnya semerbak menawan hati","Rindu padamu kian berputar
+Kasih terikat janji sejati",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Rindu padamu kian berputar
+Kasih terikat janji sejati",2,2,1,1.000000,1.000000,10,10,10,10,0,
+91,4536,Pantun teka-teki,"pagi hari menanak nasi
+nasi bekal orang di sawah
+cobalah terka pantunku ini
+akar di atas pucuk di bawah","pagi hari menanak nasi
+nasi bekal orang di sawah","cobalah terka pantunku ini
+akar di atas pucuk di bawah",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Pohon kelapa tumbuh subur dan kuat
+Akar di atas pucuk di bawah",2,2,0,1.000000,0.571429,12,10,10,10,0,
+7,5357,Pantun nasihat dan budi pekerti,"Pergi ke taman memetik kenari
+Kenari jatuh ke atas tanah
+Jika hidup ingin penuh budi
+Rendah hati jauhi angkuh dan marah","Pergi ke taman memetik kenari
+Kenari jatuh ke atas tanah","Jika hidup ingin penuh budi
+Rendah hati jauhi angkuh dan marah",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Hutan rimba tempat hewan bergembira
+Mengalami kebahagiaan hidup yang damai",2,2,0,0.674969,0.100000,12,15,10,12,3,
+25,5518,Pantun pendidikan,"Pohon beringin tumbuh di desa
+Daunnya rindang tempat berteduh
+Ilmu dan iman berjalan bersama
+Hidup pun terasa penuh dan utuh","Pohon beringin tumbuh di desa
+Daunnya rindang tempat berteduh","Ilmu dan iman berjalan bersama
+Hidup pun terasa penuh dan utuh",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Di tengah sawah tinggi di taman
+Hidup harmonis dan bahagia selalu",2,2,0,0.852344,0.125000,10,13,11,11,1,
+55,2138,Pantun persahabatan,"Embun pagi jatuh setitis
+Menyapa bunga di tepi jalan
+Tutur santun wajah yang manis
+Menenangkan hati mengikat kawan","Embun pagi jatuh setitis
+Menyapa bunga di tepi jalan","Tutur santun wajah yang manis
+Menenangkan hati mengikat kawan",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Teman tersayang yang manis
+Terus menghibur dan melayani",2,2,0,1.000000,0.125000,8,10,9,11,0,
+41,6406,Pantun cinta dan kasih,"Tenang-tenang air di laut
+Sampan kolek mudik ke tanjung
+Hati terkenang mulut menyebut
+Rindu kini tiada penghujung","Tenang-tenang air di laut
+Sampan kolek mudik ke tanjung","Hati terkenang mulut menyebut
+Rindu kini tiada penghujung",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Hati terkenang mulut menyebut
+Rindu kini tiada penghujung",2,2,1,1.000000,1.000000,10,10,10,10,0,
+99,4583,Pantun anak-anak,"pagi ini membaca koran
+baca berita orang hilang
+bermain kejarkejaran
+badan sehat hati pun senang","pagi ini membaca koran
+baca berita orang hilang","bermain kejarkejaran
+badan sehat hati pun senang",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Tanaman sawah berwarna hijau
+Badan sehat hati pun senang",2,2,0,1.000000,0.666667,10,9,8,9,0,
+10,3176,Pantun nasihat dan budi pekerti,"Ke kebun bunga memetik mawar
+Mawar merah harum baunya
+Jika ingin hidup terasa segar
+Syukuri nikmat sepanjang usia","Ke kebun bunga memetik mawar
+Mawar merah harum baunya","Jika ingin hidup terasa segar
+Syukuri nikmat sepanjang usia",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Di tengah kebun tinggi di taman
+Bunga mawar tumbuh bersemi-sembunyi",2,2,0,1.000000,0.000000,10,12,11,11,0,
+83,1397,Pantun perpisahan dan perantauan,"bunga melati di tepi sawah
+cantik elok di dekat batu
+jika nanti kita berpisah
+jangan pernah lupakan aku","bunga melati di tepi sawah
+cantik elok di dekat batu","jika nanti kita berpisah
+jangan pernah lupakan aku",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Bunga melati tumbuh di bumi
+Jangan pernah lupakan aku",2,2,0,1.000000,0.500000,10,9,9,9,0,
+33,4327,Pantun adat dan budaya,"Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu
+Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu","Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu","Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu",Llama 3.1: 8B,few_shot,Hasil Few-shot,"Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu",2,2,1,1.000000,1.000000,11,10,11,10,0,
+22,4434,Pantun pendidikan,"Pagi cerah memetik mawar
+Harumnya sampai ke halaman
+Ilmu dicari dengan sabar
+Supaya hidup penuh harapan","Pagi cerah memetik mawar
+Harumnya sampai ke halaman","Ilmu dicari dengan sabar
+Supaya hidup penuh harapan",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Hidup yang memiliki harapan
+Membuat jalan menuju kebahagiaan terbuka",2,2,0,0.586887,0.285714,10,17,9,10,5,
+94,3938,Pantun teka-teki,"mata mengantuk langsung terpejam
+sudah tidur semua terlupa
+matanya satu kakinya tajam
+cobalah tebak benda apa","mata mengantuk langsung terpejam
+sudah tidur semua terlupa","matanya satu kakinya tajam
+cobalah tebak benda apa",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"matanya satu kakinya tajam
+cobalah tebak benda apa",2,2,1,1.000000,1.000000,10,9,10,9,0,
+97,6235,Pantun anak-anak,"sungguh indah bunga mawar
+harum semerbak di tepi taman
+setelah bermain bersihkan kamar
+jangan sampai berantakan","sungguh indah bunga mawar
+harum semerbak di tepi taman","setelah bermain bersihkan kamar
+jangan sampai berantakan",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"setelah bermain bersihkan kamar
+jangan sampai berantakan",2,2,1,1.000000,1.000000,11,8,11,8,0,
+12,315,Pantun nasihat dan budi pekerti,"Anak dara menampi padi
+Angin bertiup perlahan-lahan
+Jika ingin hidup terpuji
+Utamakan budi dalam pergaulan","Anak dara menampi padi
+Angin bertiup perlahan-lahan","Jika ingin hidup terpuji
+Utamakan budi dalam pergaulan",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Budi utama membuat perbuatan
+Puji-puji dari orang yang lain",2,2,0,1.000000,0.142857,12,11,9,11,0,
+11,1343,Pantun nasihat dan budi pekerti,"Bunga kenanga harum baunya
+Disimpan rapi di dalam peti
+Jika ingin hidup mulia
+Jujur selalu dalam hati","Bunga kenanga harum baunya
+Disimpan rapi di dalam peti","Jika ingin hidup mulia
+Jujur selalu dalam hati",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Hati jujur membawa berkah
+Membuat rupa diri mulia",2,2,0,1.000000,0.428571,9,10,9,9,0,
+50,1442,Pantun persahabatan,"Bunga tanjung di halaman
+Harumnya semerbak kala senja
+Jika ingin dihormati teman
+Bersikap rendah hati sentiasa","Bunga tanjung di halaman
+Harumnya semerbak kala senja","Jika ingin dihormati teman
+Bersikap rendah hati sentiasa",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Jika kamu ingin dihargai dan dihormati oleh orang lain
+Selalulah bersikap rendah hati dan hormat kepada mereka",2,2,0,0.501849,0.750000,20,20,10,11,16,
+68,3263,Pantun kehidupan dan renungan,"Ke pasar membeli beras
+Tak lupa membeli kelapa
+Hidup tenang jauh dari cemas
+Jika ikhlas dalam segala upaya","Ke pasar membeli beras
+Tak lupa membeli kelapa","Hidup tenang jauh dari cemas
+Jika ikhlas dalam segala upaya",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Hidup tenang jauh dari cemas
+Jika ikhlas dalam segala upaya",2,2,1,1.000000,1.000000,10,12,10,12,0,
+4,4515,Pantun nasihat dan budi pekerti,"Pagi hari memetik mangga
+Burung kecil hinggap di pagar
+Jika ingin hidup bahagia
+Bersikap jujur dan sabar","Pagi hari memetik mangga
+Burung kecil hinggap di pagar","Jika ingin hidup bahagia
+Bersikap jujur dan sabar",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Hati sabar membuat selalu
+Bahagia bersama yang lain",2,2,0,1.000000,0.285714,10,10,10,8,0,
+91,4536,Pantun teka-teki,"pagi hari menanak nasi
+nasi bekal orang di sawah
+cobalah terka pantunku ini
+akar di atas pucuk di bawah","pagi hari menanak nasi
+nasi bekal orang di sawah","cobalah terka pantunku ini
+akar di atas pucuk di bawah",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"cobalah terka pantunku ini
+akar di atas pucuk di bawah",2,2,1,1.000000,1.000000,10,10,10,10,0,
+10,3176,Pantun nasihat dan budi pekerti,"Ke kebun bunga memetik mawar
+Mawar merah harum baunya
+Jika ingin hidup terasa segar
+Syukuri nikmat sepanjang usia","Ke kebun bunga memetik mawar
+Mawar merah harum baunya","Jika ingin hidup terasa segar
+Syukuri nikmat sepanjang usia",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Nikmat yang didapat membuat
+Segar hati dengan kaya raya",2,2,0,1.000000,0.222222,9,10,11,11,0,
+2,185,Pantun nasihat dan budi pekerti,"Air telaga ditimba petang
+Disimpan dalam kendi tua
+Jika ingin hidup dikenang
+Budi baik jadi pusaka","Air telaga ditimba petang
+Disimpan dalam kendi tua","Jika ingin hidup dikenang
+Budi baik jadi pusaka",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Budi baik membuat terkenal
+Hidup tak pernah dilupakan",2,2,0,1.000000,0.428571,10,9,9,9,0,
+35,2330,Pantun kiasan dan peribahasa,"hendak berlayar hari dah petang
+tepikan biduk kucutkan sampan
+tak kenal maka tak sayang
+marilah kita berkenalan","hendak berlayar hari dah petang
+tepikan biduk kucutkan sampan","tak kenal maka tak sayang
+marilah kita berkenalan",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Kenali satu sama lain untuk mencintai
+Agar hidup dipenuhi dengan kasih sayang",2,2,0,0.623298,0.166667,14,14,8,9,4,
+41,6406,Pantun cinta dan kasih,"Tenang-tenang air di laut
+Sampan kolek mudik ke tanjung
+Hati terkenang mulut menyebut
+Rindu kini tiada penghujung","Tenang-tenang air di laut
+Sampan kolek mudik ke tanjung","Hati terkenang mulut menyebut
+Rindu kini tiada penghujung",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Rasa rindu terus mengingatkan kenangan manis
+Tidak ada akhirnya, karena cinta selalu abadi",2,2,0,0.521426,0.125000,15,18,10,10,9,
+62,2305,Pantun bakti keluarga,"Harum kemboja mewangi di Jawa
+Tumbuh segar di pohon tualang
+Kasih dan cinta tersemat di jiwa
+Erat ukhuwah keluarga gemilang","Harum kemboja mewangi di Jawa
+Tumbuh segar di pohon tualang","Kasih dan cinta tersemat di jiwa
+Erat ukhuwah keluarga gemilang",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Kasih dan cinta tersemat di jiwa
+Erat ukhuwah keluarga gemilang",2,2,1,1.000000,1.000000,11,12,11,12,0,
+53,1337,Pantun persahabatan,"Bunga kenanga disemat dara
+Harumnya lembut dibawa angin
+Jika hati penuh setia
+Persahabatan kekal terjalin","Bunga kenanga disemat dara
+Harumnya lembut dibawa angin","Jika hati penuh setia
+Persahabatan kekal terjalin",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Hati penuh setia
+Persahabatan kekal terjalin",2,2,1,0.852344,0.857143,7,10,9,10,1,
+14,2129,Pantun agama,"Embun pagi berkilau jernih
+Menyentuh pucuk padi di huma
+Jika iman sentiasa bersih
+Damailah hidup sepanjang masa","Embun pagi berkilau jernih
+Menyentuh pucuk padi di huma","Jika iman sentiasa bersih
+Damailah hidup sepanjang masa",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Iman yang jujur membuat hati
+Bersih dan selalu dalam ketaatan",2,2,0,1.000000,0.250000,10,12,10,10,0,
+16,6428,Pantun agama,"terang bulan terang bercahaya
+cahaya memancar ke tanjung jati
+jikalau hendak hidup bahagia
+beramal ibadah sebelum mati","terang bulan terang bercahaya
+cahaya memancar ke tanjung jati","jikalau hendak hidup bahagia
+beramal ibadah sebelum mati",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Bergembira hati dalam beribadah
+Membuat hidup penuh bahagia",2,2,0,1.000000,0.250000,12,11,11,11,0,
+39,5861,Pantun kiasan dan peribahasa,"sampan perahu mengejar kayak
+dari hulu tak kenakena
+dusta itu bagaikan riak
+membuat hati gundah gulana","sampan perahu mengejar kayak
+dari hulu tak kenakena","dusta itu bagaikan riak
+membuat hati gundah gulana",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Kegiatan berbohong seperti ombak yang membentur
+Membuat hati seseorang menjadi bingung dan gundah",2,2,0,0.521426,0.428571,16,17,9,10,9,
+65,1473,Pantun kehidupan dan renungan,"Burung bangau di tepi rawa
+Mencari ikan sejak pagi
+Kalau ingin hidup bahagia
+Jaga hati dari dengki","Burung bangau di tepi rawa
+Mencari ikan sejak pagi","Kalau ingin hidup bahagia
+Jaga hati dari dengki",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Kalau ingin hidup bahagia
+Jaga hati dari dengki",2,2,1,1.000000,1.000000,10,8,10,8,0,
+27,1636,Pantun pendidikan,"burung merpati terbang beriring
+menuju senja di ufuk barat
+ilmu sejati lahir dari hening
+dan hati yang tulus berniat","burung merpati terbang beriring
+menuju senja di ufuk barat","ilmu sejati lahir dari hening
+dan hati yang tulus berniat",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Dengan diam terdengarlah suara
+Hati yang tulus penuh kasih sayang",2,2,0,1.000000,0.285714,11,11,11,9,0,
+32,1931,Pantun adat dan budaya,"Daun selasih di tepi laman
+Disiram embun waktu fajar
+Budi bahasa jadi pegangan
+Agar hidup sentiasa wajar","Daun selasih di tepi laman
+Disiram embun waktu fajar","Budi bahasa jadi pegangan
+Agar hidup sentiasa wajar",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Agar hidup selalu sejahtera dan bahagia
+Peganglah budi dan adat sebagai pedoman",2,2,0,0.561228,0.333333,16,14,10,10,6,
+34,2139,Pantun adat dan budaya,"Embun perak di hujung dedalu
+Bayu timur menyentuh seloka
+Adat dijunjung pusaka dahulu
+Jati bangsa jangan dilupa","Embun perak di hujung dedalu
+Bayu timur menyentuh seloka","Adat dijunjung pusaka dahulu
+Jati bangsa jangan dilupa",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Ingatlah jati diri sebagai bangsa
+Jaga tradisi leluhur sejak awal mula",2,2,0,0.748293,0.250000,12,14,11,9,2,
+42,1635,Pantun cinta dan kasih,"Burung merpati terbang berdua
+Menyusuri awan indah berlapis
+Kasih dan sayang mari terjaga
+Cinta abadi tak pernah habis","Burung merpati terbang berdua
+Menyusuri awan indah berlapis","Kasih dan sayang mari terjaga
+Cinta abadi tak pernah habis",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Jaga kasih sayang agar tetap utuh dan tidak hilang
+Cintamu akan menjadi abadi seumur hidup",2,2,0,0.521426,0.333333,17,16,10,10,9,
+93,1014,Pantun teka-teki,"berpindah tempat ke kota medan
+jangan lupa membawa baju
+kakiku empat tak punya badan
+coba tebak siapakah aku","berpindah tempat ke kota medan
+jangan lupa membawa baju","kakiku empat tak punya badan
+coba tebak siapakah aku",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"kakiku empat tak punya badan
+coba tebak siapakah aku",2,2,1,1.000000,1.000000,10,10,10,10,0,
+36,5563,Pantun kiasan dan peribahasa,"pohon kelapa ditanam disana
+berdekatan dengan pohon kenari
+peran ibu bapak dalam dunia
+bagaikan bulan dan matahari","pohon kelapa ditanam disana
+berdekatan dengan pohon kenari","peran ibu bapak dalam dunia
+bagaikan bulan dan matahari",Llama 3.1: 8B,zero_shot,Hasil Zero-shot,"Ibu dan Bapak adalah sumber cinta abadi
+Bercahaya dan berpendar seperti bulan dan matahari",2,2,0,0.521426,0.571429,15,18,11,10,9,
+20,1706,Pantun agama,"Burung pipit terbang ke rawa
+Mencari makan di antara padi
+Jika hidup penuh doa
+Hati tenang setiap hari","Burung pipit terbang ke rawa
+Mencari makan di antara padi","Jika hidup penuh doa
+Hati tenang setiap hari",Sailor2,few_shot,Hasil Few-shot,"Laut biru dengan ombak lembut bergerak,
+Doa tulus, jiwa pun tenang dan damai.",2,2,0,0.852344,0.250000,13,12,8,9,1,
+60,1710,Pantun bakti keluarga,"Burung pipit terbang rendah
+Hinggap manis di atas batu
+Jika ingin hidup berkah
+Hormati ayah dan ibu","Burung pipit terbang rendah
+Hinggap manis di atas batu","Jika ingin hidup berkah
+Hormati ayah dan ibu",Sailor2,few_shot,Hasil Few-shot,"Matahari pagi menyinari bumi,
+Hormat kepada orang tua memperkaya hati.",2,2,0,0.674969,0.000000,12,15,8,8,3,
+29,6149,Pantun adat dan budaya,"Sirih kuning disusun rapi
+Pinang dibelah dua bahagian
+Jika hidup ingin diberkati
+Pelihara adat dan pegangan","Sirih kuning disusun rapi
+Pinang dibelah dua bahagian","Jika hidup ingin diberkati
+Pelihara adat dan pegangan",Sailor2,few_shot,Hasil Few-shot,"Taman pusaka dijaga ketat,
+Berkah hidup tumbuh mekar tiada henti.",2,2,0,0.852344,0.142857,10,13,10,10,1,
+98,3679,Pantun anak-anak,"laut luas tempat berenang
+hutan hijau tempat si rusa
+bermain layangan hatiku senang
+bersama tiupan angin desa","laut luas tempat berenang
+hutan hijau tempat si rusa","bermain layangan hatiku senang
+bersama tiupan angin desa",Sailor2,few_shot,Hasil Few-shot,"Layangan diterbangkan angin desa,
+Hati riang merasakan kebebasan jiwa.",2,2,0,0.748293,0.375000,11,14,11,10,2,
+93,1014,Pantun teka-teki,"berpindah tempat ke kota medan
+jangan lupa membawa baju
+kakiku empat tak punya badan
+coba tebak siapakah aku","berpindah tempat ke kota medan
+jangan lupa membawa baju","kakiku empat tak punya badan
+coba tebak siapakah aku",Sailor2,few_shot,Hasil Few-shot,"Aku tak berbadan kakiku empat,
+Seekor laba-laba si penenun jaring.",2,2,0,0.852344,0.375000,11,13,10,10,1,
+65,1473,Pantun kehidupan dan renungan,"Burung bangau di tepi rawa
+Mencari ikan sejak pagi
+Kalau ingin hidup bahagia
+Jaga hati dari dengki","Burung bangau di tepi rawa
+Mencari ikan sejak pagi","Kalau ingin hidup bahagia
+Jaga hati dari dengki",Sailor2,few_shot,Hasil Few-shot,"Bulan purnama di malam tenang,
+Hati bersih membawa kebahagiaan.",2,2,0,0.852344,0.142857,10,13,10,8,1,
+37,313,Pantun kiasan dan peribahasa,"Anak Cik Siti mencari tuba
+Tuba dicari di Tanjung Jati
+Di dalam hati tidakkan lupa
+Bagai rambut tersimpul mati","Anak Cik Siti mencari tuba
+Tuba dicari di Tanjung Jati","Di dalam hati tidakkan lupa
+Bagai rambut tersimpul mati",Sailor2,few_shot,Hasil Few-shot,"Mutiara nasihat selamanya diingati,
+Kebajikan abadi seperti cahaya matahari.",2,2,0,0.530405,0.000000,15,17,10,9,8,
+89,4028,Pantun jenaka,"memetik bunga di tepi rawa
+sambil mendengar kicauan burung
+terbahakbahak itik tertawa
+melihat monyet memakai sarung","memetik bunga di tepi rawa
+sambil mendengar kicauan burung","terbahakbahak itik tertawa
+melihat monyet memakai sarung",Sailor2,few_shot,Hasil Few-shot,"Itik tertawa riang sekali,
+Melihat monyet lucu berpakaian sarung.",2,2,0,0.852344,0.714286,10,13,10,10,1,
+75,1347,Pantun kebangsaan,"Bunga kenanga mekar berseri
+Harumnya halus menawan rasa
+Jika budi menjadi pertiwi
+Bangsa bermaruah sepanjang masa","Bunga kenanga mekar berseri
+Harumnya halus menawan rasa","Jika budi menjadi pertiwi
+Bangsa bermaruah sepanjang masa",Sailor2,few_shot,Hasil Few-shot,"Kupu-kupu indah di taman firdaus,
+Budi pekerti mulia ciptakan maruah abadi.",2,2,0,0.586887,0.125000,12,17,10,11,5,
+48,1170,Pantun cinta dan kasih,"Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih
+Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih","Buah kuini jatuh tercampak
+Jatuh menimpa bunga selasih","Biar bertahun dilambung ombak
+Tidak ku lupa pada yang kasih",Sailor2,few_shot,Hasil Few-shot,"Lentera asmara tetap menyala terang,
+Menghangatkan hati di setiap malam sepi.",2,2,0,0.674969,0.000000,13,14,10,10,3,
+42,1635,Pantun cinta dan kasih,"Burung merpati terbang berdua
+Menyusuri awan indah berlapis
+Kasih dan sayang mari terjaga
+Cinta abadi tak pernah habis","Burung merpati terbang berdua
+Menyusuri awan indah berlapis","Kasih dan sayang mari terjaga
+Cinta abadi tak pernah habis",Sailor2,few_shot,Hasil Few-shot,"Lautan kasih mengalir tanpa henti,
+Dalam hati dua jiwa yang sejiwa.",2,2,0,1.000000,0.111111,11,12,10,10,0,
+83,1397,Pantun perpisahan dan perantauan,"bunga melati di tepi sawah
+cantik elok di dekat batu
+jika nanti kita berpisah
+jangan pernah lupakan aku","bunga melati di tepi sawah
+cantik elok di dekat batu","jika nanti kita berpisah
+jangan pernah lupakan aku",Sailor2,few_shot,Hasil Few-shot,"Detik berpisah janganlah lupa,
+Ingatan teman selalu di jiwa.",2,2,0,1.000000,0.166667,10,11,9,9,0,
+50,1442,Pantun persahabatan,"Bunga tanjung di halaman
+Harumnya semerbak kala senja
+Jika ingin dihormati teman
+Bersikap rendah hati sentiasa","Bunga tanjung di halaman
+Harumnya semerbak kala senja","Jika ingin dihormati teman
+Bersikap rendah hati sentiasa",Sailor2,few_shot,Hasil Few-shot,"Kembang mawar indah dengan duri halus,
+Tanda hormat yang membuat kita disayangi.",2,2,0,0.748293,0.000000,12,14,10,11,2,
+51,6151,Pantun persahabatan,"Sirih merah di dalam puan
+Pinang muda dibelah rata
+Jika hendak disayang kawan
+Bersikap jujur sepanjang masa","Sirih merah di dalam puan
+Pinang muda dibelah rata","Jika hendak disayang kawan
+Bersikap jujur sepanjang masa",Sailor2,few_shot,Hasil Few-shot,"Pohon kelapa di tepi pantai,
+Hidayah kejujuran membawa damai.",2,2,0,1.000000,0.000000,10,12,9,10,0,
+27,1636,Pantun pendidikan,"burung merpati terbang beriring
+menuju senja di ufuk barat
+ilmu sejati lahir dari hening
+dan hati yang tulus berniat","burung merpati terbang beriring
+menuju senja di ufuk barat","ilmu sejati lahir dari hening
+dan hati yang tulus berniat",Sailor2,few_shot,Hasil Few-shot,"Layar ilmu terbuka di senyap malam,
+Bijaknya timbul, damai jiwanya tenang.",2,2,0,1.000000,0.142857,12,12,11,9,0,
+91,4536,Pantun teka-teki,"pagi hari menanak nasi
+nasi bekal orang di sawah
+cobalah terka pantunku ini
+akar di atas pucuk di bawah","pagi hari menanak nasi
+nasi bekal orang di sawah","cobalah terka pantunku ini
+akar di atas pucuk di bawah",Sailor2,few_shot,Hasil Few-shot,"Teka-teki akarku di atas, pucuknya bawah,
+Bentuk unik tiada bandingannya.",2,2,0,0.674969,0.285714,15,11,10,10,3,
+39,5861,Pantun kiasan dan peribahasa,"sampan perahu mengejar kayak
+dari hulu tak kenakena
+dusta itu bagaikan riak
+membuat hati gundah gulana","sampan perahu mengejar kayak
+dari hulu tak kenakena","dusta itu bagaikan riak
+membuat hati gundah gulana",Sailor2,few_shot,Hasil Few-shot,"Kata benar yang jernih seperti kristal,
+Teguhlah iman di setiap langkah hidup.",2,2,0,0.852344,0.000000,12,13,9,10,1,
+5,4853,Pantun nasihat dan budi pekerti,"Pergi ke desa membawa padi
+Padi ditukar dengan ikan
+Jika hidup ingin berisi budi
+Hormati janji dan ucapan","Pergi ke desa membawa padi
+Padi ditukar dengan ikan","Jika hidup ingin berisi budi
+Hormati janji dan ucapan",Sailor2,few_shot,Hasil Few-shot,"Senja indah di tepi pantai,
+Janji terjaga, hati pun damai.",2,2,0,1.000000,0.125000,9,10,11,9,0,
+68,3263,Pantun kehidupan dan renungan,"Ke pasar membeli beras
+Tak lupa membeli kelapa
+Hidup tenang jauh dari cemas
+Jika ikhlas dalam segala upaya","Ke pasar membeli beras
+Tak lupa membeli kelapa","Hidup tenang jauh dari cemas
+Jika ikhlas dalam segala upaya",Sailor2,few_shot,Hasil Few-shot,"Laut yang tenang di tepi pantai,
+Ikhlas dalam kerja menenangkan hati.",2,2,0,1.000000,0.250000,10,12,10,12,0,
+15,2465,Pantun agama,"Ikan sepat ikan gabus
+Masak lemak dalam belanga
+Jika hendak hidup lurus
+Ikut adat dan agama","Ikan sepat ikan gabus
+Masak lemak dalam belanga","Jika hendak hidup lurus
+Ikut adat dan agama",Sailor2,few_shot,Hasil Few-shot,"Sungai jernih mengalir di tengah hutan hijau,
+Adat terjaga, kehidupan pun selaras.",2,2,0,0.674969,0.142857,14,13,8,8,3,
+10,3176,Pantun nasihat dan budi pekerti,"Ke kebun bunga memetik mawar
+Mawar merah harum baunya
+Jika ingin hidup terasa segar
+Syukuri nikmat sepanjang usia","Ke kebun bunga memetik mawar
+Mawar merah harum baunya","Jika ingin hidup terasa segar
+Syukuri nikmat sepanjang usia",Sailor2,few_shot,Hasil Few-shot,"Embun pagi di atas kembang melati,
+Nikmat syukur, kehidupan pun berseri.",2,2,0,1.000000,0.111111,12,12,11,11,0,
+4,4515,Pantun nasihat dan budi pekerti,"Pagi hari memetik mangga
+Burung kecil hinggap di pagar
+Jika ingin hidup bahagia
+Bersikap jujur dan sabar","Pagi hari memetik mangga
+Burung kecil hinggap di pagar","Jika ingin hidup bahagia
+Bersikap jujur dan sabar",Sailor2,few_shot,Hasil Few-shot,"Bawah redup bayangan pohon beringin,
+Kebahagiaan mengalir tenang tanpa henti.",2,2,0,0.674969,0.000000,12,15,10,8,3,
+74,1729,Pantun kebangsaan,"Burung serindit menyisir awan
+Hinggap sebentar di dahan sena
+Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda","Burung serindit menyisir awan
+Hinggap sebentar di dahan sena","Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda",Sailor2,few_shot,Hasil Few-shot,"Batu permata bersinar terang,
+Amanah teguh menjaga kemurnian bangsa.",2,2,0,0.748293,0.285714,10,14,10,10,2,
+34,2139,Pantun adat dan budaya,"Embun perak di hujung dedalu
+Bayu timur menyentuh seloka
+Adat dijunjung pusaka dahulu
+Jati bangsa jangan dilupa","Embun perak di hujung dedalu
+Bayu timur menyentuh seloka","Adat dijunjung pusaka dahulu
+Jati bangsa jangan dilupa",Sailor2,few_shot,Hasil Few-shot,"Lentera tradisi tetap bersinar,
+Dalam era moden tak pernah pudar sinarnya.",2,2,0,0.748293,0.000000,11,14,11,9,2,
+67,3196,Pantun kehidupan dan renungan,"Ke kebun pagi membawa keranjang
+Keranjang rotan diisi mangga
+Jika hidup terasa panjang
+Gunakan waktu untuk berkarya","Ke kebun pagi membawa keranjang
+Keranjang rotan diisi mangga","Jika hidup terasa panjang
+Gunakan waktu untuk berkarya",Sailor2,few_shot,Hasil Few-shot,"Burung walet rajin membuat sarang,
+Manfaatkan waktu dengan bijaksana dan giat.",2,2,0,0.674969,0.142857,11,15,9,10,3,
+72,1095,Pantun kebangsaan,"Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa
+Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa","Bintang timur menyinsing pagi
+Menyingkap kabut di hujung desa","Jika amanah dijunjung tinggi
+Tegaklah bangsa penuh wibawa",Sailor2,zero_shot,Hasil Zero-shot,"Amanah dijunjung tinggi
+Bangsa tegak, penuh wibawa",2,2,1,1.000000,0.750000,8,9,10,10,0,
+61,2906,Pantun bakti keluarga,"kalau angin bertiup di darat
+ambillah jala turunkan sampan
+kalau hidup hendak selamat
+ayah dan bunda kita muliakan","kalau angin bertiup di darat
+ambillah jala turunkan sampan","kalau hidup hendak selamat
+ayah dan bunda kita muliakan",Sailor2,zero_shot,Hasil Zero-shot,"Hidup selamat, muliakan ayah dan bunda
+Kasih mereka, tiang kehidupan",2,2,0,0.748293,0.714286,14,11,9,11,2,
+68,3263,Pantun kehidupan dan renungan,"Ke pasar membeli beras
+Tak lupa membeli kelapa
+Hidup tenang jauh dari cemas
+Jika ikhlas dalam segala upaya","Ke pasar membeli beras
+Tak lupa membeli kelapa","Hidup tenang jauh dari cemas
+Jika ikhlas dalam segala upaya",Sailor2,zero_shot,Hasil Zero-shot,"Hidup tenang, jauh dari cemas
+Ikhlas dalam upaya, damai jiwa",2,2,1,1.000000,0.750000,10,11,10,12,0,
+50,1442,Pantun persahabatan,"Bunga tanjung di halaman
+Harumnya semerbak kala senja
+Jika ingin dihormati teman
+Bersikap rendah hati sentiasa","Bunga tanjung di halaman
+Harumnya semerbak kala senja","Jika ingin dihormati teman
+Bersikap rendah hati sentiasa",Sailor2,zero_shot,Hasil Zero-shot,"Jika ingin, dihormati teman
+Bersikap rendah hati, sentiasa, hormat terjaga",2,2,1,0.623298,1.000000,10,16,10,11,4,
+84,4791,Pantun perpisahan dan perantauan,"pergi berlayar ke pulau seberang
+sambilkan dengan memancing ikan
+semakin jauh ke rantau orang
+hanya keluarga yang aku rindukan","pergi berlayar ke pulau seberang
+sambilkan dengan memancing ikan","semakin jauh ke rantau orang
+hanya keluarga yang aku rindukan",Sailor2,zero_shot,Hasil Zero-shot,"Semakin jauh ke rantau orang,
+Keluarga tercinta tetap di hati terdalam.",2,2,0,0.674969,0.714286,10,15,10,12,3,
+34,2139,Pantun adat dan budaya,"Embun perak di hujung dedalu
+Bayu timur menyentuh seloka
+Adat dijunjung pusaka dahulu
+Jati bangsa jangan dilupa","Embun perak di hujung dedalu
+Bayu timur menyentuh seloka","Adat dijunjung pusaka dahulu
+Jati bangsa jangan dilupa",Sailor2,zero_shot,Hasil Zero-shot,"Adat dijunjung, pusaka dahulu
+Jati bangsa, jangan dilupa, warisan terjaga",2,2,1,0.674969,1.000000,11,15,11,9,3,
+20,1706,Pantun agama,"Burung pipit terbang ke rawa
+Mencari makan di antara padi
+Jika hidup penuh doa
+Hati tenang setiap hari","Burung pipit terbang ke rawa
+Mencari makan di antara padi","Jika hidup penuh doa
+Hati tenang setiap hari",Sailor2,zero_shot,Hasil Zero-shot,"Penuh doa hati tenang setiap hari
+Rahmat Tuhan, hidup terasa manis",2,2,0,0.852344,0.875000,13,11,8,9,1,
+24,5202,Pantun pendidikan,"Pergi ke pasar membeli talas
+Tak lupa membeli buah duku
+Ilmu diamalkan jadi ikhlas
+Agar hidup penuh makna selalu","Pergi ke pasar membeli talas
+Tak lupa membeli buah duku","Ilmu diamalkan jadi ikhlas
+Agar hidup penuh makna selalu",Sailor2,zero_shot,Hasil Zero-shot,"Amalkan ilmu jadi ikhlas hati
+Hidup penuh makna, selalu berarti",2,2,0,1.000000,0.857143,11,12,10,11,0,
+27,1636,Pantun pendidikan,"burung merpati terbang beriring
+menuju senja di ufuk barat
+ilmu sejati lahir dari hening
+dan hati yang tulus berniat","burung merpati terbang beriring
+menuju senja di ufuk barat","ilmu sejati lahir dari hening
+dan hati yang tulus berniat",Sailor2,zero_shot,Hasil Zero-shot,"Ilmu sejati lahir dari hening
+Hati tulus berniat, ilmu mengalir tenang",2,2,0,0.748293,1.000000,11,14,11,9,2,
+33,4327,Pantun adat dan budaya,"Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu
+Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu","Ombak beralun di Kuala Tanjung
+Perahu nelayan pulang ke hulu","Jika adat sentiasa dijunjung
+Hilang sengketa hidup bersatu",Sailor2,zero_shot,Hasil Zero-shot,"Jika adat sentiasa dijunjung
+Hilang sengketa, hidup bersatu, rukun damai",2,2,0,0.748293,1.000000,11,14,11,10,2,
+58,4968,Pantun bakti keluarga,"pergi ke kebun memetik tomat
+bunga wangi namanya melati
+kepada ayah mesti hormat
+kepada ibu harus berbakti","pergi ke kebun memetik tomat
+bunga wangi namanya melati","kepada ayah mesti hormat
+kepada ibu harus berbakti",Sailor2,zero_shot,Hasil Zero-shot,"Hormat kepada ayah, berbakti kepada ibu
+Jasa mereka, besar tiada tara",2,2,0,0.674969,0.714286,15,12,9,10,3,
+56,6440,Pantun bakti keluarga,"Terbang tinggi burung merpati
+Hinggap sebentar di pohon kelapa
+Hidup di dunia buatlah bakti
+Kepada ibu dan juga bapa","Terbang tinggi burung merpati
+Hinggap sebentar di pohon kelapa","Hidup di dunia buatlah bakti
+Kepada ibu dan juga bapa",Sailor2,zero_shot,Hasil Zero-shot,"Hidup di dunia, berbuat bakti
+Kepada ibu dan bapa, kasih tak terhingga",2,2,1,0.748293,0.857143,11,14,11,10,2,
+66,1275,Pantun kehidupan dan renungan,"bulan berkedip bintang datang
+beli sarung di pasar pagi
+begini nasib jadi pedagang
+kadang untung kadang rugi","bulan berkedip bintang datang
+beli sarung di pasar pagi","begini nasib jadi pedagang
+kadang untung kadang rugi",Sailor2,zero_shot,Hasil Zero-shot,"Nasib pedagang, kadang untung rugi
+Bijak mengatur, rezeki berlimpah",2,2,0,1.000000,0.833333,11,11,10,8,0,
+79,1697,Pantun sosial dan kerukunan,"Burung pipit hinggap di dahan
+Bersiul riang di pagi hari
+Jika ingin hidup penuh kedamaian
+Jagalah lisan serta hati","Burung pipit hinggap di dahan
+Bersiul riang di pagi hari","Jika ingin hidup penuh kedamaian
+Jagalah lisan serta hati",Sailor2,zero_shot,Hasil Zero-shot,"Jagalah lisan serta hati,
+Maka kedamaian akan selalu menanti.",2,2,0,0.748293,0.555556,9,14,12,9,2,
+74,1729,Pantun kebangsaan,"Burung serindit menyisir awan
+Hinggap sebentar di dahan sena
+Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda","Burung serindit menyisir awan
+Hinggap sebentar di dahan sena","Jika amanah dijunjung tuan
+Teguhlah bangsa tidak ternoda",Sailor2,zero_shot,Hasil Zero-shot,"Amanah dijunjung tuan
+Bangsa teguh, tidak ternoda",2,2,1,1.000000,0.714286,8,9,10,10,0,
+54,6148,Pantun persahabatan,"Sirih kuning dalam tempayan
+Air jernih penuh isinya
+Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya","Sirih kuning dalam tempayan
+Air jernih penuh isinya","Jika hidup mahu berteman
+Ikhlaskan hati dalam segalanya",Sailor2,zero_shot,Hasil Zero-shot,"Jika hidup mahu berteman
+Ikhlas hati, kasih sayang bersemi",2,2,0,1.000000,0.714286,9,11,9,11,0,
+28,6142,Pantun adat dan budaya,"Sirih berlipat sirih pinang
+Sirih dari Pulau Mutiara
+Adat dijunjung pusaka dikenang
+Budi bahasa penyeri negara","Sirih berlipat sirih pinang
+Sirih dari Pulau Mutiara","Adat dijunjung pusaka dikenang
+Budi bahasa penyeri negara",Sailor2,zero_shot,Hasil Zero-shot,"Adat dijunjung, pusaka dikenang
+Budi bahasa penyeri, negara bercahaya",2,2,1,0.674969,1.000000,11,15,11,11,3,
+100,1986,Pantun anak-anak,"di kamar tidur teronggok cermin
+cermin dipakai untuk berdandan
+di tanah lapang kami bermain
+bermain gundu juga layangan","di kamar tidur teronggok cermin
+cermin dipakai untuk berdandan","di tanah lapang kami bermain
+bermain gundu juga layangan",Sailor2,zero_shot,Hasil Zero-shot,"Di tanah lapang bermain gembira,
+Layangan dan gundu, kenangan abadi.",2,2,0,1.000000,1.000000,11,12,10,10,0,
+23,1637,Pantun pendidikan,"Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati
+Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati","Burung merpati terbang ke taman
+Hinggap sebentar di pohon jati","Kalau ingin masa depan aman
+Belajarlah rajin sepenuh hati",Sailor2,zero_shot,Hasil Zero-shot,"Rajin belajar, masa depan aman cerah
+Pengetahuan baik, hidup penuh cahaya",2,2,0,0.674969,0.444444,13,14,10,11,3,
+51,6151,Pantun persahabatan,"Sirih merah di dalam puan
+Pinang muda dibelah rata
+Jika hendak disayang kawan
+Bersikap jujur sepanjang masa","Sirih merah di dalam puan
+Pinang muda dibelah rata","Jika hendak disayang kawan
+Bersikap jujur sepanjang masa",Sailor2,zero_shot,Hasil Zero-shot,"Jika ingin disayangi kawan
+Jujur hati, setia menjadi tauladan",2,2,0,0.852344,0.375000,10,13,9,10,1,
+52,1714,Pantun persahabatan,"Burung pipit terbang rendah
+Hinggap sebentar di pohon cemara
+Jika hati selalu ramah
+Banyak sahabat datang menyapa","Burung pipit terbang rendah
+Hinggap sebentar di pohon cemara","Jika hati selalu ramah
+Banyak sahabat datang menyapa",Sailor2,zero_shot,Hasil Zero-shot,"Jika hati selalu ramah
+Sahabat datang, persahabatan tumbuh subur",2,2,0,0.748293,0.750000,9,14,9,10,2,
+21,5560,Pantun pendidikan,"pohon kelapa di tepi telaga
+daunnya melambai tertiup angin
+hormat guru tanda mulia
+ilmu mengalir penuh berkah yakin","pohon kelapa di tepi telaga
+daunnya melambai tertiup angin","hormat guru tanda mulia
+ilmu mengalir penuh berkah yakin",Sailor2,zero_shot,Hasil Zero-shot,"Hormati guru, ilmu berkah yakin
+Ilmu mengalir, hidup penuh berkat",2,2,0,1.000000,0.666667,11,11,9,11,0,
+9,1575,Pantun nasihat dan budi pekerti,"Burung kecil bernyanyi pagi
+Di dahan pohon yang rindang
+Jika ingin hidup berarti
+Bersikap jujur dan lapang","Burung kecil bernyanyi pagi
+Di dahan pohon yang rindang","Jika ingin hidup berarti
+Bersikap jujur dan lapang",Sailor2,zero_shot,Hasil Zero-shot,"Bersikap jujur dan lapang hati
+Hidup berarti tanpa iri dengki",2,2,0,1.000000,0.714286,10,11,9,8,0,
+25,5518,Pantun pendidikan,"Pohon beringin tumbuh di desa
+Daunnya rindang tempat berteduh
+Ilmu dan iman berjalan bersama
+Hidup pun terasa penuh dan utuh","Pohon beringin tumbuh di desa
+Daunnya rindang tempat berteduh","Ilmu dan iman berjalan bersama
+Hidup pun terasa penuh dan utuh",Sailor2,zero_shot,Hasil Zero-shot,"Ilmu dan iman, berjalan seiring
+Hidup utuh, penuh makna dan cahaya",2,2,0,1.000000,0.750000,11,12,11,11,0,
+5,4853,Pantun nasihat dan budi pekerti,"Pergi ke desa membawa padi
+Padi ditukar dengan ikan
+Jika hidup ingin berisi budi
+Hormati janji dan ucapan","Pergi ke desa membawa padi
+Padi ditukar dengan ikan","Jika hidup ingin berisi budi
+Hormati janji dan ucapan",Sailor2,zero_shot,Hasil Zero-shot,"Tenang hidup jangan cari salah
+Membina baik hati tak gundah",2,2,0,1.000000,0.125000,10,10,11,9,0,

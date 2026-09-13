@@ -100,6 +100,19 @@ Across-model comparison per setting:
 - ANOVA: few-shot p = 5.21e-162, zero-shot p = 6.92e-115.
 - Kruskal-Wallis: few-shot p = 2.81e-89, zero-shot p = 1.88e-80.
 
+Tabel ringkas hasil uji statistik xRASA (angka final tervalidasi):
+
+| Test Level / Model | Statistical Method | Metric | Test Statistic | p-value |
+|---|---|---|---|---|
+| Omnibus Zero-Shot | One-Way ANOVA / Kruskal-Wallis | xRASA | F=176.42 / H=382.35 | <0.001* |
+| Omnibus Few-Shot | One-Way ANOVA / Kruskal-Wallis | xRASA | F=307.02 / H=423.30 | <0.001* |
+| Claude (Sonnet 5) | Wilcoxon Signed-Rank | xRASA | W=949.5 | 0.23 |
+| Gemini (3.6 Flash) | Wilcoxon Signed-Rank | xRASA | W=1601.5 | 0.93 |
+| ChatGPT (5.6 Sol) | Wilcoxon Signed-Rank | xRASA | W=675.0 | 0.11 |
+| Llama 3.1 (8B) | Wilcoxon Signed-Rank | xRASA | W=1654.5 | 0.02* |
+| DeepSeek-R1 (8B) | Wilcoxon Signed-Rank | xRASA | W=225.5 | 0.01* |
+| Sailor2 (8B) | Wilcoxon Signed-Rank | xRASA | W=71.5 | <0.01* |
+
 Sumber statistik:
 - data/article2/significance_xrasa_zero_vs_few_1200.csv
 - data/article2/significance_xrasa_across_models_1200.csv
@@ -158,6 +171,18 @@ Interpretasi ringkas:
 - Kesalahan paling kritis untuk kualitas pantun adalah ketidakseimbangan antara kontrol leakage dan kepatuhan rima.
 - Pada beberapa model, upaya menekan kebocoran kata cenderung menggeser keluaran ke bentuk prosaik dan melemahkan rima akhir.
 - Error profile ini memperkuat kebutuhan evaluasi berbasis metrik komposit (xRASA), bukan satu metrik tunggal.
+
+### Cross-Example Contamination pada Model 8B (Few-shot)
+
+Analisis tambahan pada tiga model 8B menunjukkan indikasi peniruan pola akhiran dari konteks contoh few-shot (template reuse), bukan pembentukan rima baru yang adaptif terhadap isi target. Indikator yang digunakan adalah konsentrasi token akhir baris kedua (Herfindahl index/HHI) dan rasio duplikasi persis baris kedua.
+
+| Model 8B | Duplicate Line-2 Rate (ZS -> FS) | HHI Ending Line-2 (ZS -> FS) | Indikasi |
+|---|---:|---:|---|
+| Llama 3.1: 8B | 0.10 -> 0.23 | 0.0122 -> 0.0202 | Menguat jelas |
+| DeepSeek-R1 | 0.14 -> 0.22 | 0.0154 -> 0.0166 | Menguat |
+| Sailor2 | 0.23 -> 0.26 | 0.0192 -> 0.0188 | Duplikasi naik, konsentrasi stabil |
+
+Temuan ini memperkuat Instruction Overload Hypothesis: pada model berukuran kecil, few-shot dapat mendorong penyalinan pola konteks (terutama pada ujung baris/rima) sehingga keragaman rima menurun. Secara praktis, hal ini menjelaskan mengapa penurunan CLR pada beberapa model 8B tidak otomatis diikuti perbaikan xRASA.
 
 ## 9) Discussion Siap-Tempel
 

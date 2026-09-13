@@ -5,81 +5,79 @@
 
 ## Overview
 
-Pantunify merupakan toolkit berbasis Python untuk mendukung kurasi korpus pantun Indonesia secara sistematis. Sistem ini mengintegrasikan pembersihan teks, validasi formal pantun, deduplikasi exact-fuzzy, serialisasi dataset terstruktur, serta pembuatan visualisasi deskriptif. Pendekatan yang digunakan bersifat rule-based agar keputusan filtering dapat ditelusuri dan direproduksi.
+Pantunify is a Python toolkit for systematic curation of Indonesian pantun corpora. It integrates text cleaning, formal pantun validation, exact-fuzzy deduplication, structured tabular serialization, and descriptive statistical visualization. The pipeline is rule-based so filtering decisions remain transparent and reproducible.
 
-## Research-Oriented Objectives
+## Research Objectives
 
-Pengembangan toolkit ini diarahkan untuk memenuhi kebutuhan pemrosesan data pada studi komputasional sastra lisan, dengan sasaran berikut:
+The toolkit is designed for computational studies of oral literature with the following goals:
 
-1. Menstandarkan korpus pantun mentah menjadi unit empat baris yang dapat dianalisis.
-2. Menegakkan batasan formal pantun melalui validasi suku kata dan pola rima.
-3. Memisahkan data lolos dan data eksklusi dalam format yang audit-friendly.
-4. Menyediakan dataset tabular dengan fitur per baris untuk analisis kuantitatif lanjutan.
-5. Menghasilkan artefak visual dan ringkasan statistik untuk kebutuhan pelaporan ilmiah.
+1. Standardize raw pantun corpora into analyzable four-line units.
+2. Enforce formal constraints through syllable and rhyme validation.
+3. Separate accepted and excluded records in an audit-friendly format.
+4. Provide a structured dataset with per-line features for downstream quantitative analysis.
+5. Produce descriptive figures and summary statistics for scientific reporting.
 
 ## Validation Criteria
 
-Setiap kandidat pantun pada jalur utama dievaluasi menggunakan kriteria berikut:
+Each pantun candidate in the main pipeline is evaluated with these criteria:
 
-- jumlah baris tepat empat,
-- jumlah suku kata per baris berada pada rentang 8-12,
-- pola rima valid (a-b-a-b atau a-a-a-a),
-- filtering tambahan berbasis penanda dialektal,
-- deduplikasi exact dan fuzzy untuk mengendalikan redundansi korpus.
+- exactly four lines,
+- syllable count per line within 8-12,
+- valid rhyme scheme (a-b-a-b or a-a-a-a),
+- additional filtering with lexical constraints,
+- exact and fuzzy deduplication to control redundancy.
 
 ## Data Processing Workflow
 
-Alur proses yang direkomendasikan adalah sebagai berikut:
+Recommended end-to-end workflow:
 
-1. Menyiapkan korpus gabungan pada file data/merged.txt.
-2. Menjalankan proses deduplikasi dan validasi untuk menghasilkan:
-   - data/ok.txt (pantun lolos),
-   - data/fail.txt (pantun tidak lolos).
-3. Mengonversi data/ok.txt menjadi dataset utama data/pantun_dataset.csv.
-4. Mengonversi data/fail.txt menjadi dataset audit data/excluded_pantun_dataset.csv.
-5. Menghasilkan visualisasi serta ringkasan statistik dataset.
+1. Prepare the merged corpus as data/merged.txt.
+2. Run deduplication and validation to produce:
+- data/ok.txt (accepted pantun),
+- data/fail.txt (rejected pantun).
+3. Convert data/ok.txt into the main dataset data/pantun_dataset.csv.
+4. Convert data/fail.txt into the audit dataset data/excluded_pantun_dataset.csv.
+5. Generate descriptive figures and statistical summaries.
 
-Jika ingin menghitung ulang statistik dataset saja, jalankan:
+To recalculate summary statistics only:
 
 ```bash
-python scripts/calc_dataset_stats.py
+python scripts/article1/calc_dataset_stats.py --input data/pantun_dataset.csv
 ```
-
-Skrip ini membaca data/pantun_dataset.csv dan mencetak ringkasan total data, distribusi skema rima, observasi suku kata, rentang dan rata-rata global, serta profil suku kata per posisi baris.
 
 ## Installation
 
 ```bash
-pip install -e .
+python -m pip install -e .
 ```
 
 ## Core Commands
 
-Filtering utama korpus:
+Main corpus filtering:
 
 ```bash
 pantunify --input data/merged.txt --ok data/ok.txt --fail data/fail.txt
 ```
 
-Konversi data valid ke dataset utama:
+Convert accepted data to the main dataset:
 
 ```bash
-python scripts/ok_txt_to_csv.py --input data/ok.txt --output data/pantun_dataset.csv
+python scripts/article1/ok_txt_to_csv.py --input data/ok.txt --output data/pantun_dataset.csv
 ```
 
-Konversi data tidak lolos ke dataset audit:
+Convert rejected data to the audit dataset:
 
 ```bash
-python scripts/fail_txt_to_csv.py --input data/fail.txt --output data/excluded_pantun_dataset.csv
+python scripts/article1/fail_txt_to_csv.py --input data/fail.txt --output data/excluded_pantun_dataset.csv
 ```
 
-Pembuatan grafik deskriptif dan ringkasan statistik:
+Generate figures and JSON summary:
 
 ```bash
-python scripts/chart_generate.py
+python scripts/article1/chart_generate.py
 ```
 
-Keluaran visual ditulis pada folder figures dengan artefak berikut:
+Visual outputs are written to figures:
 
 - figure1_rhyme_schema.png
 - figure2_syllable_hist.png
@@ -88,7 +86,7 @@ Keluaran visual ditulis pada folder figures dengan artefak berikut:
 
 ## Primary Dataset Schema
 
-Dataset utama berada pada data/pantun_dataset.csv dan terdiri dari 17 variabel:
+The main dataset is data/pantun_dataset.csv with 17 variables:
 
 1. id
 2. text_pantun
@@ -108,14 +106,14 @@ Dataset utama berada pada data/pantun_dataset.csv dan terdiri dari 17 variabel:
 16. jumlah_kata_baris_3
 17. jumlah_kata_baris_4
 
-Kolom rima_akhir_baris_1 sampai rima_akhir_baris_4 berisi hasil ekstraksi rima akhir per baris dari fungsi last_syllable.
+Columns rima_akhir_baris_1 through rima_akhir_baris_4 store line-ending rhyme extraction from last_syllable.
 
 ## Notes for Scientific Reporting
 
-- Untuk deskripsi dataset inti, gunakan data/pantun_dataset.csv.
-- Untuk audit terhadap entri yang tidak lolos validasi, gunakan data/excluded_pantun_dataset.csv.
-- Folder data/ai_sampiran merepresentasikan material riset berbeda dan tidak wajib dimasukkan dalam deskripsi dataset utama.
+- Use data/pantun_dataset.csv for core dataset reporting.
+- Use data/excluded_pantun_dataset.csv for exclusion and audit reporting.
+- The data/ai_sampiran folder belongs to a separate research stream and is not required for the main dataset description.
 
 ## Contribution
 
-Kontribusi untuk peningkatan metodologi validasi linguistik, deduplikasi, dan dokumentasi ilmiah sangat terbuka.
+Contributions on linguistic validation rules, deduplication strategy, and scientific documentation are welcome.

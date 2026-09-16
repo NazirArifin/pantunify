@@ -202,7 +202,38 @@ This behavior is consistent with the xRASA formulation, where the inner term T =
 
 From a dissertation perspective, this makes Sailor2 a strong intervention candidate rather than a dead-end baseline. Its error profile is clear and actionable: reduce lexical overlap without sacrificing end-line rhyme structure. Methodologically, this supports targeted prompt and decoding experiments on Sailor2, evaluated with paired tests on R, CLR, and xRASA to verify whether structural recovery can be achieved without reintroducing leakage.
 
-## 10) Lokasi File Final
+## 10) Baseline NLP Metrics (BLEU/ROUGE/BERTScore)
+
+Sebagai pembanding terhadap metrik utama xRASA, evaluasi baseline NLG dihitung menggunakan BLEU, ROUGE, dan BERTScore pada dataset final 1200 output.
+
+| Model | Setting | BLEU | ROUGE-1 F1 | ROUGE-2 F1 | ROUGE-L F1 | BERTScore F1 |
+|---|---|---:|---:|---:|---:|---:|
+| Chat-GPT | few_shot | 0.0109 | 0.0831 | 0.0135 | 0.0819 | 0.6982 |
+| Chat-GPT | zero_shot | 0.0116 | 0.0753 | 0.0113 | 0.0688 | 0.6976 |
+| Claude | few_shot | 0.0149 | 0.1010 | 0.0166 | 0.0948 | 0.7040 |
+| Claude | zero_shot | 0.0146 | 0.0802 | 0.0119 | 0.0758 | 0.6996 |
+| DeepSeek-R1 | few_shot | 0.0028 | 0.0245 | 0.0000 | 0.0214 | 0.6787 |
+| DeepSeek-R1 | zero_shot | 0.0028 | 0.0144 | 0.0013 | 0.0144 | 0.6702 |
+| Gemini | few_shot | 0.0138 | 0.1054 | 0.0074 | 0.0977 | 0.7021 |
+| Gemini | zero_shot | 0.0137 | 0.0997 | 0.0195 | 0.0933 | 0.6987 |
+| Llama 3.1: 8B | few_shot | 0.0040 | 0.0309 | 0.0025 | 0.0297 | 0.6782 |
+| Llama 3.1: 8B | zero_shot | 0.0032 | 0.0170 | 0.0028 | 0.0170 | 0.6789 |
+| Sailor2 | few_shot | 0.0073 | 0.0547 | 0.0032 | 0.0516 | 0.6704 |
+| Sailor2 | zero_shot | 0.0025 | 0.0171 | 0.0013 | 0.0171 | 0.6669 |
+
+Ulasan singkat:
+- Baseline overlap-semantik tetap menempatkan model closed (terutama Claude dan Gemini) pada posisi tertinggi.
+- Nilai BLEU/ROUGE absolut relatif rendah di semua model, konsisten dengan sifat tugas pantun yang kreatif (banyak jawaban valid tanpa overlap leksikal tinggi terhadap referensi tunggal).
+- BERTScore F1 berada pada rentang sempit (sekitar 0.667-0.704), sehingga kurang sensitif untuk menangkap perbedaan kualitas struktur pantun.
+- Hasil ini mendukung posisi xRASA sebagai metrik utama yang lebih task-specific, sementara BLEU/ROUGE/BERTScore berperan sebagai baseline komparatif umum.
+
+Sumber baseline:
+- data/article2/100_Pantun_Eksperimen_1200_with_bleu_rouge.csv
+- data/article2/100_Pantun_Eksperimen_1200_with_baselines.csv
+- data/article2/table_main_baselines_1200.csv
+- data/article2/table_main_baselines_1200_with_bertscore.csv
+
+## 11) Lokasi File Final
 
 - Master final skor 1200:
   - data/article2/100_Pantun_Eksperimen_1200_llm_scoring_master_final.csv

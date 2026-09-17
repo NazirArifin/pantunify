@@ -1,0 +1,63 @@
+{
+  "Pantun Agama": {
+    "precision": 0.881578947368421,
+    "recall": 0.9710144927536232,
+    "f1-score": 0.9241379310344827,
+    "support": 69.0
+  },
+  "Pantun Dukacita": {
+    "precision": 0.6842105263157895,
+    "recall": 0.8125,
+    "f1-score": 0.7428571428571429,
+    "support": 16.0
+  },
+  "Pantun Hiburan": {
+    "precision": 0.723404255319149,
+    "recall": 0.8095238095238095,
+    "f1-score": 0.7640449438202247,
+    "support": 42.0
+  },
+  "Pantun Kasih Sayang": {
+    "precision": 0.797979797979798,
+    "recall": 0.797979797979798,
+    "f1-score": 0.797979797979798,
+    "support": 99.0
+  },
+  "Pantun Kiasan": {
+    "precision": 0.6363636363636364,
+    "recall": 0.6,
+    "f1-score": 0.6176470588235294,
+    "support": 35.0
+  },
+  "Pantun Nasihat": {
+    "precision": 0.8973607038123167,
+    "recall": 0.8595505617977528,
+    "f1-score": 0.8780487804878049,
+    "support": 356.0
+  },
+  "Pantun Sosial Budaya": {
+    "precision": 0.6,
+    "recall": 0.5454545454545454,
+    "f1-score": 0.5714285714285714,
+    "support": 11.0
+  },
+  "Pantun Sukacita": {
+    "precision": 0.717948717948718,
+    "recall": 0.7777777777777778,
+    "f1-score": 0.7466666666666667,
+    "support": 36.0
+  },
+  "accuracy": 0.8343373493975904,
+  "macro avg": {
+    "precision": 0.7423558231384786,
+    "recall": 0.7717251231609134,
+    "f1-score": 0.7553513616372776,
+    "support": 664.0
+  },
+  "weighted avg": {
+    "precision": 0.8363532924532285,
+    "recall": 0.8343373493975904,
+    "f1-score": 0.8345027806712942,
+    "support": 664.0
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "seed": 42,
+  "n_total": 6640,
+  "n_train": 5312,
+  "n_valid": 664,
+  "n_test": 664,
+  "labels": [
+    "Pantun Agama",
+    "Pantun Dukacita",
+    "Pantun Hiburan",
+    "Pantun Kasih Sayang",
+    "Pantun Kiasan",
+    "Pantun Nasihat",
+    "Pantun Sosial Budaya",
+    "Pantun Sukacita"
+  ]
+}

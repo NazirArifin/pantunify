@@ -1,5 +1,7 @@
 {
   "seed": 42,
+  "scenario": "full",
+  "input_column": "text_input",
   "n_total": 6640,
   "n_train": 5312,
   "n_valid": 664,

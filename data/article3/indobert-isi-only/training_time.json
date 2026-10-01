@@ -1,0 +1,9 @@
+{
+  "training_time_seconds": 142.51739616700002,
+  "training_time_minutes": 2.375289936116667,
+  "train_samples": 5312,
+  "valid_samples": 664,
+  "test_samples": 664,
+  "timestamp": "20260917_065427",
+  "resume_from_checkpoint": null
+}

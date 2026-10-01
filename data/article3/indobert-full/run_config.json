@@ -1,4 +1,6 @@
 {
+  "scenario": "full",
+  "input_column": "text_input",
   "model_name": "indobenchmark/indobert-base-p1",
   "max_length": 256,
   "num_classes": 8,

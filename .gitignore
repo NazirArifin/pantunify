@@ -34,6 +34,7 @@ ENV/
 env.bak/
 venv.bak/
 draft/
+data/article4/
 
 # Project Specific (Optional: output results)
 # dataset/ok.txt

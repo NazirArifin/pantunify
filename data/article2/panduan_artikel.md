@@ -130,6 +130,11 @@ $$\text{CLR} = \frac{\vert{}\text{Words}(\text{Sampiran}) \cap \text{Words}(\tex
 
  |
 
+**Koreksi uji multipel (wajib dilaporkan pada bagian Analisis Statistik):**
+- Gunakan **Bonferroni correction** untuk kontrol *family-wise error rate* (FWER).
+- Gunakan **Benjamini-Hochberg (FDR) correction** untuk kontrol *false discovery rate*.
+- Laporkan p-value mentah dan p-value terkoreksi (minimal untuk rangkaian uji paralel zero-shot vs few-shot per model/metrik).
+
 ---
 
 ### 5. Checklist Kesiapan Sebelum Submission
@@ -315,5 +320,4 @@ $$\text{xRASA} = A \times (0,5 \cdot R + 0,5 \cdot S_{\text{judge}})$$
 
 
 * **Future Work:** Rencana pengembangan xRASA prototipe ini menjadi versi **RASA Score utuh** berbasis *fused hidden space* dan *Knowledge Graph* pada riset lanjutan.
-
 

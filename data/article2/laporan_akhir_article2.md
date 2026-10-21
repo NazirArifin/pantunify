@@ -93,6 +93,8 @@ Apakah regional adaptation Sailor2 menghasilkan diksi sampiran lebih alami?
 
 Paired comparison (zero-shot vs few-shot per model, berbasis pasangan id yang sama):
 - Paired t-test dan Wilcoxon sudah dihitung untuk xRASA serta komponen R, A, CLR.
+- Untuk mengendalikan *false positives* akibat banyak uji paralel, p-value pada tabel komponen dilaporkan bersama dua koreksi multipel: **Bonferroni correction** (kontrol *family-wise error rate*) dan **Benjamini-Hochberg / FDR correction** (kontrol *false discovery rate*).
+- Keputusan signifikansi utama direkomendasikan berbasis p-value terkoreksi FDR-BH, dengan Bonferroni sebagai pemeriksaan konservatif.
 - Hasil xRASA menunjukkan only-model-specific significance (signifikan turun pada DeepSeek-R1, Llama 3.1: 8B, Sailor2; tidak signifikan pada Chat-GPT, Claude, Gemini).
 
 Across-model comparison per setting:

@@ -27,6 +27,168 @@ def _normal_cdf(z):
     return 0.5 * (1.0 + math.erf(z / math.sqrt(2.0)))
 
 
+def _fmt_num(value):
+    if value is None or not math.isfinite(value):
+        return "NA"
+    return f"{value:.6f}"
+
+
+def _clamp01(x):
+    return max(0.0, min(1.0, x))
+
+
+def _quantile(values, q):
+    if not values:
+        return float("nan")
+    if len(values) == 1:
+        return values[0]
+    xs = sorted(values)
+    pos = (len(xs) - 1) * q
+    lo = math.floor(pos)
+    hi = math.ceil(pos)
+    if lo == hi:
+        return xs[lo]
+    w = pos - lo
+    return xs[lo] * (1.0 - w) + xs[hi] * w
+
+
+def cohens_dz_paired(x, y):
+    """
+    Cohen's d untuk desain berpasangan: dz = mean(diff) / sd(diff).
+    diff didefinisikan sebagai few_shot - zero_shot.
+    """
+    if len(x) != len(y):
+        raise ValueError("Panjang pasangan berbeda.")
+    n = len(x)
+    if n < 2:
+        return float("nan")
+
+    diffs = [a - b for a, b in zip(x, y)]
+    md = mean(diffs)
+    sd = stdev(diffs)
+    if sd == 0:
+        if md == 0:
+            return 0.0
+        return float("inf") if md > 0 else float("-inf")
+    return md / sd
+
+
+def bootstrap_paired_effect_ci(x, y, n_boot=4000, seed=42):
+    """
+    Bootstrap percentile CI 95% untuk:
+      - mean_diff (few - zero)
+      - Cohen's dz (paired effect size)
+    """
+    if len(x) != len(y):
+        raise ValueError("Panjang pasangan berbeda.")
+    n = len(x)
+    if n == 0:
+        return {
+            "mean_diff_ci95_low": float("nan"),
+            "mean_diff_ci95_high": float("nan"),
+            "cohens_dz_ci95_low": float("nan"),
+            "cohens_dz_ci95_high": float("nan"),
+        }
+
+    diffs = [a - b for a, b in zip(x, y)]
+    rnd = random.Random(seed)
+
+    mean_boot = []
+    dz_boot = []
+    for _ in range(n_boot):
+        sample = [diffs[rnd.randrange(n)] for _ in range(n)]
+        mean_boot.append(mean(sample))
+        if len(sample) >= 2:
+            sd = stdev(sample)
+            md = mean(sample)
+            if sd == 0:
+                if md == 0:
+                    dz_boot.append(0.0)
+            else:
+                dz_boot.append(md / sd)
+
+    return {
+        "mean_diff_ci95_low": _quantile(mean_boot, 0.025),
+        "mean_diff_ci95_high": _quantile(mean_boot, 0.975),
+        "cohens_dz_ci95_low": _quantile(dz_boot, 0.025),
+        "cohens_dz_ci95_high": _quantile(dz_boot, 0.975),
+    }
+
+
+def _parse_finite_p(value):
+    try:
+        p = float(value)
+    except (TypeError, ValueError):
+        return None
+    if not math.isfinite(p):
+        return None
+    return _clamp01(p)
+
+
+def _bonferroni_correction(p_values):
+    m = len(p_values)
+    if m == 0:
+        return []
+    return [_clamp01(p * m) for p in p_values]
+
+
+def _fdr_bh_correction(p_values):
+    """
+    Benjamini-Hochberg FDR correction.
+    Mengembalikan adjusted p-value dengan urutan yang sama seperti input.
+    """
+    m = len(p_values)
+    if m == 0:
+        return []
+
+    order = sorted(range(m), key=lambda i: p_values[i])
+    p_sorted = [p_values[i] for i in order]
+
+    q_sorted = [0.0] * m
+    prev = 1.0
+    for i in range(m - 1, -1, -1):
+        rank = i + 1
+        raw = p_sorted[i] * m / rank
+        adj = min(prev, raw)
+        q_sorted[i] = _clamp01(adj)
+        prev = adj
+
+    q = [0.0] * m
+    for i, src in enumerate(order):
+        q[src] = q_sorted[i]
+    return q
+
+
+def apply_multiple_testing_corrections(rows, p_key, prefix=None):
+    """
+    Menambahkan kolom koreksi multipel pada p-value:
+      - Bonferroni (kontrol FWER)
+      - Benjamini-Hochberg (kontrol FDR)
+    """
+    if prefix is None:
+        prefix = p_key
+
+    valid_idx = []
+    valid_p = []
+    for i, row in enumerate(rows):
+        p = _parse_finite_p(row.get(p_key))
+        if p is None:
+            continue
+        valid_idx.append(i)
+        valid_p.append(p)
+
+    bonf = _bonferroni_correction(valid_p)
+    fdr = _fdr_bh_correction(valid_p)
+
+    for i, row in enumerate(rows):
+        row[f"{prefix}_bonferroni"] = "NA"
+        row[f"{prefix}_fdr_bh"] = "NA"
+
+    for pos, ridx in enumerate(valid_idx):
+        rows[ridx][f"{prefix}_bonferroni"] = _fmt_num(bonf[pos])
+        rows[ridx][f"{prefix}_fdr_bh"] = _fmt_num(fdr[pos])
+
+
 def paired_t_test_approx(x, y):
     """
     Paired t-test with normal approximation for p-value (n besar, n=100 pada dataset ini).
@@ -227,6 +389,8 @@ def build_significance_tables(rows):
 
             t_stat, p_t_approx, md = paired_t_test_approx(few, zero)
             p_perm = permutation_test_mean_diff(few, zero, n_perm=4000, seed=123)
+            d_z = cohens_dz_paired(few, zero)
+            ci = bootstrap_paired_effect_ci(few, zero, n_boot=4000, seed=456)
 
             paired_results.append(
                 {
@@ -236,9 +400,14 @@ def build_significance_tables(rows):
                     "mean_few_shot": f"{mean(few):.6f}" if few else "0.000000",
                     "mean_zero_shot": f"{mean(zero):.6f}" if zero else "0.000000",
                     "mean_diff_few_minus_zero": f"{md:.6f}",
+                    "mean_diff_ci95_low": _fmt_num(ci["mean_diff_ci95_low"]),
+                    "mean_diff_ci95_high": _fmt_num(ci["mean_diff_ci95_high"]),
                     "t_stat": f"{t_stat:.6f}",
                     "p_t_approx": f"{p_t_approx:.6f}",
                     "p_permutation": f"{p_perm:.6f}",
+                    "cohens_dz": _fmt_num(d_z),
+                    "cohens_dz_ci95_low": _fmt_num(ci["cohens_dz_ci95_low"]),
+                    "cohens_dz_ci95_high": _fmt_num(ci["cohens_dz_ci95_high"]),
                 }
             )
 
@@ -266,6 +435,10 @@ def build_significance_tables(rows):
                     "p_permutation": f"{p_perm:.6f}",
                 }
             )
+
+    apply_multiple_testing_corrections(paired_results, "p_t_approx")
+    apply_multiple_testing_corrections(paired_results, "p_permutation")
+    apply_multiple_testing_corrections(anova_results, "p_permutation")
 
     return paired_results, anova_results
 
@@ -390,16 +563,34 @@ def main():
             "mean_few_shot",
             "mean_zero_shot",
             "mean_diff_few_minus_zero",
+            "mean_diff_ci95_low",
+            "mean_diff_ci95_high",
             "t_stat",
             "p_t_approx",
+            "p_t_approx_bonferroni",
+            "p_t_approx_fdr_bh",
             "p_permutation",
+            "p_permutation_bonferroni",
+            "p_permutation_fdr_bh",
+            "cohens_dz",
+            "cohens_dz_ci95_low",
+            "cohens_dz_ci95_high",
         ],
         paired,
     )
 
     save_csv(
         outdir / "significance_across_models.csv",
-        ["setting", "metric", "k_models", "n_total", "f_stat", "p_permutation"],
+        [
+            "setting",
+            "metric",
+            "k_models",
+            "n_total",
+            "f_stat",
+            "p_permutation",
+            "p_permutation_bonferroni",
+            "p_permutation_fdr_bh",
+        ],
         anova,
     )
 

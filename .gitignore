@@ -35,6 +35,9 @@ env.bak/
 venv.bak/
 draft/
 data/article4/
+cc.id.300.bin
+cc.id.300.bin.gz
+*.bin.part
 
 # Project Specific (Optional: output results)
 # dataset/ok.txt

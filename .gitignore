@@ -36,6 +36,7 @@ venv.bak/
 draft/
 data/article4/
 scripts/article5/checkpoints/
+scripts/article5/checkpoints_crf_colab/
 cc.id.300.bin
 cc.id.300.bin.gz
 *.bin.part

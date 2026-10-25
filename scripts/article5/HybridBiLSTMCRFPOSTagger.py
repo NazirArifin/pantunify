@@ -1,6 +1,11 @@
 import torch
 import torch.nn as nn
-from torchcrf import CRF
+try:
+    from torchcrf import CRF
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        "Missing dependency 'torchcrf'. Install it with: pip install pytorch-crf"
+    ) from exc
 
 
 class HybridBiLSTMCRFPOSTagger(nn.Module):

@@ -1,7 +1,7 @@
 import argparse
 import json
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Sequence, Set
 
 import torch
 from torch.optim import AdamW
@@ -105,11 +105,82 @@ def train_one_epoch(
     return total_loss / max(len(dataloader), 1)
 
 
+def load_tag_vocab(path: Optional[str]) -> Dict[str, int]:
+    if path is None:
+        return {}
+    with open(path, "r", encoding="utf-8") as f:
+        obj = json.load(f)
+    if "tag_vocab" not in obj or not isinstance(obj["tag_vocab"], dict):
+        raise ValueError("tag-vocab-json must contain object key 'tag_vocab'")
+    out: Dict[str, int] = {}
+    for key, value in obj["tag_vocab"].items():
+        if isinstance(value, int):
+            out[key] = value
+        else:
+            raise ValueError(f"tag_vocab[{key!r}] must be int, got {type(value).__name__}")
+    return out
+
+
+def parse_critical_tag_ids(
+    critical_tags_csv: str,
+    tag_vocab: Dict[str, int],
+) -> Set[int]:
+    tag_names = [x.strip() for x in critical_tags_csv.split(",") if x.strip()]
+    if not tag_names:
+        return set()
+    if not tag_vocab:
+        raise ValueError("critical tags requested but tag-vocab-json is not provided")
+    missing = [name for name in tag_names if name not in tag_vocab]
+    if missing:
+        raise ValueError(f"Unknown critical tags: {missing}")
+    return {tag_vocab[name] for name in tag_names}
+
+
+def compute_macro_f1_from_confusion(
+    confusion: torch.Tensor,
+    class_ids: Sequence[int],
+) -> float:
+    if confusion.dim() != 2 or confusion.size(0) != confusion.size(1):
+        raise ValueError("confusion must be square matrix")
+    f1_values: List[float] = []
+    for class_id in class_ids:
+        tp = confusion[class_id, class_id].item()
+        fp = confusion[:, class_id].sum().item() - tp
+        fn = confusion[class_id, :].sum().item() - tp
+        denom = (2 * tp) + fp + fn
+        f1 = (2 * tp) / denom if denom > 0 else 0.0
+        f1_values.append(f1)
+    if not f1_values:
+        return 0.0
+    return sum(f1_values) / len(f1_values)
+
+
+def compute_selection_score(
+    metrics: Dict[str, float],
+    weight_acc: float,
+    weight_oov_acc: float,
+    weight_critical_f1: float,
+) -> float:
+    return (
+        weight_acc * metrics.get("accuracy", 0.0)
+        + weight_oov_acc * metrics.get("oov_accuracy", 0.0)
+        + weight_critical_f1 * metrics.get("critical_macro_f1", 0.0)
+    )
+
+
+def append_metrics_jsonl(path: Path, record: Dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
 @torch.no_grad()
 def evaluate(
     model: HybridBiLSTMCRFPOSTagger,
     dataloader: DataLoader,
     device: torch.device,
+    num_classes: int,
+    critical_tag_ids: Optional[Set[int]] = None,
 ) -> Dict[str, float]:
     model.eval()
     total_loss = 0.0
@@ -117,6 +188,7 @@ def evaluate(
     total_tokens = 0
     total_oov_correct = 0
     total_oov_tokens = 0
+    confusion = torch.zeros((num_classes, num_classes), dtype=torch.long)
 
     for batch in dataloader:
         batch = move_to_device(batch, device)
@@ -140,6 +212,11 @@ def evaluate(
         total_correct += correct.sum().item()
         total_tokens += valid.sum().item()
 
+        valid_pred = pred[valid].view(-1).cpu()
+        valid_gold = batch["gold_tags"][valid].view(-1).cpu()
+        for gold_tag, pred_tag in zip(valid_gold.tolist(), valid_pred.tolist()):
+            confusion[gold_tag, pred_tag] += 1
+
         oov_valid = batch["oov_mask"] & valid
         if oov_valid.any():
             total_oov_tokens += oov_valid.sum().item()
@@ -151,6 +228,11 @@ def evaluate(
     }
     if total_oov_tokens > 0:
         result["oov_accuracy"] = total_oov_correct / total_oov_tokens
+    if critical_tag_ids:
+        result["critical_macro_f1"] = compute_macro_f1_from_confusion(
+            confusion=confusion,
+            class_ids=sorted(critical_tag_ids),
+        )
     return result
 
 
@@ -206,10 +288,19 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--epochs", type=int, default=20)
     parser.add_argument("--batch-size", type=int, default=32)
     parser.add_argument("--lr", type=float, default=3e-4)
+    parser.add_argument("--lr-crf", type=float, default=None)
     parser.add_argument("--weight-decay", type=float, default=1e-2)
     parser.add_argument("--grad-clip", type=float, default=1.0)
     parser.add_argument("--num-workers", type=int, default=0)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--early-stopping-patience", type=int, default=0)
+    parser.add_argument("--best-metric", choices=("accuracy", "composite"), default="accuracy")
+    parser.add_argument("--score-weight-acc", type=float, default=1.0)
+    parser.add_argument("--score-weight-oov-acc", type=float, default=0.0)
+    parser.add_argument("--score-weight-critical-f1", type=float, default=0.0)
+    parser.add_argument("--critical-tags", default="ADV,PART,NOUN,VERB")
+    parser.add_argument("--tag-vocab-json", default=None)
+    parser.add_argument("--metrics-jsonl", default=None)
     return parser
 
 
@@ -256,11 +347,33 @@ def main() -> None:
         freeze_pretrained_word_embeddings=args.freeze_pretrained_word_embeddings,
     ).to(device)
 
-    optimizer = AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    lr_crf = args.lr if args.lr_crf is None else args.lr_crf
+    base_params = [
+        param for name, param in model.named_parameters() if not name.startswith("crf.")
+    ]
+    crf_params = [
+        param for name, param in model.named_parameters() if name.startswith("crf.")
+    ]
+    optimizer = AdamW(
+        [
+            {"params": base_params, "lr": args.lr},
+            {"params": crf_params, "lr": lr_crf},
+        ],
+        weight_decay=args.weight_decay,
+    )
     save_dir = Path(args.save_dir)
     save_dir.mkdir(parents=True, exist_ok=True)
+    metrics_jsonl_path = Path(args.metrics_jsonl) if args.metrics_jsonl else (save_dir / "metrics.jsonl")
 
-    best_val_acc = -1.0
+    tag_vocab = load_tag_vocab(args.tag_vocab_json)
+    critical_tag_ids = parse_critical_tag_ids(args.critical_tags, tag_vocab) if args.critical_tags else set()
+
+    if args.best_metric == "composite":
+        if args.score_weight_acc == 0.0 and args.score_weight_oov_acc == 0.0 and args.score_weight_critical_f1 == 0.0:
+            raise ValueError("At least one score weight must be non-zero when --best-metric=composite")
+    best_score = float("-inf")
+    best_epoch = 0
+    epochs_without_improvement = 0
     for epoch in range(1, args.epochs + 1):
         train_loss = train_one_epoch(
             model=model,
@@ -273,6 +386,14 @@ def main() -> None:
             model=model,
             dataloader=valid_loader,
             device=device,
+            num_classes=args.num_classes,
+            critical_tag_ids=critical_tag_ids,
+        )
+        val_metrics["selection_score"] = compute_selection_score(
+            metrics=val_metrics,
+            weight_acc=args.score_weight_acc,
+            weight_oov_acc=args.score_weight_oov_acc,
+            weight_critical_f1=args.score_weight_critical_f1,
         )
 
         log_msg = (
@@ -283,13 +404,41 @@ def main() -> None:
         )
         if "oov_accuracy" in val_metrics:
             log_msg += f" val_oov_acc={val_metrics['oov_accuracy']:.6f}"
+        if "critical_macro_f1" in val_metrics:
+            log_msg += f" val_critical_macro_f1={val_metrics['critical_macro_f1']:.6f}"
+        log_msg += f" score={val_metrics['selection_score']:.6f}"
         print(log_msg)
+        append_metrics_jsonl(
+            metrics_jsonl_path,
+            {
+                "epoch": epoch,
+                "train_loss": train_loss,
+                "val_metrics": val_metrics,
+            },
+        )
 
         save_checkpoint(save_dir / "last.pt", model, optimizer, epoch, val_metrics)
-        if val_metrics["accuracy"] > best_val_acc:
-            best_val_acc = val_metrics["accuracy"]
+        current_score = (
+            val_metrics["accuracy"] if args.best_metric == "accuracy" else val_metrics["selection_score"]
+        )
+        if current_score > best_score:
+            best_score = current_score
+            best_epoch = epoch
+            epochs_without_improvement = 0
             save_checkpoint(save_dir / "best.pt", model, optimizer, epoch, val_metrics)
-            print(f"[INFO] New best checkpoint: {save_dir / 'best.pt'}")
+            print(
+                f"[INFO] New best checkpoint: {save_dir / 'best.pt'} "
+                f"(metric={args.best_metric}, score={current_score:.6f})"
+            )
+        else:
+            epochs_without_improvement += 1
+
+        if args.early_stopping_patience > 0 and epochs_without_improvement >= args.early_stopping_patience:
+            print(
+                "[INFO] Early stopping triggered at epoch "
+                f"{epoch} (best_epoch={best_epoch}, best_score={best_score:.6f})."
+            )
+            break
 
     print("[INFO] Training selesai.")
 

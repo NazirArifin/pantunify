@@ -35,6 +35,7 @@ env.bak/
 venv.bak/
 draft/
 data/article4/
+scripts/article5/checkpoints/
 cc.id.300.bin
 cc.id.300.bin.gz
 *.bin.part

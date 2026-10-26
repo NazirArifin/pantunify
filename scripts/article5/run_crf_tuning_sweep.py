@@ -28,6 +28,10 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--sampling-critical-alpha", type=float, default=1.0)
     parser.add_argument("--sampling-num-samples", type=int, default=0)
     parser.add_argument("--sampling-no-replacement", action="store_true")
+    parser.add_argument("--enable-disemvowel-augmentation", action="store_true")
+    parser.add_argument("--disemvowel-tags", default="ADV,PART,PRON,CCONJ,SCONJ")
+    parser.add_argument("--disemvowel-prob", type=float, default=0.5)
+    parser.add_argument("--disemvowel-vowels", default="aiueoAIUEO")
     parser.add_argument("--execute", action="store_true")
     return parser
 
@@ -150,6 +154,8 @@ def build_command(
         "ADV,PART,NOUN,VERB",
         "--tag-vocab-json",
         args.vocab_json,
+        "--vocab-json",
+        args.vocab_json,
         "--early-stopping-patience",
         "4",
         "--metrics-jsonl",
@@ -173,6 +179,18 @@ def build_command(
     ]
     if args.sampling_no_replacement:
         cmd.append("--sampling-no-replacement")
+    if args.enable_disemvowel_augmentation:
+        cmd.extend(
+            [
+                "--enable-disemvowel-augmentation",
+                "--disemvowel-tags",
+                args.disemvowel_tags,
+                "--disemvowel-prob",
+                str(args.disemvowel_prob),
+                "--disemvowel-vowels",
+                args.disemvowel_vowels,
+            ]
+        )
     return cmd
 
 

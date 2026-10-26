@@ -1,7 +1,7 @@
 import argparse
 import json
 from pathlib import Path
-from typing import Dict, List, Optional, Sequence, Set
+from typing import Any, Dict, List, Optional, Sequence, Set
 
 import torch
 import torch.nn.functional as F
@@ -12,8 +12,23 @@ from HybridBiLSTMCRFPOSTagger import HybridBiLSTMCRFPOSTagger
 
 
 class PosJsonlDataset(Dataset):
-    def __init__(self, path: str):
+    def __init__(
+        self,
+        path: str,
+        disemvowel_tag_ids: Optional[Set[int]] = None,
+        disemvowel_prob: float = 0.0,
+        vowel_char_ids: Optional[Set[int]] = None,
+        unk_char_id: Optional[int] = None,
+        unk_word_id: Optional[int] = None,
+        disemvowel_word_id_map: Optional[Dict[int, int]] = None,
+    ):
         self.samples: List[Dict] = []
+        self.disemvowel_tag_ids = set(disemvowel_tag_ids or set())
+        self.disemvowel_prob = float(disemvowel_prob)
+        self.vowel_char_ids = set(vowel_char_ids or set())
+        self.unk_char_id = unk_char_id
+        self.unk_word_id = unk_word_id
+        self.disemvowel_word_id_map = dict(disemvowel_word_id_map or {})
         with open(path, "r", encoding="utf-8") as f:
             for line_idx, line in enumerate(f, start=1):
                 line = line.strip()
@@ -35,7 +50,48 @@ class PosJsonlDataset(Dataset):
         return len(self.samples)
 
     def __getitem__(self, idx):
-        return self.samples[idx]
+        sample = self.samples[idx]
+        if (
+            not self.disemvowel_tag_ids
+            or self.disemvowel_prob <= 0.0
+            or not self.vowel_char_ids
+            or "tag_ids" not in sample
+        ):
+            return sample
+
+        augmented = {
+            "word_ids": list(sample["word_ids"]),
+            "char_ids": [list(chars) for chars in sample["char_ids"]],
+            "tag_ids": list(sample["tag_ids"]),
+        }
+        if "oov_mask" in sample:
+            augmented["oov_mask"] = list(sample["oov_mask"])
+
+        for token_idx, tag_id in enumerate(augmented["tag_ids"]):
+            if int(tag_id) not in self.disemvowel_tag_ids:
+                continue
+            if torch.rand(1).item() >= self.disemvowel_prob:
+                continue
+
+            original_chars = augmented["char_ids"][token_idx]
+            disemvowel_chars = [cid for cid in original_chars if int(cid) not in self.vowel_char_ids]
+            if not disemvowel_chars:
+                if self.unk_char_id is not None:
+                    disemvowel_chars = [self.unk_char_id]
+                elif original_chars:
+                    disemvowel_chars = [original_chars[0]]
+                else:
+                    continue
+            augmented["char_ids"][token_idx] = disemvowel_chars
+
+            current_word_id = int(augmented["word_ids"][token_idx])
+            replacement_word_id = self.disemvowel_word_id_map.get(current_word_id)
+            if replacement_word_id is not None:
+                augmented["word_ids"][token_idx] = replacement_word_id
+                if "oov_mask" in augmented and self.unk_word_id is not None:
+                    augmented["oov_mask"][token_idx] = 1 if replacement_word_id == self.unk_word_id else 0
+
+        return augmented
 
 
 def collate_fn(batch: List[Dict], pad_word_id: int, pad_char_id: int) -> Dict[str, torch.Tensor]:
@@ -147,6 +203,63 @@ def parse_critical_tag_ids(
     if missing:
         raise ValueError(f"Unknown critical tags: {missing}")
     return {tag_vocab[name] for name in tag_names}
+
+
+def load_vocab_payload(path: Optional[str]) -> Dict[str, Any]:
+    if path is None:
+        return {}
+    with open(path, "r", encoding="utf-8") as f:
+        obj = json.load(f)
+    if not isinstance(obj, dict):
+        raise ValueError(f"Vocab JSON harus berupa object: {path}")
+    return obj
+
+
+def parse_vocab_mapping(
+    payload: Dict[str, Any],
+    key: str,
+    value_kind: str,
+) -> Dict[str, int]:
+    if key not in payload:
+        return {}
+    raw = payload[key]
+    if not isinstance(raw, dict):
+        raise ValueError(f"{key} harus berupa object pada vocab JSON")
+    out: Dict[str, int] = {}
+    for name, idx in raw.items():
+        if not isinstance(name, str):
+            raise ValueError(f"{key} memiliki key non-string: {name!r}")
+        if not isinstance(idx, int):
+            raise ValueError(f"{key}[{name!r}] harus int, got {type(idx).__name__}")
+        out[name] = idx
+    if value_kind == "char":
+        for ch in out:
+            if len(ch) != 1 and ch not in {"<PAD>", "<UNK>"}:
+                raise ValueError(f"{key} berisi token bukan karakter tunggal: {ch!r}")
+    return out
+
+
+def build_disemvowel_word_id_map(
+    word_vocab: Dict[str, int],
+    vowels: Set[str],
+    unk_word_id: Optional[int],
+) -> Dict[int, int]:
+    if not word_vocab:
+        return {}
+    disemvowel_map: Dict[int, int] = {}
+    for word, word_id in word_vocab.items():
+        if word.startswith("<") and word.endswith(">"):
+            continue
+        disemvowelled = "".join(ch for ch in word if ch not in vowels)
+        if disemvowelled == word:
+            continue
+        if disemvowelled:
+            replacement = word_vocab.get(disemvowelled, unk_word_id)
+        else:
+            replacement = unk_word_id
+        if replacement is not None:
+            disemvowel_map[word_id] = replacement
+    return disemvowel_map
 
 
 def compute_macro_f1_from_confusion(
@@ -376,6 +489,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--score-weight-critical-f1", type=float, default=0.0)
     parser.add_argument("--critical-tags", default="ADV,PART,NOUN,VERB")
     parser.add_argument("--tag-vocab-json", default=None)
+    parser.add_argument("--vocab-json", default=None, help="JSON vocab dari convert_conllu_to_jsonl.py")
     parser.add_argument("--metrics-jsonl", default=None)
     parser.add_argument("--aux-ce-loss-weight", type=float, default=0.0)
     parser.add_argument("--class-weighting", choices=("none", "critical"), default="none")
@@ -386,6 +500,10 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--sampling-critical-alpha", type=float, default=1.0)
     parser.add_argument("--sampling-num-samples", type=int, default=0)
     parser.add_argument("--sampling-no-replacement", action="store_true")
+    parser.add_argument("--enable-disemvowel-augmentation", action="store_true")
+    parser.add_argument("--disemvowel-tags", default="ADV,PART,PRON,CCONJ,SCONJ")
+    parser.add_argument("--disemvowel-prob", type=float, default=0.5)
+    parser.add_argument("--disemvowel-vowels", default="aiueoAIUEO")
     return parser
 
 
@@ -398,7 +516,60 @@ def main() -> None:
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"[INFO] Device: {device}")
 
-    train_ds = PosJsonlDataset(args.train_jsonl)
+    if args.disemvowel_prob < 0.0 or args.disemvowel_prob > 1.0:
+        raise ValueError("--disemvowel-prob harus pada rentang [0.0, 1.0]")
+
+    vocab_payload = load_vocab_payload(args.vocab_json or args.tag_vocab_json)
+    word_vocab = parse_vocab_mapping(vocab_payload, "word_vocab", value_kind="word")
+    char_vocab = parse_vocab_mapping(vocab_payload, "char_vocab", value_kind="char")
+    unk_word_id = word_vocab.get("<UNK>")
+    unk_char_id = char_vocab.get("<UNK>")
+
+    tag_vocab = load_tag_vocab(args.tag_vocab_json)
+    if not tag_vocab:
+        tag_vocab = parse_vocab_mapping(vocab_payload, "tag_vocab", value_kind="tag")
+
+    disemvowel_tag_ids: Set[int] = set()
+    disemvowel_vowel_char_ids: Set[int] = set()
+    disemvowel_word_id_map: Dict[int, int] = {}
+    if args.enable_disemvowel_augmentation:
+        if not tag_vocab:
+            raise ValueError(
+                "augmentasi disemvowel membutuhkan tag vocab. Berikan --tag-vocab-json atau --vocab-json valid."
+            )
+        if not char_vocab:
+            raise ValueError(
+                "augmentasi disemvowel membutuhkan char_vocab pada --vocab-json/--tag-vocab-json."
+            )
+        disemvowel_tag_ids = parse_critical_tag_ids(args.disemvowel_tags, tag_vocab, strict=True)
+        if not disemvowel_tag_ids:
+            raise ValueError("--disemvowel-tags kosong setelah diparse.")
+        disemvowel_vowel_char_ids = {char_vocab[ch] for ch in args.disemvowel_vowels if ch in char_vocab}
+        if not disemvowel_vowel_char_ids:
+            raise ValueError(
+                "Tidak ada karakter vokal pada char_vocab yang cocok dengan --disemvowel-vowels."
+            )
+        disemvowel_word_id_map = build_disemvowel_word_id_map(
+            word_vocab=word_vocab,
+            vowels=set(args.disemvowel_vowels),
+            unk_word_id=unk_word_id,
+        )
+        print(
+            "[INFO] Disemvowel augmentation aktif: "
+            f"tags={args.disemvowel_tags}, prob={args.disemvowel_prob}, "
+            f"vowel_chars_found={len(disemvowel_vowel_char_ids)}, "
+            f"word_map_size={len(disemvowel_word_id_map)}"
+        )
+
+    train_ds = PosJsonlDataset(
+        args.train_jsonl,
+        disemvowel_tag_ids=disemvowel_tag_ids,
+        disemvowel_prob=args.disemvowel_prob if args.enable_disemvowel_augmentation else 0.0,
+        vowel_char_ids=disemvowel_vowel_char_ids,
+        unk_char_id=unk_char_id,
+        unk_word_id=unk_word_id,
+        disemvowel_word_id_map=disemvowel_word_id_map,
+    )
     valid_ds = PosJsonlDataset(args.valid_jsonl)
 
     pretrained = load_pretrained_embeddings(args.pretrained_emb_path)
@@ -435,7 +606,6 @@ def main() -> None:
     save_dir.mkdir(parents=True, exist_ok=True)
     metrics_jsonl_path = Path(args.metrics_jsonl) if args.metrics_jsonl else (save_dir / "metrics.jsonl")
 
-    tag_vocab = load_tag_vocab(args.tag_vocab_json)
     if args.critical_tags and tag_vocab:
         critical_tag_ids = parse_critical_tag_ids(args.critical_tags, tag_vocab, strict=True)
     else:

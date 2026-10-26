@@ -84,6 +84,12 @@ Peningkatan di trainer CRF:
 - Pemilihan best model dengan metric `composite`
 - Komponen score: accuracy, OOV accuracy, dan critical-tag macro F1
 - Logging per epoch ke `metrics.jsonl`
+- Opsi augmentasi dinamis disemvowelling berbasis POS untuk kata fungsi formal
+  - `--enable-disemvowel-augmentation`
+  - `--disemvowel-tags` (default: `ADV,PART,PRON,CCONJ,SCONJ`)
+  - `--disemvowel-prob`
+  - `--disemvowel-vowels`
+  - membutuhkan `--vocab-json` (atau `--tag-vocab-json` yang berisi `word_vocab/char_vocab/tag_vocab`)
 
 ### 3.6 Tooling evaluasi mini-gold pantun
 

@@ -243,6 +243,7 @@ def build_disemvowel_word_id_map(
     word_vocab: Dict[str, int],
     vowels: Set[str],
     unk_word_id: Optional[int],
+    allow_unk_rewrite: bool,
 ) -> Dict[int, int]:
     if not word_vocab:
         return {}
@@ -253,9 +254,8 @@ def build_disemvowel_word_id_map(
         disemvowelled = "".join(ch for ch in word if ch not in vowels)
         if disemvowelled == word:
             continue
-        if disemvowelled:
-            replacement = word_vocab.get(disemvowelled, unk_word_id)
-        else:
+        replacement = word_vocab.get(disemvowelled) if disemvowelled else None
+        if replacement is None and allow_unk_rewrite:
             replacement = unk_word_id
         if replacement is not None:
             disemvowel_map[word_id] = replacement
@@ -504,6 +504,11 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--disemvowel-tags", default="ADV,PART,PRON,CCONJ,SCONJ")
     parser.add_argument("--disemvowel-prob", type=float, default=0.5)
     parser.add_argument("--disemvowel-vowels", default="aiueoAIUEO")
+    parser.add_argument(
+        "--disemvowel-allow-unk-word-rewrite",
+        action="store_true",
+        help="Jika aktif, word_id boleh di-rewrite ke <UNK> saat bentuk disemvowel tidak ada di vocab.",
+    )
     return parser
 
 
@@ -553,12 +558,14 @@ def main() -> None:
             word_vocab=word_vocab,
             vowels=set(args.disemvowel_vowels),
             unk_word_id=unk_word_id,
+            allow_unk_rewrite=args.disemvowel_allow_unk_word_rewrite,
         )
         print(
             "[INFO] Disemvowel augmentation aktif: "
             f"tags={args.disemvowel_tags}, prob={args.disemvowel_prob}, "
             f"vowel_chars_found={len(disemvowel_vowel_char_ids)}, "
-            f"word_map_size={len(disemvowel_word_id_map)}"
+            f"word_map_size={len(disemvowel_word_id_map)}, "
+            f"allow_unk_word_rewrite={args.disemvowel_allow_unk_word_rewrite}"
         )
 
     train_ds = PosJsonlDataset(

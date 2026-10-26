@@ -32,6 +32,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--disemvowel-tags", default="ADV,PART,PRON,CCONJ,SCONJ")
     parser.add_argument("--disemvowel-prob", type=float, default=0.5)
     parser.add_argument("--disemvowel-vowels", default="aiueoAIUEO")
+    parser.add_argument("--disemvowel-allow-unk-word-rewrite", action="store_true")
     parser.add_argument("--execute", action="store_true")
     return parser
 
@@ -191,6 +192,8 @@ def build_command(
                 args.disemvowel_vowels,
             ]
         )
+        if args.disemvowel_allow_unk_word_rewrite:
+            cmd.append("--disemvowel-allow-unk-word-rewrite")
     return cmd
 
 

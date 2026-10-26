@@ -4,8 +4,9 @@ from pathlib import Path
 from typing import Dict, List, Optional, Sequence, Set
 
 import torch
+import torch.nn.functional as F
 from torch.optim import AdamW
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import DataLoader, Dataset, WeightedRandomSampler
 
 from HybridBiLSTMCRFPOSTagger import HybridBiLSTMCRFPOSTagger
 
@@ -85,6 +86,8 @@ def train_one_epoch(
     optimizer: torch.optim.Optimizer,
     device: torch.device,
     grad_clip: float,
+    aux_ce_loss_weight: float = 0.0,
+    class_weights: Optional[torch.Tensor] = None,
 ) -> float:
     model.train()
     total_loss = 0.0
@@ -97,7 +100,14 @@ def train_one_epoch(
             word_lengths=batch["word_lengths"],
             sentence_lengths=batch["sentence_lengths"],
         )
-        loss = model.compute_loss(emissions, batch["gold_tags"], mask=batch["token_mask"])
+        crf_loss = model.compute_loss(emissions, batch["gold_tags"], mask=batch["token_mask"])
+        loss = crf_loss
+        if aux_ce_loss_weight > 0.0:
+            valid = batch["token_mask"]
+            logits = emissions[valid]
+            targets = batch["gold_tags"][valid]
+            ce_loss = F.cross_entropy(logits, targets, weight=class_weights)
+            loss = crf_loss + (aux_ce_loss_weight * ce_loss)
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
         optimizer.step()
@@ -124,12 +134,15 @@ def load_tag_vocab(path: Optional[str]) -> Dict[str, int]:
 def parse_critical_tag_ids(
     critical_tags_csv: str,
     tag_vocab: Dict[str, int],
+    strict: bool = True,
 ) -> Set[int]:
     tag_names = [x.strip() for x in critical_tags_csv.split(",") if x.strip()]
     if not tag_names:
         return set()
     if not tag_vocab:
-        raise ValueError("critical tags requested but tag-vocab-json is not provided")
+        if strict:
+            raise ValueError("critical tags requested but tag-vocab-json is not provided")
+        return set()
     missing = [name for name in tag_names if name not in tag_vocab]
     if missing:
         raise ValueError(f"Unknown critical tags: {missing}")
@@ -172,6 +185,69 @@ def append_metrics_jsonl(path: Path, record: Dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "a", encoding="utf-8") as f:
         f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
+
+def build_class_weights(
+    num_classes: int,
+    critical_tag_ids: Set[int],
+    non_critical_weight: float,
+    critical_weight: float,
+) -> torch.Tensor:
+    weights = torch.full((num_classes,), float(non_critical_weight), dtype=torch.float)
+    for class_id in critical_tag_ids:
+        if class_id < 0 or class_id >= num_classes:
+            raise ValueError(f"critical class id out of range: {class_id} for num_classes={num_classes}")
+        weights[class_id] = float(critical_weight)
+    return weights
+
+
+def compute_sentence_sampling_weight(
+    sample: Dict,
+    critical_tag_ids: Set[int],
+    oov_alpha: float,
+    critical_alpha: float,
+) -> float:
+    token_count = len(sample["word_ids"])
+    if token_count <= 0:
+        return 1.0
+    oov_mask = sample.get("oov_mask")
+    oov_ratio = 0.0
+    if isinstance(oov_mask, list) and len(oov_mask) == token_count:
+        oov_ratio = sum(1 for x in oov_mask if int(x) != 0) / token_count
+    critical_ratio = 0.0
+    if critical_tag_ids:
+        tag_ids = sample.get("tag_ids", [])
+        if isinstance(tag_ids, list) and len(tag_ids) == token_count:
+            critical_ratio = sum(1 for x in tag_ids if int(x) in critical_tag_ids) / token_count
+    return 1.0 + (oov_alpha * oov_ratio) + (critical_alpha * critical_ratio)
+
+
+def build_weighted_sampler(
+    dataset: PosJsonlDataset,
+    critical_tag_ids: Set[int],
+    oov_alpha: float,
+    critical_alpha: float,
+    replacement: bool,
+    num_samples: int,
+) -> WeightedRandomSampler:
+    weights = [
+        compute_sentence_sampling_weight(
+            sample=sample,
+            critical_tag_ids=critical_tag_ids,
+            oov_alpha=oov_alpha,
+            critical_alpha=critical_alpha,
+        )
+        for sample in dataset.samples
+    ]
+    weight_tensor = torch.tensor(weights, dtype=torch.double)
+    if weight_tensor.numel() == 0:
+        raise ValueError("Cannot build sampler for empty dataset")
+    resolved_num_samples = num_samples if num_samples > 0 else len(dataset)
+    return WeightedRandomSampler(
+        weights=weight_tensor,
+        num_samples=resolved_num_samples,
+        replacement=replacement,
+    )
 
 
 @torch.no_grad()
@@ -301,6 +377,15 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--critical-tags", default="ADV,PART,NOUN,VERB")
     parser.add_argument("--tag-vocab-json", default=None)
     parser.add_argument("--metrics-jsonl", default=None)
+    parser.add_argument("--aux-ce-loss-weight", type=float, default=0.0)
+    parser.add_argument("--class-weighting", choices=("none", "critical"), default="none")
+    parser.add_argument("--critical-class-weight", type=float, default=2.0)
+    parser.add_argument("--non-critical-class-weight", type=float, default=1.0)
+    parser.add_argument("--sampling-strategy", choices=("none", "oov_critical"), default="none")
+    parser.add_argument("--sampling-oov-alpha", type=float, default=1.5)
+    parser.add_argument("--sampling-critical-alpha", type=float, default=1.0)
+    parser.add_argument("--sampling-num-samples", type=int, default=0)
+    parser.add_argument("--sampling-no-replacement", action="store_true")
     return parser
 
 
@@ -315,21 +400,6 @@ def main() -> None:
 
     train_ds = PosJsonlDataset(args.train_jsonl)
     valid_ds = PosJsonlDataset(args.valid_jsonl)
-
-    train_loader = DataLoader(
-        train_ds,
-        batch_size=args.batch_size,
-        shuffle=True,
-        num_workers=args.num_workers,
-        collate_fn=lambda b: collate_fn(b, args.pad_word_id, args.pad_char_id),
-    )
-    valid_loader = DataLoader(
-        valid_ds,
-        batch_size=args.batch_size,
-        shuffle=False,
-        num_workers=args.num_workers,
-        collate_fn=lambda b: collate_fn(b, args.pad_word_id, args.pad_char_id),
-    )
 
     pretrained = load_pretrained_embeddings(args.pretrained_emb_path)
     model = HybridBiLSTMCRFPOSTagger(
@@ -366,7 +436,64 @@ def main() -> None:
     metrics_jsonl_path = Path(args.metrics_jsonl) if args.metrics_jsonl else (save_dir / "metrics.jsonl")
 
     tag_vocab = load_tag_vocab(args.tag_vocab_json)
-    critical_tag_ids = parse_critical_tag_ids(args.critical_tags, tag_vocab) if args.critical_tags else set()
+    if args.critical_tags and tag_vocab:
+        critical_tag_ids = parse_critical_tag_ids(args.critical_tags, tag_vocab, strict=True)
+    else:
+        critical_tag_ids = set()
+        if args.critical_tags and not tag_vocab:
+            print("[WARN] --tag-vocab-json tidak diberikan; critical metrics/weighting berbasis nama tag dinonaktifkan.")
+
+    class_weights: Optional[torch.Tensor] = None
+    if args.class_weighting == "critical":
+        if not critical_tag_ids:
+            raise ValueError("class-weighting=critical memerlukan --tag-vocab-json dan --critical-tags valid")
+        class_weights = build_class_weights(
+            num_classes=args.num_classes,
+            critical_tag_ids=critical_tag_ids,
+            non_critical_weight=args.non_critical_class_weight,
+            critical_weight=args.critical_class_weight,
+        ).to(device)
+        print(
+            "[INFO] Class weighting aktif: "
+            f"critical_weight={args.critical_class_weight}, non_critical_weight={args.non_critical_class_weight}"
+        )
+
+    train_sampler = None
+    train_shuffle = True
+    if args.sampling_strategy == "oov_critical":
+        if not critical_tag_ids:
+            raise ValueError("sampling-strategy=oov_critical memerlukan --tag-vocab-json dan --critical-tags valid")
+        train_sampler = build_weighted_sampler(
+            dataset=train_ds,
+            critical_tag_ids=critical_tag_ids,
+            oov_alpha=args.sampling_oov_alpha,
+            critical_alpha=args.sampling_critical_alpha,
+            replacement=not args.sampling_no_replacement,
+            num_samples=args.sampling_num_samples,
+        )
+        train_shuffle = False
+        print(
+            "[INFO] Weighted sampling aktif: "
+            f"oov_alpha={args.sampling_oov_alpha}, critical_alpha={args.sampling_critical_alpha}, "
+            f"replacement={not args.sampling_no_replacement}, "
+            f"num_samples={args.sampling_num_samples if args.sampling_num_samples > 0 else len(train_ds)}"
+        )
+
+    train_loader = DataLoader(
+        train_ds,
+        batch_size=args.batch_size,
+        shuffle=train_shuffle,
+        sampler=train_sampler,
+        num_workers=args.num_workers,
+        collate_fn=lambda b: collate_fn(b, args.pad_word_id, args.pad_char_id),
+    )
+    valid_loader = DataLoader(
+        valid_ds,
+        batch_size=args.batch_size,
+        shuffle=False,
+        num_workers=args.num_workers,
+        collate_fn=lambda b: collate_fn(b, args.pad_word_id, args.pad_char_id),
+    )
 
     if args.best_metric == "composite":
         if args.score_weight_acc == 0.0 and args.score_weight_oov_acc == 0.0 and args.score_weight_critical_f1 == 0.0:
@@ -381,6 +508,8 @@ def main() -> None:
             optimizer=optimizer,
             device=device,
             grad_clip=args.grad_clip,
+            aux_ce_loss_weight=args.aux_ce_loss_weight,
+            class_weights=class_weights,
         )
         val_metrics = evaluate(
             model=model,

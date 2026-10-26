@@ -1,5 +1,6 @@
 import argparse
 import csv
+import random
 from pathlib import Path
 from typing import List, Set
 
@@ -15,6 +16,20 @@ def main() -> None:
     parser.add_argument("--pred-csv", required=True, help="CSV output from predict_pantun_csv_crf.py")
     parser.add_argument("--out-csv", required=True, help="Token-level template CSV for manual annotation")
     parser.add_argument("--max-tokens", type=int, default=400, help="Max tokens to include")
+    parser.add_argument(
+        "--target-tokens",
+        type=int,
+        default=None,
+        help="Alias for max tokens (e.g. 1000 for 800-1200 plan). Overrides --max-tokens.",
+    )
+    parser.add_argument(
+        "--min-tokens",
+        type=int,
+        default=0,
+        help="Fail if selected tokens are below this threshold.",
+    )
+    parser.add_argument("--shuffle-candidates", action="store_true", help="Shuffle candidate tokens before cut-off")
+    parser.add_argument("--seed", type=int, default=42, help="Random seed for --shuffle-candidates")
     parser.add_argument(
         "--critical-tags",
         default="ADV,PART,NOUN,VERB",
@@ -33,6 +48,7 @@ def main() -> None:
 
     selected_rows: List[dict] = []
     total_read_tokens = 0
+    max_tokens = args.target_tokens if args.target_tokens is not None else args.max_tokens
 
     with open(args.pred_csv, "r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
@@ -68,10 +84,17 @@ def main() -> None:
                         "notes": "",
                     }
                 )
-                if len(selected_rows) >= args.max_tokens:
-                    break
-            if len(selected_rows) >= args.max_tokens:
-                break
+
+    if args.shuffle_candidates:
+        rng = random.Random(args.seed)
+        rng.shuffle(selected_rows)
+
+    selected_rows = selected_rows[:max_tokens]
+    if len(selected_rows) < args.min_tokens:
+        raise ValueError(
+            f"Selected tokens ({len(selected_rows)}) below required min-tokens ({args.min_tokens}). "
+            "Increase source predictions or relax filters."
+        )
 
     fieldnames = [
         "id",
@@ -93,6 +116,7 @@ def main() -> None:
     print(f"[OK] template: {out_path}")
     print(f"[INFO] total source tokens read: {total_read_tokens}")
     print(f"[INFO] tokens selected: {len(selected_rows)}")
+    print(f"[INFO] target_tokens={max_tokens} min_tokens={args.min_tokens}")
     print(f"[INFO] critical tags: {sorted(critical_tags)}")
 
 

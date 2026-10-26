@@ -91,10 +91,12 @@ File baru:
 
 - `scripts/article5/build_mini_gold_from_predictions.py`
 - `scripts/article5/evaluate_mini_gold_pos.py`
+- `scripts/article5/analyze_mini_gold_errors.py`
 
 Fungsi:
 
 1. Mengubah output prediksi pantun (`pantun_gaul_pred_*.csv`) menjadi template anotasi token-level mini-gold.
+   - Mendukung target anotasi lebih besar (mis. 800–1200 token) dengan `--target-tokens`.
 2. Menghitung metrik evaluasi mini-gold:
    - Accuracy
    - Macro F1
@@ -102,6 +104,7 @@ Fungsi:
    - Critical-tag Macro F1 (`ADV, PART, NOUN, VERB`)
    - Per-tag precision/recall/F1
    - Confusion matrix (opsional disimpan ke CSV/JSON)
+3. Error analysis terfokus untuk confusion penting (mis. `ADV/PART/VERB -> NOUN`) beserta contoh token/kalimat.
 
 ---
 
@@ -210,8 +213,9 @@ Sangat disarankan:
 
 ## 8. Next Step yang Direkomendasikan
 
-1. Buat mini gold set pantun (300–500 token) fokus tag kritis: `ADV`, `PART`, `NOUN`, `VERB`
-2. Evaluasi F1 per-tag + confusion matrix pada mini gold set
-3. Jika tag kritis masih lemah, lanjutkan dengan:
-   - domain-adaptive fine-tuning data kasual, atau
-   - pembanding model transformer (mis. IndoBERT-lite)
+1. Perbesar mini-gold ke **800–1200 token** (disarankan `--target-tokens 1000`, `--min-tokens 800`).
+2. Jalankan error analysis spesifik confusion `ADV/PART/VERB -> NOUN`.
+3. Retrain ringan CRF dengan:
+   - class/loss weighting untuk tag kritis, dan/atau
+   - weighted sampling berbasis OOV + critical-tag density (proxy domain gaul).
+4. Bandingkan ulang dengan metrik mini-gold + confusion fokus sebelum memutuskan iterasi berikutnya.

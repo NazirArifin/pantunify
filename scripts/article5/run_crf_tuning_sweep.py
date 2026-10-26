@@ -19,6 +19,15 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--word-emb-dim", type=int, default=300)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--num-workers", type=int, default=2)
+    parser.add_argument("--aux-ce-loss-weight", type=float, default=0.0)
+    parser.add_argument("--class-weighting", choices=("none", "critical"), default="none")
+    parser.add_argument("--critical-class-weight", type=float, default=2.0)
+    parser.add_argument("--non-critical-class-weight", type=float, default=1.0)
+    parser.add_argument("--sampling-strategy", choices=("none", "oov_critical"), default="none")
+    parser.add_argument("--sampling-oov-alpha", type=float, default=1.5)
+    parser.add_argument("--sampling-critical-alpha", type=float, default=1.0)
+    parser.add_argument("--sampling-num-samples", type=int, default=0)
+    parser.add_argument("--sampling-no-replacement", action="store_true")
     parser.add_argument("--execute", action="store_true")
     return parser
 
@@ -94,7 +103,7 @@ def build_command(
     args: argparse.Namespace,
 ) -> List[str]:
     run_dir = Path(args.out_root) / config["name"]
-    return [
+    cmd = [
         python_exe,
         str(train_script),
         "--train-jsonl",
@@ -145,7 +154,26 @@ def build_command(
         "4",
         "--metrics-jsonl",
         str(run_dir / "metrics.jsonl"),
+        "--aux-ce-loss-weight",
+        str(args.aux_ce_loss_weight),
+        "--class-weighting",
+        args.class_weighting,
+        "--critical-class-weight",
+        str(args.critical_class_weight),
+        "--non-critical-class-weight",
+        str(args.non_critical_class_weight),
+        "--sampling-strategy",
+        args.sampling_strategy,
+        "--sampling-oov-alpha",
+        str(args.sampling_oov_alpha),
+        "--sampling-critical-alpha",
+        str(args.sampling_critical_alpha),
+        "--sampling-num-samples",
+        str(args.sampling_num_samples),
     ]
+    if args.sampling_no_replacement:
+        cmd.append("--sampling-no-replacement")
+    return cmd
 
 
 def main() -> None:

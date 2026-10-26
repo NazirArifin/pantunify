@@ -1,0 +1,2 @@
+{"epoch": 1, "train_loss": 26.83227108142994, "val_metrics": {"loss": 10.168507152133518, "accuracy": 0.8642287339072743, "oov_accuracy": 0.8284810126582278, "critical_macro_f1": 0.8060718605143821, "selection_score": 0.8348942180468348}}
+{"epoch": 2, "train_loss": 9.999553780496857, "val_metrics": {"loss": 7.039980835384792, "accuracy": 0.9032461890845904, "oov_accuracy": 0.8525316455696202, "critical_macro_f1": 0.875059725278639, "selection_score": 0.879012157612195}}

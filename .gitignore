@@ -37,6 +37,7 @@ draft/
 data/article4/
 scripts/article5/checkpoints/
 scripts/article5/checkpoints_crf_colab/
+scripts/article5/tuning_runs_crf_colab/
 cc.id.300.bin
 cc.id.300.bin.gz
 *.bin.part
@@ -57,3 +58,5 @@ Desktop.ini
 .idea/
 *.swp
 *.swo
+
+*.pt

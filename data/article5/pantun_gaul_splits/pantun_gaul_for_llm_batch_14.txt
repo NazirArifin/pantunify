@@ -1,0 +1,81 @@
+Anda adalah seorang pakar NLP (Natural Language Processing) dan Linguistik Komputasi khusus bahasa Indonesia formal dan gaul (colloquial).
+
+Tugas Anda adalah melakukan anotasi data teks (Named Entity Recognition) pada sekumpulan pantun gaul yang saya berikan menggunakan skema BIO Tagging (Inside-Outside-Beginning).
+
+Kategori Label NER yang harus Anda gunakan:
+1. ASG (Asing): Kata dari bahasa asing (Inggris, Jepang, dll.) meskipun ditulis huruf kecil.
+2. SKT (Singkatan): Singkatan umum, kependekan istilah, atau akronim (baik kapital maupun huruf kecil, misal: SPBU, bbm, dr, sda).
+3. TYP (Typo): Kata yang salah ketik ringan/salah eja dari kata baku bahasa Indonesia (misal: slamat, takan, perduli).
+4. DSM (Disemvowelling): Kata yang sengaja dihilangkan seluruh/sebagian besar huruf vokalnya untuk menyingkat ketikan (misal: skrng, dlm, yg, msh, brgkt).
+5. O (Outside): Kata normal, kata baku, kata daerah yang bukan slang pengetikan, kata depan, atau tanda baca.
+
+Aturan Penting BIO Tagging:
+- Gunakan "B-[LABEL]" untuk kata pertama yang masuk dalam kategori tersebut.
+- Gunakan "I-[LABEL]" HANYA jika kata berikutnya masih merupakan satu kesatuan frasa dari label yang sama (jarang terjadi pada kata gaul tunggal, tapi gunakan jika ada).
+- Gunakan "O" untuk kata normal atau tanda baca.
+- Setiap baris pantun harus dipecah menjadi token-token kata (tokenisasi) secara bersih. Pisahkan tanda baca jika menempel pada kata (misal: "bapa," menjadi "bapa" dan ",").
+
+Aturan Output:
+- Hasilkan output HANYA dalam format JSON yang valid berupa Array of Objects.
+- Jangan berikan teks pengantar, basa-basi, atau penjelasan apa pun di luar kode JSON.
+- Struktur JSON wajib memiliki key: "tokens" (array of strings) dan "ner_tags" (array of strings dengan jumlah elemen yang sama persis dengan "tokens").
+
+Berikut adalah contoh format output yang saya inginkan:
+[
+  {
+    "tokens": ["skrng", "malam", "nisfu", "syaban", "ke", "spbu"],
+    "ner_tags": ["B-DSM", "O", "O", "O", "O", "B-SKT"]
+  }
+]
+
+
+1. "ibu wati pakai kerudung\npergi ke toko membeli kopi\nharapan hati bertatap langsung\ncuma terlayang di facebook ini"
+2. "ada pelangi setelah hujan\nbalasmembalas suara kodok\nnasib jomblo kurang kerjaan\nmalming ngobrol dengan tembok"
+3. "hari minggu ke pasar swalayan\nnaik becak dengan pak mamat\nlelah dan letih bukanlah hadangan\nberputusasalah yang jadi penghambat"
+4. "kecilkecil si ikan teri\nsangat banyak di dalam kali\nniatkan belajar sepenuh hati\nsemoga allah memberkahi"
+5. "anak pak rt tampan rupawan\npergi ke dusun naik sepeda\nkamu menuju kedewasaan\nbelajar di kampus adalah tahapnya"
+6. "mangga jatuh busuk sebelah\nsebelum dimakan dicuci dahulu\nke manapun kaki melangkah\npada ibu selalu ku rindu"
+7. "di padang ada masjid raya\nsholat disana di hari selasa\nrela berkorban untuk anaknya\nrela menderita agar anak bahagia"
+8. "di australia ada kangguru\njalan melompat sangatlah lucu\nibu begitu indah telapak kakimu\ndi sanalan tempat surgaku"
+9. "jalanjalan ke pantai kuta\nanak bali menarinari\nkasih ibu sepanjang masa\nbagaikan sinar sang mentari"
+10. "ke pasar bukittinggi naik bendi\nsinggah sejenak di ramayana\nuntukmu ibu yang telah pergi\ntenanglah engkau di alam sana"
+11. "pergi umroh ke kota mekah\nmekah terletak di saudi arabia\ngigi putih bersih dan indah\nsangat cantik dipandang mata"
+12. "jalanjalan ke rantau parapat\njangan lupa membeli donat\njika badan selalu sehat\nmudahmudahan jadi hebat"
+13. "peegi ke sungai memancing ikan\nbersama paman naik perahu\nmasuk sd memang mengasyikkan\nbertemu banyak teman baru"
+14. "tanggal merah di hari selasa\npergi liburan ke pantai\nbelajar menulis dan membaca\ndi sekolah dasar yang dicintai"
+15. "upacara bendera di hari senin\nitu rutinitas kita semua\npersahabatan indah yang terjalin\nadalah ketika masamasa sma"
+16. "jalanjalan ke pekanbaru\njangan lupa membeli duku\npatuhilah nasihat bapak ibu guru\nagar tercapai citacitamu"
+17. "medan ibukota sumatera utara\njakarta ibukotanya indonesia\nmurid sejati banyak ilmunya\nbekal mengabdi nusa bangsa"
+18. "liburan pergi ke jakarta\nsinggah sejenak di kota tua\nengkau ajari kami dengan sukacita\nhingga kami meraih citacita"
+19. "jalanjalan ke pekanbaru\nuntuk pertemu dengan saudara ipar\npergi sekolah untuk menuntut ilmu\nhormati guru dengan tekun belajar"
+20. "pergi ke sungai memancing ikan\nikan dijual ke pasar raya\nhappy teacher day kuucapkan\nuntuk semua guru dk dunia"
+21. "jalanjalan ke kota medan\nsinggah sejenak di panyabungan\npesanmu tetap jadi pedoman\nmendorong aku mencapai kejayaan"
+22. "ambil kayu jadikan meja\nuntuk dibawa ke batanghari\nselamat menjalani ibadah puasa\nuntuk family di ramadhan ini"
+23. "jalanjalan ke kota tua\ntempatnya ada di jakarta\nwahai saudara seiman senegara\nsaya ucapakan selamat puasa"
+24. "pergi ke surau bersama teman\nsetelah sholat langsung pulang\nkepada kekasih aku ucapkan\nminal aidin wal faizin sayang"
+25. "di aceh banyak bunga kamboja\nmenjadi ikon yang indah rupa\nselamat memasuki bulan puasa\nuntuk semua sanak dan saudara"
+26. "jalanjalan ke danau toba\nbersih dari sampah plastik\nperbanyak amal di bulan puasa\nsemoga menjadi amal yang baik"
+27. "buat anyaman dari bambu\nuntuk dijual ke pasar senayan\nbulan ramadhan di ambang pintu\nkhilaf salah mohon di maafkan"
+28. "pantai taplau ada di padang\npantai tiram di pariaman\nsedap selalu mata memandang\njika bersih alam lingkungan"
+29. "kalau tuan ke bukittinggi\njangan lupa naik kuda\ndi sabtu pagi yang cerah ini\nkutitipkan rindu untukmu disana"
+30. "jalanjalan ke jakarta\nke kota tua naik sepeda\nhari sabtu tak ada beda\nkarena tetap dirumah saja"
+31. "bibi pulkam ke kampung baru\nsemoga sampai dengan selamat\ngimana mau main hari sabtu\ncucian numpuk banyak amat"
+32. "banyak telurnya si ayam ternak\nambil beberapa untuk dimakan\nayo mandi lekaslekas nak\nsholat jumat akan ditegakan"
+33. "main internet memakai smartfren\njaringannya sungguh kencang sekali\nhappy thursday my friends\nselamat menikmati hari yang cerah ini"
+34. "pak imran menggalah manggis\njatuh ke sumur jadi hilang\nselamat pagi di hari kamis\nwalaupun sekarang sudah siang"
+35. "jalanjalan ke surabaya\njangan lupa membeli markisa\nkala rabu datang menjelma\nterbayang senyummu yang jauh di sana"
+36. "indah pantainya di ujung pandang\nsampai kesana di waktu petang\nhappy wednesday buatmu sayang\nsemoga selalu sehat dan riang"
+37. "ke mushola pakai baju biru\nuntuk melaksanakan perintah sholat\nselamat datang hari rabu\nkuucapkan untukmu wahai sahabat"
+38. "kuningkuning si buah pepaya\nisi kelapa berwarna putih\nmentari pagi di hari selasa\nkupatrikan rindu untukmu kasih"
+39. "jalanjalan ke jakarta\nsinggah sejenak di kota tua\nselamat pagi di hari selasa\nsemoga semangat tetap terjaga"
+40. "pergi wisata ke rantau parapat\nsumatera utara beribukota medan\nini pantun selasa semangat\nbuka hari dengan senyuman"
+41. "sungguh mahal kayu gaharu\nbeli bibit di palangkaraya\nyang jalanjalan di hari minggu\nsemoga tidak putus ya"
+42. "bunga kamboja banyak warna\nhiasi taman rumah si budi\nsekarang kau jauh di mata\nrindu bermalam minggu lagi"
+43. "si budi pergi rekreasi\nmengunjungi pantai bareng pacar\nmalam minggu hanya sendiri\nrasanya mau nangis di kamar"
+44. "jalanjalan ke pangandaran\nsebelum pergi dahulukan sarapan\nselamat malmingan buat kalian\nsemoga malam ini turun hujan"
+45. "pergi ke sawah menuai padi\npadi di kirim ke bintaro\nmalam minggu tiba lagi\nbanyakbanyain sabar ya mblo"
+46. "si adik nonton televisi\nibu dan kakak masak di dapur\nketika malming tiba lagi\nsiapsiap mewek di kasur"
+47. "saya lahir januari\nulang tahunku kasihlah hadiah\nmalming lagi malming lagi\nsemoga ujan lebat dahh"
+48. "malam selasa hadiri pesta\npernikahan seorang teman sejati\njika kamu jomblo bahagia\njangan lupa share postingan ini"
+49. "jalanjalan ke rantau parapat\nmenginap di sebuah hotel\nsenin harus datang cepat\nlupa iler masih menempel"
+50. "ibu marta membeli kain\nkain dijahit menjadi gamis\nsemangat pagi di hari senin\nskincare pacar udah habis"

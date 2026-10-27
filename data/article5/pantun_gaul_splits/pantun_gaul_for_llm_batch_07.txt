@@ -1,0 +1,81 @@
+Anda adalah seorang pakar NLP (Natural Language Processing) dan Linguistik Komputasi khusus bahasa Indonesia formal dan gaul (colloquial).
+
+Tugas Anda adalah melakukan anotasi data teks (Named Entity Recognition) pada sekumpulan pantun gaul yang saya berikan menggunakan skema BIO Tagging (Inside-Outside-Beginning).
+
+Kategori Label NER yang harus Anda gunakan:
+1. ASG (Asing): Kata dari bahasa asing (Inggris, Jepang, dll.) meskipun ditulis huruf kecil.
+2. SKT (Singkatan): Singkatan umum, kependekan istilah, atau akronim (baik kapital maupun huruf kecil, misal: SPBU, bbm, dr, sda).
+3. TYP (Typo): Kata yang salah ketik ringan/salah eja dari kata baku bahasa Indonesia (misal: slamat, takan, perduli).
+4. DSM (Disemvowelling): Kata yang sengaja dihilangkan seluruh/sebagian besar huruf vokalnya untuk menyingkat ketikan (misal: skrng, dlm, yg, msh, brgkt).
+5. O (Outside): Kata normal, kata baku, kata daerah yang bukan slang pengetikan, kata depan, atau tanda baca.
+
+Aturan Penting BIO Tagging:
+- Gunakan "B-[LABEL]" untuk kata pertama yang masuk dalam kategori tersebut.
+- Gunakan "I-[LABEL]" HANYA jika kata berikutnya masih merupakan satu kesatuan frasa dari label yang sama (jarang terjadi pada kata gaul tunggal, tapi gunakan jika ada).
+- Gunakan "O" untuk kata normal atau tanda baca.
+- Setiap baris pantun harus dipecah menjadi token-token kata (tokenisasi) secara bersih. Pisahkan tanda baca jika menempel pada kata (misal: "bapa," menjadi "bapa" dan ",").
+
+Aturan Output:
+- Hasilkan output HANYA dalam format JSON yang valid berupa Array of Objects.
+- Jangan berikan teks pengantar, basa-basi, atau penjelasan apa pun di luar kode JSON.
+- Struktur JSON wajib memiliki key: "tokens" (array of strings) dan "ner_tags" (array of strings dengan jumlah elemen yang sama persis dengan "tokens").
+
+Berikut adalah contoh format output yang saya inginkan:
+[
+  {
+    "tokens": ["skrng", "malam", "nisfu", "syaban", "ke", "spbu"],
+    "ner_tags": ["B-DSM", "O", "O", "O", "O", "B-SKT"]
+  }
+]
+
+
+1. "di kebun ada tumbuhan baru\nkesukaan si jerapah\nterimakasih ruang guru\nsemoga semakin berkah"
+2. "senangis letak di timbangan\npemulut kumbang pagipagi\nmenangis katak di kubangan\nmelihat belut terbang tinggi"
+3. "ke kebun bertemu katak\njalan lagi bertemu ular\njika kamu mampu menebak\nbuah apa yang bijinya di luar"
+4. "pagipagi ke tempat gadai\nniatnya ingin menggadai cincin\njika kamu mengaku pantai\napa kesamaan ktp dan telur asin"
+5. "ke rumah hendi malammalam\nsampai sana bertemu shela\nberisi putih berkulit hitam\nrasanya manis serupa gula"
+6. "jalanjalan ke rumah wawan\nsaat pulang lihat ada atlas\nhewan ini berekor tombak\ntebak hewan laut di atas"
+7. "ikan betina si ikan lohan\nhidungnya kemek jendol di tengah\nwahai corona baleklah ke wuhan\nbiar kami bisa cepat sekolah"
+8. "jalanjalan ketemu adul\nlangsung saja bersalaman\naku tahu binatang jadul\nitu namanya kucinggalan jaman"
+9. "ke sleman mendaki gunung\nsampai di puncak terasa lelah\nsepuluh orang memakai satu payung\nmengapa tak satupun yang basah"
+10. "jalanjalan ke rawarawa\njika capai duduk di pohon palem\ngeli hati menahan tawa\nmelihat katak memakai helm"
+11. "pisang setandan masak sesisir\nmakanlah ia dengan kelapa\nkalau tuan memang naksir\ncobalah tuan sendiri bertanya"
+12. "di tengah sumatera ialah jambi\ndisebelahnya sumatera barat\nsuluah bendang dalam nagari\ntugas penghulu menjaga adat"
+13. "tengkawang berjalan di hutan rimba\nbermain gasing dengan si angsa\nmelayang rasa di dalam jiwa\nmelihat elang bermain mata"
+14. "beli duku di toko latif\nmembelinya bareng si atif\ncantik itu memang relatif\nphotoshop jadi alternatif"
+15. "pergi berlatih main bola\nlari pemanasan satu putaran\nniat hati ingin nonton bola\napalah daya emak lagi nonton uttaran"
+16. "kupu kupu warnamu indah\nkau selalu ada di hatiku\njanganlah malas bersekolah\nnanti tidak dapat ilmu"
+17. "buah kelapa dimakan kera\nburung dara terbang di angkasa\nasslamualaikum wahai saudara\ntak terasa ternyata malam minggu ya"
+18. "berakitrakit ke hulu\nberenangrenang ke tepian\ngimana kita mau ke penghulu\nsekarang saja masih berteman"
+19. "si mamang beli senjata\nsenjata buat nembak si poltak\nkau memang cantik jelita\nsayang tawamu mirip kuntilanak"
+20. "jalanjalan ke kota solo\njangan lupa mampir ke bantul\nbegini nasib seorang jomblo\ncuma bisa memeluk dengkul"
+21. "sayur matang punya si bopak\nmakan lalap dicampur sambel\ntidur telentang gak bisa nyenyak\ntidur tengkurap ada yang ganjel"
+22. "sumedang dulu sebelum bandung\ndi jalanan naik sepeda\nsejak dulu hatiku bingung\nbenar ternyata kamu mendua"
+23. "bangau pergi menuju kota\npulang lagi ke hutan alam\ndi balik hati ada cinta\nmekar di dalam diamdiam"
+24. "suara si pungguk mendayudayu\nmemuja bulan tak pernah jemu\nbiar di dunia kuhimpun rindu\ndi akhirat sana kumohon bertemu"
+25. "tersungging senyum manis di bibirmu\nhilanglah duka terpancar rindu\nku ukir namamu di dasar qalbu\nukhwah prsahabtan menjadi dambaku"
+26. "di seberang sungai ada sulaiman\nternyata ada juga si wawan\nberikut beberapa tips berteman\nuntuk kamu wahai kawan"
+27. "pergi bernyanyi di dekat taman\nbernyanyi bersama dengan si pragya\nhai kawan pandailah berteman\ntuk hidup tentram bahagia"
+28. "jahit baju bikin kebaya\nuntuk kondangan di hari selasa\ndi kasih tau ga percaya\nkalo ane bukan buaya"
+29. "baju baru dipake sayang\nbeli dimall pake atm mandiri\nkenapa semua pada kabur sayang\nitu karena kamu belum mandi"
+30. "pergi ke pasar naik onta\nmembeli anting intan permata\ngak peduli situ udah tua\nyang penting saling mencinta"
+31. "naik rakit dekat perahu\npecah di kiri ditimpa kayu\naku suka dari dahulu\ntak berani bilang i love you"
+32. "jalanjalan di kota paris\nlihat gedung berbarisbaris\nbiarpun mati di ujung keris\nasal dapat kamu yang manis"
+33. "banyak kebo menjadi gugur\njatuh di atas kayu berpaku\nmet bobo selamat tidur\njangan lupa mimpiin aku"
+34. "di jakarta ada suara mendesah\ndi surabaya ada sekuriti\nwalaupun kita sudah berpisah\nkau selalu tetap di hati"
+35. "kue bolu dimakan paklek\npaklek pergi menangkap itik\nkalau dulu kamu jelek\nkok sekarang makin cantik"
+36. "belok kanan kudu atiati\nneneknenek kaga punye banda\ntolong jangan dimasukin ati\nkan saya cuma bercanda"
+37. "kacang direbus biar mateng\nmateng masak buah kedondong\nbang ucup saya akuin si orangnya ganteng\ngantengnya si cuma di kampung gedong"
+38. "beli rebung di pasar kenari\ndari cikarang ke cileunyi\nmandiin burung tiap pagi\nsampe skarang nggak bunyibunyi"
+39. "beli peci di thamrin city\npagar taman dari jeruji\nsakit hati jangan dituruti\nsaling memaafkan lebih terpuji"
+40. "naik pesawat ke pulau sumbawa\nada petir gak jadi terbang\nkalau anda ingin tertawa\ntarik bibir ke arah belakang"
+41. "jalanjalan pakai motor matik\nsambil bawa bekal telur dadar\nkau hari ini tampak begitu cantik\nsampai melebihi jesika iskandar"
+42. "pohon pisang daunnya layu\nbisa dijadikan pupuk di sawah\nsaat abang bilang i lap yu\nku cuma bisa bilang cius miapah"
+43. "nonton bioskop horor indonesia\nbersama pacar cantik jelita\nhidup jangan disiasia\ndekati wanita sebanyakbanyaknya"
+44. "tanam pete di pinggir kali\npetenya lari ga tau diri\njangan miscall aja kalau berani\ntelpon gue kalau punya nyali"
+45. "di bulan ramadhan orang tadarus\nmembaca quran beramairamai\norang beriman hatinya lurus\nduduk berjalan elok perangai"
+46. "di bulan ramadhan banyakin amal\nsupaya dosa diampunkan tuhan\norang beriman hidup berakal\nmenggunakan usia untuk kebaikan"
+47. "daun ilalang taruh di topi\ndaun kurma ditambah lagi\npantun kukarang di malam sepi\nkala purnama telah meninggi"
+48. "ambil paku di kota raja\ndi kota raja mendapat intan\nwahai saudaraku di mana saja\npantun kukarang untuk kalian"
+49. "minum susu memakai rantang\ntumpah di bantal di atas tilam\nanak cucu di masa datang\ntidak kenal budaya etam"
+50. "buah duku dari palembang\npulau bali mashur nagganya\nbaca buku janganlah jarang\nsebab buku jendela dunia"

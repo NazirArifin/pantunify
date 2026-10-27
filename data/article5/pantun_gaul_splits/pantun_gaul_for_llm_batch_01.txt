@@ -1,0 +1,80 @@
+Anda adalah seorang pakar NLP (Natural Language Processing) dan Linguistik Komputasi khusus bahasa Indonesia formal dan gaul (colloquial).
+
+Tugas Anda adalah melakukan anotasi data teks (Named Entity Recognition) pada sekumpulan pantun gaul yang saya berikan menggunakan skema BIO Tagging (Inside-Outside-Beginning).
+
+Kategori Label NER yang harus Anda gunakan:
+1. ASG (Asing): Kata dari bahasa asing (Inggris, Jepang, dll.) meskipun ditulis huruf kecil.
+2. SKT (Singkatan): Singkatan umum, kependekan istilah, atau akronim (baik kapital maupun huruf kecil, misal: SPBU, bbm, dr, sda).
+3. TYP (Typo): Kata yang salah ketik ringan/salah eja dari kata baku bahasa Indonesia (misal: slamat, takan, perduli).
+4. DSM (Disemvowelling): Kata yang sengaja dihilangkan seluruh/sebagian besar huruf vokalnya untuk menyingkat ketikan (misal: skrng, dlm, yg, msh, brgkt).
+5. O (Outside): Kata normal, kata baku, kata daerah yang bukan slang pengetikan, kata depan, atau tanda baca.
+
+Aturan Penting BIO Tagging:
+- Gunakan "B-[LABEL]" untuk kata pertama yang masuk dalam kategori tersebut.
+- Gunakan "I-[LABEL]" HANYA jika kata berikutnya masih merupakan satu kesatuan frasa dari label yang sama (jarang terjadi pada kata gaul tunggal, tapi gunakan jika ada).
+- Gunakan "O" untuk kata normal atau tanda baca.
+- Setiap baris pantun harus dipecah menjadi token-token kata (tokenisasi) secara bersih. Pisahkan tanda baca jika menempel pada kata (misal: "bapa," menjadi "bapa" dan ",").
+
+Aturan Output:
+- Hasilkan output HANYA dalam format JSON yang valid berupa Array of Objects.
+- Jangan berikan teks pengantar, basa-basi, atau penjelasan apa pun di luar kode JSON.
+- Struktur JSON wajib memiliki key: "tokens" (array of strings) dan "ner_tags" (array of strings dengan jumlah elemen yang sama persis dengan "tokens").
+
+Berikut adalah contoh format output yang saya inginkan:
+[
+  {
+    "tokens": ["skrng", "malam", "nisfu", "syaban", "ke", "spbu"],
+    "ner_tags": ["B-DSM", "O", "O", "O", "O", "B-SKT"]
+  }
+]
+
+1. "lebah sembunyi didalam sarang\njangan dekatdekat berbahaya\nramadhan ini belum punya ayang\nlebaran nanti moga udah punya"
+2. "dua turis dari belgia\nkemarin mencaricarimu\nberasa orang paling bahagia\nsejak aku memiliki cintamu"
+3. "sepulang dari surabaya\ndisuruh nganterin beli kawat\nkecantikanmu emang tiada duanya\ntanpa makeup pun yang lain lewat"
+4. "mobil belum dibalikin\norangnya gabisa di telpon\nchat dari yang aku cuekin\ncuman chat darimu yang aku respon"
+5. "masih berada di istanbul\nmenghadiri launching buku\nmoga doaku segera terkabul\nketemu dengan jodoh terbaikku"
+6. "vaksin booster lagi di buru\nlebaran nanti biar bisa mudik\nbukannya aku terburuburu\naku tuh gamau kehilangan kamu cantik"
+7. "sedang ngeliat berita\ndemo mahasiswa di jakarta\njujurly kamulah yang aku cinta\ncintaku ini bukan karena harta"
+8. "ketika masih di australia\nsusah banget nyari jamu\naku pengen hidup bahagia\ntapi hidup bahagia denganmu"
+9. "dititipin temen karpet\nsaat dolan ke surabaya\nsayang aku lagi kangen banget\nntar ketemuan dalam mimpi ya"
+10. "aleix espargaro dari spanyol\npembalap motogp tim aprilia\nselain kamu bahenol\nkamu itu baik dan setia"
+11. "di undang ke istana merdeka\nrider motogp photo ama presiden\nkalau aku nggak punya rasa suka\ntak mungkin aku punya rasa kangen"
+12. "banyak bawa perbekalan\nsusah di jalur pendakian\nkamu hatihati di jalan\nhatimu jangan jalanjalan"
+13. "diajarin bahasa sunda\njujurly awalnya susah banget\njangan suka menundanunda\nkalau udah oke langsung sat set sat set"
+14. "sepulang dari surabaya\ndi suruh beli kg kawat\nkecantikanmu emang tiada duanya\nyang pada glowing pun lewat"
+15. "sampah yang terbawa ombak\nkini mengotori indahnya pantai\ngamau ngomong banyakbanyak\npengen sat set sat set langsung jadi"
+16. "beritahu adik sepupumu\nayahnya udah pulang dari italia\nkukira enak jadi kekasihmu\nnyatanya aku malah nggak bahagia"
+17. "setelah selesai makan\nbercanda di ruang tamu\njujur ingin kukatakan\naku tak pernah menyesal mencintaimu"
+18. "setiap bulan purnama\ndia selalu menerima tamu\ngamau pacaran lamalama\npengennya langsung halalin kamu"
+19. "setelah bagibagi buku\ndengerin lagu campursari\nbukannya aku nggak laku\naku emang masih pengen sendiri"
+20. "ketika terjadi gerhana\nmereka ngumpet di bawah meja\njangan tanya tahun baruan kemana\nnamanya jomblo ya di rumah aja"
+21. "yang pake nama samaran\nkemarin bajunya kena tinta\nkamu tuh jangan baperan\nstatus di like langsung di kira cinta"
+22. "satu sampai delapan\njangan sampai dilupakan\njangan cobacoba ngasih harapan\nkalau akhirnya ditinggakan"
+23. "kemarin dibeliin sajadah\nsekarang ditraktir kakakmu\nmimpiku ku anggap indah\nbila aku mimpiin kamu"
+24. "via jalur kerinci seblat\nmendaki gunung kerinci\nwalau rajin menunaikan sholat\ntapi kamu jangan sok suci"
+25. "pak jokowi saat di trenggalek\nmenanam padi dengan traktor\ndasar mantan otaknya jelek\ndimanamana selalu jadi kompor"
+26. "di aquarium ikan lohan\ntertulis judul sebuah buku\nsejak kita berjauhan\nrindu tlah membanjiri hidupku"
+27. "kalau ada sumur di ladang\nboleh kita numpang mandi\nkau satusatunya yang ku sayang\nsemoga cinta kita abadi"
+28. "valentino rossi pensiun\nmotogp di sirkuit valencia\nlebih baik aku minum racun\nkalau tau kamu nggak setia"
+29. "beberapa satpol pp di usir\nsaat berteduh di rumah warga\nkamu tak perlu khawatir\naku tuh niatnya bikin kamu bahagia"
+30. "alasan rebranding perusahaan\nfacebook di ganti nama meta\nuntuk apa lamalama pacaran\nkalau ujungnya jadi sumber airmata"
+31. "ketika membeli pena\nbertemu teman surabaya\nbuat kamu yang di sana\nsalam rindu serindurindunya"
+32. "sepulang dari surabaya\njangan lupa beliin jamu\nsayang aku tidur dulu ya\naku udah ndak sabar mimpiin kamu"
+33. "ngeliat film di tvone dulu\npengkhianatan g spki\naku kini jadi suka halu\nsejak kau tega mengkhianati"
+34. "tempat wisata di buka\nbesok kesana dengan adikku\njangan dengerin mereka\nmereka itu emang ndak suka denganku"
+35. "membeli sepeda mini\nketemu valentino rossi\nkalau lagi kangen gini\nbelajar pun jadi ndak konsentrasi"
+36. "ppkm diperpanjang lagi\ngimana menurut kalian\nntar pengen mimpiin kamu lagi\nkemanamana kita berduaan"
+37. "ketika meminjam buku\ndia memukulmukul meja\nkamu tuh nyarinyari kesalahanku\nkalau udah ndak cocok ya kita pisah aja"
+38. "saat mereka bertemu\ndia masih di ruang tamu\naku tuh cinta banget sama kamu\ntak mungkin aku selingkuhin kamu"
+39. "lagi ngeliat berita\nbanyak mural di hapus\nsekali saja kau khianati cinta\nlangsung saja jalinannya kuputus"
+40. "saat ke rumah penghulu\nada yang nganterin meja\nbosen sih pacaran mulu\nsekarang pengen langsung nikah aja"
+41. "lagi ngeliat doraemon\nnobita pengen membelah semangka\nwalaupun denger suaramu di telpon\nhatiku benerbener suka"
+42. "sepulang dari surabaya\ntwitteran di ruang tamu\nsayang aku tidur dulu ya\nudah ndak sabar pengen mimpiin kamu"
+43. "nobita dapat kenangkenangan\ndi beri bunga salju anayugi\nuntuk apa ngajak balikan\nlebih baik aku nyari lagi"
+44. "datang dari pulau jawa\nmerantau ke pulau kelahiranmu\ngapapa yang lain udah samawa\naku mah nanti aja samamu"
+45. "berakitrakit ke hulu\nberenangrenang ke tepian\nkatanya mau sendiri dulu\neh besoknya malah jadian"
+46. "berakitrakit ke hulu\nberenangrenang ke tepian\nkatanya cuma masa lalu\ntapi kok masih di kasih perhatian"
+47. "berakitrakit ke hulu\nberenangrenang ke tepian\nndak berani ke penghulu\ndikarenakan beda keyakinan"
+48. "di suruh rajin minum jamu\nbiar imun tubuh naik banyak\naku pengen mimpiin kamu\nkamu ntar mimpin aku juga yak"
+49. "saat mereka bertemu\nmereka du suruh angkat meja\nkalau lagi dicuekin pacarmu\nkamu ntar mimpiin aku aja"
+50. "orangorang lagi sholat tarawih\nkamu kongkowkongkow di jalan\nsebenarnya aku suka kamu sih\ntapi kamu masih pacarnya teman"

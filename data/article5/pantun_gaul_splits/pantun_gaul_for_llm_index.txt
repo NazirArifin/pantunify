@@ -1,0 +1,21 @@
+Total pantun: 849
+Batch size: 50
+Total batch files: 17
+
+pantun_gaul_for_llm_batch_01.txt: item 1-50
+pantun_gaul_for_llm_batch_02.txt: item 51-100
+pantun_gaul_for_llm_batch_03.txt: item 101-150
+pantun_gaul_for_llm_batch_04.txt: item 151-200
+pantun_gaul_for_llm_batch_05.txt: item 201-250
+pantun_gaul_for_llm_batch_06.txt: item 251-300
+pantun_gaul_for_llm_batch_07.txt: item 301-350
+pantun_gaul_for_llm_batch_08.txt: item 351-400
+pantun_gaul_for_llm_batch_09.txt: item 401-450
+pantun_gaul_for_llm_batch_10.txt: item 451-500
+pantun_gaul_for_llm_batch_11.txt: item 501-550
+pantun_gaul_for_llm_batch_12.txt: item 551-600
+pantun_gaul_for_llm_batch_13.txt: item 601-650
+pantun_gaul_for_llm_batch_14.txt: item 651-700
+pantun_gaul_for_llm_batch_15.txt: item 701-750
+pantun_gaul_for_llm_batch_16.txt: item 751-800
+pantun_gaul_for_llm_batch_17.txt: item 801-849

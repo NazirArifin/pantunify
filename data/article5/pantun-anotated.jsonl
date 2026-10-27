@@ -116,7 +116,7 @@
 }
 {
 "tokens": ["alasan", "rebranding", "perusahaan", "facebook", "di", "ganti", "nama", "meta", "untuk", "apa", "lamalama", "pacaran", "kalau", "ujungnya", "jadi", "sumber", "airmata"],
-"ner_tags": ["O", "B-ASG", "O", "O", "O", "O", "O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "B-TYP"]
+"ner_tags": ["O", "B-ASG", "O", "B-ASG", "O", "O", "O", "B-ASG", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "B-TYP"]
 }
 {
 "tokens": ["ketika", "membeli", "pena", "bertemu", "teman", "surabaya", "buat", "kamu", "yang", "di", "sana", "salam", "rindu", "serindurindunya"],
@@ -128,7 +128,7 @@
 }
 {
 "tokens": ["ngeliat", "film", "di", "tvone", "dulu", "pengkhianatan", "g", "spki", "aku", "kini", "jadi", "suka", "halu", "sejak", "kau", "tega", "mengkhianati"],
-"ner_tags": ["O", "O", "O", "B-SKT", "O", "O", "B-SKT", "I-SKT", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+"ner_tags": ["O", "B-ASG", "O", "B-SKT", "O", "O", "B-SKT", "I-SKT", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["tempat", "wisata", "di", "buka", "besok", "kesana", "dengan", "adikku", "jangan", "dengerin", "mereka", "mereka", "itu", "emang", "ndak", "suka", "denganku"],

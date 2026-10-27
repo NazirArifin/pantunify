@@ -36,7 +36,7 @@
 }
 {
 "tokens": ["aleix", "espargaro", "dari", "spanyol", "pembalap", "motogp", "tim", "aprilia", "selain", "kamu", "bahenol", "kamu", "itu", "baik", "dan", "setia"],
-"ner_tags": ["O", "O", "O", "O", "O", "B-ASG", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+"ner_tags": ["B-ASG", "O", "O", "O", "O", "B-ASG", "O", "B-ASG", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["di", "undang", "ke", "istana", "merdeka", "rider", "motogp", "photo", "ama", "presiden", "kalau", "aku", "nggak", "punya", "rasa", "suka", "tak", "mungkin", "aku", "punya", "rasa", "kangen"],
@@ -92,7 +92,7 @@
 }
 {
 "tokens": ["via", "jalur", "kerinci", "seblat", "mendaki", "gunung", "kerinci", "walau", "rajin", "menunaikan", "sholat", "tapi", "kamu", "jangan", "sok", "suci"],
-"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+"ner_tags": ["B-ASG", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["pak", "jokowi", "saat", "di", "trenggalek", "menanam", "padi", "dengan", "traktor", "dasar", "mantan", "otaknya", "jelek", "dimanamana", "selalu", "jadi", "kompor"],
@@ -224,7 +224,7 @@
 }
 {
 "tokens": ["saat", "ada", "jaringan", "internet", "mereka", "tepuk", "tangan", "semua", "cowokmu", "ganteng", "amp", "glowing", "banget", "tapi", "apaapa", "masih", "minta", "orang", "tua"],
-"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "B-TYP", "B-ASG", "O", "O", "B-TYP", "O", "O", "O", "O"]
+"ner_tags": ["O", "O", "O", "B-ASG", "O", "O", "O", "O", "O", "O", "B-TYP", "B-ASG", "O", "O", "B-TYP", "O", "O", "O", "O"]
 }
 {
 "tokens": ["yang", "daftar", "jamaah", "haji", "apakah", "sudah", "di", "suntik", "vaksin", "aku", "gamau", "ngobral", "janji", "kalau", "kau", "mau", "langsung", "aku", "halalin"],
@@ -1656,7 +1656,7 @@
 }
 {
 "tokens": ["pergi", "berlibur", "kehujanan", "basah", "kuyub", "sampai", "mataram", "jauhilah", "perkelahian", "niscaya", "hidup", "akan", "tentram"],
-"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "B-TYP"]
+"ner_tags": ["O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "B-TYP"]
 }
 {
 "tokens": ["berakitrakit", "ke", "hulu", "berenangrenang", "ke", "tepian", "jangan", "kau", "durkaha", "pada", "ibu", "kelak", "akan", "mengalami", "kemalangan"],
@@ -1700,7 +1700,7 @@
 }
 {
 "tokens": ["jikalau", "tengah", "di", "yogyakarta", "janganlah", "lupa", "beli", "bakpia", "jikalau", "nanti", "tengah", "berjaya", "janganlah", "pongah", "lagi", "jumawa"],
-"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "B-TYP"]
+"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["sawah", "bertumbuh", "di", "atas", "petak", "bukan", "di", "gedung", "sebuah", "kota", "mulia", "insan", "ada", "di", "akhlak", "bukan", "di", "harta", "atau", "di", "rupa"],
@@ -1728,7 +1728,7 @@
 }
 {
 "tokens": ["pergi", "ke", "afrika", "lihat", "jerapah", "melewati", "gurun", "yang", "nampak", "semu", "tiada", "guna", "harta", "melimpah", "jika", "kepala", "kosong", "akan", "ilmu"],
-"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["cincin", "mbah", "ponari", "ternyata", "bertuah", "diwariskan", "dari", "keluarga", "bapak", "semoga", "sakinnah", "mawaddah", "warrohmah", "dikaruniai", "anak", "yang", "berakhlak"],
@@ -1812,7 +1812,7 @@
 }
 {
 "tokens": ["tebal", "bulunya", "si", "beruang", "kutup", "cairan", "es", "ia", "jadikan", "minum", "sebelum", "acara", "kita", "tutup", "kuucapkan", "wassalamualaikum"],
-"ner_tags": ["O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "B-ASG"]
+"ner_tags": ["O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["gudang", "penyimpan", "si", "benih", "padi", "padi", "dibawa", "ke", "tengah", "sawah", "semoga", "kita", "bertemu", "lagi", "salam", "penutup", "jadi", "pemisah"],
@@ -1820,7 +1820,7 @@
 }
 {
 "tokens": ["berbaris", "shalat", "namanya", "syaf", "magrib", "tiba", "matahari", "terbenam", "bila", "ada", "salah", "kuharapkan", "maaf", "akhir", "kata", "kuucapkan", "salam"],
-"ner_tags": ["O", "B-TYP", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+"ner_tags": ["O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["bukit", "berbaris", "banyak", "batunya", "di", "padang", "datar", "kita", "bertemu", "main", "game", "ada", "waktunya", "kerjakan", "dahulu", "pr", "dan", "tugasmu"],
@@ -1832,15 +1832,15 @@
 }
 {
 "tokens": ["sebelum", "puasa", "mari", "sahur", "lidah", "pahit", "berkumurkumur", "tunaikan", "pula", "sholat", "dzuhur", "insyaallah", "hatinya", "makmur"],
-"ner_tags": ["O", "O", "O", "O", "O", "O", "B-TYP", "O", "O", "O", "B-TYP", "O", "O", "O"]
+"ner_tags": ["O", "O", "O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["pagi", "hari", "pergi", "ke", "pasar", "membeli", "seekor", "ayam", "bekisar", "istiqomah", "sholat", "ashar", "pasti", "jiwa", "tak", "pernah", "gusar"],
-"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "O", "B-TYP", "O", "B-TYP", "O", "O", "O", "O", "O"]
+"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["segelas", "kopi", "dari", "kedai", "beli", "saos", "merek", "bango", "jika", "kamu", "mengaku", "anak", "yang", "pandai", "kalau", "ditanya", "kenapa", "plonga", "plongo"],
-"ner_tags": ["O", "O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "B-TYP", "B-TYP"]
+"ner_tags": ["O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["kepakan", "sayap", "seakan", "berirama", "burung", "bangau", "nyungsep", "di", "sawah", "tauhid", "adalah", "ilmu", "utama", "sebagai", "kunci", "masuk", "surga"],
@@ -1852,15 +1852,15 @@
 }
 {
 "tokens": ["jalanjalan", "ke", "rawarawa", "di", "rawarawa", "ada", "tomat", "ingatlah", "nasehat", "orang", "tua", "agar", "hidup", "senantiasa", "selamat"],
-"ner_tags": ["B-TYP", "O", "B-TYP", "O", "B-TYP", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O"]
+"ner_tags": ["B-TYP", "O", "B-TYP", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["di", "rawarawa", "banyak", "batu", "ada", "batu", "di", "atas", "lengan", "nasihat", "orangtua", "nomor", "satu", "selalu", "aku", "jadikan", "pegangan"],
-"ner_tags": ["O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O"]
+"ner_tags": ["O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["bunga", "melati", "pitih", "warnanya", "banyak", "dijual", "ditoko", "bunga", "kuucap", "trimakasih", "sebelumnya", "seperti", "apakah", "sahabat", "ya"],
-"ner_tags": ["O", "O", "B-TYP", "O", "O", "O", "B-TYP", "O", "O", "B-TYP", "O", "O", "O", "O", "O"]
+"ner_tags": ["O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["di", "bukit", "liatin", "fajar", "di", "pantai", "main", "selancar", "walopun", "lagi", "belajar", "jangan", "lupa", "sama", "pacar"],
@@ -1976,7 +1976,7 @@
 }
 {
 "tokens": ["deket", "papua", "ada", "nugini", "pergi", "jalan", "jalan", "ame", "sani", "emang", "enak", "dah", "cuaca", "begini", "nyeduh", "kopi", "disamping", "bini"],
-"ner_tags": ["B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "B-TYP", "O"]
+"ner_tags": ["B-TYP", "O", "O", "O", "O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["ikan", "cere", "matinya", "direndem", "ambil", "topi", "sama", "songkok", "di", "belakang", "soresore", "suasananya", "adem", "sambil", "ngopi", "ngrokok", "sebatang"],

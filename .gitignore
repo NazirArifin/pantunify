@@ -35,6 +35,7 @@ env.bak/
 venv.bak/
 draft/
 data/article4/
+data/article5/models/
 scripts/article5/checkpoints/
 scripts/article5/checkpoints_crf_colab/
 scripts/article5/tuning_runs_crf_colab/

@@ -1380,7 +1380,7 @@
 }
 {
 "tokens": ["di", "bulan", "ramadhan", "banyakin", "amal", "supaya", "dosa", "diampunkan", "tuhan", "orang", "beriman", "hidup", "berakal", "menggunakan", "usia", "untuk", "kebaikan"],
-"ner_tags": ["O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+"ner_tags": ["O", "O", "O", "B-TYP", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["daun", "ilalang", "taruh", "di", "topi", "daun", "kurma", "ditambah", "lagi", "pantun", "kukarang", "di", "malam", "sepi", "kala", "purnama", "telah", "meninggi"],

@@ -472,7 +472,7 @@
 }
 {
 "tokens": ["wabah", "virus", "corona", "kabarnya", "sudah", "nyampe", "filipina", "kamu", "itu", "sukanya", "menghina", "padahal", "kamulah", "yg", "pantas", "di", "hina"],
-"ner_tags": ["O", "B_ASG", "I_ASG", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "B-DSM", "O", "O", "O"]
+"ner_tags": ["O", "B-ASG", "I-ASG", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "B-DSM", "O", "O", "O"]
 }
 {
 "tokens": ["pohon", "yang", "baru", "di", "tanam", "disisisisisinya", "ditanami", "sayur", "sayang", "tidurnya", "jgn", "malammalam", "biar", "ntar", "kamu", "bisa", "bangun", "sahur"],

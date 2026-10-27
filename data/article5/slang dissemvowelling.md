@@ -16,21 +16,29 @@ Untuk menangani tingginya kata Out-of-Vocabulary (OOV) dan variasi slang, arsite
 
 3. Alur Kerja & Pohon Keputusan (Decision Tree) Tanpa Kamus Gaul
 
-Untuk menjaga sistem tetap robust (tidak kaku oleh kamus slang statis yang cepat usang), POS Tag bertindak sebagai saklar penentu rumus fonotaktik, bukan sebagai pencari kamus (lookup tool).
+[Kata Input Pantun Gaul]
+           │
+           ▼
+[IndoBERT Token Classifier (NER)] ───► Dilatih dengan 800 data pantun Anda
+           │
+   ┌───────┼───────┬──────────────┐
+   ▼       ▼       ▼              ▼
+[SINGKATAN] [TYPO] [DISEMVOWEL] [ASING]
+   │       │       │              │
+[RUMUS A]  └───────┴──────┬───────┘
+                          ▼
+             [Kombinasi Rumus B & C / G2P]
+			 
+• JIKA Label = singkatan (Contoh: spbu, dpr):
+	• Eksekusi Rumus A: Hitung jumlah huruf (dibaca per huruf via ejaan).
+• JIKA Label = disemvowelling (Contoh: skrng, brgkt, yg, lgsg):
+	• Eksekusi Rumus B & C: Masukkan ke Rumus Kluster Konsonan Anda atau Clamping Aturan Panjang Anda. Anda tidak butuh POS Tag lagi, cukup gunakan panjang karakter kata tersebut untuk menentukan apakah dia kata tugas pendek (1-2 silabel) atau kata konten (2-4 silabel).
+• JIKA Label = asing (Contoh: makeup, now):
+	• Eksekusi Failsafe: Belokkan langsung ke G2P asing (Inggris).
+• JIKA Label = O (Kata Normal/Baku):
+	• Eksekusi Metode Vokal: Langsung hitung vokal murninya menggunakan g2p-id.
 
-Alur Logika Percabangan (If-Else):
 
-text
-[Kata Input OOV Tanpa Vokal] 
-             │
-             ▼
-    [BiLSTM POS Tagger]
-             │
-   ┌─────────┼─────────┐
-   ▼         ▼         ▼
- PROPN      VERB     ADV/PRON
-/NOUN      /NOUN     /PART
-   │         │         │
 [RUMUS A] [RUMUS B] [RUMUS C]
 Gunakan kode dengan hati-hati.
 • JIKA POS Tag = PROPN / NOUN (Terindikasi Singkatan Resmi):

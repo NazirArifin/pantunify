@@ -112,7 +112,7 @@
 }
 {
 "tokens": ["beberapa", "satpol", "pp", "di", "usir", "saat", "berteduh", "di", "rumah", "warga", "kamu", "tak", "perlu", "khawatir", "aku", "tuh", "niatnya", "bikin", "kamu", "bahagia"],
-"ner_tags": ["O", "O", "I-SKT", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
+"ner_tags": ["O", "O", "B-SKT", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O", "O"]
 }
 {
 "tokens": ["alasan", "rebranding", "perusahaan", "facebook", "di", "ganti", "nama", "meta", "untuk", "apa", "lamalama", "pacaran", "kalau", "ujungnya", "jadi", "sumber", "airmata"],

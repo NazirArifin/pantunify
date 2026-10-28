@@ -86,6 +86,19 @@ python scripts/article5/layer1_indobert_token_classifier.py \
   --max-length 64
 ```
 
+Versi Google Colab (lebih ringan untuk laptop lokal, otomatis pakai GPU CUDA) tersedia di:
+`scripts/article5/layer1_indobert_token_classifier_colab.ipynb`
+
+Notebook Colab default sudah diset untuk Google Drive:
+- mount: `/content/drive`
+- model: `/content/drive/MyDrive/Models/indobert-pantun-ner`
+
+Notebook Colab tersebut sekarang juga mencakup Layer 2a/2b:
+- Label `O` → jalur `g2p-id`
+- Label asing (`B-ASG`/`I-ASG`) → jalur `g2p` (g2p-en) lalu dinormalisasi ke format IPA
+- Label singkatan/disemvowelling tetap diproses via aturan Layer 2a.
+- Routing label notebook disetel eksplisit untuk skema training: `B-ASG`, `I-ASG`, `B-SKT`, `I-SKT`, `B-DSM`, `B-TYP`, dan `O`.
+
 Batch inference from text file (1 baris = 1 input) with JSONL output:
 
 ```bash

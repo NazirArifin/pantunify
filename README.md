@@ -82,7 +82,8 @@ Layer-1 contextual labeling (IndoBERT token classifier for pantun gaul):
 ```bash
 python scripts/article5/layer1_indobert_token_classifier.py \
   --model-dir data/article5/models \
-  --text "brgkt ke spbu naik motor dpr"
+  --text "brgkt ke spbu naik motor dpr" \
+  --max-length 64
 ```
 
 Batch inference from text file (1 baris = 1 input) with JSONL output:
@@ -91,12 +92,16 @@ Batch inference from text file (1 baris = 1 input) with JSONL output:
 python scripts/article5/layer1_indobert_token_classifier.py \
   --model-dir data/article5/models \
   --input-file data/article5/pantun_gaul_splits/pantun_gaul_for_llm_batch_01.txt \
-  --output-jsonl data/article5/layer1_predictions_batch01.jsonl
+  --output-jsonl data/article5/layer1_predictions_batch01.jsonl \
+  --max-length 64 \
+  --batch-size 32 \
+  --torch-threads 8
 ```
 
 Notes:
 - Folder model wajib berisi tokenizer/config dan file bobot model (`pytorch_model.bin` atau `model.safetensors`).
 - Label output mengikuti `id2label` pada `config.json` (mis. `B-TYP`, `B-SKT`, `B-DSM`, `B-ASG`, `O`).
+- Untuk CPU-only, gunakan `--max-length` lebih kecil (mis. 64) dan naikkan `--batch-size`/`--torch-threads` sesuai kapasitas laptop.
 
 Visual outputs are written to figures:
 

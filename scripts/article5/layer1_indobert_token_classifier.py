@@ -60,15 +60,22 @@ def _import_runtime_deps() -> tuple[Any, Any, Any]:
 
 def load_layer1_model(model_dir: Path):
     _validate_model_dir(model_dir)
-    _, AutoTokenizer, AutoModelForTokenClassification = _import_runtime_deps()
+    torch, AutoTokenizer, AutoModelForTokenClassification = _import_runtime_deps()
     tokenizer = AutoTokenizer.from_pretrained(str(model_dir))
     model = AutoModelForTokenClassification.from_pretrained(str(model_dir))
+    device = torch.device("cpu")
+    model.to(device)
     model.eval()
-    return tokenizer, model
+    return tokenizer, model, torch
 
 
-def predict_labels(text: str, tokenizer, model, max_length: int = 256) -> list[TokenLabel]:
-    torch, _, _ = _import_runtime_deps()
+def predict_labels(
+    text: str,
+    tokenizer,
+    model,
+    torch,
+    max_length: int = 256,
+) -> list[TokenLabel]:
     words = text.strip().split()
     if not words:
         return []
@@ -80,7 +87,7 @@ def predict_labels(text: str, tokenizer, model, max_length: int = 256) -> list[T
         truncation=True,
         max_length=max_length,
     )
-    with torch.no_grad():
+    with torch.inference_mode():
         output = model(**encoded)
 
     probs = torch.softmax(output.logits, dim=-1)
@@ -102,6 +109,60 @@ def predict_labels(text: str, tokenizer, model, max_length: int = 256) -> list[T
         results.append(TokenLabel(token=words[word_idx], label=label, score=confidence))
 
     return results
+
+
+def predict_labels_batch(
+    texts: list[str],
+    tokenizer,
+    model,
+    torch,
+    max_length: int = 256,
+    batch_size: int = 16,
+) -> list[list[TokenLabel]]:
+    if not texts:
+        return []
+
+    cleaned_texts = [text.strip() for text in texts]
+    words_per_text = [text.split() for text in cleaned_texts]
+    all_results: list[list[TokenLabel]] = [[] for _ in cleaned_texts]
+    id2label = model.config.id2label
+    if not id2label:
+        raise ValueError("id2label tidak ditemukan pada config model.")
+
+    for start in range(0, len(cleaned_texts), batch_size):
+        end = min(start + batch_size, len(cleaned_texts))
+        batch_words = words_per_text[start:end]
+        encoded = tokenizer(
+            batch_words,
+            is_split_into_words=True,
+            return_tensors="pt",
+            truncation=True,
+            max_length=max_length,
+            padding=True,
+        )
+        with torch.inference_mode():
+            output = model(**encoded)
+
+        probs = torch.softmax(output.logits, dim=-1)
+        pred_ids = torch.argmax(output.logits, dim=-1).tolist()
+
+        for local_idx, words in enumerate(batch_words):
+            if not words:
+                continue
+            word_ids = encoded.word_ids(batch_index=local_idx)
+            seen_word_index = set()
+            row_results: list[TokenLabel] = []
+            for token_idx, word_idx in enumerate(word_ids):
+                if word_idx is None or word_idx in seen_word_index:
+                    continue
+                seen_word_index.add(word_idx)
+                pred_id = pred_ids[local_idx][token_idx]
+                label = id2label.get(pred_id, str(pred_id))
+                confidence = float(probs[local_idx, token_idx, pred_id].item())
+                row_results.append(TokenLabel(token=words[word_idx], label=label, score=confidence))
+            all_results[start + local_idx] = row_results
+
+    return all_results
 
 
 def _print_results(text: str, predictions: list[TokenLabel]) -> None:
@@ -146,6 +207,18 @@ def parse_args() -> argparse.Namespace:
         help="Simpan hasil inferensi per baris ke JSONL.",
     )
     parser.add_argument("--max-length", type=int, default=256)
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=16,
+        help="Ukuran batch inferensi (lebih besar = lebih cepat di CPU untuk input file besar).",
+    )
+    parser.add_argument(
+        "--torch-threads",
+        type=int,
+        default=0,
+        help="Set jumlah thread CPU PyTorch. 0 = default otomatis.",
+    )
     return parser.parse_args()
 
 
@@ -155,7 +228,9 @@ def main() -> int:
         print("Wajib isi --text atau --input-file.", file=sys.stderr)
         return 2
 
-    tokenizer, model = load_layer1_model(args.model_dir)
+    tokenizer, model, torch = load_layer1_model(args.model_dir)
+    if args.torch_threads > 0:
+        torch.set_num_threads(args.torch_threads)
 
     lines: list[str] = []
     if args.text:
@@ -168,8 +243,15 @@ def main() -> int:
         )
 
     jsonl_rows: list[str] = []
-    for idx, line in enumerate(lines, start=1):
-        preds = predict_labels(line, tokenizer=tokenizer, model=model, max_length=args.max_length)
+    batched_predictions = predict_labels_batch(
+        lines,
+        tokenizer=tokenizer,
+        model=model,
+        torch=torch,
+        max_length=args.max_length,
+        batch_size=max(1, args.batch_size),
+    )
+    for idx, (line, preds) in enumerate(zip(lines, batched_predictions), start=1):
         print(f"\n=== Baris {idx} ===")
         _print_results(line, preds)
         if args.output_jsonl:

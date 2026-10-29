@@ -3,37 +3,150 @@
     "input_path": "data/article5/pantun_anotated.jsonl",
     "resolved_input_path": "data/article5/pantun-anotated.jsonl",
     "record_count": 849,
+    "g2p_id_available": false,
+    "g2p_en_available": false,
+    "ipa_mode": "fallback-grapheme",
+    "seed": 42,
+    "test_ratio": 0.2,
+    "max_iterations": 150,
+    "thresholds": [
+      3,
+      4,
+      5
+    ]
+  },
+  "best": {
+    "dsm_threshold": 3,
     "sequence_count": 14574,
     "train_count": 11660,
     "test_count": 2914,
-    "g2p_id_available": false,
-    "g2p_en_available": false,
-    "ipa_mode": "fallback-grapheme"
-  },
-  "metrics": {
-    "token_accuracy": 0.9821048679764736,
-    "sequence_exact_match": 0.9066575154426905,
-    "per_label": {
-      "B": {
-        "precision": 0.9797360248447204,
-        "recall": 0.9980227776020246,
-        "f1": 0.9887948597398525,
-        "support": 12644.0
+    "model_path": "data/article5/layer3_syllabifier.thr3.crfsuite",
+    "metrics": {
+      "token_accuracy": 0.9821048679764736,
+      "sequence_exact_match": 0.9066575154426905,
+      "per_label": {
+        "B": {
+          "precision": 0.9797360248447204,
+          "recall": 0.9980227776020246,
+          "f1": 0.9887948597398525,
+          "support": 12644.0
+        },
+        "I": {
+          "precision": 0.9919406834300452,
+          "recall": 0.9218094667465548,
+          "f1": 0.9555900621118013,
+          "support": 3338.0
+        }
       },
-      "I": {
-        "precision": 0.9919406834300452,
-        "recall": 0.9218094667465548,
-        "f1": 0.9555900621118013,
-        "support": 3338.0
+      "macro_avg": {
+        "precision": 0.9858383541373827,
+        "recall": 0.9599161221742898,
+        "f1": 0.9721924609258269
+      },
+      "sample_count": 2914,
+      "token_count": 15982,
+      "note": "Evaluasi ini menggunakan silver labels auto-BI dari fonem Layer-2, bukan anotasi BI manual."
+    }
+  },
+  "sweep": [
+    {
+      "dsm_threshold": 3,
+      "sequence_count": 14574,
+      "train_count": 11660,
+      "test_count": 2914,
+      "model_path": "data/article5/layer3_syllabifier.thr3.crfsuite",
+      "metrics": {
+        "token_accuracy": 0.9821048679764736,
+        "sequence_exact_match": 0.9066575154426905,
+        "per_label": {
+          "B": {
+            "precision": 0.9797360248447204,
+            "recall": 0.9980227776020246,
+            "f1": 0.9887948597398525,
+            "support": 12644.0
+          },
+          "I": {
+            "precision": 0.9919406834300452,
+            "recall": 0.9218094667465548,
+            "f1": 0.9555900621118013,
+            "support": 3338.0
+          }
+        },
+        "macro_avg": {
+          "precision": 0.9858383541373827,
+          "recall": 0.9599161221742898,
+          "f1": 0.9721924609258269
+        },
+        "sample_count": 2914,
+        "token_count": 15982,
+        "note": "Evaluasi ini menggunakan silver labels auto-BI dari fonem Layer-2, bukan anotasi BI manual."
       }
     },
-    "macro_avg": {
-      "precision": 0.9858383541373827,
-      "recall": 0.9599161221742898,
-      "f1": 0.9721924609258269
+    {
+      "dsm_threshold": 4,
+      "sequence_count": 14574,
+      "train_count": 11660,
+      "test_count": 2914,
+      "model_path": "data/article5/layer3_syllabifier.thr4.crfsuite",
+      "metrics": {
+        "token_accuracy": 0.9821048679764736,
+        "sequence_exact_match": 0.9066575154426905,
+        "per_label": {
+          "B": {
+            "precision": 0.9797360248447204,
+            "recall": 0.9980227776020246,
+            "f1": 0.9887948597398525,
+            "support": 12644.0
+          },
+          "I": {
+            "precision": 0.9919406834300452,
+            "recall": 0.9218094667465548,
+            "f1": 0.9555900621118013,
+            "support": 3338.0
+          }
+        },
+        "macro_avg": {
+          "precision": 0.9858383541373827,
+          "recall": 0.9599161221742898,
+          "f1": 0.9721924609258269
+        },
+        "sample_count": 2914,
+        "token_count": 15982,
+        "note": "Evaluasi ini menggunakan silver labels auto-BI dari fonem Layer-2, bukan anotasi BI manual."
+      }
     },
-    "sample_count": 2914,
-    "token_count": 15982,
-    "note": "Evaluasi ini menggunakan silver labels auto-BI dari fonem Layer-2, bukan anotasi BI manual."
-  }
+    {
+      "dsm_threshold": 5,
+      "sequence_count": 14574,
+      "train_count": 11660,
+      "test_count": 2914,
+      "model_path": "data/article5/layer3_syllabifier.thr5.crfsuite",
+      "metrics": {
+        "token_accuracy": 0.9821048679764736,
+        "sequence_exact_match": 0.9066575154426905,
+        "per_label": {
+          "B": {
+            "precision": 0.9797360248447204,
+            "recall": 0.9980227776020246,
+            "f1": 0.9887948597398525,
+            "support": 12644.0
+          },
+          "I": {
+            "precision": 0.9919406834300452,
+            "recall": 0.9218094667465548,
+            "f1": 0.9555900621118013,
+            "support": 3338.0
+          }
+        },
+        "macro_avg": {
+          "precision": 0.9858383541373827,
+          "recall": 0.9599161221742898,
+          "f1": 0.9721924609258269
+        },
+        "sample_count": 2914,
+        "token_count": 15982,
+        "note": "Evaluasi ini menggunakan silver labels auto-BI dari fonem Layer-2, bukan anotasi BI manual."
+      }
+    }
+  ]
 }

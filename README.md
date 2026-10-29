@@ -116,6 +116,26 @@ Notes:
 - Label output mengikuti `id2label` pada `config.json` (mis. `B-TYP`, `B-SKT`, `B-DSM`, `B-ASG`, `O`).
 - Untuk CPU-only, gunakan `--max-length` lebih kecil (mis. 64) dan naikkan `--batch-size`/`--torch-threads` sesuai kapasitas laptop.
 
+Kalibrasi threshold disemvowelling (Rumus C vs Rumus B) untuk Layer-3 CRFSuite:
+
+```bash
+python -m venv .venv
+./.venv/bin/python -m pip install -q python-crfsuite g2p-id g2p-en nltk
+
+./.venv/bin/python scripts/article5/generate_crf_data.py \
+  --input data/article5/pantun_anotated.jsonl \
+  --dsm-threshold-grid 3,4,5 \
+  --output-model data/article5/layer3_syllabifier.crfsuite \
+  --output-metrics data/article5/layer3_eval_metrics.json \
+  --output-sweep data/article5/layer3_dsm_threshold_sweep.json
+```
+
+Catatan kalibrasi:
+- `--dsm-threshold` (default `4`) dipakai untuk mode single-run.
+- `--dsm-threshold-grid` menjalankan sweep beberapa threshold dan memilih model terbaik berdasarkan:
+  1) macro F1, 2) sequence exact match, 3) token accuracy.
+- Saat sweep aktif, model terbaik otomatis disalin ke `--output-model`.
+
 Visual outputs are written to figures:
 
 - figure1_rhyme_schema.png

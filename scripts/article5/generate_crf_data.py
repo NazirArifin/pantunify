@@ -160,6 +160,24 @@ def parse_args() -> argparse.Namespace:
         help="Maksimum iterasi training CRF.",
     )
     parser.add_argument(
+        "--dsm-threshold",
+        type=int,
+        default=4,
+        help="Ambang panjang token disemvowelling untuk memakai Rumus C (<= threshold).",
+    )
+    parser.add_argument(
+        "--dsm-threshold-grid",
+        type=str,
+        default="",
+        help="Grid kalibrasi threshold disemvowel, format CSV mis. '3,4,5'. Jika diisi, script melakukan sweep.",
+    )
+    parser.add_argument(
+        "--output-sweep",
+        type=Path,
+        default=Path("data/article5/layer3_dsm_threshold_sweep.json"),
+        help="Path output hasil sweep kalibrasi threshold.",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Hanya cek parsing + ekstraksi fitur (tanpa train model).",
@@ -297,7 +315,13 @@ def normalize_label(label: str) -> str:
     return label.upper().strip()
 
 
-def layer2_switchboard(token: str, label: str, adapters: G2PAdapters) -> str:
+def use_rumus_c_for_disemvowel(alpha_only: str, threshold: int) -> bool:
+    # Tanpa kamus/hard-code kata: gunakan heuristik bentuk token.
+    # Bentuk pendek (<= threshold) cenderung kata tugas/slang pendek -> Rumus C.
+    return len(alpha_only) <= threshold
+
+
+def layer2_switchboard(token: str, label: str, adapters: G2PAdapters, dsm_threshold: int) -> str:
     norm_label = normalize_label(label)
     alpha_only = "".join(ch for ch in token.lower() if ch.isalpha())
     has_vowel = any(v in alpha_only for v in "aiueo")
@@ -312,7 +336,7 @@ def layer2_switchboard(token: str, label: str, adapters: G2PAdapters) -> str:
     if norm_label in LABELS_SINGKATAN:
         return rumus_a_singkatan(token, adapters).replace(" ", "")
     if norm_label in LABELS_DISEMVOWEL:
-        if len(alpha_only) <= 3:
+        if use_rumus_c_for_disemvowel(alpha_only, threshold=dsm_threshold):
             return rumus_c_clamping(alpha_only)
         return rumus_b_phonotactic_mapping(alpha_only)
     if norm_label in LABELS_TYPO:
@@ -373,11 +397,15 @@ def layer3_features(units: list[str], idx: int) -> dict[str, object]:
     }
 
 
-def build_sequences(records: list[Record], adapters: G2PAdapters) -> list[tuple[list[dict[str, object]], list[str]]]:
+def build_sequences(
+    records: list[Record],
+    adapters: G2PAdapters,
+    dsm_threshold: int,
+) -> list[tuple[list[dict[str, object]], list[str]]]:
     sequences: list[tuple[list[dict[str, object]], list[str]]] = []
     for rec in records:
         for token, label in zip(rec.tokens, rec.ner_tags):
-            phoneme = layer2_switchboard(token, label, adapters)
+            phoneme = layer2_switchboard(token, label, adapters, dsm_threshold=dsm_threshold)
             units = clean_and_tokenize_phoneme(phoneme)
             if not units:
                 continue
@@ -385,6 +413,24 @@ def build_sequences(records: list[Record], adapters: G2PAdapters) -> list[tuple[
             features = [layer3_features(units, i) for i in range(len(units))]
             sequences.append((features, tags))
     return sequences
+
+
+def parse_threshold_grid(raw_grid: str) -> list[int]:
+    if not raw_grid.strip():
+        return []
+    values: list[int] = []
+    for chunk in raw_grid.split(","):
+        chunk = chunk.strip()
+        if not chunk:
+            continue
+        value = int(chunk)
+        if value < 1:
+            raise ValueError("Nilai dsm-threshold-grid harus >= 1.")
+        values.append(value)
+    deduped = sorted(set(values))
+    if not deduped:
+        raise ValueError("dsm-threshold-grid terisi tetapi tidak ada nilai valid.")
+    return deduped
 
 
 def train_test_split_sequences(
@@ -470,37 +516,12 @@ def evaluate(
     }
 
 
-def main() -> None:
-    args = parse_args()
-    input_path = resolve_input_path(args.input)
-    records = load_records(input_path)
-    if not records:
-        raise ValueError("Tidak ada data yang bisa diproses dari file input.")
-
-    adapters = import_g2p_adapters()
-    using_true_ipa = adapters.g2p_id is not None
-    sequences = build_sequences(records, adapters)
-    if not sequences:
-        raise ValueError("Tidak ada sequence valid yang terbentuk untuk training CRF.")
-
-    train_set, test_set = train_test_split_sequences(sequences, args.test_ratio, args.seed)
-
-    summary = {
-        "input_path": str(args.input),
-        "resolved_input_path": str(input_path),
-        "record_count": len(records),
-        "sequence_count": len(sequences),
-        "train_count": len(train_set),
-        "test_count": len(test_set),
-        "g2p_id_available": adapters.g2p_id is not None,
-        "g2p_en_available": adapters.g2p_en is not None,
-        "ipa_mode": "g2p" if using_true_ipa else "fallback-grapheme",
-    }
-
-    if args.dry_run:
-        print(json.dumps({"summary": summary, "dry_run": True}, ensure_ascii=False, indent=2))
-        return
-
+def train_and_evaluate_crf(
+    train_set: list[tuple[list[dict[str, object]], list[str]]],
+    test_set: list[tuple[list[dict[str, object]], list[str]]],
+    output_model_path: Path,
+    max_iterations: int,
+) -> dict[str, Any]:
     try:
         import pycrfsuite  # type: ignore
     except ModuleNotFoundError as err:
@@ -515,25 +536,120 @@ def main() -> None:
         {
             "c1": 0.1,
             "c2": 0.01,
-            "max_iterations": args.max_iterations,
+            "max_iterations": max_iterations,
             "feature.possible_transitions": True,
         }
     )
 
-    args.output_model.parent.mkdir(parents=True, exist_ok=True)
-    trainer.train(str(args.output_model))
+    output_model_path.parent.mkdir(parents=True, exist_ok=True)
+    trainer.train(str(output_model_path))
 
     tagger = pycrfsuite.Tagger()
-    tagger.open(str(args.output_model))
-    metrics = evaluate(tagger, test_set)
-    result = {"summary": summary, "metrics": metrics}
+    tagger.open(str(output_model_path))
+    return evaluate(tagger, test_set)
+
+
+def select_best_threshold(results: list[dict[str, Any]]) -> dict[str, Any]:
+    if not results:
+        raise ValueError("Hasil sweep kosong.")
+    return max(
+        results,
+        key=lambda r: (
+            r["metrics"]["macro_avg"]["f1"],
+            r["metrics"]["sequence_exact_match"],
+            r["metrics"]["token_accuracy"],
+        ),
+    )
+
+
+def main() -> None:
+    args = parse_args()
+    input_path = resolve_input_path(args.input)
+    records = load_records(input_path)
+    if not records:
+        raise ValueError("Tidak ada data yang bisa diproses dari file input.")
+
+    adapters = import_g2p_adapters()
+    using_true_ipa = adapters.g2p_id is not None
+    threshold_grid = parse_threshold_grid(args.dsm_threshold_grid)
+    thresholds = threshold_grid if threshold_grid else [args.dsm_threshold]
+
+    summary = {
+        "input_path": str(args.input),
+        "resolved_input_path": str(input_path),
+        "record_count": len(records),
+        "g2p_id_available": adapters.g2p_id is not None,
+        "g2p_en_available": adapters.g2p_en is not None,
+        "ipa_mode": "g2p" if using_true_ipa else "fallback-grapheme",
+        "seed": args.seed,
+        "test_ratio": args.test_ratio,
+        "max_iterations": args.max_iterations,
+        "thresholds": thresholds,
+    }
+
+    sweep_results: list[dict[str, Any]] = []
+    for threshold in thresholds:
+        sequences = build_sequences(records, adapters, dsm_threshold=threshold)
+        if not sequences:
+            raise ValueError(f"Tidak ada sequence valid pada threshold={threshold}.")
+        train_set, test_set = train_test_split_sequences(sequences, args.test_ratio, args.seed)
+
+        trial = {
+            "dsm_threshold": threshold,
+            "sequence_count": len(sequences),
+            "train_count": len(train_set),
+            "test_count": len(test_set),
+        }
+
+        if not args.dry_run:
+            trial_model_path = (
+                args.output_model
+                if len(thresholds) == 1
+                else args.output_model.with_name(
+                    f"{args.output_model.stem}.thr{threshold}{args.output_model.suffix}"
+                )
+            )
+            metrics = train_and_evaluate_crf(
+                train_set=train_set,
+                test_set=test_set,
+                output_model_path=trial_model_path,
+                max_iterations=args.max_iterations,
+            )
+            trial["model_path"] = str(trial_model_path)
+            trial["metrics"] = metrics
+        sweep_results.append(trial)
+
+    if args.dry_run:
+        print(
+            json.dumps(
+                {"summary": summary, "sweep": sweep_results, "dry_run": True},
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return
+
+    best = select_best_threshold(sweep_results)
+    result = {"summary": summary, "best": best, "sweep": sweep_results}
 
     args.output_metrics.parent.mkdir(parents=True, exist_ok=True)
     args.output_metrics.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    args.output_sweep.parent.mkdir(parents=True, exist_ok=True)
+    args.output_sweep.write_text(
+        json.dumps({"summary": summary, "sweep": sweep_results, "best": best}, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+    if len(thresholds) > 1:
+        best_model_src = Path(best["model_path"])
+        if best_model_src != args.output_model:
+            args.output_model.parent.mkdir(parents=True, exist_ok=True)
+            args.output_model.write_bytes(best_model_src.read_bytes())
 
     print(f"[OK] Model CRF tersimpan: {args.output_model}")
     print(f"[OK] Metrik evaluasi tersimpan: {args.output_metrics}")
-    print(json.dumps(metrics, ensure_ascii=False, indent=2))
+    print(f"[OK] Hasil sweep tersimpan: {args.output_sweep}")
+    print(json.dumps(best["metrics"], ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

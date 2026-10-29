@@ -321,6 +321,17 @@ def use_rumus_c_for_disemvowel(alpha_only: str, threshold: int) -> bool:
     return len(alpha_only) <= threshold
 
 
+def estimate_disemvowel_pattern(alpha_only: str) -> str:
+    length = len(alpha_only)
+    if length <= 2:
+        return "von"
+    if length <= 4:
+        return "vonem"
+    if length <= 6:
+        return "vonemis"
+    return "vonemisasi"
+
+
 def layer2_switchboard(token: str, label: str, adapters: G2PAdapters, dsm_threshold: int) -> str:
     norm_label = normalize_label(label)
     alpha_only = "".join(ch for ch in token.lower() if ch.isalpha())
@@ -336,6 +347,8 @@ def layer2_switchboard(token: str, label: str, adapters: G2PAdapters, dsm_thresh
     if norm_label in LABELS_SINGKATAN:
         return rumus_a_singkatan(token, adapters).replace(" ", "")
     if norm_label in LABELS_DISEMVOWEL:
+        if alpha_only and not has_vowel:
+            return estimate_disemvowel_pattern(alpha_only)
         if use_rumus_c_for_disemvowel(alpha_only, threshold=dsm_threshold):
             return rumus_c_clamping(alpha_only)
         return rumus_b_phonotactic_mapping(alpha_only)

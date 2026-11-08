@@ -789,7 +789,7 @@ print("Device Aktif:", device)
 ## Cell 6 (code)
 
 ```python
-text = "sepulang dari surabaya\ndisuruh nganterin beli kawat\nkecantikanmu emang tiada duanya\ntanpa makeup pun yang lain lewat"
+text = "pergi ke pasar nyari kemeja\nmalah dapet kemeja yang longgar\njgn sedih diputusin dia\nmending skrng kita chill ntar"
 
 baits = _split_pantun_baits(text)
 print(f"Total bait: {len(baits)}")

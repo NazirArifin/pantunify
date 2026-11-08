@@ -1,0 +1,25 @@
+{
+  "file": "data/article5/manual_bi_annotation/manual_bi_random_sample.csv",
+  "total_rows": 2175,
+  "blank_manual_bi_annotator1_rows": 1965,
+  "manual_bi_final_updated_rows": 210,
+  "issue_count": 2,
+  "issues": [
+    {
+      "line": 722,
+      "task_id": "r0305_t005",
+      "type": "annotator1_length_mismatch",
+      "unit_count": 6,
+      "label_length": 5,
+      "value": "BIBII"
+    },
+    {
+      "line": 722,
+      "task_id": "r0305_t005",
+      "type": "final_length_mismatch",
+      "unit_count": 6,
+      "label_length": 5,
+      "value": "BIBII"
+    }
+  ]
+}

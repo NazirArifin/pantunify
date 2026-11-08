@@ -4,6 +4,7 @@ import argparse
 import json
 import random
 import re
+from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -119,6 +120,88 @@ class G2PAdapters:
     g2p_en: Any | None
 
 
+@dataclass
+class TokenNormalizer:
+    lexicon_words: set[str]
+    word_frequency: Counter[str]
+    skeleton_to_words: dict[str, set[str]]
+    overrides: dict[str, str]
+    typo_max_distance: int
+    dsm_max_skeleton_distance: int
+
+    def normalize_typo(self, token: str) -> str | None:
+        alpha = normalize_alpha_token(token)
+        if not alpha:
+            return None
+        if not any(ch in {"a", "i", "u", "e", "o"} for ch in alpha):
+            return None
+        if alpha in self.overrides:
+            return self.overrides[alpha]
+        if alpha in self.lexicon_words:
+            return alpha
+
+        candidates = [
+            word
+            for word in self.lexicon_words
+            if abs(len(word) - len(alpha)) <= self.typo_max_distance
+        ]
+        best_word: str | None = None
+        best_dist = self.typo_max_distance + 1
+        best_freq = -1
+        for cand in candidates:
+            if cand[0] != alpha[0]:
+                continue
+            dist = levenshtein_distance(alpha, cand)
+            if dist > self.typo_max_distance:
+                continue
+            freq = self.word_frequency.get(cand, 0)
+            current_best_len = len(best_word) if best_word is not None else 10**9
+            if (
+                dist < best_dist
+                or (dist == best_dist and freq > best_freq)
+                or (dist == best_dist and freq == best_freq and len(cand) < current_best_len)
+            ):
+                best_word = cand
+                best_dist = dist
+                best_freq = freq
+        return best_word
+
+    def resolve_disemvowel(self, token: str) -> str | None:
+        alpha = normalize_alpha_token(token)
+        if not alpha:
+            return None
+        if alpha in self.overrides:
+            return self.overrides[alpha]
+        if len(alpha) <= 2:
+            return None
+
+        exact = self.skeleton_to_words.get(alpha)
+        if exact:
+            return self._select_candidate(exact)
+
+        best_skeleton: str | None = None
+        best_dist = self.dsm_max_skeleton_distance + 1
+        for skeleton in self.skeleton_to_words:
+            if abs(len(skeleton) - len(alpha)) > self.dsm_max_skeleton_distance:
+                continue
+            if skeleton and alpha and skeleton[0] != alpha[0]:
+                continue
+            dist = levenshtein_distance(alpha, skeleton)
+            if dist > self.dsm_max_skeleton_distance:
+                continue
+            if dist < best_dist:
+                best_skeleton = skeleton
+                best_dist = dist
+        if best_skeleton is None:
+            return None
+        return self._select_candidate(self.skeleton_to_words.get(best_skeleton, set()))
+
+    def _select_candidate(self, candidates: set[str]) -> str | None:
+        if not candidates:
+            return None
+        return max(candidates, key=lambda w: (self.word_frequency.get(w, 0), -len(w), w))
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Train & evaluate Layer-3 CRF syllabifier from pantun annotations."
@@ -182,6 +265,45 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Hanya cek parsing + ekstraksi fitur (tanpa train model).",
     )
+    parser.add_argument(
+        "--enable-dsm-lookup",
+        action="store_true",
+        help="Aktifkan lookup disemvowelling ke kamus sebelum fallback Rumus B/C.",
+    )
+    parser.add_argument(
+        "--enable-typo-normalization",
+        action="store_true",
+        help="Aktifkan koreksi typo berbasis kamus + Levenshtein untuk label B/I-TYP.",
+    )
+    parser.add_argument(
+        "--strict-dsm-label",
+        action="store_true",
+        help="Hanya label B/I-DSM yang boleh masuk jalur Rumus B/C (tanpa auto-coercion dari O/TYP).",
+    )
+    parser.add_argument(
+        "--normalization-lexicon",
+        type=Path,
+        default=Path("data/kata-dasar.txt"),
+        help="Path kamus kata dasar untuk lookup DSM/typo.",
+    )
+    parser.add_argument(
+        "--normalization-overrides",
+        type=Path,
+        default=Path("data/article5/token_normalization_overrides.tsv"),
+        help="Path override token->kata_baku (TSV: token<TAB>normalisasi).",
+    )
+    parser.add_argument(
+        "--typo-max-edit-distance",
+        type=int,
+        default=1,
+        help="Maksimum edit distance untuk koreksi typo.",
+    )
+    parser.add_argument(
+        "--dsm-max-skeleton-distance",
+        type=int,
+        default=1,
+        help="Maksimum edit distance pada skeleton disemvowelling.",
+    )
     return parser.parse_args()
 
 
@@ -238,6 +360,103 @@ def import_g2p_adapters() -> G2PAdapters:
     g2p_id = G2PID() if G2PID else None
     g2p_en = G2PEN() if G2PEN else None
     return G2PAdapters(g2p_id=g2p_id, g2p_en=g2p_en)
+
+
+def normalize_alpha_token(token: str) -> str:
+    return "".join(ch for ch in token.lower() if ch.isalpha())
+
+
+def consonant_skeleton(word: str) -> str:
+    return "".join(ch for ch in normalize_alpha_token(word) if ch not in {"a", "i", "u", "e", "o"})
+
+
+def levenshtein_distance(a: str, b: str) -> int:
+    if a == b:
+        return 0
+    if not a:
+        return len(b)
+    if not b:
+        return len(a)
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, start=1):
+        cur = [i]
+        for j, cb in enumerate(b, start=1):
+            cost = 0 if ca == cb else 1
+            cur.append(min(cur[j - 1] + 1, prev[j] + 1, prev[j - 1] + cost))
+        prev = cur
+    return prev[-1]
+
+
+def load_overrides(path: Path) -> dict[str, str]:
+    if not path.exists():
+        return {}
+    overrides: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split("\t")
+        if len(parts) != 2:
+            continue
+        src = normalize_alpha_token(parts[0])
+        dst = normalize_alpha_token(parts[1])
+        if src and dst:
+            overrides[src] = dst
+    return overrides
+
+
+def load_lexicon_words(path: Path) -> set[str]:
+    if not path.exists():
+        return set()
+    words: set[str] = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        token = normalize_alpha_token(line)
+        if token:
+            words.add(token)
+    return words
+
+
+def build_token_normalizer(
+    *,
+    records: list[Record],
+    lexicon_path: Path,
+    overrides_path: Path,
+    typo_max_distance: int,
+    dsm_max_skeleton_distance: int,
+) -> TokenNormalizer | None:
+    if typo_max_distance < 0 or dsm_max_skeleton_distance < 0:
+        raise ValueError("Max distance untuk typo/dsm harus >= 0.")
+
+    overrides = load_overrides(overrides_path)
+    lexicon_words = load_lexicon_words(lexicon_path)
+
+    corpus_freq: Counter[str] = Counter()
+    for rec in records:
+        for token in rec.tokens:
+            alpha = normalize_alpha_token(token)
+            if alpha:
+                corpus_freq[alpha] += 1
+                lexicon_words.add(alpha)
+    if not lexicon_words and not overrides:
+        return None
+
+    skeleton_to_words: dict[str, set[str]] = {}
+    for word in lexicon_words:
+        skel = consonant_skeleton(word)
+        if not skel:
+            continue
+        if skel not in skeleton_to_words:
+            skeleton_to_words[skel] = set()
+        skeleton_to_words[skel].add(word)
+
+    return TokenNormalizer(
+        lexicon_words=lexicon_words,
+        word_frequency=corpus_freq,
+        skeleton_to_words=skeleton_to_words,
+        overrides=overrides,
+        typo_max_distance=typo_max_distance,
+        dsm_max_skeleton_distance=dsm_max_skeleton_distance,
+    )
 
 
 def _coerce_g2p_output_to_str(raw: Any) -> str:
@@ -332,12 +551,20 @@ def estimate_disemvowel_pattern(alpha_only: str) -> str:
     return "vonemisasi"
 
 
-def layer2_switchboard(token: str, label: str, adapters: G2PAdapters, dsm_threshold: int) -> str:
+def layer2_switchboard(
+    token: str,
+    label: str,
+    adapters: G2PAdapters,
+    dsm_threshold: int,
+    *,
+    normalizer: TokenNormalizer | None = None,
+    strict_dsm_label: bool = False,
+) -> str:
     norm_label = normalize_label(label)
-    alpha_only = "".join(ch for ch in token.lower() if ch.isalpha())
+    alpha_only = normalize_alpha_token(token)
     has_vowel = any(v in alpha_only for v in "aiueo")
 
-    if norm_label in {"O", "B-TYP", "I-TYP"} and not has_vowel and len(alpha_only) >= 2:
+    if (not strict_dsm_label) and norm_label in {"O", "B-TYP", "I-TYP"} and not has_vowel and len(alpha_only) >= 2:
         norm_label = "B-DSM"
 
     if norm_label == "O":
@@ -347,12 +574,24 @@ def layer2_switchboard(token: str, label: str, adapters: G2PAdapters, dsm_thresh
     if norm_label in LABELS_SINGKATAN:
         return rumus_a_singkatan(token, adapters).replace(" ", "")
     if norm_label in LABELS_DISEMVOWEL:
+        if normalizer is not None:
+            restored = normalizer.resolve_disemvowel(alpha_only)
+            if restored:
+                return g2p_id_phoneme(restored, adapters).replace(" ", "")
         if alpha_only and not has_vowel:
             return estimate_disemvowel_pattern(alpha_only)
         if use_rumus_c_for_disemvowel(alpha_only, threshold=dsm_threshold):
             return rumus_c_clamping(alpha_only)
         return rumus_b_phonotactic_mapping(alpha_only)
     if norm_label in LABELS_TYPO:
+        if normalizer is not None:
+            corrected = normalizer.normalize_typo(token)
+            if corrected:
+                return g2p_id_phoneme(corrected, adapters).replace(" ", "")
+            if not has_vowel:
+                restored = normalizer.resolve_disemvowel(alpha_only)
+                if restored:
+                    return g2p_id_phoneme(restored, adapters).replace(" ", "")
         return g2p_id_phoneme(token, adapters).replace(" ", "")
     return g2p_id_phoneme(token, adapters).replace(" ", "")
 
@@ -414,11 +653,21 @@ def build_sequences(
     records: list[Record],
     adapters: G2PAdapters,
     dsm_threshold: int,
+    *,
+    normalizer: TokenNormalizer | None = None,
+    strict_dsm_label: bool = False,
 ) -> list[tuple[list[dict[str, object]], list[str]]]:
     sequences: list[tuple[list[dict[str, object]], list[str]]] = []
     for rec in records:
         for token, label in zip(rec.tokens, rec.ner_tags):
-            phoneme = layer2_switchboard(token, label, adapters, dsm_threshold=dsm_threshold)
+            phoneme = layer2_switchboard(
+                token,
+                label,
+                adapters,
+                dsm_threshold=dsm_threshold,
+                normalizer=normalizer,
+                strict_dsm_label=strict_dsm_label,
+            )
             units = clean_and_tokenize_phoneme(phoneme)
             if not units:
                 continue
@@ -583,6 +832,18 @@ def main() -> None:
         raise ValueError("Tidak ada data yang bisa diproses dari file input.")
 
     adapters = import_g2p_adapters()
+    use_normalizer = args.enable_dsm_lookup or args.enable_typo_normalization
+    normalizer = (
+        build_token_normalizer(
+            records=records,
+            lexicon_path=args.normalization_lexicon,
+            overrides_path=args.normalization_overrides,
+            typo_max_distance=args.typo_max_edit_distance,
+            dsm_max_skeleton_distance=args.dsm_max_skeleton_distance,
+        )
+        if use_normalizer
+        else None
+    )
     using_true_ipa = adapters.g2p_id is not None
     threshold_grid = parse_threshold_grid(args.dsm_threshold_grid)
     thresholds = threshold_grid if threshold_grid else [args.dsm_threshold]
@@ -598,11 +859,23 @@ def main() -> None:
         "test_ratio": args.test_ratio,
         "max_iterations": args.max_iterations,
         "thresholds": thresholds,
+        "strict_dsm_label": args.strict_dsm_label,
+        "enable_dsm_lookup": args.enable_dsm_lookup,
+        "enable_typo_normalization": args.enable_typo_normalization,
+        "normalization_lexicon_exists": args.normalization_lexicon.exists(),
+        "normalization_overrides_exists": args.normalization_overrides.exists(),
+        "normalizer_active": normalizer is not None,
     }
 
     sweep_results: list[dict[str, Any]] = []
     for threshold in thresholds:
-        sequences = build_sequences(records, adapters, dsm_threshold=threshold)
+        sequences = build_sequences(
+            records,
+            adapters,
+            dsm_threshold=threshold,
+            normalizer=normalizer if use_normalizer else None,
+            strict_dsm_label=args.strict_dsm_label,
+        )
         if not sequences:
             raise ValueError(f"Tidak ada sequence valid pada threshold={threshold}.")
         train_set, test_set = train_test_split_sequences(sequences, args.test_ratio, args.seed)

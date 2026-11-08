@@ -1,3 +1,6 @@
+# An Acoustic-First Hybrid Pipeline Using IndoBERT and Cascaded CRF for Automated Metrical and Rhyme Analysis of Modern Casual Pantun
+
+
 📝 Catatan Teknis Pipeline NLP: Pengkondisian Fonem Terpusat untuk Pantun Modern
 
 

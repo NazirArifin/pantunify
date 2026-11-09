@@ -1,0 +1,47 @@
+{
+  "saved_at_utc": "2026-11-09T04:34:41.086149+00:00",
+  "data_path": "data/article5/manual_bi_random_sample.csv",
+  "model_out": "data/article5/crf_layer3_bi.joblib",
+  "split": {
+    "test_size": 0.2,
+    "random_state": 42,
+    "group_key": "record_id"
+  },
+  "crf_params": {
+    "algorithm": "lbfgs",
+    "c1": 0.1,
+    "c2": 0.1,
+    "max_iterations": 200,
+    "all_possible_transitions": true
+  },
+  "dataset_stats": {
+    "total_samples": 2175,
+    "train_samples": 1736,
+    "test_samples": 439,
+    "unique_records": 127,
+    "test_tokens": 2378
+  },
+  "metrics": {
+    "accuracy": 0.9878048780487805,
+    "precision_macro": 0.9882255540607775,
+    "recall_macro": 0.9869529832041716,
+    "f1_macro": 0.9875668940654735,
+    "precision_weighted": 0.9878320982613215,
+    "recall_weighted": 0.9878048780487805,
+    "f1_weighted": 0.9877969211374844,
+    "confusion_matrix_labels": [
+      "B",
+      "I"
+    ],
+    "confusion_matrix": [
+      [
+        1010,
+        20
+      ],
+      [
+        9,
+        1339
+      ]
+    ]
+  }
+}

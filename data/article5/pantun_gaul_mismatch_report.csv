@@ -1,0 +1,9 @@
+id,mismatch_count,mismatch_fields,text_pantun,exp_rima_akhir_baris_1,exp_rima_akhir_baris_3,exp_suku_kata_baris_4,pred_rima_akhir_baris_1,pred_rima_akhir_baris_3,pred_suku_kata_baris_4
+1,2,rima_akhir_baris_1|rima_akhir_baris_3,"lebah sembunyi didalam sarang
+jangan dekatdekat berbahaya
+ramadhan ini belum punya ayang
+lebaran nanti moga udah punya",ang,ang,,aŋ,aŋ,
+7,1,suku_kata_baris_4,"sepulang dari surabaya
+disuruh nganterin beli kawat
+kecantikanmu emang tiada duanya
+tanpa makeup pun yang lain lewat",,,11,,,10

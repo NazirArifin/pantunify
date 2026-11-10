@@ -1,10 +1,10 @@
 task_id,record_id,token_id,token,ner_tag,layer2_phoneme,units,unit_count,silver_bi_auto,manual_bi_annotator1,manual_bi_annotator2,manual_bi_final,qa_status,annotator_notes,context_text
-r0001_t006,1,6,dekatdekat,B-TYP,dekatdekat,d e k a t d e k a t,10,BBIBIIBIBI,,,BIBIIBIBII,,,lebah sembunyi didalam sarang jangan dekatdekat berbahaya ramadhan ini belum punya ayang lebaran nanti moga udah punya
-r0002_t006,2,6,mencaricarimu,B-TYP,mencaricarimu,m e n c a r i c a r i m u,13,BBIIBIBIBIBIB,,,BIIBIBIBIBIBI,,,dua turis dari belgia kemarin mencaricarimu berasa orang paling bahagia sejak aku memiliki cintamu
-r0003_t013,3,13,makeup,B-ASG,meikap,m e i k a p,6,BBIIBI,,,BIBIBI,,,sepulang dari surabaya disuruh nganterin beli kawat kecantikanmu emang tiada duanya tanpa makeup pun yang lain lewat
-r0004_t005,4,5,gabisa,B-TYP,gabisa,g a b i s a,6,BBIBIB,,,BIBIBI,,,mobil belum dibalikin orangnya gabisa di telpon chat dari yang aku cuekin cuman chat darimu yang aku respon
-r0004_t007,4,7,telpon,B-TYP,telpon,t e l p o n,6,BBIIBI,,,BIIBII,,,mobil belum dibalikin orangnya gabisa di telpon chat dari yang aku cuekin cuman chat darimu yang aku respon
-r0004_t008,4,8,chat,B-ASG,cet,c e t,3,BBI,,,BIII,,,mobil belum dibalikin orangnya gabisa di telpon chat dari yang aku cuekin cuman chat darimu yang aku respon
+r0001_t006,1,6,dekatdekat,B-TYP,dekatdekat,d e k a t d e k a t,10,BBIBIIBIBI,BIBIIBIBII,,BIBIIBIBII,,,lebah sembunyi didalam sarang jangan dekatdekat berbahaya ramadhan ini belum punya ayang lebaran nanti moga udah punya
+r0002_t006,2,6,mencaricarimu,B-TYP,mencaricarimu,m e n c a r i c a r i m u,13,BBIIBIBIBIBIB,BIIBIBIBIBIBI,,BIIBIBIBIBIBI,,,dua turis dari belgia kemarin mencaricarimu berasa orang paling bahagia sejak aku memiliki cintamu
+r0003_t013,3,13,makeup,B-ASG,meikap,m e i k a p,6,BBIIBI,BIIIBI,,BIBIBI,,,sepulang dari surabaya disuruh nganterin beli kawat kecantikanmu emang tiada duanya tanpa makeup pun yang lain lewat
+r0004_t005,4,5,gabisa,B-TYP,gabisa,g a b i s a,6,BBIBIB,BIBIBI,,BIBIBI,,,mobil belum dibalikin orangnya gabisa di telpon chat dari yang aku cuekin cuman chat darimu yang aku respon
+r0004_t007,4,7,telpon,B-TYP,telpon,t e l p o n,6,BBIIBI,BIIBII,,BIIBII,,,mobil belum dibalikin orangnya gabisa di telpon chat dari yang aku cuekin cuman chat darimu yang aku respon
+r0004_t008,4,8,chat,B-ASG,cet,c e t,3,BBI,BII,,BIII,,,mobil belum dibalikin orangnya gabisa di telpon chat dari yang aku cuekin cuman chat darimu yang aku respon
 r0004_t013,4,13,cuman,B-TYP,cuman,c u m a n,5,BBIBI,,,BIBII,,,mobil belum dibalikin orangnya gabisa di telpon chat dari yang aku cuekin cuman chat darimu yang aku respon
 r0004_t014,4,14,chat,B-ASG,cet,c e t,3,BBI,,,BIII,,,mobil belum dibalikin orangnya gabisa di telpon chat dari yang aku cuekin cuman chat darimu yang aku respon
 r0004_t018,4,18,respon,B-ASG,rispan,r i s p a n,6,BBIIBI,,,BIIBII,,,mobil belum dibalikin orangnya gabisa di telpon chat dari yang aku cuekin cuman chat darimu yang aku respon

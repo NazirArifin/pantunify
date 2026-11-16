@@ -21,6 +21,7 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 import json
+import re
 
 import joblib
 import sklearn_crfsuite
@@ -53,6 +54,9 @@ IPA_VOWELS = {
 class Sample:
     record_id: str
     token_id: int
+    token: str
+    annotator_notes: str
+    is_synthetic: bool
     units: list[str]
     labels: list[str]
 
@@ -116,6 +120,12 @@ def parse_samples(csv_path: Path) -> list[Sample]:
                 Sample(
                     record_id=str(row["record_id"]).strip(),
                     token_id=token_id,
+                    token=str(row.get("token", "")).strip(),
+                    annotator_notes=str(row.get("annotator_notes", "")).strip(),
+                    is_synthetic=(
+                        str(row.get("annotator_notes", "")).strip().lower()
+                        == "synthetic_hiatus_fix"
+                    ),
                     units=units,
                     labels=labels,
                 )
@@ -147,14 +157,91 @@ def split_train_test(
     groups: list[str],
     test_size: float,
     random_state: int,
-) -> tuple[list, list, list, list]:
-    splitter = GroupShuffleSplit(n_splits=1, test_size=test_size, random_state=random_state)
-    train_idx, test_idx = next(splitter.split(x_data, y_data, groups=groups))
+    force_train_mask: list[bool] | None = None,
+) -> tuple[list, list, list, list, list[int], list[int]]:
+    if force_train_mask is None:
+        splitter = GroupShuffleSplit(n_splits=1, test_size=test_size, random_state=random_state)
+        train_idx, test_idx = next(splitter.split(x_data, y_data, groups=groups))
+        train_idx = train_idx.tolist()
+        test_idx = test_idx.tolist()
+    else:
+        if len(force_train_mask) != len(x_data):
+            raise ValueError("force_train_mask length must match data length")
+        candidate_idx = [i for i, forced in enumerate(force_train_mask) if not forced]
+        forced_train_idx = [i for i, forced in enumerate(force_train_mask) if forced]
+        if not candidate_idx:
+            raise ValueError("No non-forced samples available for test split")
+
+        x_candidate = [x_data[i] for i in candidate_idx]
+        y_candidate = [y_data[i] for i in candidate_idx]
+        g_candidate = [groups[i] for i in candidate_idx]
+        splitter = GroupShuffleSplit(n_splits=1, test_size=test_size, random_state=random_state)
+        train_local, test_local = next(splitter.split(x_candidate, y_candidate, groups=g_candidate))
+        train_idx = [candidate_idx[i] for i in train_local.tolist()] + forced_train_idx
+        test_idx = [candidate_idx[i] for i in test_local.tolist()]
+
     x_train = [x_data[i] for i in train_idx]
     y_train = [y_data[i] for i in train_idx]
     x_test = [x_data[i] for i in test_idx]
     y_test = [y_data[i] for i in test_idx]
-    return x_train, y_train, x_test, y_test
+    return x_train, y_train, x_test, y_test, train_idx, test_idx
+
+
+def count_syllables_from_bi(labels: list[str]) -> int:
+    return sum(1 for lb in labels if lb == "B")
+
+
+def is_reduplication_like(token: str) -> bool:
+    t = "".join(ch for ch in str(token).lower().strip() if ch.isalpha())
+    if len(t) < 6:
+        return False
+    if "-" in token:
+        return True
+    for stem_len in range(3, (len(t) // 2) + 1):
+        stem = t[:stem_len]
+        if t[stem_len : stem_len * 2] == stem:
+            return True
+    return False
+
+
+def evaluate_subset(
+    subset_name: str,
+    samples: list[Sample],
+    y_true: list[list[str]],
+    y_pred: list[list[str]],
+    predicate,
+) -> dict[str, float | int]:
+    idxs = [i for i, sample in enumerate(samples) if predicate(sample)]
+    if not idxs:
+        return {
+            "subset_name": subset_name,
+            "sample_count": 0,
+            "token_count": 0,
+            "word_exact_match": 0.0,
+            "syllable_count_accuracy": 0.0,
+        }
+
+    true_subset = [y_true[i] for i in idxs]
+    pred_subset = [y_pred[i] for i in idxs]
+    token_count = sum(len(seq) for seq in true_subset)
+
+    word_exact_match = sum(1 for t, p in zip(true_subset, pred_subset) if t == p) / len(idxs)
+    syll_count_acc = (
+        sum(
+            1
+            for t, p in zip(true_subset, pred_subset)
+            if count_syllables_from_bi(t) == count_syllables_from_bi(p)
+        )
+        / len(idxs)
+    )
+
+    return {
+        "subset_name": subset_name,
+        "sample_count": len(idxs),
+        "token_count": token_count,
+        "word_exact_match": float(word_exact_match),
+        "syllable_count_accuracy": float(syll_count_acc),
+    }
 
 
 def build_crf(c1: float, c2: float, max_iterations: int) -> sklearn_crfsuite.CRF:
@@ -226,18 +313,23 @@ def main() -> None:
     args = parse_args()
     samples = parse_samples(args.data)
     x_data, y_data, groups = to_xyg(samples)
-    x_train, y_train, x_test, y_test = split_train_test(
+    synthetic_mask = [sample.is_synthetic for sample in samples]
+    x_train, y_train, x_test, y_test, _train_idx, test_idx = split_train_test(
         x_data=x_data,
         y_data=y_data,
         groups=groups,
         test_size=args.test_size,
         random_state=args.random_state,
+        force_train_mask=synthetic_mask,
     )
+    test_samples = [samples[i] for i in test_idx]
+    synthetic_count = sum(1 for s in samples if s.is_synthetic)
 
     print(
         f"Loaded {len(samples)} samples | "
         f"train={len(x_train)} test={len(x_test)} | "
-        f"unique_records={len(set(groups))}"
+        f"unique_records={len(set(groups))} | "
+        f"synthetic_forced_train={synthetic_count}"
     )
 
     crf = build_crf(c1=args.c1, c2=args.c2, max_iterations=args.max_iterations)
@@ -274,6 +366,37 @@ def main() -> None:
     print(cm)
     print(metrics.flat_classification_report(y_test, y_pred, labels=["B", "I"], digits=4))
 
+    targeted_metrics = [
+        evaluate_subset(
+            subset_name="hiatus_ai_ui_oi",
+            samples=test_samples,
+            y_true=y_test,
+            y_pred=y_pred,
+            predicate=lambda s: bool(re.search(r"(ai|ui|oi)", s.token.lower())),
+        ),
+        evaluate_subset(
+            subset_name="token_endswith_i",
+            samples=test_samples,
+            y_true=y_test,
+            y_pred=y_pred,
+            predicate=lambda s: s.token.lower().endswith("i"),
+        ),
+        evaluate_subset(
+            subset_name="reduplication_like",
+            samples=test_samples,
+            y_true=y_test,
+            y_pred=y_pred,
+            predicate=lambda s: is_reduplication_like(s.token),
+        ),
+    ]
+    print("Targeted subset metrics:")
+    for row in targeted_metrics:
+        print(
+            f"- {row['subset_name']}: samples={row['sample_count']} tokens={row['token_count']} "
+            f"| word_exact={row['word_exact_match']:.4f} "
+            f"| syllable_count_acc={row['syllable_count_accuracy']:.4f}"
+        )
+
     args.model_out.parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(crf, args.model_out)
     print(f"Model saved to: {args.model_out}")
@@ -286,6 +409,7 @@ def main() -> None:
             "test_size": args.test_size,
             "random_state": args.random_state,
             "group_key": "record_id",
+            "synthetic_policy": "annotator_notes=synthetic_hiatus_fix forced to train",
         },
         "crf_params": {
             "algorithm": "lbfgs",
@@ -311,6 +435,7 @@ def main() -> None:
             "f1_weighted": float(f1_weighted),
             "confusion_matrix_labels": ["B", "I"],
             "confusion_matrix": cm.tolist(),
+            "targeted_subset_metrics": targeted_metrics,
         },
     }
     args.config_out.parent.mkdir(parents=True, exist_ok=True)

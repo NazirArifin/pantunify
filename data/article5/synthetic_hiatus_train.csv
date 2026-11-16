@@ -1,0 +1,16 @@
+task_id,record_id,token_id,token,ner_tag,layer2_phoneme,units,unit_count,silver_bi_auto,manual_bi_annotator1,manual_bi_annotator2,manual_bi_final,qa_status,annotator_notes,context_text
+r9001_t001,9001,1,menemui,O,mɛnɛmui,m ɛ n ɛ m u i,7,,BIBIBIB,,BIBIBIB,verified,synthetic_hiatus_fix,baru mengembalikan buku disuruh menemui ibumu
+r9002_t001,9002,1,melalui,O,məlalui,m ə l a l u i,7,,BIBIBIB,,BIBIBIB,verified,synthetic_hiatus_fix,jalan berliku harus dilalui dengan sabar
+r9003_t001,9003,1,mengetahui,O,məŋətahui,m ə ŋ ə t a h u i,9,,BIBIBIBIB,,BIBIBIBIB,verified,synthetic_hiatus_fix,tidak ada yang mengetahui rahasia hati
+r9004_t001,9004,1,mengakui,O,məŋakui,m ə ŋ a k u i,7,,BIBIBIB,,BIBIBIB,verified,synthetic_hiatus_fix,berani berbuat harus berani mengakui kesalahan
+r9005_t001,9005,1,memenuhi,O,mɛmənuhi,m ɛ m ə n u h i,8,,BIBIBIBI,,BIBIBIBI,verified,synthetic_hiatus_fix,janji manis harus segera dipenuhi
+r9006_t001,9006,1,mendahului,O,məndahului,m ə n d a h u l u i,10,,BIIBIBIBIB,,BIIBIBIBIB,verified,synthetic_hiatus_fix,jangan suka mendahului kehendak tuhan
+r9007_t001,9007,1,menyetujui,O,mɛɲətudʒui,m ɛ ɲ ə t u d ʒ u i,10,,BIBIBIBIIB,,BIBIBIBIIB,verified,synthetic_hiatus_fix,ayah dan ibu sudah menyetujui lamaranmu
+r9008_t001,9008,1,merestui,O,mərəstui,m ə r ə s t u i,8,,BIBIIBIB,,BIBIIBIB,verified,synthetic_hiatus_fix,semoga orang tua merestui hubungan kita
+r9009_t001,9009,1,dihargai,O,dihargai,d i h a r g a i,8,,BIBIIBIB,,BIBIIBIB,verified,synthetic_hiatus_fix,tutuplah aurat agar engkau dihargai
+r9010_t001,9010,1,menghargai,O,məŋhargai,m ə ŋ h a r g a i,9,,BIIBIIBIB,,BIIBIIBIB,verified,synthetic_hiatus_fix,sesama teman harus saling menghargai
+r9011_t001,9011,1,menyukai,O,məɲukai,m ə ɲ u k a i,7,,BIBIBIB,,BIBIBIB,verified,synthetic_hiatus_fix,banyak orang menyukai sifatmu yang ramah
+r9012_t001,9012,1,melukai,O,məlukai,m ə l u k a i,7,,BIBIBIB,,BIBIBIB,verified,synthetic_hiatus_fix,berteman jangan sampai saling melukai
+r9013_t001,9013,1,menandai,O,mənandai,m ə n a n d a i,8,,BIBIIBIB,,BIBIIBIB,verified,synthetic_hiatus_fix,senyum manis menandai awal bahagia
+r9014_t001,9014,1,memaknai,O,məmaknai,m ə m a k n a i,8,,BIBIIBIB,,BIBIIBIB,verified,synthetic_hiatus_fix,kita harus bijak memaknai setiap cobaan
+r9015_t001,9015,1,menguasai,O,məŋuasai,m ə ŋ u a s a i,8,,BIBIBBIB,,BIBIBBIB,verified,synthetic_hiatus_fix,ilmu agama harus kita kuasai

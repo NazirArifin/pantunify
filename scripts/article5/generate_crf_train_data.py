@@ -102,8 +102,11 @@ def synthetic_seed_rows() -> list[tuple[str, str, str]]:
         ("dicintai", "BIBIIIBIB", "setiap insan ingin dicintai dengan tulus dan suci"),
         ("cintai", "BIIIBIB", "di timur tengah banyak gurun kabah ada di arab saudi suami yang aku cintai"),
         ("cintai", "BIIIBIB", "jika hati tulus mencintai maka cintai dia karena ilahi"),
-        ("hargai", "BIBIBI", "hidup rukun saling hargai agar damai sepanjang hari"),
+        ("hargai", "BIIBIB", "hidup rukun saling hargai agar damai sepanjang hari"),
         ("menghargai", "BIIBIIBIB", "kita belajar menghargai perbedaan agar persatuan abadi"),
+        ("bagai", "BIBII", "penampilannya saja bagai artis di layar kaca"),
+        ("sebagai", "BIBIBII", "dia hadir sebagai sahabat di kala susah"),
+        ("berbagai", "BIIBIBII", "berbagai cara ditempuh demi masa depan cerah"),
     ]
 
 

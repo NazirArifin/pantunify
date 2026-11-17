@@ -65,17 +65,25 @@ def is_vowel(phone: str) -> bool:
     return phone in IPA_VOWELS
 
 
-def phone_features(seq: list[str], i: int) -> dict[str, object]:
+def phone_features(seq: list[str], i: int, token: str = "") -> dict[str, object]:
     cur = seq[i]
     prev = seq[i - 1] if i > 0 else "<BOS>"
+    prev2 = seq[i - 2] if i > 1 else "<BOS2>"
     nxt = seq[i + 1] if i < len(seq) - 1 else "<EOS>"
+    nxt2 = seq[i + 2] if i < len(seq) - 2 else "<EOS2>"
+    token_norm = "".join(ch for ch in token.lower().strip() if ch.isalpha())
     return {
         "bias": 1.0,
         "phone": cur,
         "prev_phone": prev,
+        "prev2_phone": prev2,
         "next_phone": nxt,
+        "next2_phone": nxt2,
         "bigram_prev_cur": f"{prev}+{cur}",
         "bigram_cur_next": f"{cur}+{nxt}",
+        "trigram_prev2_prev_cur": f"{prev2}+{prev}+{cur}",
+        "trigram_prev_cur_next": f"{prev}+{cur}+{nxt}",
+        "trigram_cur_next_next2": f"{cur}+{nxt}+{nxt2}",
         "is_vowel": is_vowel(cur),
         "prev_is_vowel": False if prev == "<BOS>" else is_vowel(prev),
         "next_is_vowel": False if nxt == "<EOS>" else is_vowel(nxt),
@@ -84,6 +92,16 @@ def phone_features(seq: list[str], i: int) -> dict[str, object]:
         "len_seq": len(seq),
         "bos": i == 0,
         "eos": i == len(seq) - 1,
+        "token_len_chars": len(token_norm),
+        "token_prefix2": token_norm[:2],
+        "token_prefix3": token_norm[:3],
+        "token_suffix2": token_norm[-2:],
+        "token_suffix3": token_norm[-3:],
+        "token_suffix4": token_norm[-4:],
+        "token_has_ai": "ai" in token_norm,
+        "token_has_ui": "ui" in token_norm,
+        "token_has_oi": "oi" in token_norm,
+        "token_endswith_i": token_norm.endswith("i"),
     }
 
 
@@ -144,7 +162,9 @@ def to_xyg(samples: list[Sample]) -> tuple[list[list[dict[str, object]]], list[l
     groups: list[str] = []
 
     for sample in samples:
-        x_data.append([phone_features(sample.units, i) for i in range(len(sample.units))])
+        x_data.append(
+            [phone_features(sample.units, i, token=sample.token) for i in range(len(sample.units))]
+        )
         y_data.append(sample.labels)
         groups.append(sample.record_id)
 

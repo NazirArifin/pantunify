@@ -1,5 +1,5 @@
 {
-  "saved_at_utc": "2026-11-16T14:08:45.011897+00:00",
+  "saved_at_utc": "2026-11-16T14:42:02.776350+00:00",
   "data_path": "data/article5/manual_bi_random_sample_augmented.csv",
   "model_out": "data/article5/crf_layer3_bi_baru.joblib",
   "split": {
@@ -16,32 +16,32 @@
     "all_possible_transitions": true
   },
   "dataset_stats": {
-    "total_samples": 2199,
-    "train_samples": 1760,
+    "total_samples": 2202,
+    "train_samples": 1763,
     "test_samples": 439,
-    "unique_records": 150,
+    "unique_records": 153,
     "test_tokens": 2378
   },
   "metrics": {
-    "accuracy": 0.9894869638351556,
-    "precision_macro": 0.9896971139799375,
-    "recall_macro": 0.9888947307769871,
-    "f1_macro": 0.989286857939051,
-    "precision_weighted": 0.9894958255882489,
-    "recall_weighted": 0.9894869638351556,
-    "f1_weighted": 0.9894826538620087,
+    "accuracy": 0.9903280067283431,
+    "precision_macro": 0.990801338223496,
+    "recall_macro": 0.9895220535277002,
+    "f1_macro": 0.9901392608105479,
+    "precision_weighted": 0.9903586340603823,
+    "recall_weighted": 0.9903280067283431,
+    "f1_weighted": 0.9903216960745568,
     "confusion_matrix_labels": [
       "B",
       "I"
     ],
     "confusion_matrix": [
       [
-        1014,
-        16
+        1013,
+        17
       ],
       [
-        9,
-        1339
+        6,
+        1342
       ]
     ],
     "targeted_subset_metrics": [
@@ -56,8 +56,8 @@
         "subset_name": "token_endswith_i",
         "sample_count": 77,
         "token_count": 323,
-        "word_exact_match": 0.961038961038961,
-        "syllable_count_accuracy": 0.974025974025974
+        "word_exact_match": 0.987012987012987,
+        "syllable_count_accuracy": 0.987012987012987
       },
       {
         "subset_name": "reduplication_like",

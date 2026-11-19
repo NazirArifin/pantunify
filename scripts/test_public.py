@@ -7,7 +7,7 @@ import pandas as pd
 # ==============================================================================
 # Ubah MODE menjadi "unpivot" untuk memecah kolom konflik ke tabel ringkas,
 # atau ubah menjadi "merge" untuk menggabungkan hasil isian kembali ke CSV utama.
-MODE = "merge"  # Pilihan: "unpivot" | "merge"
+MODE = "unpivot"  # Pilihan: "unpivot" | "merge"
 
 MASTER_CSV = "data/article5/pantun_golden_review.csv"
 LONG_CSV = "data/article5/pantun_review_ringkas.csv"

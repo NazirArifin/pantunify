@@ -88,7 +88,7 @@ Kopinya beli di Kota Bengkulu
 Katanya sih gk kenapa-napa
 Tapi statusnya kok galau mulu?","B1: ma-u bə-li ko-pi ni-tip sa-ma pa-pa (12)
 B2: ko-pi-ɲa bə-li di ko-ta bəŋ-ku-lu (11)
-B3: ka-ta-ɲa sih gaʔ kə-na-pa na-pa (10)
+B3: ka-ta-ɲa sih gaʔ kə-na-pa næ-pʌ (10)
 B4: ta-pi sta-tus-ɲa kɔʔ ga-lau mu-lu (10)",a-b-a-b,a-b-a-b,,12,12,12,11,11,11,11,10,,10,10,10,a,a,a,u,u,u,a,a,a,u,u,u
 14,COCOK,-,"Bawa roti ke ruang tamu
 Rotinya buatan rumahan
@@ -102,7 +102,7 @@ Pas pulang kok sakit perut
 Ada orang diem-diem kabur
 Eh ternyata abis kentut!","B1: pər-gi kə pa-sar tʃa-ri bu-ŋa ta-bur (11)
 B2: pas pu-laŋ kɔʔ sa-kit pə-rut (8)
-B3: a-da o-raŋ di-əm di-əm ka-bur (10)
+B3: a-da o-raŋ di-ɛm di-ɛm ka-bur (10)
 B4: ɛh tər-ɲa-ta a-bis kən-tut (8)",a-b-a-b,a-b-a-b,a-b-a-b,11,11,11,8,8,8,10,10,10,8,8,8,ur,ur,ur,ut,ut,ut,ur,ur,ur,ut,ut,ut
 16,COCOK,-,"Liburan ke pantai sama si Yodi
 Udah dijemput dari pagi-pagi
@@ -132,13 +132,13 @@ Kok diajak olahraga nolak terus?","B1: na-iʔ mo-bil ba-ru sa-ma si ar-kan (11)
 B2: ɲɛ-tir-ɲa bɛ-lɔʔ bɛ-lɔʔ gaʔ pər-nah lu-rus (12)
 B3: ka-ta-ɲa si-tu ma-u hi-dup sɛ-hat kan (12)
 B4: kɔʔ di-a-dʒaʔ o-lah-ra-ga no-laʔ tə-rus (12)",a-b-a-b,a-b-a-b,a-b-a-b,11,11,11,12,12,12,12,12,12,12,12,12,an,an,an,us,us,us,an,an,an,us,us,us
-20,COCOK,-,"Beli kue minuman manis pandan
+20,PERLU_REVIEW,Silabel B3 (utils=13 vs ib=12),"Beli kue minuman manis pandan
 Pas beli tumpah karena gak hati-hati
 Ada yang blg mau kurusin badan
 Tapi hobinya makan gak berhenti!!","B1: bə-li ku-ɛ mi-nu-man ma-nis pan-dan (11)
 B2: pas bə-li tum-pah ka-rə-na gaʔ ha-ti ha-ti (13)
-B3: a-da jaŋ be-el-ge ma-u ku-ru-sin ba-dan (13)
-B4: ta-pi ho-bi-ɲa ma-kan gaʔ bər-hən-ti (11)",a-b-a-b,a-b-a-b,a-b-a-b,11,11,11,13,13,13,13,13,13,11,11,11,an,an,an,i,i,i,an,an,an,i,i,i
+B3: a-da jaŋ bi-laŋ ma-u ku-ru-sin ba-dan (12)
+B4: ta-pi ho-bi-ɲa ma-kan gaʔ bər-hən-ti (11)",a-b-a-b,a-b-a-b,,11,11,11,13,13,13,13,12,,11,11,11,an,an,an,i,i,i,an,an,an,i,i,i
 21,COCOK,-,"Beli nasi goreng di Cikini
 Jangan lupa pakai acar
 Kok nongkrong terus akhir-akhir ini?
@@ -178,7 +178,7 @@ B4: i-si dɔm-pət-ɲa kə-rɛn dʒu-ga gaʔ (10)",a-b-a-b,a-b-a-b,,11,11,11,10,
 Tinggal di kost jangan lupa bawa sewa
 Jangan baper ya kita cuma bercanda,
 Gak boleh ngomel nanti cepat tua!","B1: mə-ran-tau dʒa-uh ba-rəŋ si man-dra (10)
-B2: tiŋ-gal di kɔst dʒa-ŋan lu-pa ba-wa sɛ-wa (12)
+B2: tiŋ-gal di kɑst dʒa-ŋan lu-pa ba-wa sɛ-wa (12)
 B3: dʒa-ŋan ba-pər ja ki-ta tʃu-ma bər-tʃan-da (12)
 B4: gaʔ bɔ-lɛh ŋɔ-mɛl nan-ti tʃə-pat tu-a (11)",a-a-a-a,a-a-a-a,a-a-a-a,10,10,10,12,12,12,12,12,12,11,11,11,a,a,a,a,a,a,a,a,a,a,a,a
 27,COCOK,-,"Beli sembako di warung Pak Awe
@@ -256,7 +256,7 @@ Pepayanya manis tak terkira.
 Sibuk flexing gaya kaya,
 Tagihan paylater numpuk di dada.","B1: kə pa-sar bə-li pə-pa-ja (8)
 B2: pə-pa-ja-ɲa ma-nis taʔ tər-ki-ra (10)
-B3: si-buʔ flək-siŋ ga-ja ka-ja (8)
+B3: si-buʔ flɛk-sɪŋ ga-ja ka-ja (8)
 B4: ta-gi-han peɪ-leɪ-tɝ num-puʔ di da-da (11)",a-a-a-a,a-a-a-a,a-a-a-a,8,8,8,10,10,10,8,8,8,11,11,11,a,a,a,a,a,a,a,a,a,a,a,a
 38,PERLU_REVIEW,Silabel B3 (utils=9 vs ib=8),"Ke warung beli semangka,
 Dibelah dua rasanya hambar.
@@ -279,13 +279,13 @@ Bawahnya sarung, kaki nyeplek.","B1: pa-gi pa-gi mi-num ko-pi (8)
 B2: ko-pi-ɲa pa-hit bi-kin mə-lɛʔ (9)
 B3: ŋɛ zum pa-kai ba-dʒu ra-pi (8)
 B4: ba-wah-ɲa sa-ruŋ ka-ki ɲəp-lɛʔ (9)",a-b-a-b,a-b-a-b,,8,8,8,9,9,9,9,8,,9,9,9,i,i,i,ek,ek,ek,i,i,i,ek,ek,ek
-41,PERLU_REVIEW,Silabel B3 (utils=9 vs ib=7),"Beli donat isi kelapa,
+41,PERLU_REVIEW,Silabel B3 (utils=9 vs ib=8),"Beli donat isi kelapa,
 Manis banget bikin senang.
 Ngaku healing ke Eropa,
 Ternyata foto di gang belakang.","B1: bə-li do-nat i-si kə-la-pa (9)
 B2: ma-nis ba-ŋət bi-kin sə-naŋ (8)
-B3: ŋa-ku hi-lɪŋ kə əro-pa (7)
-B4: tər-ɲa-ta fo-to di gaŋ bə-la-kaŋ (10)",a-b-a-b,a-b-a-b,,9,9,9,8,8,8,9,7,,10,10,10,a,a,a,ang,aŋ,aŋ,a,a,a,ang,aŋ,aŋ
+B3: ŋa-ku hi-lɪŋ kə ə-ro-pa (8)
+B4: tər-ɲa-ta fo-to di gaŋ bə-la-kaŋ (10)",a-b-a-b,a-b-a-b,,9,9,9,8,8,8,9,8,,10,10,10,a,a,a,ang,aŋ,aŋ,a,a,a,ang,aŋ,aŋ
 42,PERLU_REVIEW,Silabel B4 (utils=10 vs ib=9),"Naik sepur ke Kota Baru,
 Duduk manis bawa jajan.
 Followers banyak tapi palsu,
@@ -293,13 +293,13 @@ Beli like demi perhatian.","B1: na-iʔ sə-pur kə ko-ta ba-ru (9)
 B2: du-duʔ ma-nis ba-wa dʒa-dʒan (8)
 B3: fɑ-loʊ-ɝz ba-ɲaʔ ta-pi pal-su (9)
 B4: bə-li laɪk də-mi pər-ha-ti-an (9)",a-b-a-b,a-b-a-b,,9,9,9,8,8,8,9,9,9,10,9,,u,u,u,an,an,an,u,u,u,an,an,an
-43,PERLU_REVIEW,Silabel B4 (utils=13 vs ib=11),"Jalan-jalan ke Bukit Tinggi,
+43,COCOK,-,"Jalan-jalan ke Bukit Tinggi,
 Lihat pemandangan bikin adem.
 Katanya cinta sampai mati,
 Eh, baru LDR seminggu udah item.","B1: dʒa-lan dʒa-lan kə bu-kit tiŋ-gi (9)
 B2: li-hat pə-man-da-ŋan bi-kin a-dəm (10)
 B3: ka-ta-ɲa tʃin-ta sam-pai ma-ti (9)
-B4: ɛh ba-ru ldr sə-miŋ-gu u-dah i-təm (11)",a-b-a-b,a-b-a-b,,9,9,9,10,10,10,9,9,9,13,11,,i,i,i,em,em,em,i,i,i,em,em,em
+B4: ɛh ba-ru el-de-er sə-miŋ-gu u-dah i-təm (13)",a-b-a-b,a-b-a-b,a-b-a-b,9,9,9,10,10,10,9,9,9,13,13,13,i,i,i,em,em,em,i,i,i,em,em,em
 44,COCOK,-,"Mancing ikan di sungai jernih,
 Dapatnya lele malah senang.
 Dulu bilang aku yang terpilih,
@@ -321,13 +321,13 @@ Tapi buang sampah asal-asalan.","B1: dʒa-lan pa-gi kə la-pa-ŋan (8)
 B2: ba-wa tɛr-mɔs dan tʃə-mi-lan (8)
 B3: tə-ri-aʔ seɪv ðʌ ɪn-vaɪ-rʌn-mʌnt (9)
 B4: ta-pi bu-aŋ sam-pah a-sal a-sa-lan (11)",a-a-b-a,a-a-b-a,,8,8,8,8,8,8,10,9,,11,11,11,an,an,an,an,an,an,ent,ant,,an,an,an
-47,PERLU_REVIEW,Silabel B3 (utils=8 vs ib=7),"Beli jeruk di pasar lama,
+47,COCOK,-,"Beli jeruk di pasar lama,
 Dapat bonus satu kelapa.
 Ngaku sibuk tiap drama,
 Padahal scroll TikTok seharian juga bisa.","B1: bə-li dʒə-ruʔ di pa-sar la-ma (9)
 B2: da-pat bo-nus sa-tu kə-la-pa (9)
-B3: ŋa-ku si-buʔ ti-ap drama (7)
-B4: pa-da-hal skroʊl tik-tɔʔ sə-ha-ri-an dʒu-ga bi-sa (14)",a-a-a-a,a-a-a-a,,9,9,9,9,9,9,8,7,,14,14,14,a,a,a,a,a,a,a,a,a,a,a,a
+B3: ŋa-ku si-buʔ ti-ap dra-ma (8)
+B4: pa-da-hal skroʊl tik-tɔʔ sə-ha-ri-an dʒu-ga bi-sa (14)",a-a-a-a,a-a-a-a,a-a-a-a,9,9,9,9,9,9,8,8,8,14,14,14,a,a,a,a,a,a,a,a,a,a,a,a
 48,COCOK,-,"Sarapan roti isi selai,
 Ditemani kopi rasa vanilla.
 Katanya hidup penuh damai,
@@ -349,20 +349,20 @@ Tapi kok update tiap kelas?","B1: bə-li ti-su du-a ri-bu-an (9)
 B2: da-pat bo-nus sa-tu gə-las (8)
 B3: hi-dup ŋgaʔ bu-tuh pə-ni-lai-an (9)
 B4: ta-pi kɔʔ ʌp-deɪt ti-ap kə-las (9)",a-b-a-b,a-b-a-b,,9,9,9,8,8,8,9,9,9,10,9,,an,an,an,as,as,as,an,an,an,as,as,as
-51,PERLU_REVIEW,Silabel B4 (utils=10 vs ib=8); Rima B4 (utils=els vs ib=ilz),"Ke toko beli bantal,
+51,PERLU_REVIEW,Skema Rima (utils=a-b-c-d vs ib=a-b-a-c); Rima B3 (utils=e vs ib=al); Silabel B4 (utils=10 vs ib=8); Rima B4 (utils=els vs ib=ilz),"Ke toko beli bantal,
 Bantalnya empuk warna pastel.
 Sering bilang hidup simple,
 Tapi insecure sama reels.","B1: kə to-ko bə-li ban-tal (7)
 B2: ban-tal-ɲa əm-puʔ war-na pas-tɛl (9)
-B3: sə-riŋ bi-laŋ hi-dup sim-plə (8)
-B4: ta-pi ɪn-sʌ-kjɝ sa-ma rilz (8)",a-b-c-d,a-b-c-d,,7,7,7,9,9,9,8,8,8,10,8,,al,al,al,el,el,el,e,e,e,els,ilz,
-52,PERLU_REVIEW,Silabel B4 (utils=13 vs ib=12); Rima B4 (utils=ig vs ib=iɡ),"Duduk santai di taman sore,
+B3: sə-riŋ bi-laŋ hi-dup sɪm-pʌl (8)
+B4: ta-pi ɪn-sʌ-kjɝ sa-ma rilz (8)",a-b-c-d,a-b-a-c,,7,7,7,9,9,9,8,8,8,10,8,,al,al,al,el,el,el,e,al,,els,ilz,
+52,PERLU_REVIEW,Skema Rima (utils=a-a-a-b vs ib=a-a-a-a); Rima B4 (utils=ig vs ib=e),"Duduk santai di taman sore,
 Minum teh sama jahe
 Jangan percaya gosip yang bertele-tele
 Belajar mikir sebelum nyinyir di IG.","B1: du-duʔ san-tai di ta-man sɔ-rɛ (9)
 B2: mi-num tɛh sa-ma dʒa-hɛ (7)
 B3: dʒa-ŋan pər-tʃa-ja go-sip jaŋ bər-tə-lə tɛ-lɛ (13)
-B4: bə-la-dʒar mi-kir sə-bə-lum ɲi ɲir di ɪɡ (12)",a-a-a-b,a-a-a-b,,9,9,9,7,7,7,13,13,13,13,12,,e,e,e,e,e,e,e,e,e,ig,iɡ,
+B4: bə-la-dʒar mi-kir sə-bə-lum ɲi ɲir di i-ge (13)",a-a-a-b,a-a-a-a,,9,9,9,7,7,7,13,13,13,13,13,13,e,e,e,e,e,e,e,e,e,ig,e,
 53,COCOK,-,"Masak mi instan pakai telur,
 Tambah cabai biar mantap.
 Hidup bukan tentang follower,
@@ -370,13 +370,13 @@ Tapi siapa yang tetap di saat susah.","B1: ma-saʔ mi ins-tan pa-kai tə-lur (9)
 B2: tam-bah tʃa-bai bi-ar man-tap (8)
 B3: hi-dup bu-kan tən-taŋ fɑ-loʊ-ɝ (9)
 B4: ta-pi si-a-pa jaŋ tə-tap di sa-at su-sah (13)",a-b-c-d,a-b-c-d,a-b-c-d,9,9,9,8,8,8,9,9,9,13,13,13,ur,ur,ur,ap,ap,ap,er,er,er,ah,ah,ah
-54,PERLU_REVIEW,Silabel B3 (utils=13 vs ib=12); Rima B3 (utils=endy vs ib=endj),"Main ke sawah lihat padi,
+54,PERLU_REVIEW,Skema Rima (utils=a-b-c-b vs ib=a-b-a-b); Rima B3 (utils=endy vs ib=i),"Main ke sawah lihat padi,
 Petaninya senyum bahagia.
 Hidup tenang bkn karena jadi trendy,
 Tapi karena gak iri sama dunia.","B1: ma-in kə sa-wah li-hat pa-di (9)
 B2: pɛ-ta-ni-ɲa sə-ɲum ba-ha-gi-a (10)
-B3: hi-dup tə-naŋ bi-kin ka-rə-na dʒa-di trɛndj (12)
-B4: ta-pi ka-rə-na gaʔ i-ri sa-ma du-ni-a (13)",a-b-c-b,a-b-c-b,,9,9,9,10,10,10,13,12,,13,13,13,i,i,i,a,a,a,endy,endj,,a,a,a
+B3: hi-dup tə-naŋ bi-kin ka-rə-na dʒa-di trɛn-di (13)
+B4: ta-pi ka-rə-na gaʔ i-ri sa-ma du-ni-a (13)",a-b-c-b,a-b-a-b,,9,9,9,10,10,10,13,13,13,13,13,13,i,i,i,a,a,a,endy,i,,a,a,a
 55,PERLU_REVIEW,Silabel B4 (utils=11 vs ib=10),"Memasak nasi di pagi hari,
 Sambil menunggu main layangan.
 Lupa makan lupa mandi,
@@ -444,7 +444,7 @@ B4: ma-sih dʒɔm-blo sam-pə sə-ka-raŋ (9)",a-b-a-c,a-b-a-b,,5,5,5,6,6,6,5,5,
 Sakunya robek gara-gara kuku
 Jangan sampai ko menghianatiku
 Karena hanya kau yang selalu ada di hatiku","B1: na-rɔʔ u-aŋ di da-lam sa-ku (9)
-B2: sa-ku-ɲa rɔ-bɛʔ ga-ra ga-ra ku-ku (11)
+B2: sa-ku-ɲa rɔ-bɛʔ ɡæ-rʌ ɡæ-rʌ ku-ku (11)
 B3: dʒa-ŋan sam-pai koʊ məŋ-hi-a-na-ti-ku (11)
 B4: ka-rə-na ha-ɲa kau jaŋ sə-la-lu a-da di ha-ti-ku (16)",a-a-a-a,a-a-a-a,a-a-a-a,9,9,9,11,11,11,11,11,11,16,16,16,u,u,u,u,u,u,u,u,u,u,u,u
 65,COCOK,-,"Ikan cantik ya ikan lohan
@@ -468,13 +468,13 @@ Karena biasanya mereka itu dari spesies buaya","B1: bu-at dʒus si bu-ah na-ga (
 B2: ka-sih su-su tʃap bən-dɛ-ra di a-tas-ɲa (12)
 B3: ha-ti ha-ti pri-a pri-a jaŋ ho-bi məŋ-go-da (14)
 B4: ka-rə-na bi-a-sa-ɲa mə-rɛ-ka i-tu da-ri spɛ-si-ɛs bu-a-ja (20)",a-a-a-a,a-a-a-a,a-a-a-a,8,8,8,12,12,12,14,14,14,20,20,20,a,a,a,a,a,a,a,a,a,a,a,a
-68,PERLU_REVIEW,Silabel B4 (utils=13 vs ib=12),"Kebiasan cowo suka yang di dalem-daleman
+68,COCOK,-,"Kebiasan cowo suka yang di dalem-daleman
 Jangan ngeres maksudnya jeroan
 Lebih baik punya pacar beriman
 Daripada punya pacar cabe-cabean","B1: kə-bi-a-san tʃo-wo su-ka jaŋ di da-ləm da-lə-man (15)
 B2: dʒa-ŋan ŋə-rɛs mak-su-dɲa dʒə-ro-an (10)
 B3: lə-bih ba-iʔ pu-ɲa pa-tʃar bə-ri-man (11)
-B4: da-ri-pa-da pu-ɲa pa-tʃar tʃabɛ tʃa-bɛ-an (12)",a-a-a-a,a-a-a-a,,15,15,15,10,10,10,11,11,11,13,12,,an,an,an,an,an,an,an,an,an,an,an,an
+B4: da-ri-pa-da pu-ɲa pa-tʃar tʃa-bɛ tʃa-bɛ-an (13)",a-a-a-a,a-a-a-a,a-a-a-a,15,15,15,10,10,10,11,11,11,13,13,13,an,an,an,an,an,an,an,an,an,an,an,an
 69,COCOK,-,"Di pinggir kolam makan bubur
 Jangan lupa pakai keripik
 Dari semalem aye ga bisa tidur
@@ -531,13 +531,13 @@ Enggak pernah gosok gigi","B1: ɡʊd mɔr-nɪŋ (3)
 B2: sə-la-mat pa-gi (5)
 B3: gi-gi ku-niŋ (4)
 B4: əŋ-gaʔ pər-nah go-sɔʔ gi-gi (8)",a-b-a-b,a-b-a-b,,4,3,,5,5,5,4,4,4,8,8,8,ing,iŋ,iŋ,i,i,i,ing,iŋ,iŋ,i,i,i
-77,PERLU_REVIEW,Silabel B1 (utils=5 vs ib=4); Silabel B4 (utils=4 vs ib=3),"Ada soimah
+77,PERLU_REVIEW,Silabel B4 (utils=4 vs ib=3),"Ada soimah
 Megang kayu
 Terus masalah
-Buat you?","B1: a-da soi-mah (4)
+Buat you?","B1: a-da so-i-mah (5)
 B2: mə-gaŋ ka-ju (4)
 B3: tə-rus ma-sa-lah (5)
-B4: bu-at ju (3)",a-b-a-b,a-b-a-b,,5,4,,4,4,4,5,5,5,4,3,,ah,ah,ah,u,u,u,ah,ah,ah,u,u,u
+B4: bu-at ju (3)",a-b-a-b,a-b-a-b,,5,5,5,4,4,4,5,5,5,4,3,,ah,ah,ah,u,u,u,ah,ah,ah,u,u,u
 78,COCOK,-,"Ikan gabus di rawa-rawa
 Ikan sepat nyangkut di jaring
 Perut sakit menahan tawa
@@ -548,7 +548,7 @@ B4: mə-li-hat gi-gi lɔm-pat kə pi-riŋ (10)",a-b-a-b,a-b-a-b,a-b-a-b,9,9,9,9,
 79,COCOK,-,"Nonton tv acara Si Unyil
 Nontonnya sambil rebahan
 Kenangan indah masa kecil
-Tidak pernah terima tagihan","B1: nɔn-tɔn ti-vi a-tʃa-ra si u-ɲil (10)
+Tidak pernah terima tagihan","B1: nɔn-tɔn tɛ-fɛ a-tʃa-ra si u-ɲil (10)
 B2: nɔn-tɔn-ɲa sam-bil rə-ba-han (8)
 B3: kə-na-ŋan in-dah ma-sa kə-tʃil (9)
 B4: ti-daʔ pər-nah tə-ri-ma ta-gi-han (10)",a-b-a-b,a-b-a-b,a-b-a-b,10,10,10,8,8,8,9,9,9,10,10,10,il,il,il,an,an,an,il,il,il,an,an,an
@@ -629,13 +629,13 @@ Susah nyambung kalau gak ada kamu.","B1: bə-li mo-bil di-ka-sih rɛ-mɔt (9)
 B2: rɛ-mɔt i-laŋ su-sah kə-tə-mu (9)
 B3: ha-ti-ku ka-jaʔ kɔ-nɛk-si lɛ-mɔt (10)
 B4: su-sah ɲam-buŋ ka-lau gaʔ a-da ka-mu (11)",a-b-a-b,a-b-a-b,a-b-a-b,9,9,9,9,9,9,10,10,10,11,11,11,ot,ot,ot,u,u,u,ot,ot,ot,u,u,u
-91,PERLU_REVIEW,Silabel B3 (utils=12 vs ib=10); Rima B3 (utils=p vs ib=ip),"Pagi-pagi sarapan tempe,
+91,PERLU_REVIEW,Skema Rima (utils=a-b-c-b vs ib=a-b-a-b); Rima B3 (utils=p vs ib=e),"Pagi-pagi sarapan tempe,
 Tersedak nasi, hampir mati.
 Kamu kayak lagu viral di FYP,
 Masuk kuping kiri, nempel di hati.","B1: pa-gi pa-gi sa-ra-pan tɛm-pɛ (9)
 B2: tər-sɛ-daʔ na-si ham-pir ma-ti (9)
-B3: ka-mu ka-jaʔ la-gu vaɪ-rʌl di fɪp (10)
-B4: ma-suʔ ku-piŋ ki-ri nɛm-pɛl di ha-ti (11)",a-b-c-b,a-b-c-b,,9,9,9,9,9,9,12,10,,11,11,11,e,e,e,i,i,i,p,ip,,i,i,i
+B3: ka-mu ka-jaʔ la-gu vaɪ-rʌl di ef-ye-pe (12)
+B4: ma-suʔ ku-piŋ ki-ri nɛm-pɛl di ha-ti (11)",a-b-c-b,a-b-a-b,,9,9,9,9,9,9,12,12,12,11,11,11,e,e,e,i,i,i,p,e,,i,i,i
 92,COCOK,-,"Pakai mobil, liburan ke Bandung,
 Yang nyupirnya Bapak Septian.
 Cinta ini kayak jemuran pas mendung,
@@ -748,13 +748,13 @@ Akhir bulan jadi suram.","B1: na-si li-wət pa-kai da-un sa-lam (10)
 B2: dʒa-ŋan lu-pa di-tam-bah ga-ram (9)
 B3: ga-dʒi ha-bis da-lam sə-ma-lam (9)
 B4: ak-ʰir bu-lan dʒa-di su-ram (8)",a-a-a-a,a-a-a-a,a-a-a-a,10,10,10,9,9,9,9,9,9,8,8,8,am,am,am,am,am,am,am,am,am,am,am,am
-108,PERLU_REVIEW,Silabel B2 (utils=9 vs ib=8),"Ada pisang di atas meja,
+108,COCOK,-,"Ada pisang di atas meja,
 Mejanya di pojok KUA.
 Tangan lincah klik belanja,
 Tabungan tinggal sisa doa.","B1: a-da pi-saŋ di a-tas mɛ-dʒa (9)
-B2: mə-dʒa-ɲa di po-dʒɔʔ ku-a (8)
+B2: mə-dʒa-ɲa di po-dʒɔʔ ka-u-a (9)
 B3: ta-ŋan lin-tʃah kliʔ bə-lan-dʒa (8)
-B4: ta-bu-ŋan tiŋ-gal si-sa do-a (9)",a-a-a-a,a-a-a-a,,9,9,9,9,8,,8,8,8,9,9,9,a,a,a,a,a,a,a,a,a,a,a,a
+B4: ta-bu-ŋan tiŋ-gal si-sa do-a (9)",a-a-a-a,a-a-a-a,a-a-a-a,9,9,9,9,9,9,8,8,8,9,9,9,a,a,a,a,a,a,a,a,a,a,a,a
 109,COCOK,-,"Pergi ke Bali sama Mamat,
 Cuacanya begitu hangat.
 Baru niat hidup hemat,
@@ -838,7 +838,7 @@ Temen sibuk mikirin kado,
 Aku sibuk mikirin diskon promo.","B1: kə pa-sar məm-bə-li ban-do (8)
 B2: ban-do bu-lat bə-rak-sən nɛ-moʊ (9)
 B3: tə-mɛn si-buʔ mi-ki-rin ka-do (9)
-B4: a-ku si-buʔ mi-ki-rin dis-kɔn pro-mo (11)",a-a-a-a,a-a-a-a,a-a-a-a,8,8,8,9,9,9,9,9,9,11,11,11,o,o,o,o,o,o,o,o,o,o,o,o
+B4: a-ku si-buʔ mi-ki-rin dis-kɔn proʊ-moʊ (11)",a-a-a-a,a-a-a-a,a-a-a-a,8,8,8,9,9,9,9,9,9,11,11,11,o,o,o,o,o,o,o,o,o,o,o,o
 121,COCOK,-,"Malam-malam ketemu kunti,
 Karena kaget, melempar pot.
 Orang pacaran sibuk jaga hati,
@@ -921,7 +921,7 @@ Petis habis dimakan Gilang.
 Ke gym pengen badan atletis,
 Baru pemanasan udah pengen pulang.","B1: i-kan pin-daŋ di-ma-saʔ pə-tis (9)
 B2: pə-tis ha-bis di-ma-kan gi-laŋ (9)
-B3: kə gjm pə-ŋɛn ba-dan at-lə-tis (9)
+B3: kə dʒɪm pə-ŋɛn ba-dan at-lə-tis (9)
 B4: ba-ru pə-ma-na-san u-dah pə-ŋɛn pu-laŋ (12)",a-b-a-b,a-b-a-b,,9,9,9,9,9,9,11,9,,12,12,12,is,is,is,ang,aŋ,aŋ,is,is,is,ang,aŋ,aŋ
 133,PERLU_REVIEW,Silabel B3 (utils=11 vs ib=9),"Wajah santai, terlihat kalem,
 Tapi hati butuh jalan-jalan.
@@ -930,13 +930,13 @@ Ketemunya malah pantun dagelan.","B1: wa-dʒah san-tai tər-li-hat ka-ləm (9)
 B2: ta-pi ha-ti bu-tuh dʒa-lan dʒa-lan (10)
 B3: la-gi ga-lau tʃa-ri kwoʊts da-ləm (9)
 B4: kə-tə-mu-ɲa ma-lah pan-tun da-gə-lan (11)",a-b-a-b,a-b-a-b,,9,9,9,10,10,10,11,9,,11,11,11,em,em,em,an,an,an,em,em,em,an,an,an
-134,PERLU_REVIEW,Skema Rima (utils=a-b-a-b vs ib=a-b-a-c); Rima B2 (utils=ign vs ib=ain),"Hari ini aku halu,
+134,PERLU_REVIEW,Rima B2 (utils=ign vs ib=ain); Rima B4 (utils=ign vs ib=ain),"Hari ini aku halu,
 Mikirin rumah sesuai design.
 Makan di cafe foto dulu,
 Saking lama, es batunya resign.","B1: ha-ri i-ni a-ku ha-lu (8)
 B2: mi-ki-rin ru-mah sə-su-ai dɪ-zaɪn (10)
 B3: ma-kan di kʌ-feɪ fo-to du-lu (9)
-B4: sa-kiŋ la-ma ɛs ba-tu-ɲa rə-sign (10)",a-b-a-b,a-b-a-c,,8,8,8,10,10,10,9,9,9,10,10,10,u,u,u,ign,ain,,u,u,u,ign,ign,ign
+B4: sa-kiŋ la-ma ɛs ba-tu-ɲa rɪ-zaɪn (10)",a-b-a-b,a-b-a-b,,8,8,8,10,10,10,9,9,9,10,10,10,u,u,u,ign,ain,,u,u,u,ign,ain,
 135,PERLU_REVIEW,Silabel B3 (utils=11 vs ib=8); Silabel B4 (utils=11 vs ib=10),"Pakai pensil membuat garis,
 Pensil tumpul perlu diasah.
 Caption galau full quotes Inggris,
@@ -951,13 +951,13 @@ Pas ditagih, silaturahmi putus.","B1: kə kə-tʃa-ma-tan a-ku di-u-tus (10)
 B2: pa-da-hal kər-dʒa la-gi hi-a-tus (10)
 B3: bi-laŋ-ɲa pin-dʒam du-lu sə-ra-tus (10)
 B4: pas di-ta-gih si-la-tu-rah-mi pu-tus (11)",a-a-a-a,a-a-a-a,a-a-a-a,10,10,10,10,10,10,10,10,10,11,11,11,us,us,us,us,us,us,us,us,us,us,us,us
-137,PERLU_REVIEW,Silabel B3 (utils=9 vs ib=12); Silabel B4 (utils=7 vs ib=8),"Bawang mulai dirajang,
+137,PERLU_REVIEW,Silabel B4 (utils=7 vs ib=8),"Bawang mulai dirajang,
 Untuk membuat bumbu goang.
 Sudah PD kirim chat panjang,
 Dibalasnya “ok” doang.","B1: ba-waŋ mu-lai di-ra-dʒaŋ (7)
 B2: un-tuʔ məm-bu-at bum-bu go-aŋ (9)
-B3: su-dah pər-tʃa-ja-di-ri ki-rim tʃæt pan-dʒaŋ (12)
-B4: di-ba-las-ɲa oʊ-keɪ do-aŋ (8)",a-a-a-a,a-a-a-a,,7,7,7,9,9,9,9,12,,7,8,,ang,aŋ,aŋ,ang,aŋ,aŋ,ang,aŋ,aŋ,ang,aŋ,aŋ
+B3: su-dah pe-de ki-rim tʃæt pan-dʒaŋ (9)
+B4: di-ba-las-ɲa oʊ-keɪ do-aŋ (8)",a-a-a-a,a-a-a-a,,7,7,7,9,9,9,9,9,9,7,8,,ang,aŋ,aŋ,ang,aŋ,aŋ,ang,aŋ,aŋ,ang,aŋ,aŋ
 138,PERLU_REVIEW,Silabel B4 (utils=10 vs ib=9),"Lempar batu ke jalan,
 Terlindah oleh tank baja.
 Ngaku ngirit tiap bulan,
@@ -1054,7 +1054,7 @@ Pepayanya manis tak terkira.
 Sibuk flexing gaya kaya,
 Tagihan paylater numpuk di dada.","B1: kə pa-sar bə-li pə-pa-ja (8)
 B2: pə-pa-ja-ɲa ma-nis taʔ tər-ki-ra (10)
-B3: si-buʔ flək-siŋ ga-ja ka-ja (8)
+B3: si-buʔ flɛk-sɪŋ ga-ja ka-ja (8)
 B4: ta-gi-han peɪ-leɪ-tɝ num-puʔ di da-da (11)",a-a-a-a,a-a-a-a,a-a-a-a,8,8,8,10,10,10,8,8,8,11,11,11,a,a,a,a,a,a,a,a,a,a,a,a
 152,PERLU_REVIEW,Skema Rima (utils=a-b-c-b vs ib=a-b-a-b); Silabel B3 (utils=6 vs ib=4); Rima B3 (utils=e vs ib=i); Silabel B4 (utils=7 vs ib=4),"Mawar bersemi
 di batang kayu
@@ -1122,7 +1122,7 @@ B4: ta-pi sa-jaŋ o-tak-ɲa liŋ-luŋ (9)",a-b-a-b,a-b-a-b,a-b-a-b,8,8,8,8,8,8,7
 161,COCOK,-,"Nonton TV acara si Unyil
 Nontonnya sambil rebahan
 Kenangan indah masa kecil
-Tidak pernah terima tagihan","B1: nɔn-tɔn ti-vi a-tʃa-ra si u-ɲil (10)
+Tidak pernah terima tagihan","B1: nɔn-tɔn te-ve a-tʃa-ra si u-ɲil (10)
 B2: nɔn-tɔn-ɲa sam-bil rə-ba-han (8)
 B3: kə-na-ŋan in-dah ma-sa kə-tʃil (9)
 B4: ti-daʔ pər-nah tə-ri-ma ta-gi-han (10)",a-b-a-b,a-b-a-b,a-b-a-b,10,10,10,8,8,8,9,9,9,10,10,10,il,il,il,an,an,an,il,il,il,an,an,an
@@ -1133,13 +1133,13 @@ Bagaimana kalau kita jalan, neng?","B1: kə ta-nah a-baŋ bə-li to-mat (9)
 B2: dʒa-lan sə-di-kit da-pat kə-lɛŋ-kɛŋ (10)
 B3: al-ham-du-lil-lah ka-bar a-baŋ sɛ-hat (11)
 B4: ba-gai-ma-na ka-lau ki-ta dʒa-lan nɛŋ (11)",a-b-a-b,a-b-a-b,a-b-a-b,9,9,9,10,10,10,11,11,11,11,11,11,at,at,at,eng,eŋ,eŋ,at,at,at,eng,eŋ,eŋ
-163,PERLU_REVIEW,Silabel B3 (utils=11 vs ib=12),"Sayur yang busuk harus dibuang
+163,COCOK,-,"Sayur yang busuk harus dibuang
 Tapi ambillah dua siung bawang
 Seandainya teman seperti uang
 Palsu atau asli bisa diterawang","B1: sa-jur jaŋ bu-suʔ ha-rus di-bu-aŋ (10)
 B2: ta-pi am-bil-lah du-a si-uŋ ba-waŋ (11)
-B3: sə-an-da-i-ɲa tə-man sə-pər-ti u-aŋ (12)
-B4: pal-su a-tau as-li bi-sa di-tə-ra-waŋ (12)",a-a-a-a,a-a-a-a,,10,10,10,11,11,11,11,12,,12,12,12,ang,aŋ,aŋ,ang,aŋ,aŋ,ang,aŋ,aŋ,ang,aŋ,aŋ
+B3: sə-an-dai-ɲa tə-man sə-pər-ti u-aŋ (11)
+B4: pal-su a-tau as-li bi-sa di-tə-ra-waŋ (12)",a-a-a-a,a-a-a-a,a-a-a-a,10,10,10,11,11,11,11,11,11,12,12,12,ang,aŋ,aŋ,ang,aŋ,aŋ,ang,aŋ,aŋ,ang,aŋ,aŋ
 164,COCOK,-,"Pergi ke lapangan nonton wayang
 Jangan lupa membawa bekal
 Banyak uang abang disayang
@@ -1381,7 +1381,7 @@ B4: pu-laŋ ru-mah sə-tə-ŋah ma-ti (9)",a-a-a-a,a-a-a-a,a-a-a-a,11,11,11,8,8,
 198,COCOK,-,"Pergi ke pasar beli manga
 Pulang-pulang malah bawa jeruk
 Gimana ente bisa berbangga
-Bedain mangga sama jeruk aja gak bisa","B1: pər-gi kə pa-sar bə-li ma-ŋa (9)
+Bedain mangga sama jeruk aja gak bisa","B1: pər-gi kə pa-sar bə-li mæŋɡ-ʌ (9)
 B2: pu-laŋ pu-laŋ ma-lah ba-wa dʒə-ruʔ (10)
 B3: gi-ma-na ɛn-tɛ bi-sa bər-baŋ-ga (10)
 B4: bə-da-in maŋ-ga sa-ma dʒə-ruʔ a-dʒa gaʔ bi-sa (14)",a-b-a-a,a-b-a-a,a-b-a-a,9,9,9,10,10,10,10,10,10,14,14,14,a,a,a,uk,uk,uk,a,a,a,a,a,a
@@ -1392,13 +1392,13 @@ Main futsal juga senang","B1: ma-in bo-la di sə-na-jan (8)
 B2: ma-in fʌt-sʌl di kə-maŋ (7)
 B3: ma-ɛn bo-la mə-ɲə-hat-kan (8)
 B4: ma-in fʌt-sʌl dʒu-ga sə-naŋ (8)",a-b-a-b,a-b-a-b,a-b-a-b,8,8,8,7,7,7,8,8,8,8,8,8,an,an,an,ang,aŋ,aŋ,an,an,an,ang,aŋ,aŋ
-200,PERLU_REVIEW,Skema Rima (utils=a-b-a-b vs ib=a-b-c-b); Silabel B3 (utils=8 vs ib=7); Rima B3 (utils=em vs ib=im),"Setan merah setan item
+200,COCOK,-,"Setan merah setan item
 Jangan marah kalau demen
 Kalo demen jangan diem
 Yang diem tandanya cemen","B1: sɛ-tan mɛ-rah sɛ-tan i-təm (8)
 B2: dʒa-ŋan ma-rah ka-lau də-mən (8)
-B3: ka-lo də-mən dʒa-ŋan dim (7)
-B4: jaŋ di-əm tan-da-ɲa tʃɛ-mɛn (8)",a-b-a-b,a-b-c-b,,8,8,8,8,8,8,8,7,,8,8,8,em,em,em,en,en,en,em,im,,en,en,en
+B3: ka-lo də-mən dʒa-ŋan di-ɛm (8)
+B4: jaŋ di-ɛm tan-da-ɲa tʃɛ-mɛn (8)",a-b-a-b,a-b-a-b,a-b-a-b,8,8,8,8,8,8,8,8,8,8,8,8,em,em,em,en,en,en,em,em,em,en,en,en
 201,COCOK,-,"Mancing ikan di sungai lebar,
 Dapat ikan besar sekali.
 Jangan cuma modal ngegombal,
@@ -1406,13 +1406,13 @@ Kalau suka, kasih bukti!","B1: man-tʃiŋ i-kan di su-ŋai lɛ-bar (9)
 B2: da-pat i-kan bə-sar sə-ka-li (9)
 B3: dʒa-ŋan tʃu-ma mo-dal ŋɛ-gɔm-bal (9)
 B4: ka-lau su-ka ka-sih buk-ti (8)",a-b-c-b,a-b-c-b,a-b-c-b,9,9,9,9,9,9,9,9,9,8,8,8,ar,ar,ar,i,i,i,al,al,al,i,i,i
-202,PERLU_REVIEW,Silabel B4 (utils=9 vs ib=8),"Ada kucing makan roti,
+202,COCOK,-,"Ada kucing makan roti,
 Rotinya jatuh dimakan lagi.
 Kalau cinta bilang dari hati,
 Jangan PHP lalu pergi!","B1: a-da ku-tʃiŋ ma-kan ro-ti (8)
 B2: ro-ti-ɲa dʒa-tuh di-ma-kan la-gi (10)
 B3: ka-lau tʃin-ta bi-laŋ da-ri ha-ti (10)
-B4: dʒa-ŋan pi-θi la-lu pər-gi (8)",a-a-a-a,a-a-a-a,,8,8,8,10,10,10,10,10,10,9,8,,i,i,i,i,i,i,i,i,i,i,i,i
+B4: dʒa-ŋan pe-ha-pe la-lu pər-gi (9)",a-a-a-a,a-a-a-a,a-a-a-a,8,8,8,10,10,10,10,10,10,9,9,9,i,i,i,i,i,i,i,i,i,i,i,i
 203,COCOK,-,"Ke hutan cari burung nuri,
 Eh, burungnya malah terbang.
 Jangan janji terus janji,
@@ -1476,10 +1476,10 @@ Tapi tiap malam curhatnya galau banget!","B1: pər-gi kə pa-sar bə-li kə-tɛ-
 B2: sam-pai ru-mah laŋ-suŋ di-ma-saʔ (9)
 B3: ka-ta-ɲa dʒɔm-blo ga-pa-pa (8)
 B4: ta-pi ti-ap ma-lam tʃur-hat-ɲa ga-lau ba-ŋət (13)",a-b-a-c,a-b-a-c,a-b-a-c,10,10,10,9,9,9,8,8,8,13,13,13,a,a,a,ak,ak,ak,a,a,a,et,et,et
-212,PERLU_REVIEW,Silabel B4 (utils=13 vs ib=11),"Ke bioskop nonton film,
+212,COCOK,-,"Ke bioskop nonton film,
 Film horor bikin takut.
 Katanya setia sehidup semati,
 Tapi baru LDR udah angkat kaki!","B1: kə bi-ɔs-kɔp nɔn-tɔn film (7)
 B2: film ho-rɔr bi-kin ta-kut (7)
 B3: ka-ta-ɲa sə-ti-a sə-hi-dup sə-ma-ti (12)
-B4: ta-pi ba-ru ldr u-dah aŋ-kat ka-ki (11)",a-b-c-c,a-b-c-c,,7,7,7,7,7,7,12,12,12,13,11,,ilm,ilm,ilm,ut,ut,ut,i,i,i,i,i,i
+B4: ta-pi ba-ru el-de-er u-dah aŋ-kat ka-ki (13)",a-b-c-c,a-b-c-c,a-b-c-c,7,7,7,7,7,7,12,12,12,13,13,13,ilm,ilm,ilm,ut,ut,ut,i,i,i,i,i,i
